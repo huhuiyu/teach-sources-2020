@@ -1,0 +1,47 @@
+.mydiv {
+  /* border：边框，参数：边框宽度 边框的类型 边框的颜色 */
+  border: 1px solid #ff0000;
+  /* padding：内边距,rem单位是基准字体大小的倍数 */
+  padding: 0.8rem;
+  /* margin：外边距 */
+  margin: 0.5rem;
+}
+/* 去掉浏览器默认的边距 */
+body {
+  padding: 0px;
+  margin: 0px;
+}
+
+.flex01 {
+  /* 压力盒子，强制将一级的子元素压迫到一行上 */
+  display: flex;
+}
+
+.flex02 {
+  display: flex;
+  /* justify-content：水平对齐方式，space-between为分散对齐 */
+  justify-content: space-between;
+}
+
+.flex03 {
+  display: flex;
+  /* space-around空白平均分配到每个子元素的两侧 */
+  justify-content: space-around;
+}
+
+.flex04 {
+  display: flex;
+  /* center居中，flex-start靠左（默认），flex-end靠右 */
+  justify-content: center;
+}
+
+.flex05 {
+  display: flex;
+  align-items: center;
+}
+
+.flex06 {
+  display: flex;
+  /* center：居中，flex-start：靠上，flex-end：靠下 */
+  align-items: flex-end;
+}

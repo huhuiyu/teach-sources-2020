@@ -1,0 +1,33 @@
+/* div的盒模型，一个元素占用的大小，是高宽，边距，边框组成的 */
+.mydiv {
+  /* 边框 1px是边框宽度，solid是边框线条类型，#ff0000是颜色 */
+  border: 1px solid #ff0000;
+  /* 内边距 rem是大小单位，表示基准字体倍数 */
+  padding: 1rem;
+  /* 外边距 */
+  margin: 0.5rem;
+}
+
+/* 去掉浏览自带的边距 */
+body {
+  margin: 0px;
+}
+
+/* 压力盒子 */
+.flex01 {
+  /* 压力盒子会将里面的一级子元素强制压迫成一行 */
+  display: flex;
+}
+
+.flex02 {
+  display: flex;
+  /* justify-content：压力盒子的水平轴对齐方式 
+  space-between 表示子元素分散对齐 */
+  justify-content: space-between;
+}
+
+.flex03 {
+  display: flex;
+  /* space-around，空白区域平均分配在每个子元素的两侧 */
+  justify-content: space-around;
+}
