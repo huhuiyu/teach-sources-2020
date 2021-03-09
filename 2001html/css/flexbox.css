@@ -45,3 +45,9 @@ body {
   /* center：居中，flex-start：靠上，flex-end：靠下 */
   align-items: flex-end;
 }
+
+.flex07 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

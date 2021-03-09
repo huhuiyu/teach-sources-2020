@@ -1,0 +1,58 @@
+body {
+  margin: 0px;
+}
+
+.header {
+  /* 头部的布局和样式 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* 背景颜色 */
+  background-color: #eff4fa;
+  /* 通过border模拟下边线 */
+  border-bottom: 1px solid #d6dfea;
+  /* 留白 */
+  padding: 1rem 2rem;
+  /* 文字颜色 */
+  color: #b6b6b6;
+}
+
+/* 
+  选择器1 选择器2 表示1里面的2
+  .header 表示class为header的元素
+  a 表示a标记
+  .header a 表示class为header的元素里面的a标记
+*/
+.header a {
+  /* 去掉下划线 */
+  text-decoration: none;
+  /* 颜色 */
+  color: #1d5494;
+  /* 字体大小 */
+  font-size: 0.8rem;
+}
+
+/* :hover表示鼠标悬停时样式 */
+.header a:hover {
+  /* 下划线 */
+  text-decoration: underline;
+}
+
+/* 主体区域样式 */
+.main {
+  /* 压力居中布局 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* 上端留白 */
+  margin-top: 3rem;
+}
+
+.main-title {
+  /* 主体文字标题样式 */
+  color: #6f95c8;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  /* 字体加粗 */
+  font-weight: bold;
+}
