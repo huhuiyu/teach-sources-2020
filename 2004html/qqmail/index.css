@@ -1,0 +1,59 @@
+body {
+  margin: 0px;
+}
+
+.header {
+  /* 头部区域的布局和样式 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* 样式部分 */
+  background-color: #eff4fa;
+  border-bottom: 1px solid #d6dfea;
+  padding: 1rem 2.5rem;
+  color: #b6b6b6;
+}
+
+/*
+  选择器1 选择器2表示1里面2
+  例如.header表示class=header的元素
+  a表示所有的超链接
+  .header a表示class=header的元素里面的超链接
+*/
+.header a {
+  /* 头部超链接样式 */
+  color: #1d5494;
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+/* :hover,伪类，表示鼠标悬停在元素上方时的样式 */
+.header a:hover {
+  text-decoration: underline;
+}
+
+/* 主体部分的布局和样式 */
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.mail-text {
+  /* 邮箱文字样式 */
+  color: #6f95c8;
+  font-size: 1.5rem;
+  padding: 0.5rem 0px;
+}
+
+.main-center {
+  /* 中间图片上方留白 */
+  height: 20rem;
+  padding-top: 5rem;
+}
+
+.main-left {
+  /* 左侧文字下方留白 */
+  height: 20rem;
+  padding-bottom: 5rem;
+}
