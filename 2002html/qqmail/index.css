@@ -1,0 +1,34 @@
+body {
+  margin: 0px;
+}
+
+.header {
+  /* 头部的布局和样式 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* 样式 */
+  padding: 0.8rem 2.1rem;
+  background-color: #eff4fa;
+  border-bottom: 1px solid #d6dfea;
+  color: #b6b6b6;
+}
+
+/*
+  选择器a 选择器b 表示a里面的b
+  .header 是class="header"的元素
+  a 是所有a标记元素
+  .header a 是class="header"的元素里面超链接
+*/
+.header a {
+  color: #1d5494;
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+.main {
+  /* 主体部分的布局 */
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+}
