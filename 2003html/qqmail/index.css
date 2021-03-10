@@ -1,0 +1,52 @@
+body {
+  margin: 0px;
+}
+
+/* 头部的布局和样式 */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* 样式 */
+  background-color: #eff4fa;
+  padding: 0.8rem 2.2rem;
+  border-bottom: 1px solid #d6dfea;
+  color: #b6b6b6;
+}
+
+/*
+  选择器1 选择器2表示1里面的2
+  .header 表示class="header"的元素
+  a 表示超链接元素
+  .header a 表示class="header"的元素里面超链接
+*/
+.header a {
+  color: #1d5494;
+  /* 去掉下划线 */
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+/* :hover，伪类，表示鼠标放在元素上的时候套用样式 */
+.header a:hover {
+  text-decoration: underline;
+}
+
+/* 主体部分的布局 */
+.main {
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+}
+
+.mail-text {
+  color: #6f95c8;
+  font-size: 1.5rem;
+  padding: 0.5rem 0px;
+}
+
+.main-form {
+  /* 表单的外框架 */
+  border: 2px solid #a0b1c4;
+  border-radius: 5px;
+}
