@@ -1,0 +1,70 @@
+body {
+  display: flex;
+}
+
+.form-div {
+  border: 1px solid #a0b1c4;
+  border-radius: 2px;
+}
+
+.form-title-div {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem 0px;
+  border-bottom: 1px solid #a0b1c4;
+  background-color: #f9fbfe;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+.disable-text {
+  color: #999999;
+}
+
+/* 下方的区域 */
+.form-main-div {
+  padding: 1rem;
+}
+
+/* 模拟输入表单元素 */
+.input-div {
+  border: 1px solid #96a5b4;
+  border-radius: 1px;
+  padding: 0.1rem 0.3rem;
+}
+
+/* :focus-within当元素或者它的里面的元素拥有焦点时 */
+.input-div:focus-within {
+  border-color: #4892e7;
+}
+
+.input-div input {
+  outline: none;
+  border-width: 0px;
+}
+
+.mr-div {
+  margin-bottom: 0.5rem;
+}
+
+.button-div {
+  /* div模拟按钮样式 */
+  background-color: #4892e7;
+  text-align: center;
+  border-radius: 0.2rem;
+  color: #ffffff;
+  padding: 0.2rem 0px;
+}
+
+.button-div:hover {
+  background-color: #58a3f8;
+  /* 鼠标变成超链接手指样式 */
+  cursor: pointer;
+}
+
+.qr-div {
+  color: #225592;
+  font-size: 0.5rem;
+  cursor: pointer;
+  text-align: center;
+}
