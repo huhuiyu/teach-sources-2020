@@ -1,0 +1,42 @@
+body {
+  margin: 0px;
+}
+
+.ani1 {
+  color: #ff0000;
+  cursor: pointer;
+  /* transtion:过渡动画，第一个参数是哪一个样式变化会使用过渡效果，参数二，过渡的时长 */
+  transition: color 2s;
+}
+
+.ani1:hover {
+  color: #00ff00;
+}
+
+.ani2 {
+  width: 150px;
+  border: 1px solid #ff0000;
+  text-align: center;
+  transition: width 2s ease-in-out;
+}
+
+.ani2:hover {
+  width: 250px;
+}
+
+.ani3 {
+  width: 250px;
+  text-align: center;
+  /* 阴影 */
+  box-shadow: 0px 0px 0px #999999;
+  border: 1px solid #000000;
+  /* 文字阴影 */
+  text-shadow: 0px 0px 0px #ff0000;
+  transition: all 2s;
+  /* 阴影的四个参数：横向距离，竖向距离，远近距离 颜色*/
+}
+
+.ani3:hover {
+  box-shadow: 2px 2px 0px #999999;
+  text-shadow: 0px 0px 5px #ff0000;
+}

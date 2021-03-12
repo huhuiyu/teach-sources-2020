@@ -1,0 +1,39 @@
+body {
+  margin: 0px;
+}
+
+.fixed-bottom {
+  /*  position: fixed;固定定位，bottom是离下方的距离 */
+  position: fixed;
+  bottom: 0px;
+  /* 固定定位会让元素丢失宽度，变成元素内容的总宽度 */
+  border: 1px solid #ff0000;
+}
+
+.fixed-top {
+  position: fixed;
+  top: 0px;
+  /* vw单位：表示浏览器可视区域的宽度的百分比 */
+  width: 100vw;
+  text-align: center;
+  border: 1px solid #ff0000;
+}
+
+.fixed-right {
+  position: fixed;
+  right: 0px;
+  /* vh单位：浏览器可视区域高度的百分比 */
+  top: 50vh;
+}
+
+.fixed-left {
+  position: fixed;
+  left: 30px;
+  top: 50vh;
+}
+
+.abs {
+  position: absolute;
+  top: 200px;
+  left: 300px;
+}
