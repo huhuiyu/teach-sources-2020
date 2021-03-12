@@ -1,0 +1,28 @@
+body {
+  margin: 0px;
+}
+
+.ani01 {
+  color: #ff0000;
+  /* 
+    transition ：过渡动画，参数一是哪一个css属性变化触发过渡效果
+    参数二是过渡的总时长，参数三可选时间的速动曲线
+  */
+  transition: color 2s ease-in-out;
+}
+
+.ani01:hover {
+  color: #00ff00;
+}
+
+.ani02 {
+  width: 100px;
+  padding: 1rem;
+  border: 1px solid #ff0000;
+  text-align: center;
+  transition: width 2s;
+}
+
+.ani02:hover {
+  width: 150px;
+}
