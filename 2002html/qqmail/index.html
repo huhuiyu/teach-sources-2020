@@ -33,7 +33,13 @@
   <main class="main">
     <!-- 主体部分分三块，整体居中 -->
     <div>
-      左边
+      <div class="mail-text">QQ邮箱，常联系！</div>
+      <div>
+        1987年9月14日21时07分<br>
+        中国第一封电子邮件<br>
+        从北京发往德国<br>
+        "越过长城，走向世界"
+      </div>
     </div>
 
     <div>
@@ -41,10 +47,65 @@
     </div>
 
     <div>
-      右边
+
+      <div class="form-div">
+
+        <div class="form-title">
+          <div class="disable-text">微信登录</div>
+          <div>QQ登录</div>
+        </div>
+
+        <div class="form-main-div">
+          <!-- 用div+input模拟好看的输入框 -->
+          <div class="input-div mr05">
+            <input type="text" placeholder="支持QQ号/邮箱/手机号">
+          </div>
+
+          <div class="input-div mr05">
+            <input type="password" placeholder="QQ密码">
+          </div>
+
+          <div class="mr05">
+            <label>
+              <input type="checkbox">下次自动登录
+            </label>
+          </div>
+
+          <div class="mr05 button-div">
+            登 录
+          </div>
+
+          <div class="mr05 qrcode">
+            扫码快捷登录
+          </div>
+
+          <div class="links-div">
+            <div>
+              <a href="#">忘了密码？</a>
+            </div>
+            <div>
+              <a href="#">注册新账号</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
 
   </main>
+
+  <!-- footer语义标记，期望是放网站的底部信息，和div一样效果 -->
+  <footer class="footer">
+    <a href="#">关于腾讯</a> |
+    <a href="#">服务条款</a> |
+    <a href="#">隐私政策</a> |
+    <a href="#">客服中心</a> |
+    <a href="#">联系我们</a> |
+    <a href="#">帮助中心</a> |
+    <span>©1998 - 2021 Tencent Inc. All Rights Reserved.</span>
+  </footer>
 
 </body>
 

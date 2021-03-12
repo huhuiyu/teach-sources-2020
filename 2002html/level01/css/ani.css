@@ -1,0 +1,17 @@
+body {
+  margin: 0px;
+}
+
+.ani01 {
+  text-decoration: none;
+  color: #ff0000;
+  /* transition:过渡动画 第一个参数表示什么样式有过渡效果，
+  第二个参数是过渡的时间长度，第三个参数（可选）过渡的时间曲线
+  color 2s ease-in-out表示color样式变化时使用两秒的过渡
+   */
+  transition: color 2s ease-in-out;
+}
+
+.ani01:hover {
+  color: #0000ff;
+}

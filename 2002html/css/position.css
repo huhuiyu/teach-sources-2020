@@ -1,0 +1,42 @@
+body {
+  margin: 0px;
+}
+
+/* 固定位置定位 */
+.fix-bottom {
+  /* 固定下方 */
+  /* position: fixed;定位方式为固定 */
+  position: fixed;
+  /* bottom：位置距离下方的大小 */
+  bottom: 0px;
+  /* 固定定位会丢失宽度，变成内容的总宽度 */
+  border: 1px solid #ff0000;
+}
+
+.fix-top {
+  position: fixed;
+  top: 0px;
+  /* 文字居中,vw表示浏览器可视区域的宽度百分比 */
+  width: 100vw;
+  text-align: center;
+}
+
+.fix-left {
+  position: fixed;
+  /* vh表示浏览器可视区域的高度百分比 */
+  top: 50vh;
+  left: 0px;
+}
+
+.fix-right {
+  position: fixed;
+  top: 50vh;
+  right: 10px;
+}
+
+.abs {
+  /* 绝对定位，元素会脱离文档流，慎用 */
+  position: absolute;
+  top: 100px;
+  left: 200px;
+}
