@@ -52,12 +52,43 @@
     <div>
 
       <div class="main-form">
-        <div>标题栏</div>
 
-        <div>
-          <div>
-            <input type="text">
+        <div class="mail-title">
+          <div class="mail-title-text">微信登录</div>
+          <div>QQ登录</div>
+        </div>
+
+        <div class="mail-form-box">
+
+          <!-- 用div+input模拟好看的输入框 -->
+          <div class="input-box mr05">
+            <input type="text" placeholder="支持QQ号/邮箱/手机号">
           </div>
+
+          <div class="input-box mr05">
+            <input type="password" placeholder="QQ密码">
+          </div>
+
+          <div class="mr05">
+            <!-- label会将里面的input元素和其它内容关联，点击其它内容和点击input一样 -->
+            <label>
+              <input type="checkbox">下次自动登录
+            </label>
+          </div>
+
+          <div class="mr05 button">
+            登 录
+          </div>
+
+          <div class="mr05" style="text-align: center;">
+            <a class="qr" href="#">扫码快捷登录</a>
+          </div>
+
+          <div class="mr05 links">
+            <a href="#">忘了密码？</a>
+            <a href="#">注册新账号</a>
+          </div>
+
         </div>
 
       </div>
@@ -66,6 +97,16 @@
 
   </main>
 
+  <!-- 下方链接，footer语义标记，和div一样，期望是网站底部信息 -->
+  <footer>
+    <a href="#">关于腾讯</a> |
+    <a href="#">服务条款</a> |
+    <a href="#">隐私政策</a> |
+    <a href="#">客服中心</a> |
+    <a href="#">联系我们</a> |
+    <a href="#">帮助中心</a> |
+    <span>&copy;1998 - 2021 Dark Knight. All Rights Reserved.</span>
+  </footer>
 
 </body>
 

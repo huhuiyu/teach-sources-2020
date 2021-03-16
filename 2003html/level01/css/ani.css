@@ -1,0 +1,24 @@
+body {
+  margin: 0px;
+}
+
+.ani1 {
+  color: #ff0000;
+  /* transition：过渡动画，参数一表示哪一个样式变化使用过渡效果，参数二，过渡时长 */
+  transition: color 2s;
+}
+
+.ani1:hover {
+  color: #00ff00;
+}
+
+.ani2 {
+  border: 1px solid #ff0000;
+  width: 15rem;
+  text-align: center;
+  transition: width 2s;
+}
+
+.ani2:hover {
+  width: 20rem;
+}

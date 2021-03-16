@@ -50,3 +50,106 @@ body {
   border: 2px solid #a0b1c4;
   border-radius: 5px;
 }
+
+.mail-title {
+  /* 邮箱上方的标题容器 */
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem 0px;
+  background-color: #f9fbfe;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom: 2px solid #a0b1c4;
+}
+
+.mail-title-text {
+  color: #999999;
+}
+
+/* 表单的部分 */
+.mail-form-box {
+  padding: 1rem;
+}
+
+/* 模拟输入框 */
+.input-box {
+  border: 1px solid #96a5b4;
+  padding: 0.2rem 0.5rem;
+  border-radius: 2px;
+}
+
+.input-box input {
+  /* 去掉input元素的边框 */
+  border-width: 0px;
+  outline: none;
+}
+
+/* 点击输入框变色效果,:focus-within，伪类，元素或者元素里面元素拥有焦点时*/
+.input-box:focus-within {
+  border-color: #6892e7;
+}
+
+.mr05 {
+  margin-bottom: 0.5rem;
+}
+
+.button {
+  /* 模拟按钮 */
+  background-color: #5a98de;
+  color: #ffffff;
+  text-align: center;
+  padding: 0.5rem 0px;
+  border-radius: 0.2rem;
+  /* 鼠标变成超链接手指样式 */
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #6ba8ef;
+}
+
+.qr {
+  color: #225592;
+  text-decoration: none;
+  font-size: 0.7rem;
+}
+
+.qr:hover {
+  text-decoration: underline;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.links a {
+  color: #225592;
+  font-size: 0.3rem;
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+/* 下方样式 */
+footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100vw;
+  text-align: center;
+  padding: 0.5rem 0px;
+  color: #868686;
+  background-color: #eff4fa;
+  border-top: 1px solid #d6dfea;
+}
+
+footer a {
+  color: #225592;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}

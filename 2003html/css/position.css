@@ -1,0 +1,42 @@
+body {
+  margin: 0px;
+}
+
+div {
+  border: 1px solid #ff0000;
+}
+
+.bottom-div {
+  /* position: fixed;表示将元素的定位变成固定 */
+  position: fixed;
+  /* 通过和四个边界的距离决定位置,bottom就是下方 */
+  bottom: 0px;
+  /* 固定定位会让div丢失满行的特征，宽度会变成内容的总宽度 */
+}
+
+.top-div {
+  position: fixed;
+  top: 0px;
+  /* vw，css3新计量单位，表示浏览器可视区域的宽度百分比 */
+  width: 100vw;
+  text-align: center;
+}
+
+.right-div {
+  position: fixed;
+  right: 0px;
+  /* vh，浏览器可视区域的高度百分比 */
+  top: 50vh;
+}
+
+.left-div {
+  position: fixed;
+  left: 20px;
+  top: 35vh;
+}
+
+.abs {
+  position: absolute;
+  top: 200px;
+  left: 340px;
+}
