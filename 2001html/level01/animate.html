@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第三方css（动画）导入</title>
+  <link rel="stylesheet" href="css/animate.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <!-- html中定义css样式 -->
+  <style>
+    .my-animate {
+      animation: flash 2s infinite;
+    }
+
+    .my-animate01:hover {
+      animation: headShake 2s;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 
+    animate__animated：开启动画
+    animate__jackInTheBox：指定动画名称（官方网站有全部动画名称）
+    animate__infinite：启用无限循环动画
+  -->
+  <div class="animate__animated animate__fadeInUpBig animate__infinite">
+    第三方css动画效果一
+  </div>
+
+  <div class="my-animate">自定义套用动画</div>
+
+  <div class="my-animate01 tc">鼠标悬停动画</div>
+
+
+</body>
+
+</html>

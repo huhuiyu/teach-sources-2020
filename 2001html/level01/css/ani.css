@@ -40,3 +40,92 @@ body {
   box-shadow: 2px 2px 0px #999999;
   text-shadow: 0px 0px 5px #ff0000;
 }
+
+.ani4 {
+  border: 1px solid #ff0000;
+  width: 100px;
+  height: 100px;
+  transition: all 2s;
+}
+
+.ani4:hover {
+  width: 150px;
+  height: 150px;
+}
+
+.ani5 {
+  border: 1px solid #ff0000;
+  width: 100px;
+  height: 100px;
+}
+
+.ani5:hover {
+  animation: ani01 2s;
+}
+
+/*
+@keyframes定义关键帧动画，后面是关键帧动画的名称
+*/
+@keyframes ani01 {
+  /* 
+  动画时间进度百分比 { 元素的样式 }
+  */
+  0% {
+    width: 100px;
+    height: 100px;
+  }
+  100% {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+.ani6 {
+  border: 1px solid #ff0000;
+  width: 100px;
+  height: 100px;
+}
+
+.ani6:hover {
+  animation: ani02 2s;
+}
+
+@keyframes ani02 {
+  0% {
+    width: 100px;
+    height: 100px;
+  }
+  50% {
+    width: 150px;
+    height: 100px;
+  }
+  100% {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+.ani7 {
+  animation: ani03 5s infinite;
+}
+
+@keyframes ani03 {
+  0% {
+    text-shadow: 0px 0px 0px #00ff00;
+    font-size: 1rem;
+  }
+  30% {
+    font-size: 0.8rem;
+  }
+  60% {
+    font-size: 1.6rem;
+  }
+  100% {
+    font-size: 1rem;
+    text-shadow: 0px 0px 10px #00ff00;
+  }
+}
+
+/* https://animate.style/ */
+/* https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css */
+/* animate.min.css */
