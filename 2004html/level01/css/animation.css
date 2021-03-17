@@ -1,0 +1,8 @@
+.box {
+  border: 1px solid #ff0000;
+}
+
+.ani01 {
+  /* 必须导入第三方的animate.min.css，动画的名称去官方网站查看 */
+  animation: heartBeat 2s infinite;
+}

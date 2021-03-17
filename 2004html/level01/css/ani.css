@@ -26,3 +26,90 @@ body {
 .ani02:hover {
   width: 150px;
 }
+
+.ani03 {
+  width: 100px;
+  border: 1px solid #000000;
+  /* shadow是阴影和外发光，1：是x轴距离，2：y轴距离，3：发光距离，4：颜色 */
+  box-shadow: 0px 0px 0px #999999;
+  text-shadow: 0px 0px 0px #ff0000;
+  /* transition只能是一个样式或者是all全部样式 */
+  transition: all 2s;
+}
+
+.ani03:hover {
+  box-shadow: 20px -10px 0px #999999;
+  text-shadow: 0px 0px 10px #ff0000;
+}
+
+.ani04 {
+  border: 1px solid #ff0000;
+  width: 100px;
+  height: 100px;
+}
+
+.ani04:hover {
+  animation: kf01 2s;
+}
+
+/* @keyframes定义关键帧动画，后面是动画名称 */
+@keyframes kf01 {
+  /* 动画进度百分比{进度时间对应的元素样式} */
+  0% {
+    width: 100px;
+    height: 100px;
+  }
+  100% {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+.ani05 {
+  border: 1px solid #ff0000;
+  width: 100px;
+  height: 100px;
+}
+
+.ani05:hover {
+  animation: kf02 2s;
+}
+
+@keyframes kf02 {
+  0% {
+    width: 100px;
+    height: 100px;
+  }
+  50% {
+    width: 150px;
+    height: 100px;
+  }
+  100% {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+.ani06 {
+  animation: kf03 5s infinite;
+}
+
+@keyframes kf03 {
+  0% {
+    text-shadow: 0px 0px 0px #ff0000;
+    font-size: 1rem;
+  }
+  30% {
+    font-size: 0.8rem;
+  }
+  50% {
+    text-shadow: 0px 0px 10px #ff0000;
+  }
+  70% {
+    font-size: 1.4rem;
+  }
+  100% {
+    text-shadow: 0px 0px 0px #ff0000;
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,9 @@
+/* common，公用css样式 */
+body {
+  margin: 0px;
+}
+
+/* 文字居中 */
+.tc {
+  text-align: center;
+}

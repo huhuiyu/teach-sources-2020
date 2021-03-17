@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>公用css导入和第三方css导入</title>
+  <link rel="stylesheet" href="css/animate.min.css">
+  <!-- 公用样式导入可以简化重复的样式编写！！！ -->
+  <link rel="stylesheet" href="css/common.css">
+  <!-- 样式表带有层叠特性，所以页面自身的样式最好是在最后导入 -->
+  <link rel="stylesheet" href="css/animation.css">
+
+</head>
+
+<body>
+
+  <div class="box tc">公用样式演示</div>
+  <hr>
+  <div class="box tc ani01">第三方动画效果</div>
+  <hr>
+  <div class="box tc animate__animated animate__bounce animate__infinite">第三方动画效果二</div>
+
+  <!-- https://animate.style/ -->
+  <!-- https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css -->
+
+</body>
+
+</html>
