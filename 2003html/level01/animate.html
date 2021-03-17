@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>公用css导入和第三方css导入</title>
+  <!-- 导入第三方css -->
+  <link rel="stylesheet" href="css/animate.min.css">
+  <!-- 导入公用css -->
+  <link rel="stylesheet" href="css/common.css">
+  <!-- 
+    第三方css最早导入，自己的公共css接着导入，页面对应的css最后导入
+  -->
+  <link rel="stylesheet" href="css/animate.css">
+</head>
+
+<body>
+
+  <div class="box tc">公用css导入和第三方css导入</div>
+
+  <div class="box tc ani01">
+    第三方动画效果
+  </div>
+
+  <div class="box tc animate__animated animate__slideInLeft animate__infinite">
+    啥也不用写的第三方动画效果
+  </div>
+
+</body>
+
+</html>
