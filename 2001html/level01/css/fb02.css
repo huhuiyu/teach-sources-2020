@@ -1,0 +1,14 @@
+.myflex {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.myflex > div {
+  border: 1px solid #ff0000;
+}
+
+.myflex > div:nth-child(2) {
+  flex: 10;
+}

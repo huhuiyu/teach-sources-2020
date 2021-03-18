@@ -6,3 +6,76 @@
 .flex01 > div {
   border: 1px solid #ff0000;
 }
+
+/* :nth-child(1)表示元素中的第一个 */
+.flex01 > div:nth-child(1) {
+  color: #0000ff;
+  /* 
+    flex是压力布局里面的子元素特有的样式，值是压力的大小，越大的占用空间比例越宽
+    只要任意一个子元素出现该样式，压力盒子之间不再有空白空间（水平对齐不再有意义）
+  */
+  flex: 1;
+}
+.flex01 > div:nth-child(2) {
+  flex: 3;
+}
+
+.flex01 > div:nth-child(3) {
+  flex: 2;
+}
+
+.flex02 {
+  display: flex;
+}
+
+.flex02 > div {
+  border: 1px solid #ff0000;
+}
+/* :first-child元素中第一个 */
+.flex02 > div:first-child {
+  width: 200px;
+}
+/* :last-child元素中最后一个 */
+.flex02 > div:last-child {
+  /* 如果压力盒子中只有一个子元素拥有flex样式，该元素会把所有空白占满 */
+  flex: 1;
+}
+
+.flex03 {
+  display: flex;
+}
+
+.flex03 > div {
+  border: 1px solid #ff0000;
+  /* 压力盒子不允许子元素的总宽度超过容器宽度，会强制压缩子元素宽度 */
+  width: 40%;
+}
+
+.flex04 {
+  display: flex;
+  /* flex-wrap:wrap ; 表示子元素的总宽度超过容器，子元素可以换行*/
+  flex-wrap: wrap;
+  /* 允许换行就可以设置水平对齐方式 */
+  justify-content: space-around;
+}
+
+.flex04 > div {
+  border: 1px solid #ff0000;
+  width: 300px;
+}
+
+/* 变化方向的压力盒子 */
+.flex05 {
+  display: flex;
+  /* 压力盒子的方向为垂直 */
+  flex-direction: column;
+  height: 10rem;
+  border: 1px solid #0000ff;
+}
+.flex05 > div {
+  border: 1px solid #ff0000;
+}
+
+.flex05 > div:nth-child(2) {
+  flex: 1;
+}

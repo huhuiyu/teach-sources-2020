@@ -1,0 +1,14 @@
+.myflex {
+  /* 将元素变成全屏大小 */
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.myflex > div {
+  border: 1px solid #ff0000;
+  /* 可以通过边距来微调位置 */
+  margin-top: -10rem;
+}

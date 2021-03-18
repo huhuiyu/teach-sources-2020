@@ -1,0 +1,7 @@
+.box {
+  border: 1px solid #ff0000;
+}
+
+.ani1 {
+  animation: heartBeat 2s infinite;
+}

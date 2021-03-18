@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>公共css导入和第三方css导入</title>
+  <!-- 
+    css因为层叠的原因，第三方的css最先导入，其次导入公用的css，最后导入页面自己的css
+  -->
+  <link rel="stylesheet" href="css/animate.min.css">
+  <link rel="stylesheet" href="css/common.css">
+
+  <link rel="stylesheet" href="css/animate.css">
+</head>
+
+<body>
+
+  <div class="box tc">公用css导入</div>
+
+  <div class="box tc ani1">animate.style提供的动画效果</div>
+
+  <div class="box tc animate__animated animate__tada animate__infinite">
+    第三方动画样式
+  </div>
+
+
+
+</body>
+
+</html>
