@@ -1,0 +1,16 @@
+.flex-box {
+  /* 全屏大小 */
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-box > div {
+  border: 1px solid #ff0000;
+}
+
+.flex-box > div:nth-child(2) {
+  flex: 1;
+}

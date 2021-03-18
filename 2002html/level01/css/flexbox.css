@@ -1,0 +1,71 @@
+.flex01 {
+  display: flex;
+}
+
+/* 选择器a > 选择器b 表示a里面的第一级的b */
+.flex01 > div {
+  border: 1px solid #ff0000;
+}
+/* :nth-child(数字) 元素中的第几个，数字决定 */
+.flex01 > div:nth-child(1) {
+  color: #0000ff;
+  /* 
+    flex为压力布局中子元素的特定样式，
+    值为数字，数字越大，分配的空间越大 
+    一旦设置flex样式，就不会留下空白空间，所以水平对齐不再有效
+  */
+  flex: 1;
+}
+
+.flex01 > div:nth-child(2) {
+  flex: 3;
+}
+
+.flex01 > div:nth-child(3) {
+  flex: 2;
+}
+
+.flex02 {
+  display: flex;
+}
+
+.flex02 > div {
+  border: 1px solid #ff0000;
+}
+/* :first-child 元素中的第一个 */
+.flex02 > div:first-child {
+  width: 15rem;
+}
+
+.flex02 > div:last-child {
+  flex: 1;
+}
+
+.flex03 {
+  display: flex;
+  /* flex-wrap：子元素总宽度超出容器，是否允许子元素换行，wrap是允许换行 */
+  flex-wrap: wrap;
+  /* 可以和水平对齐一起使用 */
+  justify-content: space-around;
+}
+
+.flex03 > div {
+  border: 1px solid #ff0000;
+  width: 300px;
+}
+
+.flex04 {
+  border: 5px solid #0000ff;
+  display: flex;
+  /* 压力转换到垂直方向 */
+  flex-direction: column;
+  height: 25rem;
+}
+
+.flex04 > div {
+  border: 5px solid #ff0000;
+}
+
+.flex04 > div:nth-child(2) {
+  flex: 1;
+}
