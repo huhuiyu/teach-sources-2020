@@ -1,0 +1,108 @@
+/*
+display：元素的显示模式
+block，块元素（div，p）默认显示模式，占满一行，支持盒模型相关样式
+inline，行内元素（span，a）默认显示模式，没有特效，不能正确处理盒模型相关样式
+inline-block，混合模式，默认是行内元素效果，但是支持盒模型相关样式
+none，不显示
+*/
+.desktop {
+  display: block;
+}
+
+.phone {
+  display: none;
+}
+
+/*
+  @media 媒体查询
+  screen 是媒体类型，screen是屏幕
+  and 是查询条件表达式 max-width表示最大宽度
+  @media screen and (max-width: 768px) 表示屏幕的最大宽度不超过768px
+  {
+    条件达成时的样式
+  }
+*/
+@media screen and (max-width: 768px) {
+  .desktop {
+    display: none;
+  }
+  .phone {
+    display: block;
+  }
+}
+
+.mydiv {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.mydiv > div {
+  width: 25vw;
+}
+
+/* min-width，最小宽度，多个and条件同时成立才会生效，1000-1366之间 */
+@media screen and (min-width: 1000px) and (max-width: 1366px) {
+  .mydiv > div {
+    width: 33.33333vw;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 999px) {
+  .mydiv > div {
+    width: 50vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .mydiv > div {
+    width: 100vw;
+  }
+}
+/* 上面的样式将屏幕样式分切成四种情况，0-768px，769-999px,1000-1366px和默认 */
+
+.images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.images > div {
+  width: 23%;
+  padding: 5px;
+  border-radius: 10px;
+  border: 1px solid #999999;
+  margin: 5px;
+  box-shadow: 0px 0px 0px #ffffff;
+  transition: box-shadow 2s;
+}
+
+.images > div:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 20px #ff0000;
+}
+
+/* 图片自适应容器 */
+.images img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1366px) {
+  .images > div {
+    width: 30%;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 999px) {
+  .images > div {
+    width: 46%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .images > div {
+    width: 98%;
+  }
+}
