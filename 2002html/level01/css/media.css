@@ -1,0 +1,100 @@
+/* 
+  display：元素的显示模式相关
+  块元素（div，p这一类）为block，特色就是占满一行
+  行类元素（span，i这一类）为inline，特色就是没有任何效果，不能正确处理盒模型相关样式
+  混合模式为inline-block，效果为inline，但是可以使用盒模型相关样式
+  不显示为none
+*/
+.desktop {
+  display: block;
+}
+
+.phone {
+  display: none;
+}
+/*
+@media是媒体查询样式语法
+screen表示对屏幕大小做查询
+后面是对大小的结果做逻辑判断表达式
+and (屏幕大小的约束值) 例如 max-width:768px，表示屏幕宽度最大不能超过768px
+{
+  约束表达式成立时的样式声明！！！  
+}
+*/
+@media screen and (max-width: 768px) {
+  .desktop {
+    display: none;
+  }
+  .phone {
+    display: block;
+  }
+}
+
+/* 压力盒子 */
+.mybox {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.mybox > div {
+  width: 25vw;
+}
+
+/* 
+  min-width表示不低于指定的宽度
+  连续的and表示判断条件要同时成立
+*/
+/* 100px到1366px之间 */
+@media screen and (min-width: 1000px) and (max-width: 1366px) {
+  .mybox > div {
+    width: 33.33333vw;
+  }
+}
+/* 769px到999px之间 */
+@media screen and (min-width: 769px) and (max-width: 999px) {
+  .mybox > div {
+    width: 50vw;
+  }
+}
+/* 小于768px的情况 */
+@media screen and (max-width: 768px) {
+  .mybox > div {
+    width: 100vw;
+  }
+}
+
+.myimg-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.myimg-box > div {
+  width: 24%;
+  padding: 5px;
+}
+
+/* 图片自适应容器大小 */
+.myimg-box img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1366px) {
+  .myimg-box > div {
+    width: 30%;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 999px) {
+  .myimg-box > div {
+    width: 48%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .myimg-box > div {
+    width: 98%;
+  }
+}
