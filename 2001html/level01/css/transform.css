@@ -1,0 +1,166 @@
+body {
+  /* overflow-x隐藏横向滚动条，overflow-y隐藏竖向滚动条，overflow:全部隐藏 */
+  overflow-x: hidden;
+}
+
+.mybox {
+  border: 1px solid #ff0000;
+  padding: 5px;
+}
+
+.tf01 {
+  width: 20rem;
+  /* transform:变形，translateX:移动x轴的位置，距离是（）里面的值*/
+  transform: translateX(10rem);
+}
+
+.tf02 {
+  /* 移动值可以是百分比 */
+  transform: translateX(0%);
+  animation: ani01 1s;
+}
+
+@keyframes ani01 {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.tf03 {
+  /* 竖向移动 translate(x,y)是提供两个方向的移动,第一个参数是x轴，第二个y轴，中间是,*/
+  transform: translateY(3rem);
+}
+
+.tf04 {
+  margin-top: 5rem;
+  width: 100px;
+  height: 50px;
+  margin-left: 5rem;
+  transform: scale(1, 1);
+  transition: transform 1s;
+}
+
+.tf04:hover {
+  /* scale(x轴缩放比例，y轴缩放比例) ，比例值1就是100%，也就是原始大小*/
+  transform: scale(1.5, 1.5);
+  /* scaleX，x轴缩放，scaleY，y轴缩放，都是单一参数 */
+}
+
+.tf05 {
+  margin: 2rem;
+  width: 10rem;
+  height: 10rem;
+  /* transform: rotate(5deg); */
+}
+
+.tf05:hover {
+  animation: ani02 1s infinite;
+}
+
+@keyframes ani {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(3600deg);
+  }
+}
+
+/* 利用旋转变形模拟摇头抖动效果 */
+@keyframes ani02 {
+  0% {
+    /* rotate是旋转，参数是角度 */
+    transform: rotate(0deg);
+  }
+  5% {
+    transform: rotate(5deg);
+  }
+  10% {
+    transform: rotate(0deg);
+  }
+  15% {
+    transform: rotate(-5deg);
+  }
+  20% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  30% {
+    transform: rotate(0deg);
+  }
+  35% {
+    transform: rotate(-5deg);
+  }
+  40% {
+    transform: rotate(0deg);
+  }
+  45% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  55% {
+    transform: rotate(-5deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  65% {
+    transform: rotate(5deg);
+  }
+  70% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  80% {
+    transform: rotate(0deg);
+  }
+  85% {
+    transform: rotate(5deg);
+  }
+  90% {
+    transform: rotate(0deg);
+  }
+  95% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.tf06 {
+  margin: 2rem;
+  width: 5rem;
+  height: 2rem;
+  /* 倾斜skewX，横向倾斜，参数是角度值,skewY,竖向倾斜，skew(x,y) */
+  transform: skewX(-30deg);
+}
+
+.tf07 {
+  margin: 5rem;
+  width: 10rem;
+  height: 10rem;
+  /* 多个变形通过空格分开 */
+  transform: skewX(-30deg) rotate(45deg) scaleX(1.5);
+  /* transform-origin,变形的重心点，默认全是中间 */
+  /* transform-origin: center left; */
+}
+
+.ef01 {
+  /* opacity：不透明度，值越小越透明，1是正常透明度 */
+  opacity: 0.2;
+  transition: opacity 1s;
+}
+
+.ef01:hover {
+  opacity: 1;
+}
