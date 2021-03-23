@@ -1,0 +1,71 @@
+.flex01 {
+  display: flex;
+  border: 1px solid #0000ff;
+}
+/* 选择器a > 选择器b 表示a里面的第一级的b */
+.flex01 > div {
+  border: 1px solid #ff0000;
+}
+/* :nth-child(数值)，伪类，表示元素中的第几个，由数值决定 */
+.flex01 > div:nth-child(2) {
+  color: #00ff00;
+  /* 
+  压力盒子一级子元素特有样式,flex，表示盒子占用空间的大小，由数值决定
+  数值越大占用比例越大，出现flex样式，水平对齐方式不再有意义
+  */
+  flex: 3;
+}
+
+.flex01 > div:nth-child(1) {
+  flex: 1;
+}
+
+.flex01 > div:nth-child(3) {
+  flex: 2;
+}
+
+.flex02 {
+  display: flex;
+}
+
+.flex02 > div {
+  border: 1px solid #ff0000;
+}
+
+/* :last-child，伪类，元素中的最后一个 */
+.flex02 > div:last-child {
+  /* 如果压力盒子中只有一个子元素设置了flex，该元素会填满所有的剩余空间 */
+  flex: 1;
+}
+/* :first-child，伪类，元素中第一个，等同于nth-child(1) */
+.flex02 > div:first-child {
+  width: 15rem;
+}
+
+.flex03 {
+  display: flex;
+  /* flex-wrap：表示子元素总宽度超过容器时是否可以折行，wrap是允许折行 */
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.flex03 > div {
+  border: 1px solid #ff0000;
+  width: 24vw;
+}
+
+.flex04 {
+  display: flex;
+  /* 压力盒子的布局方向为垂直 */
+  flex-direction: column;
+  border: 1px solid #0000ff;
+  height: 20rem;
+}
+
+.flex04 > div {
+  border: 1px solid #ff0000;
+}
+
+.flex04 > div:nth-child(2) {
+  flex: 1;
+}

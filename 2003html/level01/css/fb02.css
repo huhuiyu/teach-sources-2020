@@ -1,0 +1,13 @@
+.mybox {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  /* 中间区域填满 */
+  flex: 1;
+  border: 1px solid #ff0000;
+}

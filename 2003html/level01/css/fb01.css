@@ -1,0 +1,13 @@
+.mybox {
+  /* 元素全屏 */
+  width: 100vw;
+  height: 100vh;
+  /* 居中 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mybox > div {
+  margin-top: -5rem;
+}

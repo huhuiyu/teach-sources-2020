@@ -1,0 +1,100 @@
+/* 
+  display:元素的显示模式
+  block:块元素（div,p,main...）的默认显示模式，占满一行，支持盒模型相关样式
+  inline:行内元素（span,i,a...）的默认显示模式，不能正确理解盒模型相关样式
+  inline-block:混合模式，显示效果是行内，但是支持盒模型相关样式
+  none:不显示
+*/
+.desktop {
+  display: block;
+}
+
+.phone {
+  display: none;
+}
+
+/*
+  @media是媒体查询语法，第一个参数是要查询的对象，screen表示浏览器显示区域（屏幕）
+  and是查询条件表达式，max-width表示屏幕最大宽度 
+  {这里是条件达成时的样式}
+  下面的语句表示如果屏幕宽度不超过768px时的样式定义
+  768px这个特别的值可以判定为手机！！！
+*/
+@media screen and (max-width: 768px) {
+  .desktop {
+    display: none;
+  }
+
+  .phone {
+    display: block;
+  }
+}
+
+.mybox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.mybox > div {
+  width: 25vw;
+}
+
+/* min-width，最小宽度，多个and是条件同时成立 */
+@media screen and (min-width: 1000px) and (max-width: 1366px) {
+  .mybox > div {
+    width: 33.33333vw;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 999px) {
+  .mybox > div {
+    width: 50vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .mybox > div {
+    width: 100vw;
+  }
+}
+
+/* 相册容器 */
+.images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.images > div {
+  /* 盒模型影响元素的总宽度，所以要留下padding的宽度 */
+  width: 23%;
+  padding: 5px;
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+}
+
+/* 图片自适应容器 */
+.images img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1366px) {
+  .images > div {
+    width: 30%;z
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 999px) {
+  .images > div {
+    width: 46%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .images > div {
+    width: 96%;
+  }
+}
