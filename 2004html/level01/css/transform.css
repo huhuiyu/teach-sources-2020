@@ -1,0 +1,147 @@
+body {
+  /* overflow-x:是否出现横向滚动条，hidden是不要出现 */
+  overflow-x: hidden;
+}
+
+.mybox {
+  border: 1px solid #ff0000;
+}
+
+.tf01 {
+  width: 20rem;
+  /* 
+    transform，变形
+    translateX，x轴移动，移动的距离是括号中的参数决定
+   */
+  transform: translateX(10rem);
+}
+
+.tf02 {
+  /* 如果参数是百分比，指的是元素自身大小的百分比，不是屏幕的 */
+  transform: translateX(0%);
+  animation: ani01 1s;
+}
+
+@keyframes ani01 {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.tf03 {
+  transform: translateY(1rem);
+  /* 通过留白给出变形的空间，避免遮挡到其它元素 */
+  margin: 1.5rem;
+  /* translate(x,y) */
+}
+
+.tf04 {
+  margin: 2rem;
+  width: 5rem;
+  height: 5rem;
+  /* scale缩放，参数1：横向缩放比例，参数2：纵向缩放比例，1就是100%，表示原始大小 */
+  transform: scale(1, 1);
+  transition: transform 1s;
+  /* transform-origin: top left; 动画的重心点移动*/
+}
+
+.tf04:hover {
+  /* scaleX(数值)：横向缩放，scaleY(数值)，纵向缩放 */
+  transform: scale(1.5, 1.5);
+}
+
+.tf05 {
+  margin: 2rem;
+  width: 5rem;
+  /* skew(x,y)，双向倾斜。skewX(角度)，横向倾斜，skewY(角度)，纵向倾斜 */
+  transform: skewX(30deg);
+}
+
+.tf06 {
+  margin: 1rem;
+  width: 5rem;
+  height: 5rem;
+}
+
+.tf06:hover {
+  animation: ani02 1s infinite;
+}
+
+@keyframes ani02 {
+  0% {
+    transform: rotate(0deg);
+  }
+  5% {
+    transform: rotate(5deg);
+  }
+  10% {
+    transform: rotate(0deg);
+  }
+  15% {
+    transform: rotate(-5deg);
+  }
+  20% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  30% {
+    transform: rotate(0deg);
+  }
+  35% {
+    transform: rotate(-5deg);
+  }
+  40% {
+    transform: rotate(0deg);
+  }
+  45% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  55% {
+    transform: rotate(-5deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  65% {
+    transform: rotate(5deg);
+  }
+  70% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  80% {
+    transform: rotate(0deg);
+  }
+  85% {
+    transform: rotate(5deg);
+  }
+  90% {
+    transform: rotate(0deg);
+  }
+  95% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.ae01 {
+  /* opacity：不透明度，1是正常效果，完全不透明,0是完全透明 */
+  opacity: 0.1;
+  transition: opacity 1s;
+}
+
+.ae01:hover {
+  opacity: 1;
+}

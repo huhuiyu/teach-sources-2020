@@ -1,0 +1,8 @@
+.blur-box {
+  width: 10rem;
+  height: 10rem;
+  background-image: url('../images/img1.jpg');
+  background-size: cover;
+  /* filter过滤器，就是各种特性滤镜，blur是模糊，参数是模糊的程度，越大越模糊 */
+  filter: blur(1px);
+}
