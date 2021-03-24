@@ -1,0 +1,143 @@
+body {
+  /* overflow-x:是否显示横向滚动条，hidden：不显示 */
+  overflow-x: hidden;
+  /* overflow-y:竖向滚动条，overflow：所有滚动条 */
+}
+
+.mybox {
+  border: 1px solid #ff0000;
+}
+
+.tf01 {
+  width: 20rem;
+  /* transform，变形效果。translateX，横向移动，距离是括号中的值 */
+  transform: translateX(10rem);
+}
+
+.tf02 {
+  /* 移动位置支持百分比作为单位，是元素自身的大小比例，不是屏幕 */
+  transform: translate(0%);
+  animation: ani01 1s;
+}
+
+@keyframes ani01 {
+  0% {
+    transform: translate(100%);
+  }
+  100% {
+    transform: translate(0%);
+  }
+}
+
+.tf03 {
+  margin: 1.2rem;
+  transform: translateY(1rem);
+  /* translateY，竖向移动，translate(x,y) */
+}
+
+.tf04 {
+  margin: 2rem;
+  width: 5rem;
+  height: 4rem;
+  /* scale:缩放，参数1是横向缩放比例值，参数2是竖向
+  1是100%，表示原大小，没有缩放  */
+  transform: scale(1, 1);
+  transition: transform 1s;
+  /* transform-origin: top left; 动画的重心点调整 */
+}
+
+.tf04:hover {
+  transform: scale(1.2, 1.2);
+}
+
+.tf05 {
+  margin: 1rem;
+  width: 5rem;
+  /* skewX，横向倾斜，skewY，竖向倾斜,skew(x,y)，值是角度deg */
+  transform: skew(10deg, 30deg);
+}
+
+.tf06 {
+  margin: 2rem;
+  width: 5rem;
+  height: 5rem;
+}
+
+.tf06:hover {
+  animation: ani02 1s infinite;
+}
+
+@keyframes ani02 {
+  0% {
+    transform: rotate(0deg);
+  }
+  5% {
+    transform: rotate(5deg);
+  }
+  10% {
+    transform: rotate(0deg);
+  }
+  15% {
+    transform: rotate(-5deg);
+  }
+  20% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  30% {
+    transform: rotate(0deg);
+  }
+  35% {
+    transform: rotate(-5deg);
+  }
+  40% {
+    transform: rotate(0deg);
+  }
+  45% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  55% {
+    transform: rotate(-5deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  65% {
+    transform: rotate(5deg);
+  }
+  70% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  80% {
+    transform: rotate(0deg);
+  }
+  85% {
+    transform: rotate(5deg);
+  }
+  90% {
+    transform: rotate(0deg);
+  }
+  95% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.e01 {
+  /* opacity：不透明度,0-1，越小越透明，1就是完全正常不透明 */
+  opacity: 0.1;
+  transition: opacity 1s;
+}
+.e01:hover {
+  opacity: 1;
+}
