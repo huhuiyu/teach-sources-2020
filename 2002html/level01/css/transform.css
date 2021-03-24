@@ -1,0 +1,151 @@
+.mybox {
+  border: 1px solid #ff0000;
+}
+
+.tf01 {
+  width: 20rem;
+  /* transform：变形，translateX是横向移动，距离就是括号里面的值 */
+  transform: translateX(10rem);
+}
+
+body {
+  /* overflow-x:是否出现横向滚动条，hidden是不要出现 */
+  overflow-x: hidden;
+  /* overflow-y:竖向滚动条控制，overflow:双向滚动条控制 */
+}
+
+.tf02 {
+  animation: ani01 1s;
+}
+
+@keyframes ani01 {
+  0% {
+    /* 移动的百分比指的是元素自身大小的百分比，不是屏幕 */
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.tf03 {
+  /* translateY，竖向移动。translate(x,y) */
+  transform: translateY(1rem);
+  margin: 1rem;
+}
+
+.tf04 {
+  margin: 2rem;
+  width: 5rem;
+  height: 3rem;
+  /* scale：缩放,参数1是横向缩放比例，参数2是竖向缩放比例
+    1是原始大小（100%）,加大就是放大，减小就是缩小 */
+  transform: scale(1, 1);
+  transition: transform 1s;
+  /* scaleX是横向缩放，scaleY是竖向缩放 */
+}
+
+.tf04:hover {
+  transform: scale(1.5, 1.5);
+}
+
+.tf05 {
+  margin: 1rem;
+  width: 5rem;
+  /* skewX，横向倾斜,skewY，竖向倾斜，skew(x,y)
+  参数是角度deg */
+  transform: skewX(30deg);
+}
+
+.tf06 {
+  width: 5rem;
+  height: 5rem;
+  margin: 1rem;
+}
+.tf06:hover {
+  animation: ani02 1s infinite;
+}
+
+@keyframes ani02 {
+  0% {
+    transform: rotate(0deg);
+  }
+  5% {
+    transform: rotate(5deg);
+  }
+  10% {
+    transform: rotate(0deg);
+  }
+  15% {
+    transform: rotate(-5deg);
+  }
+  20% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  30% {
+    transform: rotate(0deg);
+  }
+  35% {
+    transform: rotate(-5deg);
+  }
+  40% {
+    transform: rotate(0deg);
+  }
+  45% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  55% {
+    transform: rotate(-5deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  65% {
+    transform: rotate(5deg);
+  }
+  70% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  80% {
+    transform: rotate(0deg);
+  }
+  85% {
+    transform: rotate(5deg);
+  }
+  90% {
+    transform: rotate(0deg);
+  }
+  95% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.tf07 {
+  margin: 10rem;
+  width: 5rem;
+  /* 多个变形中间用空格分开 */
+  transform: skewX(45deg) rotate(30deg);
+}
+
+.ae {
+  /* opacity：不透明度，0-1之间，1就是完全不透明（默认效果）
+  0就是完全透明 */
+  opacity: 0.1;
+  transition: opacity 2s;
+}
+
+.ae:hover {
+  opacity: 1;
+}
