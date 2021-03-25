@@ -1,6 +1,112 @@
-.blur-box {
-  width: 20rem;
-  height: 20rem;
+.flex-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.filter-box {
+  margin: 5px;
+  width: 15rem;
+  height: 15rem;
   background-image: url('../images/img1.jpg');
   background-size: cover;
+}
+
+.blur-box {
+  /* 模糊，值越大越模糊 */
+  filter: blur(5px);
+}
+.bright-box {
+  /* 亮度，1是正常，小暗大亮 */
+  filter: brightness(1.5);
+}
+
+.gray-box {
+  /* 灰度，越大越变黑白 */
+  filter: grayscale(80%);
+}
+
+.contrast-box {
+  /* 对比度,100%为正常 */
+  filter: contrast(200%);
+}
+
+.hue-box {
+  /* hue颜色调整，值是角度deg */
+  filter: hue-rotate(45deg);
+}
+
+.shadow-box {
+  filter: drop-shadow(10px 10px 10px #e91010);
+}
+
+.combo-box {
+  /* 多个滤镜用空格分隔 */
+  filter: invert(80%) opacity(0.5);
+}
+
+.clip-box01 {
+  margin: 5px;
+  width: 16rem;
+  height: 9rem;
+  background-image: url('../images/img2.jpg');
+  background-size: cover;
+  clip-path: polygon(50% 0, 0 100%, 100% 100%);
+}
+
+.clip-box02 {
+  margin: 5px;
+  width: 16rem;
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+.clip-box02 img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.clip-box03 {
+  margin: 5px;
+  width: 16rem;
+  /* 通过切片成元素的大小限制显示区域不能超出 */
+  clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0);
+  /* 在限定高宽的容器内，也可以通过隐藏滚动条来限制显示区域 */
+  /* overflow: hidden; */
+}
+
+.clip-box03 img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 1s;
+}
+
+.clip-box03:hover img {
+  transform: scale(1.5, 1.5);
+}
+
+.clip-box04 {
+  margin: 5px;
+  width: 16rem;
+  height: 16rem;
+  clip-path: circle(50%);
+}
+
+.clip-box04 img {
+  display: block;
+  width: 16rem;
+  height: 16rem;
+}
+
+.clip-box05 {
+  margin: 5px;
+  width: 15rem;
+  height: 15rem;
+  background-image: url('../images/img2.jpg');
+  background-size: cover;
+  clip-path: circle(50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -1,8 +1,87 @@
-.blur-box {
+.flex-box {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.filter-box {
+  margin: 5px;
   width: 10rem;
   height: 10rem;
   background-image: url('../images/img1.jpg');
   background-size: cover;
+}
+.blur-box {
   /* filter过滤器，就是各种特性滤镜，blur是模糊，参数是模糊的程度，越大越模糊 */
   filter: blur(1px);
+}
+
+.gray-box {
+  /* 灰度，100%就是黑白效果，0%是正常 */
+  filter: grayscale(80%);
+}
+
+.bright-box {
+  /* 亮度，1是正常，小暗大亮 */
+  filter: brightness(1.5);
+}
+
+.contrast-box {
+  filter: contrast(200%);
+}
+
+.hue-box {
+  filter: hue-rotate(40deg);
+}
+
+.combo-box {
+  /* 多个滤镜用空格分隔 */
+  filter: invert(80%) opacity(50%);
+}
+
+.clip-box01 {
+  margin: 5px;
+  width: 16rem;
+  height: 9rem;
+  background-image: url('../images/img3.jpg');
+  background-size: cover;
+  clip-path: polygon(50% 0, 0 100%, 100% 100%);
+}
+
+.clip-box02 {
+  margin: 5px;
+  width: 16rem;
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+
+.clip-box02 img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.clip-box03 {
+  margin: 5px;
+  width: 16rem;
+  clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0);
+}
+
+.clip-box03 img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 1s;
+}
+
+.clip-box03:hover img {
+  transform: scale(1.5);
+}
+
+.clip-box04 {
+  margin: 5px;
+  width: 10rem;
+  height: 10rem;
+  background-image: url('../images/img2.jpg');
+  background-size: cover;
+  clip-path: circle(50%);
 }
