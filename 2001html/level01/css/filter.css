@@ -1,0 +1,110 @@
+.filter-box {
+  margin: 5px;
+  width: 16rem;
+  height: 9rem;
+  background-image: url('../images/img1.jpg');
+  background-size: cover;
+}
+
+.blur-box {
+  /* filter：滤镜，blur是模糊，参数值是模糊程度，越大越模糊 */
+  filter: blur(2px);
+}
+
+.gray-box {
+  /* 灰度调整，越大颜色越没有颜色，像黑白效果 */
+  filter: grayscale(80%);
+}
+
+.contrast-box {
+  /* 对比度，超过100%产生效果 */
+  filter: contrast(300%);
+}
+
+.bright-box {
+  /* 亮度，1是正常，小就变暗，大就变亮 */
+  filter: brightness(0.5);
+}
+
+.hue-box {
+  /* 色彩曲线调整，值是角度 */
+  filter: hue-rotate(60deg);
+}
+
+.combo-box {
+  /* invert，类似底片反转颜色，opacity，不透明度,多滤镜空格分开 */
+  filter: invert(75%) opacity(0.5);
+}
+
+.flex-box {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.clip-01 {
+  margin: 5px;
+  width: 16rem;
+  height: 9rem;
+  /* 
+    clip-path：路径切片，将显示区域限制在路径控制的范围之内
+    polygon:多边形路径定义，参数全部都是坐标点，中间用逗号分隔
+    坐标点是x轴 y轴，元素的显示范围就是点连接成的区域
+  */
+  clip-path: polygon(50% 0, 0 100%, 100% 100%);
+}
+
+.clip-01 img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.clip-02 {
+  margin: 5px;
+  width: 16rem;
+  /* height: 9rem; */
+  /* clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); */
+  clip-path: polygon(50% 0, 0 50%, 50% 100%, 100% 50%);
+}
+
+.clip-02 img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.clip-03 {
+  margin: 5px;
+  width: 16rem;
+  /* 切片的应用，限制区域为div原始大小 */
+  clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);
+}
+
+.clip-03 img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 1s;
+}
+
+.clip-03:hover img {
+  transform: scale(1.5);
+}
+
+.clip-04 {
+  margin: 5px;
+  width: 10rem;
+  height: 10rem;
+  background-image: url('../images/img4.jpg');
+  background-size: cover;
+  /* 正圆形切片 */
+  clip-path: circle(50%);
+}
+
+.demo {
+  font-size: 16px;
+}
+
+
+
