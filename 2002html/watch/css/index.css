@@ -1,0 +1,89 @@
+body {
+  margin: 0px;
+}
+
+/* 顶级元素布局，控制全屏居中 */
+.watch {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 表盘整体大小控制 */
+.watch > div {
+  width: 780px;
+  height: 780px;
+  background-color: #555555;
+  clip-path: circle(50%);
+  /* 将中间区域固定 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 表中间区域容器 */
+.container {
+  width: 85%;
+  height: 85%;
+  background-color: #ffffff;
+  clip-path: circle(50%);
+  display: flex;
+  flex-direction: column;
+}
+
+/* 上方 */
+.container-top {
+  flex: 1;
+  border-bottom: 4px solid #333333;
+  display: flex;
+}
+/* 下方 */
+.container-bottom {
+  flex: 1;
+  border-top: 4px solid #333333;
+}
+/* 中间 */
+.container-center {
+  flex: 4.5;
+}
+
+/* 上左 */
+.ctl {
+  flex: 4.5;
+  /* 中间的分割线 */
+  border-right: 4px solid #333333;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  font-weight: bold;
+}
+.pd02 {
+  padding: 0.2rem;
+}
+/* 字体 */
+.ctl-font {
+  font-size: 2.5rem;
+  /* 字符之间的间距 */
+  letter-spacing: 0.2rem;
+}
+
+/* 上右 */
+.ctr {
+  flex: 5.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.ctrb {
+  display: flex;
+  align-items: center;
+}
+
+.ctr-font {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
