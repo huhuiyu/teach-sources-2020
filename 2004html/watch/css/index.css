@@ -1,0 +1,90 @@
+body {
+  margin: 0px;
+}
+
+/* 顶级定位是全屏居中 */
+.watch {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 表盘的底色区域 */
+.watch > div {
+  width: 780px;
+  height: 780px;
+  background-color: #555;
+  clip-path: circle(50%);
+  /* 内容居中 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 表盘中间的区域 */
+.container {
+  width: 85%;
+  height: 85%;
+  background-color: #fff;
+  clip-path: circle(50%);
+  /* 上中下布局 */
+  display: flex;
+  flex-direction: column;
+}
+
+/* 上方容器 */
+.container-top {
+  flex: 1;
+  border-bottom: 4px solid #333333;
+  display: flex;
+}
+/* 上左 */
+.ctl {
+  flex: 4.5;
+  /* 靠下右 */
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  font-weight: bold;
+  font-size: 2.5rem;
+  /* 字符间距 */
+  letter-spacing: 0.2rem;
+}
+.pd02 {
+  padding: 0.2rem;
+}
+/* 上右 */
+.ctr {
+  flex: 5.5;
+  border-left: 4px solid #333333;
+  /* 下沉到底部 */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  /* 字体样式 */
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+/* 上右的第二行 */
+.ctrb {
+  display: flex;
+  align-items: center;
+}
+
+/* 下方容器 */
+.container-bottom {
+  flex: 1;
+  border-top: 4px solid #333333;
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* 中间容器 */
+.container-center {
+  flex: 3;
+}
