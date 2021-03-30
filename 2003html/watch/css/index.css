@@ -1,0 +1,90 @@
+body {
+  margin: 0px;
+}
+
+/* 子元素全屏居中 */
+.flex-box {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* 最外圈底盘 */
+.flex-box > div {
+  background-color: #555;
+  width: 780px;
+  height: 780px;
+  clip-path: circle(50%);
+  /* 底盘也要将里面元素居中 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 内圈 */
+.container {
+  width: 85%;
+  height: 85%;
+  background-color: #fff;
+  clip-path: circle(50%);
+  /* 中间是上中下布局 */
+  display: flex;
+  flex-direction: column;
+}
+
+/* 上方样式 */
+.container-top {
+  flex: 1;
+  /* 左右布局 */
+  display: flex;
+}
+
+/* 上左区域 */
+.ctl {
+  flex: 4;
+  border-right: 4px solid #333;
+  /* 文字靠右 */
+  text-align: right;
+  /* 垂直靠下 */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.mr {
+  margin: 0.3rem;
+}
+
+.font01 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.lp {
+  /* letter-spacing字间距 */
+  letter-spacing: 0.5rem;
+}
+
+/* 上右区域 */
+.ctr {
+  flex: 6;
+}
+
+/* 上右第二行 */
+.ctr-line02 {
+  display: flex;
+  align-items: center;
+}
+
+/* 下方样式 */
+.container-bottom {
+  flex: 1;
+}
+/* 中间样式 */
+.container-center {
+  flex: 4;
+  /* 边框模拟分割线 */
+  border-top: 4px solid #333;
+  border-bottom: 4px solid #333;
+}

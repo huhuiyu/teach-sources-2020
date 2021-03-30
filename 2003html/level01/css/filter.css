@@ -1,0 +1,96 @@
+.flex-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* 滤镜统一样式 */
+.filter-box {
+  width: 15rem;
+  height: 15rem;
+  background-image: url('../images/img7.jpg');
+  background-size: cover;
+  margin: 5px;
+}
+
+.blur-box {
+  /* filter:滤镜，blur(模糊的程度px) */
+  filter: blur(3px);
+}
+
+.gray-box {
+  /* grayscale：灰度，值越大越像黑白效果 */
+  filter: grayscale(80%);
+}
+
+.bright-box {
+  /* brightness：亮度，1是正常，小暗大亮 */
+  filter: brightness(1.5);
+}
+
+.hue-box {
+  /* hue颜色曲线，值是角度 */
+  filter: hue-rotate(50deg);
+}
+
+.contrast-box {
+  /* contrast：对比度 */
+  filter: contrast(300%);
+}
+
+.combo-box {
+  /* invert:颜色反转 opacity：不透明度，多个滤镜用空格分开*/
+  filter: invert(80%) opacity(0.5);
+}
+
+.clip-box {
+  width: 16rem;
+  height: 9rem;
+  margin: 0px;
+  clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0);
+  /* overflow: hidden; */
+}
+
+.clip-box img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 1s;
+}
+
+.clip-box:hover img {
+  transform: scale(1.5, 1.5);
+}
+
+.clip-box01 {
+  width: 16rem;
+  height: 16rem;
+  margin: 5px;
+  background-image: url('../images/img7.jpg');
+  background-size: cover;
+  /* 
+  clip-path：路径切片，切片范围外的区域一律不会显示处理
+  polygon：多边形，参数是多边形的顶点路径坐标
+  两个值为一组，中间用,逗号分隔，一个值是横坐标，第二个是纵坐标
+  */
+  clip-path: polygon(50% 0, 0 100%, 100% 100%);
+}
+
+.clip-box02 {
+  width: 16rem;
+  height: 9rem;
+  margin: 5px;
+  background-image: url('../images/img8.jpg');
+  background-size: cover;
+  clip-path: polygon(50% 0, 0 50%, 50% 100%, 100% 50%);
+}
+
+.clip-box03 {
+  width: 16rem;
+  height: 16rem;
+  margin: 5px;
+  background-image: url('../images/img10.jpg');
+  background-size: cover;
+  clip-path: circle(50%);
+}
