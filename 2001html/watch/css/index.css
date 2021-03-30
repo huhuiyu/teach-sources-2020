@@ -28,7 +28,7 @@ body {
   /* 通过百分比高宽，露出边框效果 */
   width: 85%;
   height: 85%;
-  background-color: #fff;
+  background-color: #e0e6ef;
   clip-path: circle(50%);
   /* 中间是垂直三块布局 */
   display: flex;
@@ -87,10 +87,90 @@ body {
 /* 下方容器 */
 .container-bottom {
   flex: 1;
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
 }
+
+/* 下方中间的容器 */
+.cbc {
+  display: flex;
+  flex-direction: column;
+}
+/* 下方中间第一行 */
+.cbc > div:first-child {
+  border-bottom: 4px solid #333;
+  border-right: 4px solid #333;
+  padding-left: 3rem;
+  flex: 1;
+}
+
+.cbc > div:last-child {
+  border-left: 4px solid #333;
+  flex: 1;
+}
+/* 下方的字边距 */
+.pd-bottom {
+  padding: 0.3rem 1.5rem;
+}
+
 /* 中间的容器 */
 .container-center {
   flex: 4;
   border-top: 4px solid #333;
   border-bottom: 4px solid #333;
+  /* 垂直布局 */
+  display: flex;
+  flex-direction: column;
+}
+
+/* 中间的中间占用最大空间 */
+.ccc {
+  flex: 1;
+  /* 水平三块 */
+  display: flex;
+  align-items: center;
+  padding: 0px 2rem;
+}
+/* 分配中间区域比例 */
+.ccc > div:nth-child(1) {
+  flex: 1;
+}
+.ccc > div:nth-child(2) {
+  flex: 4;
+}
+.ccc > div:nth-child(3) {
+  flex: 1;
+}
+
+/* 中间图片的自适应部分 */
+.ccc-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 4;
+}
+
+.ccc-images > div {
+  width: 60%;
+}
+
+.ccc-images img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* 时间显示部分 */
+.time-div {
+  padding: 0.5rem 1rem;
+  text-align: center;
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+/* 秒是最后一个span，字体缩小 */
+.time-div > span:last-child {
+  font-size: 0.7em;
 }
