@@ -26,7 +26,7 @@ body {
 .container {
   width: 85%;
   height: 85%;
-  background-color: #fff;
+  background-color: #e0e6ef;
   clip-path: circle(50%);
   /* 中间是上中下布局 */
   display: flex;
@@ -69,6 +69,19 @@ body {
 /* 上右区域 */
 .ctr {
   flex: 6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.pd01 {
+  padding: 0.5rem;
+}
+
+.ty {
+  font-size: 3rem;
 }
 
 /* 上右第二行 */
@@ -80,11 +93,81 @@ body {
 /* 下方样式 */
 .container-bottom {
   flex: 1;
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
+
+/* 下方中间区域样式 */
+.cbc {
+  display: flex;
+  flex-direction: column;
+}
+.cbc > div:first-child {
+  border-right: 4px solid #333;
+  border-bottom: 4px solid #333;
+  flex: 1;
+  padding-left: 2rem;
+}
+.cbc > div:last-child {
+  border-left: 4px solid #333;
+  flex: 1;
+}
+
 /* 中间样式 */
 .container-center {
   flex: 4;
   /* 边框模拟分割线 */
   border-top: 4px solid #333;
   border-bottom: 4px solid #333;
+}
+/* 要么注册github.com，要么注册新浪微博 */
+
+/* 中间上方时间样式 */
+.center-time {
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.center-time span {
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+}
+
+.center-time span:last-child {
+  font-size: 1.2rem;
+}
+
+/* 中间区域的中间区域样式 */
+.ccc {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+}
+
+/* 分配中间三块的比例 */
+.ccc > div:first-child {
+  flex: 1;
+}
+.ccc > div:last-child {
+  flex: 1;
+}
+.ccc > div:nth-child(2) {
+  flex: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ccc > div:nth-child(2) img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.ccc > div:nth-child(2) > div {
+  /* 通过容器div可以细致调整图片大小 */
+  width: 60%;
 }
