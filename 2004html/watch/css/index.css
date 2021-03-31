@@ -27,7 +27,7 @@ body {
 .container {
   width: 85%;
   height: 85%;
-  background-color: #fff;
+  background-color: #e0e6ef;
   clip-path: circle(50%);
   /* 上中下布局 */
   display: flex;
@@ -83,8 +83,73 @@ body {
   font-size: 2rem;
   font-weight: bold;
 }
+/* 下方中间区域是两行 */
+.cbc {
+  display: flex;
+  flex-direction: column;
+}
+/* 下方第一行 */
+.cbc > div:first-child {
+  border-right: 4px solid #333333;
+  border-bottom: 4px solid #333333;
+  padding-left: 2rem;
+  flex: 1;
+}
+/* 下方第二行 */
+.cbc > div:last-child {
+  border-left: 4px solid #333333;
+  flex: 1;
+}
 
 /* 中间容器 */
 .container-center {
-  flex: 3;
+  flex: 4;
+  /* 上中下布局，中间填满 */
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+/* 时间格式 */
+.container-center > div:first-child {
+  padding: 0.5rem;
+}
+.container-center > div:first-child > span {
+  font-size: 3rem;
+  font-weight: bold;
+}
+.container-center > div:first-child > span:last-child {
+  padding: 0.5rem;
+  font-size: 1.6rem;
+}
+
+/* 中间区域的中间 */
+.ccc {
+  display: flex;
+}
+
+.ccc > div:nth-child(1) {
+  flex: 1;
+}
+.ccc > div:nth-child(3) {
+  flex: 1;
+}
+/* 中间图片的容器 */
+.ccc > div:nth-child(2) {
+  flex: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 通过约束容器控制图片大小 */
+.ccc > div:nth-child(2) > div {
+  width: 60%;
+}
+
+/* 中间图片样式自适应 */
+.ccc > div:nth-child(2) img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
