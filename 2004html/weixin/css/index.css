@@ -1,0 +1,13 @@
+/* 顶级容器全屏，无滚动条 */
+.container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 中间的区域填满 */
+.container > div:nth-child(2) {
+  flex: 1;
+}
