@@ -1,5 +1,6 @@
 body {
   margin: 0px;
+  overflow: hidden;
 }
 
 /* 整体容器 */
@@ -8,9 +9,82 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: #dcdcdc;
 }
 
 /* 中间填满 */
 .container > div:nth-child(2) {
   flex: 1;
+  background-color: #ffffff;
+}
+
+/* 选择器a,选择器b 表示a或者b都可以 */
+.container > div:first-child,
+.container > div:last-child {
+  padding: 0.2rem 0.5rem;
+}
+
+/* 上方分散对齐 */
+.container > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+}
+
+/* 下方space-around对齐 */
+.container > div:last-child {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* 下方图标样式 */
+.bottom-icon {
+  text-align: center;
+}
+
+.bottom-icon .iconfont {
+  font-size: 2rem;
+}
+
+.bottom-icon > div:last-child {
+  font-size: 0.8rem;
+}
+
+/* 激活的图标样式 */
+.active {
+  color: #00cc00;
+}
+
+/* 聊天区域 */
+.chat-div {
+  display: flex;
+  padding: 0.5rem 0.8rem;
+  border-bottom: 1px solid #dcdcdc;
+  align-items: center;
+}
+
+.chat-div img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 10%;
+}
+
+/* 聊天信息区域填满 */
+.chat-div > div:nth-child(2) {
+  flex: 1;
+  padding: 0px 0.5rem;
+}
+
+.chat-name {
+  font-weight: bold;
+}
+
+.chat-info {
+  font-size: 0.8rem;
+  color: #999999;
+}
+
+/* 局部滚动条样式 */
+.scroll-div {
+  overflow: auto;
 }

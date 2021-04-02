@@ -10,14 +10,13 @@
 /* 这段样式是根据项目和图标变化实时更新的 */
 @font-face {
   font-family: 'iconfont'; /* project id 2458662 */
-  src: url('//at.alicdn.com/t/font_2458662_0b7d45a8yymp.eot');
-  src: url('//at.alicdn.com/t/font_2458662_0b7d45a8yymp.eot?#iefix')
+  src: url('//at.alicdn.com/t/font_2458662_wqtqfvd05xf.eot');
+  src: url('//at.alicdn.com/t/font_2458662_wqtqfvd05xf.eot?#iefix')
       format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_2458662_0b7d45a8yymp.woff2') format('woff2'),
-    url('//at.alicdn.com/t/font_2458662_0b7d45a8yymp.woff') format('woff'),
-    url('//at.alicdn.com/t/font_2458662_0b7d45a8yymp.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_2458662_0b7d45a8yymp.svg#iconfont')
-      format('svg');
+    url('//at.alicdn.com/t/font_2458662_wqtqfvd05xf.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_2458662_wqtqfvd05xf.woff') format('woff'),
+    url('//at.alicdn.com/t/font_2458662_wqtqfvd05xf.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_2458662_wqtqfvd05xf.svg#iconfont') format('svg');
 }
 
 /* 控制svg离线版本图标的样式，离线版本不需要上面的样式 */
