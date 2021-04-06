@@ -1,0 +1,90 @@
+body {
+  margin: 0px;
+}
+
+/* 整体上中下 */
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-color: #dcdcdc;
+}
+
+/* 中间区域填满，允许滚动条 */
+.container > div:nth-child(2) {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* 上方布局 */
+.container > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.2rem 0.5rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.container > div:first-child .iconfont {
+  font-weight: normal;
+}
+
+/* 下方样式 */
+.container > div:last-child {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  padding: 0.2rem 0.5px;
+}
+
+/* 图标样式 */
+.container > div:last-child .iconfont {
+  font-size: 2rem;
+}
+
+/* 激活图标 */
+.active {
+  color: #00cc00;
+}
+
+/* 通讯录样式 */
+.txl {
+  display: flex;
+  background-color: #ffffff;
+  align-items: center;
+  padding: 0.2rem 0.5rem;
+  margin-bottom: 1px;
+}
+/* 后面的元素填满 */
+.txl > div:last-child {
+  flex: 1;
+  padding: 0.2rem;
+}
+/* 图片缩小模拟图标 */
+.txl img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 10%;
+}
+
+/* 通讯录分割文字样式 */
+.divider {
+  font-size: 0.8rem;
+  padding: 0.2rem 0.5rem;
+}
+
+/* 浮动菜单样式 */
+.menus {
+  position: fixed;
+  top: 40%;
+  right: 0px;
+  width: 1.2rem;
+}
+
+.menus a {
+  display: inline-block;
+  color: #000;
+  text-decoration: none;
+  padding: 0.2rem 0px;
+}
