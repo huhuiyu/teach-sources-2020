@@ -1,0 +1,85 @@
+/* 整体布局上中下 */
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: #dcdcdc;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* 中间填满，背景白色 */
+.container > div:nth-child(2) {
+  flex: 1;
+  background-color: #ffffff;
+  /* 中间有滚动条 */
+  overflow-y: auto;
+}
+
+/* 上方左右分散对齐 */
+.container > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  /* 间距和字体 */
+  padding: 0.5rem 0.8rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* 下方图标区域样式 */
+.bottom-icon {
+  text-align: center;
+}
+/* 图标变大 */
+.bottom-icon .iconfont {
+  font-size: 2rem;
+}
+/* 字体 */
+.font01 {
+  font-size: 0.8rem;
+}
+
+/* 激活的图标 */
+.active {
+  color: #00cc00;
+}
+
+/* 下方的布局 */
+.container > div:last-child {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem 0px;
+}
+
+/* 聊天信息区域样式 */
+.chat-div {
+  display: flex;
+  padding: 0.5rem 0px 0.5rem 0.8rem;
+}
+
+.chat-div > div:nth-child(2) {
+  /* 中间填满 */
+  flex: 1;
+  border-bottom: 1px solid #dcdcdc;
+  padding: 0px 0.2rem;
+}
+
+.chat-div > div:nth-child(3) {
+  border-bottom: 1px solid #dcdcdc;
+  padding-right: 0.8rem;
+}
+
+.chat-div img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 10%;
+}
+
+/* 聊天字体相关 */
+.font02 {
+  font-weight: bold;
+}
+
+.font03 {
+  color: #999999;
+  font-size: 0.8rem;
+}
