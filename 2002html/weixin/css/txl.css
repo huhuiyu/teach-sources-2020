@@ -1,0 +1,61 @@
+/* 整体是三块，全屏上中下 */
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-color: #dcdcdc;
+}
+/* 中间区域占满 */
+.container > div:nth-child(2) {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* 上方样式 */
+.container > div:first-child {
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* 下方样式 */
+.container > div:last-child {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.container > div:last-child .iconfont {
+  font-size: 2rem;
+}
+
+.active {
+  color: #00cc00;
+}
+
+.txl {
+  display: flex;
+  background-color: #ffffff;
+  align-items: center;
+  padding: 0.5rem 0.8rem;
+}
+
+.txl img {
+  width: 3rem;
+  height: 3rem;
+}
+
+.txl > div:last-child {
+  flex: 1;
+  padding-left: 0.8rem;
+}
+
+/* 分隔线样式 */
+.divider {
+  padding: 0.5rem 0.8rem;
+  font-size: 0.8rem;
+}

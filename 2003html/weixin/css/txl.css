@@ -1,0 +1,79 @@
+/* 整体全屏上中下布局 */
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #dcdcdc;
+}
+
+/* 中间区域占满 */
+.container > div:nth-child(2) {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* 上方的样式 */
+.container > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 0.5rem 0.8rem;
+}
+
+/* 下方的样式 */
+.container > div:last-child {
+  padding: 0.5rem 0px;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.container > div:last-child .iconfont {
+  font-size: 2rem;
+}
+
+.active {
+  color: #00cc00;
+}
+
+/* 通讯录样式 */
+.txl {
+  display: flex;
+  background-color: #ffffff;
+  align-items: center;
+  padding: 0.5rem 0.8rem;
+}
+
+.txl > div:last-child {
+  flex: 1;
+  padding-left: 0.5rem;
+}
+
+.txl img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 10%;
+}
+
+/* 分隔文本样式 */
+.divider {
+  padding: 0.5rem 0.8rem;
+  font-size: 0.8rem;
+}
+
+/* 右侧菜单样式 */
+.menus {
+  position: fixed;
+  top: 30%;
+  right: 0px;
+  width: 1.2rem;
+  text-align: center;
+}
+
+.menus a {
+  text-decoration: none;
+  padding-bottom: 0.2rem;
+}
