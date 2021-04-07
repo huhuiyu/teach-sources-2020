@@ -1,0 +1,63 @@
+/* 整体上中下布局 */
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #dcdcdc;
+}
+
+/* 中间填满，内容超出出现滚动条 */
+.container > div:nth-child(2) {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* 上方菜单布局 */
+.container > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  font-weight: bold;
+}
+
+/* 下方菜单样式 */
+.container > div:last-child {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.container > div:last-child .iconfont {
+  font-size: 2rem;
+}
+
+.active {
+  color: #00cc00;
+}
+
+/* 通讯录样式 */
+.txl {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.8rem;
+  background-color: #ffffff;
+}
+
+.txl > div:last-child {
+  flex: 1;
+  padding-left: 0.5rem;
+}
+
+.txl img {
+  width: 3rem;
+  height: 3rem;
+}
+
+/* 分割区域样式 */
+.divider {
+  padding: 0.5rem 0.8rem;
+  font-size: 0.8rem;
+}

@@ -12,6 +12,7 @@
 .container > div:nth-child(2) {
   flex: 1;
   background-color: #ffffff;
+  overflow-y: auto;
 }
 
 /* 选择器a,选择器b a或者b */
