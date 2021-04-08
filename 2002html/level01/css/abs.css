@@ -1,0 +1,92 @@
+.border-box {
+  border: 1px solid #ff0000;
+  /*
+    box-sizing: border-box;
+    表示将盒模型的边框宽度计算到总宽度里面
+    例如设置元素的宽度为100px，边框为2px，最终总宽度是100px
+    而不是默认盒模型的100px加上两个2px的边框 
+  */
+  box-sizing: border-box;
+}
+
+.box01 {
+  width: 16rem;
+  height: 9rem;
+}
+
+.box02 {
+  position: absolute;
+  top: 20px;
+  left: 5rem;
+}
+
+.box03 {
+  width: 16rem;
+  height: 9rem;
+  /* 
+    position: relative;相对定位
+    可以将子元素的绝对定位坐标体系约束成本元素的位置
+    如果要使用绝对定位，最好是搭配相对定位
+  */
+  position: relative;
+}
+
+.box03 > div {
+  position: absolute;
+  top: 20px;
+  left: 5rem;
+}
+
+.box04 {
+  width: 15rem;
+  height: 15rem;
+  position: relative;
+}
+
+.box04 > div {
+  position: absolute;
+  width: 8rem;
+  height: 8rem;
+}
+
+.box04 > div:nth-child(1) {
+  background-color: #ff0000;
+  top: 1rem;
+  left: 1rem;
+  z-index: 5;
+}
+
+.box04 > div:nth-child(2) {
+  background-color: #ff00ff;
+  top: 3rem;
+  left: 3rem;
+  /* z-index：z轴值，如果发生遮挡，值越大越在前面 */
+  z-index: 10;
+}
+
+.box04 > div:nth-child(3) {
+  background-color: #00ffff;
+  top: 5rem;
+  left: 6rem;
+  z-index: 5;
+}
+
+.box04 > div:hover {
+  z-index: 15;
+}
+
+.box05 {
+  width: 10rem;
+  height: 10rem;
+  position: relative;
+}
+/* 圆的样式 */
+.box05 > div:last-child {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #ff0000;
+  border-radius: 50%;
+}

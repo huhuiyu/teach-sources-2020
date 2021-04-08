@@ -26,7 +26,7 @@
 
     <!-- 中间是通讯录 -->
     <div>
-
+      <a name="top"></a>
       <!-- 单个通讯录 -->
       <div class="txl">
         <div>
@@ -64,7 +64,7 @@
       </div>
 
       <div class="divider">
-        我的企业及企业联系人
+        我的企业及企业联系人 <a name="qiye"></a>
       </div>
 
       <div class="txl">
@@ -74,7 +74,9 @@
         <div>湖南墨池信息科技有限公司</div>
       </div>
 
-      <div class="divider">A</div>
+      <div class="divider">
+        A <a name="a"></a>
+      </div>
 
       <div class="txl">
         <div>
@@ -219,14 +221,16 @@
     <div>
 
       <!-- 每一块都是上下两个部分 -->
-      <div class="bottom-icon">
+      <div class="bottom-icon" 
+        onclick="location='index.html'">
         <div>
           <span class="iconfont">&#xe86f;</span>
         </div>
         <div>微信</div>
       </div>
 
-      <div class="bottom-icon active">
+      <div class="bottom-icon active"
+        onclick="location='txl.html'">
         <div>
           <span class="iconfont">&#xe6ae;</span>
         </div>
@@ -249,6 +253,20 @@
 
     </div>
 
+  </div>
+
+  <!-- 右侧菜单 -->
+  <div class="menus">
+    <!-- 
+      超链接锚点（就是页面内跳转）
+      通过 a name="锚点名称" 来定义锚点的位置
+      通过点击 a href="#锚点名称" 来跳转到对应的锚点位置
+    -->
+    <a href="#top">↑</a>
+    <a href="#qiye">※</a>
+    <a href="#a">A</a>
+    <a href="#">B</a>
+    <a href="#">C</a>
   </div>
 
 </body>
