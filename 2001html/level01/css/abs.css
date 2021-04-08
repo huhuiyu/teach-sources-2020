@@ -1,0 +1,140 @@
+.border-box {
+  border: 1px solid #ff0000;
+  /* 
+    box-sizing:盒模型的大小模式
+    border-box表示边框计算到盒子的总宽度里面
+    意思是，如果设置盒子的宽度为100px，边框1px，那么总宽度还是100px
+    而默认的盒模型是100px+1px*2
+   */
+  box-sizing: border-box;
+}
+
+.box01 {
+  width: 10rem;
+  height: 5rem;
+}
+
+.box02 {
+  position: absolute;
+  top: 10px;
+  left: 5rem;
+}
+
+/* 绝对定位的容器 */
+.box03-container {
+  /* 
+    position: relative;表示相对定位，不是元素自己的定位
+    而是里面的元素如果有绝对定位，那么定位的坐标是参照本元素
+  */
+  position: relative;
+  width: 15rem;
+  height: 10rem;
+}
+
+.box03 {
+  position: absolute;
+  top: 10px;
+  left: 5rem;
+}
+
+/* 绝对定位遮挡的次序控制 */
+/* 容器 */
+.box04-container {
+  position: relative;
+  width: 10rem;
+  height: 10rem;
+}
+
+.box04-container > div {
+  position: absolute;
+  width: 5rem;
+  height: 5rem;
+}
+
+.box04-container > div:nth-child(1) {
+  top: 1rem;
+  left: 1rem;
+  background-color: #ff0000;
+  z-index: 10;
+}
+
+.box04-container > div:nth-child(2) {
+  top: 2rem;
+  left: 2rem;
+  background-color: #ffff00;
+  /* 
+  z-index: z轴的大小，如果元素发生重叠的情况
+  z轴值越大越显示在上方
+  */
+  z-index: 20;
+}
+
+.box04-container > div:nth-child(3) {
+  top: 3rem;
+  left: 3rem;
+  background-color: #00ffff;
+  z-index: 10;
+}
+
+.box04-container > div:hover {
+  z-index: 100;
+}
+
+.box05-container {
+  position: relative;
+  width: 10rem;
+  height: 10rem;
+}
+.box05-container > div:first-child {
+  width: 10rem;
+  height: 10rem;
+  background-color: #00cc00;
+}
+.box05-container > div:last-child {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 2rem;
+  height: 2rem;
+  background-color: #ff0000;
+  border-radius: 50%;
+  transform: translate(20%, -20%);
+  color: #ffffff;
+  /* 内容居中 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box06-container {
+  position: relative;
+  width: 10rem;
+  height: 10rem;
+  overflow: hidden;
+}
+
+.box06-container > div {
+  width: 10rem;
+  height: 10rem;
+}
+
+.box06-container > div:last-child {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* 
+  rgba颜色是红绿蓝透明四个值
+  前三个是0-255取值范围,透明是0-1取值范围，越大越不透
+  */
+  background-color: rgba(255, 0, 0, 0.6);
+  color: #ffffff;
+  transform: translate(100%, 100%);
+  transition: transform 1s;
+}
+
+.box06-container:hover > div:last-child {
+  transform: translate(0%, 0%);
+}

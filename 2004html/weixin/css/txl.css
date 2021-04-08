@@ -61,3 +61,17 @@
   padding: 0.5rem 0.8rem;
   font-size: 0.8rem;
 }
+
+/* 右侧浮动 */
+.menus {
+  position: fixed;
+  top: 30%;
+  right: 0px;
+  width: 1.2rem;
+  text-align: center;
+}
+
+.menus a {
+  text-decoration: none;
+  padding-bottom: 0.5rem;
+}

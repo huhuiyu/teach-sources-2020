@@ -1,0 +1,120 @@
+.border-box {
+  border: 1px solid #ff0000;
+  /* 
+    box-sizing:盒模型大小模式
+    border-box:表示边框计入盒子的宽度
+    比如盒子的width为100px，border宽度为2px，那么总宽还是100px
+    而默认盒模型会将宽度变成100px+2px*2
+  */
+  box-sizing: border-box;
+}
+
+.box01 {
+  width: 15rem;
+  height: 5rem;
+}
+
+.box02 {
+  position: absolute;
+  top: 10px;
+  left: 5rem;
+}
+
+.box03 {
+  /*  
+    position: relative，相对定位
+    如果子元素有绝对定位，那么定位坐标会变成本元素的位置
+  */
+  position: relative;
+  width: 15rem;
+  height: 5rem;
+}
+
+.box03 > div {
+  position: absolute;
+  top: 10px;
+  left: 5rem;
+}
+
+.box04 {
+  width: 15rem;
+  height: 15rem;
+  position: relative;
+}
+
+.box04 > div {
+  position: absolute;
+  width: 8rem;
+  height: 8rem;
+}
+
+.box04 > div:nth-child(1) {
+  background-color: #ff0000;
+  top: 1rem;
+  left: 1rem;
+  z-index: 10;
+}
+
+.box04 > div:nth-child(2) {
+  background-color: #ff00ff;
+  top: 2rem;
+  left: 2rem;
+  /* 
+    z-index，z轴的数字，越大越靠前
+    如果元素重叠，值大的会遮挡住值小
+  */
+  z-index: 11;
+}
+
+.box04 > div:nth-child(3) {
+  background-color: #ffff00;
+  top: 3rem;
+  left: 3rem;
+  z-index: 10;
+}
+
+.box04 > div:hover {
+  z-index: 20;
+}
+
+.box05 {
+  position: relative;
+  width: 10rem;
+  height: 10rem;
+}
+
+/* 圆点 */
+.box05 > div:last-child {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #ff0000;
+  border-radius: 50%;
+  transform: translate(50%, -50%);
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box06 {
+  position: relative;
+  width: 16rem;
+  height: 9rem;
+}
+
+.box06 > div:last-child {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  /*
+    rgba颜色（红，绿，蓝，不透明度）
+    颜色数值是0-255，不透明度是0-1
+  */
+  background-color: rgba(255, 0, 0, 0.5);
+  color: #fff;
+}
