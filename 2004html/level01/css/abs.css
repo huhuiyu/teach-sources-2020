@@ -103,6 +103,7 @@
   position: relative;
   width: 16rem;
   height: 9rem;
+  overflow: hidden;
 }
 
 .box06 > div:last-child {
@@ -117,4 +118,10 @@
   */
   background-color: rgba(255, 0, 0, 0.5);
   color: #fff;
+  transform: translate(-100%, 0%);
+  transition: transform 1s;
+}
+
+.box06:hover > div:last-child {
+  transform: translate(0%, 0%);
 }

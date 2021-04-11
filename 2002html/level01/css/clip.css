@@ -1,0 +1,90 @@
+/* 容器 */
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+/* 左边 */
+.container > div:first-child {
+  width: 50%;
+  height: 100%;
+}
+/* 右边 */
+.container > div:last-child {
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  background-image: url('../images/img1.jpg');
+  background-size: cover;
+}
+
+/* 左上 */
+.container > div:first-child > div:first-child {
+  height: 50%;
+  overflow: hidden;
+  position: relative;
+  background-image: url('../images/img2.jpg');
+  background-size: cover;
+}
+
+/* 左下 */
+.container > div:first-child > div:last-child {
+  height: 50%;
+  overflow: hidden;
+  position: relative;
+  background-image: url('../images/img4.jpg');
+  background-size: cover;
+}
+
+/* 右边遮罩 */
+.container > div:last-child > div:last-child {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  transform: translate(100%, 0%);
+  transition: transform 1s;
+}
+.container > div:last-child:hover > div:last-child {
+  transform: translate(0%, 0%);
+}
+
+/* 左上遮罩 */
+.container > div:first-child > div:first-child > div:last-child {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+
+  transform: translate(0%, -100%);
+  transition: transform 1s;
+}
+
+.container > div:first-child > div:first-child:hover > div:last-child {
+  transform: translate(0%, 0%);
+}
+
+/* 左下遮罩 */
+.container > div:first-child > div:last-child > div:last-child {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  transform: translate(0, 100%);
+  transition: transform 1s;
+}
+
+.container > div:first-child > div:last-child:hover > div:last-child {
+  transform: translate(0%, 0%);
+}
