@@ -1,0 +1,116 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+/* 左边大块 */
+.container > div:first-child {
+  width: 50%;
+  height: 100%;
+}
+/* 右边 */
+.container > div:last-child {
+  width: 50%;
+  height: 100%;
+  background-image: url('../images/img1.jpg');
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+/* 左上 */
+.container > div:first-child > div:first-child {
+  width: 100%;
+  height: 50%;
+  background-image: url('../images/img2.jpg');
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+/* 左下 */
+.container > div:first-child > div:last-child {
+  width: 100%;
+  height: 50%;
+  background-image: url('../images/img3.jpg');
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+/* 右边的遮罩 */
+.container > div:last-child > div:last-child {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  transform: translate(100%, 0);
+  transition: transform 0.5s;
+}
+
+.container > div:last-child:hover > div:last-child {
+  transform: translate(0%, 0%);
+}
+/* 左上遮罩 */
+.container > div:first-child > div:first-child > div:last-child {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  transform: translate(0%, -100%);
+  transition: transform 0.5s;
+}
+
+.container > div:first-child > div:first-child:hover > div:last-child {
+  transform: translate(0%, 0%);
+}
+
+/* 左下遮罩 */
+.container > div:first-child > div:last-child > div:last-child {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  transform: translate(0%, 100%);
+  transition: transform 0.5s;
+}
+
+.container > div:first-child > div:last-child:hover > div:last-child {
+  transform: translate(0%, 0%);
+}
+
+/* 
+  如果不是需要遮挡的效果，一般不需要绝对定位！！！！！！！！
+  必须使用绝对定位的时候，一定要在它的父元素上面使用相对定义，
+  以控制元素的位置！！！！！！！
+*/
+
+.wys {
+  background-color: #ffffff;
+  color: #ff0000;
+}
+
+/*
+::伪元素，虚拟的元素
+before表示元素前面的元素
+after表示元素后面的元素
+*/
+.wys::before {
+  /* content，表示伪元素里面的内容 */
+  content: '伪元素内容→';
+  /* 还可以调整样式，和真的一样 */
+  font-size: 0.8rem;
+  color: #0000ff;
+}
+
+.wys::after {
+  content: '←都是假的';
+  text-decoration: underline;
+  font-size: 1.2rem;
+}
