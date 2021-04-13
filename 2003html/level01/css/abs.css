@@ -1,0 +1,125 @@
+.border-box {
+  border: 1px solid #ff0000;
+  /*
+  box-sizing: border-box;表示border算到总宽度里面
+  */
+  box-sizing: border-box;
+}
+
+.box01 {
+  width: 25rem;
+  height: 5rem;
+}
+
+.box02 {
+  position: absolute;
+  top: 20px;
+  left: 5rem;
+}
+
+.box03 {
+  width: 25rem;
+  height: 8rem;
+  /* 
+  position: relative相对定位
+  如果里面的子元素使用了绝对定位，那么坐标是相对本元素
+  如果要使用绝对定位，最好对绝对定位的父元素使用相对定位
+  且是需要遮挡效果
+  */
+  position: relative;
+}
+
+.box04 {
+  position: absolute;
+  top: 20px;
+  left: 5rem;
+}
+
+.box05 {
+  width: 16rem;
+  height: 16rem;
+  position: relative;
+}
+
+.box05 > div {
+  position: absolute;
+  width: 9rem;
+  height: 9rem;
+}
+
+.box05 > div:nth-child(1) {
+  background-color: #ff00ff;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 5;
+}
+
+.box05 > div:nth-child(2) {
+  background-color: #00ff00;
+  top: 4rem;
+  left: 4rem;
+  /* z-index，如果元素发生遮挡，值越大越靠前 */
+  z-index: 6;
+}
+
+.box05 > div:nth-child(3) {
+  background-color: #0000ff;
+  top: 5rem;
+  left: 6rem;
+  z-index: 5;
+}
+
+.box05 > div:hover {
+  z-index: 10;
+}
+
+.box06 {
+  width: 16rem;
+  height: 9rem;
+  position: relative;
+}
+
+.box06 > div:last-child {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 1.5rem;
+  width: 1.5rem;
+  background-color: #ff0000;
+  color: #ffffff;
+  border-radius: 50%;
+  /* clip-path: circle(50%); */
+  /* 通过变形精准的移动元素 */
+  transform: translate(50%, -50%);
+  /* 居中 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box07 {
+  width: 16rem;
+  height: 9rem;
+  position: relative;
+  /* 超出的部分不让显示 */
+  overflow: hidden;
+  /* clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%); */
+}
+
+.box07 > div:last-child {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  /* rgba(红，绿，蓝，不透明度),颜色是0-255，不透明度是0-1 */
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  width: 100%;
+  height: 100%;
+  /* 默认位置 */
+  transform: translate(0%, 100%);
+  transition: transform 0.5s;
+}
+
+.box07:hover > div:last-child {
+  transform: translate(0%, 0%);
+}

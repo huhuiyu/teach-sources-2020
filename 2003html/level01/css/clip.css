@@ -1,0 +1,123 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+}
+
+/* 左边大块 */
+.container > div:first-child {
+  height: 100%;
+  width: 50%;
+}
+
+/* 右边 */
+.container > div:last-child {
+  height: 100%;
+  width: 50%;
+  background-image: url('../images/img10.jpg');
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 左上 */
+.container > div:first-child > div:first-child {
+  width: 100%;
+  height: 50%;
+  background-image: url('../images/img11.jpg');
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 左下 */
+.container > div:first-child > div:last-child {
+  width: 100%;
+  height: 50%;
+  background-image: url('../images/img7.jpg');
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 右边遮罩 */
+.container > div:last-child > div:last-child {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+
+  transform: translate(100%, 0%);
+  transition: transform 0.5s;
+}
+
+.container > div:last-child:hover > div:last-child {
+  transform: translate(0%, 0%);
+}
+
+/* 左上遮罩 */
+.container > div:first-child > div:first-child > div:last-child {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  transform: translate(0%, -100%);
+  transition: transform 0.5s;
+}
+
+.container > div:first-child > div:first-child:hover > div:last-child {
+  transform: translate(0%, 0%);
+}
+
+/* 左下遮罩 */
+.container > div:first-child > div:last-child > div:last-child {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  transform: translate(0%, 100%);
+  transition: transform 0.5s;
+}
+
+.container > div:first-child > div:last-child:hover > div:last-child {
+  transform: translate(0%, 0%);
+}
+
+/* 伪元素 */
+.wys {
+  background-color: #ffffff;
+  color: #ff0000;
+}
+/*
+  伪元素是::开头
+  before表示元素前面的内容
+  after表示元素后面的内容
+*/
+.wys::before {
+  /* content，伪元素里面的内容 */
+  content: '→伪添加的[';
+  /* 伪元素还可以有样式 */
+  font-size: 0.8rem;
+}
+.wys::after {
+  content: ']←都是假的';
+  font-size: 1.2rem;
+  color: #0000ff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* 
+  如果没有遮罩效果就不要使用绝对定位！！！！！
+  如果必须是用绝对定位，一定要配合父元素的相对定位！！！！！
+*/
