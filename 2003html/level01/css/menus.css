@@ -1,0 +1,119 @@
+body {
+  /* min-最小宽高，表示不低于指定的值 */
+  min-width: 100vw;
+  min-height: 100vh;
+
+  background-image: url('../images/xunlei-bg.jpg');
+  /* 在图片不变性失真的情况下尽可能的显示完整的背景图片 */
+  background-size: cover;
+  /* 如果背景图片无法完整呈现，那么会显示中间的部分 */
+  background-position: center center;
+  /* 背景图片不会跟随页面滚动而变化 */
+  background-attachment: fixed;
+}
+
+/* 顶级菜单的整体布局 */
+.top-box {
+  padding: 0px 10rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+}
+
+.top-box img {
+  height: 2rem;
+}
+
+.top-box img:hover {
+  /* 背景图片如果是带透明的，可以使用本滤镜完成边缘发光特效 */
+  filter: drop-shadow(0px 0px 5px #ffffff);
+}
+
+.top-box:hover {
+  background-color: #000000;
+}
+
+/* 菜单容器 */
+.menus {
+  display: flex;
+}
+
+/* 单个菜单容器 */
+.menu {
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+/* 菜单字符行的效果 */
+.menu > div:nth-child(1) {
+  padding: 1rem 0.5rem;
+}
+
+/* 菜单下面横线的效果 */
+.menu > div:nth-child(2) {
+  height: 3px;
+  background-color: #ffffff;
+  transform: scaleX(0);
+  transition: transform 0.5s;
+}
+
+.menu:hover > div:nth-child(2) {
+  transform: scaleX(1);
+}
+
+/* 激活的菜单样式 */
+.active > div:nth-child(2) {
+  transform: scaleX(1);
+}
+
+/* 弹出菜单样式 */
+.pop-menu {
+  position: relative;
+}
+
+.pop-menu > div:nth-child(3) {
+  position: absolute;
+  transform: scaleY(0);
+  /* 变形的重心点设置 */
+  transform-origin: top center;
+  transition: transform 0.5s;
+  background-color: #000000;
+  color: #ffffff;
+  text-align: center;
+  /* 宽度和位置要匹配才会居中弹出 */
+  width: 6rem;
+  left: -1rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.pop-menu:hover > div:nth-child(3) {
+  transform: scaleY(1);
+}
+
+/* 弹出菜单项样式 */
+.pop-menu > div:nth-child(3) > div {
+  padding: 0.5rem 0px;
+  border-bottom: 1px solid #444444;
+}
+
+/* 最后一项没有线 */
+.pop-menu > div:nth-child(3) > div:last-child {
+  border-bottom-width: 0px;
+}
+
+/* 通过伪类模拟点击效果 */
+.click-box {
+  margin: 1rem;
+  width: 6rem;
+  text-align: center;
+}
+
+.click-box > div:nth-child(1) {
+  padding: 1rem 0px;
+}
+
+.click-box > div:nth-child(2) {
+  border-bottom: 3px solid #ffffff;
+}
