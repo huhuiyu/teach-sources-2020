@@ -100,3 +100,34 @@ body {
 .drop-menu:hover > div:nth-child(3) {
   transform: scaleY(1);
 }
+
+/* 点击菜单的容器 */
+.click-menu-box {
+  display: flex;
+  padding: 1rem;
+  color: #ffffff;
+}
+
+.click-menu {
+  position: relative;
+}
+
+.click-menu > :nth-child(2) {
+  position: absolute;
+  transform: scaleY(0);
+  transition: transform 0.5s;
+}
+
+/* :focus-within伪类，元素或者它里面的元素拥有焦点时 */
+.click-menu:focus-within > div:nth-child(1) {
+  color: #ff0000;
+}
+
+.click-menu:focus-within > div:nth-child(2) {
+  transform: scaleY(1);
+}
+
+/* 隐藏掉input元素 */
+.click-menu input {
+  width: 0px;
+}

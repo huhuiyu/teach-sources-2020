@@ -1,0 +1,67 @@
+body {
+  margin: 0px;
+}
+
+/* 微信头像和微信号信息容器 */
+.wo01 {
+  display: flex;
+  padding: 1rem 0px;
+}
+
+/* 头像样式 */
+.wo01 > div:nth-child(1) img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 10%;
+}
+
+/* 头像的留白 */
+.wo01 > div:nth-child(1) {
+  padding: 0px 1rem;
+}
+
+/* 第一行微信号区域 */
+.wxhao {
+  flex: 1;
+  /* 垂直布局分散 */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.2rem 0px 0.3rem 0px;
+}
+
+.wxhao > div:nth-child(1) {
+  font-weight: bold;
+}
+
+.wxhao > div:nth-child(2) {
+  font-size: 0.8rem;
+  color: #dcdcdc;
+}
+/* 微信号信息 */
+.wxhao-info {
+  display: flex;
+}
+.wxhao-info > div:nth-child(1) {
+  flex: 1;
+}
+
+.wxhao-info > div:nth-child(2) span {
+  /* 行内元素（span，i）无法正常使用盒模型样式 */
+  /* 需要将显示模式切换为inline-block */
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+/* 第二行样式 */
+.wo02 {
+  display: flex;
+  padding-left: 5rem;
+}
+
+.wo02 > div:nth-child(1) {
+  border: 1px solid #dcdcdc;
+  padding: 0.2rem 0.5rem;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+}

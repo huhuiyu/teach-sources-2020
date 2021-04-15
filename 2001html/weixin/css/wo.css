@@ -1,0 +1,65 @@
+body {
+  margin: 0px;
+}
+
+/* 头像和微信号容器 */
+.wo01 {
+  display: flex;
+  padding: 0.5rem 0px;
+}
+
+/* 头像 */
+.wo01 > div:nth-child(1) img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 10%;
+}
+
+/* 头像容器的左右留白 */
+.wo01 > div:nth-child(1) {
+  padding: 0px 1rem;
+}
+
+/* 微信号样式 */
+.font01 {
+  font-weight: bold;
+}
+.font02 {
+  font-size: 0.8rem;
+  color: #dcdcdc;
+  display: flex;
+}
+
+.font02 > div:nth-child(1) {
+  flex: 1;
+}
+
+.font02 > div:nth-child(2) > span {
+  /* span元素（行内）不能直接设置盒模型，需要inline-block */
+  display: inline-block;
+  padding-right: 1rem;
+}
+
+/* 微信号两行垂直上下分开 */
+.wxhao {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.1rem 0px 0.3rem 0px;
+}
+
+/* 第二行，状态 */
+.wo02 {
+  display: flex;
+  /* 为了对齐，将左边留白和上方图片容器的宽度一致 */
+  padding-left: 5rem;
+}
+
+.wo02 > div:nth-child(1) {
+  border: 1px solid #dcdcdc;
+  border-radius: 1rem;
+  padding: 0.2rem 0.4rem;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+}

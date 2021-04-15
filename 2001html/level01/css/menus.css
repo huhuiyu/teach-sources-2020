@@ -25,9 +25,11 @@ body {
   height: 2rem;
 }
 
-/* .top-box img:hover {
-  
-} */
+.top-box img:hover {
+  /* 只有带透明层的png图片才会有很好的效果 */
+  filter: drop-shadow(0px 0px 5px #ffffff);
+  /* box-shadow: 0px 0px 5px #ffffff; */
+}
 
 .top-box:hover {
   background-color: #000000;
@@ -101,4 +103,34 @@ body {
 
 .submenu:hover > div:nth-child(3) {
   transform: scaleY(1);
+}
+
+/* 通过样式模拟点击菜单效果 */
+.click-menus-box {
+  display: flex;
+  margin: 1rem;
+  color: #ffffff;
+}
+
+.click-menus {
+  position: relative;
+}
+
+.click-menus > div:nth-child(2) {
+  position: absolute;
+  transform: scaleY(0);
+  transition: transform 0.5;
+}
+/* :focus-within伪类，当元素或者里面的元素拥有焦点 */
+.click-menus:focus-within > div:nth-child(1) {
+  color: #ff0000;
+}
+
+.click-menus:focus-within > div:nth-child(2) {
+  transform: scaleY(1);
+}
+
+/* 隐藏input元素 */
+.click-menus input {
+  width: 0px;
 }
