@@ -8,14 +8,35 @@
   <title>黑暗骑士的网站</title>
   <!-- 任何时候都不要使用/开头的绝对路径 -->
   <!-- 访问目录中文件，直接用目录名称开头 -->
+  <!-- 
+    最常用的相对目录编写方式就是
+    ./ 从当前文件夹开始（默认模式，所以可以不写）
+    ../ 切换到上一级的目录，多级用多个../，而不是多个.
+    永远不要使用/开头的绝对路径，
+    上级目录不要溢出到项目目录的外面
+  -->
   <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="css/iconfont.css">
+
+  <link rel="stylesheet" href="css/index.css">
 </head>
 
-<body>
-  <div>
+<body class="min-full-page bg-img">
+
+  <div class="tc pd15">
     <i class="iconfont">&#xe60d;</i>
     <span>欢迎来到黑暗骑士的网站</span>
+  </div>
+
+  <div class="tc pd15">
+    <a href="homework/index.html">我的作业</a>
+    |
+    <a href="projects/index.html">我的作品</a>
+  </div>
+
+  <div class="tc">测试页面</div>
+  <div class="tc pd15">
+    <a href="test/iconfont.html">测试图标字体</a>
   </div>
 
 </body>

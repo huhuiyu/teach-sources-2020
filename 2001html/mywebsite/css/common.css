@@ -1,3 +1,34 @@
 body {
   margin: 0px;
 }
+
+/* 公用文字对齐样式 */
+.tl {
+  text-align: left;
+}
+.tc {
+  text-align: center;
+}
+.tr {
+  text-align: right;
+}
+/* 公用内边距样式 */
+.pd10 {
+  padding: 1rem;
+}
+.pd15 {
+  padding: 1.5rem;
+}
+
+/* 最佳背景图片样式 */
+.bg-img {
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* 最小全屏高宽 */
+.min-full-page {
+  min-width: 100vw;
+  min-height: 100vh;
+}

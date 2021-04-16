@@ -1,0 +1,176 @@
+body {
+  margin: 0px;
+}
+
+/* 全屏居中 */
+.watch {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 表盘的底色和整体大小 */
+.watch > div {
+  width: 780px;
+  height: 780px;
+  background-color: #555;
+  clip-path: circle(50%);
+  /* 固定内部区域到中间 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 内部圆环样式 */
+.container {
+  /* 通过百分比高宽，露出边框效果 */
+  width: 85%;
+  height: 85%;
+  background-color: #e0e6ef;
+  clip-path: circle(50%);
+  /* 中间是垂直三块布局 */
+  display: flex;
+  flex-direction: column;
+}
+
+/* 上方容器 */
+.container-top {
+  flex: 1;
+  display: flex;
+}
+/* 上左容器 */
+.ctl {
+  flex: 4.5;
+  border-right: 4px solid #333;
+  /* 内容靠右下 */
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.font01 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+.mr01 {
+  margin: 0.2rem;
+}
+.fs {
+  /* 字符间距调整 */
+  letter-spacing: 0.3rem;
+}
+
+/* 上右容器 */
+.ctr {
+  flex: 5.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+/* 上右第二行布局 */
+.ctr02 {
+  display: flex;
+  align-items: center;
+}
+
+.font02 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.mr02 {
+  margin: 0.2rem 0.5rem 0.2rem 0.2rem;
+}
+
+/* 下方容器 */
+.container-bottom {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* 下方中间的容器 */
+.cbc {
+  display: flex;
+  flex-direction: column;
+}
+/* 下方中间第一行 */
+.cbc > div:first-child {
+  border-bottom: 4px solid #333;
+  border-right: 4px solid #333;
+  padding-left: 3rem;
+  flex: 1;
+}
+
+.cbc > div:last-child {
+  border-left: 4px solid #333;
+  flex: 1;
+}
+/* 下方的字边距 */
+.pd-bottom {
+  padding: 0.3rem 1.5rem;
+}
+
+/* 中间的容器 */
+.container-center {
+  flex: 4;
+  border-top: 4px solid #333;
+  border-bottom: 4px solid #333;
+  /* 垂直布局 */
+  display: flex;
+  flex-direction: column;
+}
+
+/* 中间的中间占用最大空间 */
+.ccc {
+  flex: 1;
+  /* 水平三块 */
+  display: flex;
+  align-items: center;
+  padding: 0px 2rem;
+}
+/* 分配中间区域比例 */
+.ccc > div:nth-child(1) {
+  flex: 1;
+}
+.ccc > div:nth-child(2) {
+  flex: 4;
+}
+.ccc > div:nth-child(3) {
+  flex: 1;
+}
+
+/* 中间图片的自适应部分 */
+.ccc-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 4;
+}
+
+.ccc-images > div {
+  width: 60%;
+}
+
+.ccc-images img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* 时间显示部分 */
+.time-div {
+  padding: 0.5rem 1rem;
+  text-align: center;
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+/* 秒是最后一个span，字体缩小 */
+.time-div > span:last-child {
+  font-size: 0.7em;
+}

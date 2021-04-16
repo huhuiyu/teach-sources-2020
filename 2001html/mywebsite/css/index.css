@@ -1,0 +1,4 @@
+body {
+  /* 任何地方都应该使用相对路径 */
+  background-image: url('../images/img1.jpg');
+}
