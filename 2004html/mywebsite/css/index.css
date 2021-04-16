@@ -1,0 +1,9 @@
+body {
+  /* 不论什么地方都要用相对路径 */
+  background-image: url('../images/img1.jpg');
+}
+
+.mybg {
+  /* 背景滤镜，和filter一样，只是作用在背景上 */
+  backdrop-filter: blur(5px);
+}

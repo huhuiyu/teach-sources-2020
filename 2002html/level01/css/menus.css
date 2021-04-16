@@ -101,3 +101,38 @@ body {
   color: #0000ff;
   cursor: pointer;
 }
+
+/* css模拟点击菜单 */
+.click-menu-box {
+  display: flex;
+  padding: 1rem;
+  color: #ffffff;
+}
+
+/* 菜单项 */
+.click-menu {
+  position: relative;
+}
+
+.click-menu > div:nth-child(2) {
+  position: absolute;
+  transform: scaleY(0);
+  transition: transform 0.5s;
+}
+/*
+:focus-within伪类，表示元素或它里面的元素拥有焦点时 
+*/
+.click-menu:focus-within > div:nth-child(1) {
+  color: #ff0000;
+}
+
+.click-menu:focus-within > div:nth-child(2) {
+  transform: scaleY(1);
+}
+
+.click-menu input {
+  width: 0px;
+  padding: 0px;
+  margin: 0px;
+  border-width: 0px;
+}

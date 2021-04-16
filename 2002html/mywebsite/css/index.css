@@ -1,0 +1,13 @@
+body {
+  /* 都要使用相对路径！！！ */
+  background-image: url('../images/img1.jpg');
+}
+
+.tc {
+  text-align: center;
+}
+
+.mybg {
+  /* 背景模糊 */
+  backdrop-filter: blur(5px);
+}

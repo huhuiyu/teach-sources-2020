@@ -1,0 +1,41 @@
+body {
+  margin: 0px;
+}
+/* 
+ *号选择器表示所有的元素都会套用！！！！
+ word-break: break-all;表示内容超出宽度会强制折断单词换行
+*/
+* {
+  word-break: break-all;
+}
+
+/* 最小全屏 */
+.min-full-page {
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+/* 最佳背景图片样式 */
+.bg-img {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+}
+
+/* 通用内边距 */
+.pd10 {
+  padding: 1rem;
+}
+.pd15 {
+  padding: 1.5rem;
+}
+/* 文字对齐 */
+.tl {
+  text-align: left;
+}
+.tc {
+  text-align: center;
+}
+.tr {
+  text-align: right;
+}

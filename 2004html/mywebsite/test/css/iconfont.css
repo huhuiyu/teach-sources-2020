@@ -1,0 +1,11 @@
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.tc {
+  text-align: center;
+}

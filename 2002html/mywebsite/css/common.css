@@ -1,0 +1,33 @@
+body {
+  margin: 0px;
+}
+/* 
+  *选择器表示所有元素 
+  word-break: break-all;
+    表示不论什么情况，字符超过容器宽度就会折行
+*/
+* {
+  word-break: break-all;
+}
+
+/* 公用内边距 */
+.pd10 {
+  padding: 1rem;
+}
+
+.pd15 {
+  padding: 1.5rem;
+}
+
+/* 最小全屏样式 */
+.full-page {
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+/* 最佳背景图片设置 */
+.bg-img {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+}

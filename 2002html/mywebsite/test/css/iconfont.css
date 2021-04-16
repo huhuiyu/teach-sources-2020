@@ -1,0 +1,15 @@
+.tc {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.mybox {
+  border: 1px solid #ff0000;
+}

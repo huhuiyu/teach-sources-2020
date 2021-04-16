@@ -1,0 +1,66 @@
+body {
+  margin: 0px;
+}
+
+/* 头像和微信号 */
+.wo01 {
+  display: flex;
+  padding: 1rem 0px;
+}
+
+.wo01 > div:nth-child(1) img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 10%;
+}
+
+/* 头像两边的留白 */
+.wo01 > div:nth-child(1) {
+  padding: 0px 1rem;
+}
+
+/* 我的状态 */
+.wo02 {
+  display: flex;
+  /* 通过左边留白和上方的图片区域一样完成对齐 */
+  padding-left: 5rem;
+}
+
+.wo02 > div:nth-child(1) {
+  border: 1px solid #dcdcdc;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.5rem;
+}
+
+/* 微信号区块样式 */
+.wxhao {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.1rem 0px 0.3rem 0px;
+}
+
+.wxhao > div:nth-child(1) {
+  font-weight: bold;
+}
+
+/* 微信号信息区块样式 */
+.wxhao-info {
+  display: flex;
+  font-size: 0.8rem;
+  color: #999999;
+}
+
+/* 微信号撑满 */
+.wxhao-info > div:nth-child(1) {
+  flex: 1;
+}
+
+/* 图标的间距 */
+.wxhao-info span {
+  /* 行内元素不能直接设置盒模型，需要调整显示模式为inline-block */
+  display: inline-block;
+  margin-right: 1rem;
+}

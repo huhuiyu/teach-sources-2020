@@ -1,7 +1,3 @@
-body {
-  margin: 0px;
-}
-
 /* 这一段代码不论是那个iconfont项目都是一样的 */
 .iconfont {
   font-family: 'iconfont' !important;
@@ -21,33 +17,4 @@ body {
     url('//at.alicdn.com/t/font_2458994_57tcfg68dww.woff') format('woff'),
     url('//at.alicdn.com/t/font_2458994_57tcfg68dww.ttf') format('truetype'),
     url('//at.alicdn.com/t/font_2458994_57tcfg68dww.svg#iconfont') format('svg');
-}
-
-.font01 {
-  font-size: 2rem;
-  color: #ff0000;
-}
-
-.font02 {
-  font-size: 3rem;
-}
-
-.font02:hover {
-  color: #0000ff;
-}
-
-/* 离线svg版本的样式调整 */
-.svg-font {
-  /* 只能通过宽高控制大小 */
-  width: 3rem;
-  height: 3rem;
-}
-.svg-font > path {
-  /* 通过path的fill调整颜色 */
-  fill: #ff0000;
-}
-
-/* 演示图标 */
-.demo-icons {
-  font-size: 5rem;
 }
