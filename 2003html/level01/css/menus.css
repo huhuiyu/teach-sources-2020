@@ -108,6 +108,7 @@ body {
   margin: 1rem;
   width: 6rem;
   text-align: center;
+  position: relative;
 }
 
 .click-box > div:nth-child(1) {
@@ -116,4 +117,27 @@ body {
 
 .click-box > div:nth-child(2) {
   border-bottom: 3px solid #ffffff;
+}
+
+.click-box > div:nth-child(3) {
+  position: absolute;
+  transform: scaleY(0);
+  transition: transform 0.5s;
+  transform-origin: top center;
+}
+/* :focus-within伪类，表示元素或者它里面的元素拥有焦点的时候 */
+.click-box:focus-within > div:nth-child(1) {
+  color: #ff0000;
+}
+
+.click-box:focus-within > div:nth-child(3) {
+  transform: scaleY(1);
+}
+
+/* 隐藏input元素 */
+.click-box input {
+  width: 0px;
+  padding: 0px;
+  margin: 0px;
+  border-width: 0px;
 }

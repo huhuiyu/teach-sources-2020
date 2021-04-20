@@ -1,0 +1,13 @@
+body {
+  /* 
+    任何时候任何地方都要使用相对路径
+    ../表示上一级的目录 ./表示当前目录
+  */
+  background-image: url('../images/xunlei-bg.jpg');
+  /* 字的颜色要和背景匹配 */
+  color: #ffffff;
+}
+
+a {
+  color: #ffffff;
+}

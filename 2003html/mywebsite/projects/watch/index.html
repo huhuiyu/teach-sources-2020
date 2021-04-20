@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>运动手表表盘</title>
+  <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+  <!-- 最外层全屏居中容器 -->
+  <div class="flex-box">
+    <!-- 手表最外圈的底盘 -->
+    <div>
+      <!-- 内圈 -->
+      <div class="container">
+        <!-- 基本布局是上中下三块 -->
+        <div class="container-top">
+          <!-- 上方是左右布局 -->
+          <div class="ctl font01">
+            <div class="mr">🚀</div>
+            <div class="lp mr">80%</div>
+          </div>
+
+          <div class="ctr">
+            <!-- 右边两行 -->
+            <div class="pd01">空气优质</div>
+            <!-- 第二行是三块 -->
+            <div class="ctr-line02">
+              <div class="pd01">晴天<br>25°</div>
+              <div class="pd01">26° ↑ <br>20° ↓ </div>
+              <div class="ty pd01">☀</div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="container-center">
+          <!-- 中间上中下三块 -->
+          <div class="center-time">
+            <!-- 上方是时间 -->
+            <span>15</span><span>:</span>
+            <span>12</span><span>45</span>
+          </div>
+
+          <div class="ccc">
+            <!-- 中间是左中右三块，左是空白，中是图片，右是日期 -->
+            <div>&nbsp;</div>
+
+            <div>
+              <div>
+                <img src="../../images/watch/human.gif" alt="">
+              </div>
+            </div>
+
+            <div>三月三十一日</div>
+          </div>
+
+          <div style="text-align: center;">
+            心率：78
+          </div>
+        </div>
+
+        <div class="container-bottom">
+          <!-- 下方三块，居中 -->
+          <div class="pd01">睡眠</div>
+          <div class="cbc">
+            <div>7h30m</div>
+            <div>8.66km</div>
+          </div>
+          <div class="pd01">距离</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

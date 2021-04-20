@@ -1,0 +1,40 @@
+/* 网站通用css样式 */
+body {
+  margin: 0px;
+}
+/*
+  *号选择器表示页面所有元素都会生效，慎用！
+*/
+* {
+  /* word-break: break-all;表示文字超出范围就立马折行 */
+  word-break: break-all;
+}
+
+/* 文字对齐 */
+.tl {
+  text-align: left;
+}
+.tc {
+  text-align: center;
+}
+.tr {
+  text-align: right;
+}
+
+/* 内边距 */
+.pd10 {
+  padding: 1rem;
+}
+.pd12 {
+  padding: 1.2rem;
+}
+.pd15 {
+  padding: 1.5rem;
+}
+
+/* 最佳背景图片样式 */
+.bg-img {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+}

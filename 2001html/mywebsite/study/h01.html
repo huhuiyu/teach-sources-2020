@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript入门一（体验）</title>
+</head>
+
+<body>
+  <input type="text" id="txtdemo" placeholder="输点内容">
+  <div id="divdemo"></div>
+
+  <!-- script标记就是编写JavaScript脚本的地方 -->
+  <script>
+    /*
+      JavaScript的多行注释格式
+    */
+    // JavaScript的单行注释格式
+    //  console.log('要在浏览器Console中显示的信息');
+    console.log('hello world');
+    // JavaScript可以任意修改页面内容
+    document.write(new Date());
+    // JavaScript可以任意修改页面样式
+    document.body.style.color = '#ff0000';
+    // JavaScript可以响应用户的动作
+    document.body.addEventListener('click', function () {
+      alert('黑暗骑士拥有钞能力');
+    });
+
+  </script>
+
+  <!-- 引入外部js文件 -->
+  <script src="js/h01.js"></script>
+
+</body>
+
+</html>
