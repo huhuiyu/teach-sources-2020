@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript入门（体验）</title>
+  <link rel="stylesheet" href="../css/common.css">
+</head>
+
+<body>
+
+  <input id="txt01" type="text">
+  <div id="div01"></div>
+
+  <!-- JavaScript脚本要写在script标记里面 -->
+  <script>
+    /*
+      第一种注释格式：多行注释
+    */
+    // 第二种注释格式：单行注释
+    //  console.log(要在浏览器Console中显示的信息);
+    console.log('你好，黑暗骑士。');
+    // js可以随意修改页面内容
+    document.write('<h1>js修改页面内容</h1>');
+    // js可以修改页面样式
+    document.body.style.color = '#ff0000';
+    // js可以响应用户操作
+    document.body.addEventListener(
+      'click', function () {
+        alert('黑暗骑士你好！');
+      });
+
+  </script>
+
+  <!-- 导入js文件 -->
+  <script src="js/h01.js"></script>
+</body>
+
+</html>
