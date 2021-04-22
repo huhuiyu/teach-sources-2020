@@ -29,3 +29,19 @@ console.log(
 // js的加运算，如果里面有字符串，结果是拼接
 // 其它数值运算，如果字符串里面是数，js会尝试计算结果
 console.log('js的计算规则', 22 + '33', 22 * '33');
+console.log('===================================');
+// 变量来自于页面元素
+// document.getElementById:获取页面指定id的元素
+let divDemo = document.getElementById('divDemo');
+console.log('页面id为divDemo的元素', divDemo);
+
+let txtDemo = document.getElementById('txtDemo');
+console.log('另一个页面元素', txtDemo);
+
+// 如果页面没有对应元素，会返回一个不可操作的null对象
+let nothing = document.getElementById('hahaha');
+// 对该对象操作会引发异常，造成后续代码都无法执行！！！！
+console.log('不存在的元素：', nothing);
+// 下一行会引发崩溃，最后一行代码将无法执行到
+nothing.innerHTML = '异常操作，程序崩溃';
+console.log('哈哈哈，嘻嘻嘻');
