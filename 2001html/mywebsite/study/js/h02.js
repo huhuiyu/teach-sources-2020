@@ -29,4 +29,19 @@ console.log(
   num1 % num2
 );
 // 如果-*/计算值中有字符串，且能转换成数，js也会尝试计算
-console.log('33' * 22);
+// 而加法运算，只要是遇到非数值类型就会变成字符串拼接
+console.log('js的计算：', '33' * 22, 22 + '33');
+
+console.log('========================================');
+// 变量值来源于页面
+// document.getElementById是获取页面指定id对应的元素
+let divDemo = document.getElementById('divDemo');
+console.log('来源于页面id为divDemo的元素变量', divDemo);
+let txtDemo = document.getElementById('txtDemo');
+console.log('另一个页面元素', txtDemo);
+// 如果id没有匹配的元素，会返回一个不可操作的null对象
+let nothing = document.getElementById('abcdefg');
+console.log('不存在的页面元素', nothing);
+// 对null操作会引发异常，程序将无法继续执行
+nothing.innerHTML = '....';
+console.log('上面语句异常，造成本语句无法执行');
