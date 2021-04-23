@@ -34,3 +34,23 @@ btnNow.addEventListener('click', function () {
   spTime.innerHTML =
     year + '年' + month + '月' + day + '日 ' + h + ':' + m + ':' + s;
 });
+
+// 获取输入值计算的部分===================================
+let num1 = document.getElementById('num1');
+let num2 = document.getElementById('num2');
+let spJia = document.getElementById('spJia');
+let btnCompute = document.getElementById('btnCompute');
+console.log('计算相关元素：', num1, num2, spJia, btnCompute);
+
+btnCompute.addEventListener('click', function () {
+  // 获取表单元素的输入值（表单元素的特有属性）
+  let n1 = num1.value;
+  let n2 = num2.value;
+  console.log('输入的值是：', n1, n2);
+  // 表单元素的输入值都是字符串
+  // 如果要计算，需要通过parseFloat方法转换成数值
+  spJia.innerHTML = parseFloat(n1) + parseFloat(n2);
+});
+
+// 练习：仿造着加法的这个功能
+// 完成减法，乘法，除法的三个功能
