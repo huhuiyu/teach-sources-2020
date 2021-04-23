@@ -36,3 +36,12 @@ console.log('js？', 22 + '33', 22 * '33');
 // 变量来自于页面元素
 let divDemo = document.getElementById('divDemo');
 console.log('页面上id=divDemo的元素', divDemo);
+let txtDemo = document.getElementById('txtDemo');
+console.log('另一个页面元素', txtDemo);
+// 如果指定的元素不存在（一般都是写错了）
+// 会得到一个不可以操作的null值！！！！
+let nothing = document.getElementById('divAbc');
+console.log('不存在的页面元素：', nothing);
+// 对不存在的null对象做操作会引发异常，之后的代码都无法执行！！！
+nothing.innerHTML = 'dddd';
+console.log('最后的哈哈哈哈，嘻嘻嘻嘻');

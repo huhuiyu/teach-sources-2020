@@ -59,5 +59,9 @@ btnCompute.addEventListener('click', function () {
   let num1 = txtNum1.value;
   let num2 = txtNum2.value;
   console.log('输入的值是：', num1, num2);
-  spJia.innerHTML = num1 + num2;
+  // 表单元素的输入值都是字符串结果，所以加法会是拼接的结果
+  // 通过parseFloat方法可以转换成数值
+  spJia.innerHTML = parseFloat(num1) + parseFloat(num2);
 });
+// 练习：仿造加法的功能
+// 添加减法，乘法和除法的相关功能
