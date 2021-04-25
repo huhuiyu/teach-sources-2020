@@ -1,0 +1,48 @@
+/* 标准按钮样式 */
+.mybutton {
+  display: inline-block;
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #dcdcdc;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.mybutton:hover {
+  background-color: #eeeeee;
+}
+
+/* 第二套按钮方案，通过容器切换整套 */
+.btn01 .mybutton {
+  border-color: transparent;
+  background-color: #0000ff;
+  color: #ffffff;
+}
+.btn01 .mybutton:hover {
+  background-color: #0000aa;
+}
+
+/* 第三套按钮方案 */
+.btn02 .mybutton {
+  border-color: transparent;
+  background-color: #ff0000;
+  color: #ffffff;
+}
+
+.btn02 .mybutton:hover {
+  background-color: #aa0000;
+}
+
+/* 激活相关样式 */
+.wx span {
+  display: inline-block;
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #ff00ff;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.wx .active {
+  background-color: #0000ff;
+}
