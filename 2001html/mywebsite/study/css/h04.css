@@ -33,3 +33,17 @@
 .btn2 .mybutton:hover {
   background-color: #aa0000;
 }
+
+/* 激活图标效果相关样式 */
+.wx span {
+  display: inline-block;
+  background-color: #ff0000;
+  color: #ffffff;
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.wx .active {
+  background-color: #0000ff;
+}

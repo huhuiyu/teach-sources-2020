@@ -1,0 +1,42 @@
+/* 浮动菜单容器样式 */
+.menus {
+  position: fixed;
+  bottom: 5rem;
+}
+
+/* 上方菜单布局 */
+.menus > div:nth-child(1) {
+  display: flex;
+}
+/* 菜单统一宽度，文字居中 */
+.menus > div:nth-child(1) > div {
+  width: 6rem;
+  text-align: center;
+  padding: 0.5rem 0px;
+  cursor: pointer;
+}
+
+.menus > div:nth-child(1) > div:hover {
+  background-color: #efefef;
+}
+
+/* 下划线样式 */
+.menus > div:nth-child(2) > div {
+  width: 25%;
+  height: 2px;
+  background-color: #000000;
+  transition: transform 0.5s;
+}
+/* 下划线的四个位置 */
+.move01 {
+  transform: translateX(0%);
+}
+.move02 {
+  transform: translateX(100%);
+}
+.move03 {
+  transform: translateX(200%);
+}
+.move04 {
+  transform: translateX(300%);
+}
