@@ -1,0 +1,75 @@
+/* 下方固定菜单容器样式 */
+.menus {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  bottom: 3rem;
+}
+
+/* 菜单整体半透明 */
+.menus > div {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+}
+
+/* 菜单项的相关样式 */
+.menu {
+  display: flex;
+}
+
+.menu > div {
+  width: 6rem;
+  text-align: center;
+  padding: 1rem 0px;
+  cursor: pointer;
+}
+
+.menu > div:hover {
+  background-color: #000000;
+}
+
+/* 下方模拟线条 */
+.line {
+  width: 6rem;
+  height: 3px;
+  background-color: #ffffff;
+  transition: transform 0.5s;
+}
+
+/* 线条位置 */
+.move01 {
+  transform: translateX(0%);
+}
+
+.move02 {
+  transform: translateX(100%);
+}
+
+.move03 {
+  transform: translateX(200%);
+}
+
+.move04 {
+  transform: translateX(300%);
+}
+
+/* 背景图片变化的部分 */
+.main-div {
+  height: 100vh;
+  width: 100vw;
+  transition: background-image 1s;
+}
+
+.bg01 {
+  background-image: url('../../../images/img12.jpg');
+}
+.bg02 {
+  background-image: url('../../../images/img2.jpg');
+}
+.bg03 {
+  background-image: url('../../../images/img3.jpg');
+}
+.bg04 {
+  background-image: url('../../../images/img1.jpg');
+}
