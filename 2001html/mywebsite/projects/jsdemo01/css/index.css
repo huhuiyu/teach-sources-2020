@@ -40,3 +40,22 @@
 .move04 {
   transform: translateX(300%);
 }
+
+/* 背景图片更换效果 */
+.bg-div {
+  width: 100vw;
+  height: 100vh;
+  transition: background-image 1s;
+}
+.bg01 {
+  background-image: url('../../../images/img1.jpg');
+}
+.bg02 {
+  background-image: url('../../../images/img12.jpg');
+}
+.bg03 {
+  background-image: url('../../../images/img2.jpg');
+}
+.bg04 {
+  background-image: url('../../../images/xunlei-bg.jpg');
+}
