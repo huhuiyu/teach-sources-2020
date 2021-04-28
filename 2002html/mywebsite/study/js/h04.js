@@ -50,3 +50,49 @@ divStyle.addEventListener('click', function () {
   // js风格：backgroundColor
   divStyle.style.backgroundColor = '#ffff00';
 });
+
+// 激活样式切换部分
+let wx01 = document.getElementById('wx01');
+let wx02 = document.getElementById('wx02');
+let wx03 = document.getElementById('wx03');
+let wx04 = document.getElementById('wx04');
+
+wx04.addEventListener('click', function () {
+  // 先清除所有元素的激活状态
+  wx01.classList.remove('active');
+  wx02.classList.remove('active');
+  wx03.classList.remove('active');
+  wx04.classList.remove('active');
+  // 再添加当前元素的激活状态
+  wx04.classList.add('active');
+});
+
+wx03.addEventListener('click', function () {
+  // 先清除所有元素的激活状态
+  wx01.classList.remove('active');
+  wx02.classList.remove('active');
+  wx03.classList.remove('active');
+  wx04.classList.remove('active');
+  // 再添加当前元素的激活状态
+  wx03.classList.add('active');
+});
+
+wx02.addEventListener('click', function () {
+  // 先清除所有元素的激活状态
+  wx01.classList.remove('active');
+  wx02.classList.remove('active');
+  wx03.classList.remove('active');
+  wx04.classList.remove('active');
+  // 再添加当前元素的激活状态
+  wx02.classList.add('active');
+});
+
+wx01.addEventListener('click', function () {
+  // 先清除所有元素的激活状态
+  wx01.classList.remove('active');
+  wx02.classList.remove('active');
+  wx03.classList.remove('active');
+  wx04.classList.remove('active');
+  // 再添加当前元素的激活状态
+  wx01.classList.add('active');
+});

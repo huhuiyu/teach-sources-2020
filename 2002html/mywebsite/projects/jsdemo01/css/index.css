@@ -1,0 +1,71 @@
+/* 菜单样式部分 */
+.bottom-menus {
+  position: fixed;
+  width: 100%;
+  bottom: 5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.bottom-menus > div {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+}
+
+/* 菜单的部分 */
+.menus {
+  display: flex;
+}
+
+.menus > div {
+  width: 6rem;
+  text-align: center;
+  padding: 1rem 0px;
+  cursor: pointer;
+}
+.menus > div:hover {
+  background-color: #000000;
+}
+
+/* 线条的部分 */
+/* #id值 id选择器，只有id匹配的元素才会套用样式 */
+#line {
+  width: 6rem;
+  height: 3px;
+  background-color: #ffffff;
+  transition: transform 0.5s;
+}
+
+/* 线条位置 */
+.move01 {
+  transform: translateX(0%);
+}
+.move02 {
+  transform: translateX(100%);
+}
+.move03 {
+  transform: translateX(200%);
+}
+.move04 {
+  transform: translateX(300%);
+}
+
+/* 背景图片的部分 */
+.bg-div {
+  width: 100vw;
+  height: 100vh;
+  transition: background-image 1s;
+}
+
+.bg01 {
+  background-image: url('../../../images/batman01.jpg');
+}
+.bg02 {
+  background-image: url('../../../images/img1.jpg');
+}
+.bg03 {
+  background-image: url('../../../images/img2.jpg');
+}
+.bg04 {
+  background-image: url('../../../images/img4.jpg');
+}
