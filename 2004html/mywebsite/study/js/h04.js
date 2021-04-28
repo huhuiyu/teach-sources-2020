@@ -43,3 +43,50 @@ divStyle.addEventListener('click', function () {
   // js:backgroundColor
   divStyle.style.backgroundColor = '#ff00ff';
 });
+
+// 激活样式相关部分 ===========================
+let wx01 = document.getElementById('wx01');
+let wx02 = document.getElementById('wx02');
+let wx03 = document.getElementById('wx03');
+let wx04 = document.getElementById('wx04');
+console.log('激活样式相关', wx01, wx02, wx03, wx04);
+
+wx04.addEventListener('click', function () {
+  // 清除掉所有的激活样式
+  wx01.classList.remove('active');
+  wx02.classList.remove('active');
+  wx03.classList.remove('active');
+  wx04.classList.remove('active');
+  // 再激活自己
+  wx04.classList.add('active');
+});
+
+wx03.addEventListener('click', function () {
+  // 清除掉所有的激活样式
+  wx01.classList.remove('active');
+  wx02.classList.remove('active');
+  wx03.classList.remove('active');
+  wx04.classList.remove('active');
+  // 再激活自己
+  wx03.classList.add('active');
+});
+
+wx02.addEventListener('click', function () {
+  // 清除掉所有的激活样式
+  wx01.classList.remove('active');
+  wx02.classList.remove('active');
+  wx03.classList.remove('active');
+  wx04.classList.remove('active');
+  // 再激活自己
+  wx02.classList.add('active');
+});
+
+wx01.addEventListener('click', function () {
+  // 清除掉所有的激活样式
+  wx01.classList.remove('active');
+  wx02.classList.remove('active');
+  wx03.classList.remove('active');
+  wx04.classList.remove('active');
+  // 再激活自己
+  wx01.classList.add('active');
+});

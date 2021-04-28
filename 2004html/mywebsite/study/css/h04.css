@@ -33,3 +33,16 @@
 .btn2 .mybutton:hover {
   background-color: #aa0000;
 }
+
+/* 切换激活项相关样式 */
+.wx span {
+  display: inline-block;
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #ff0000;
+  color: #ffffff;
+}
+
+.wx .active {
+  background-color: #0000ff;
+}
