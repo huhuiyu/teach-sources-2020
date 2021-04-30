@@ -63,5 +63,40 @@ btnColor.addEventListener('click', function () {
     spColor.innerHTML = '红色值必须是整数';
     return;
   }
-  
+  // 必须是0-255
+  if (intv < 0) {
+    spColor.innerHTML = '红色值不能小于0';
+    return;
+  }
+  if (intv > 255) {
+    spColor.innerHTML = '红色值不能大于255';
+    return;
+  }
+  // 绿色的判断部分
+  let green = txtGreen.value.trim();
+  if ('' == green) {
+    spColor.innerHTML = '绿色值没有输入';
+    return;
+  }
+  if (isNaN(green)) {
+    spColor.innerHTML = '绿色值必须是数';
+    return;
+  }
+  intv = parseInt(green);
+  floatv = parseFloat(green);
+  if (intv != floatv) {
+    spColor.innerHTML = '绿色值必须是整数';
+    return;
+  }
+  // || 短路或运算 运算符前后的表达式只要一个为真结果就是真
+  // 短路的意思是，如果前面的表达式为真，后面的表达式不会运算
+  if (intv < 0 || intv > 255) {
+    spColor.innerHTML = '绿色值必须是0-255';
+    return;
+  }
+  // 练习，将蓝色功能补齐
+
+  // 修改元素的背景颜色
+  // background-color: rgb(255,0,0);
+  divColor.style.backgroundColor = 'rgb(' + red + ',' + green + ',0)';
 });
