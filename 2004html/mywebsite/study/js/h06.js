@@ -29,20 +29,55 @@ let spCountdown = document.getElementById('spCountdown');
 console.log('倒计时元素', btnCountdown, spCountdown);
 
 // 记录倒计时的变量
-let count = 60;
+let count = 10;
 // 控制不能连续的点击
 // 是否在进行倒计时，默认为假
 let incount = false;
+// 记录计时器的变量，用于终止延时执行的功能
+let timer;
+
 btnCountdown.addEventListener('click', function () {
   // 检查是否在进行中
   if (incount) {
     // 进行中就强制打断代码执行
     return;
   }
-  // 切换成成在进行中
+  // 切换成在进行中
   incount = true;
-  setInterval(function () {
+  spCountdown.innerHTML = count + '秒';
+  count = count - 1;
+  // 记录延时任务返回的计时器对象
+  timer = setInterval(function () {
+    console.log('倒计时进行中：', count);
     spCountdown.innerHTML = count + '秒';
+    // 如果count是0，就中断执行
+    if (count <= 0) {
+      // 通过清理计时器大方法终止延时任务
+      clearInterval(timer);
+      // return只能中断当前方法的执行
+      // 并不能终止延时执行的功能
+      return;
+    }
     count = count - 1;
   }, 1000);
+});
+
+// 重复延时执行的一对方法
+// setInterval用于开启延时执行并返回计时器对象
+// clearInterval用于终止延时执行任务，参数就是上面返回的计时器
+
+// 延时跳转相关==================
+let btnDelay = document.getElementById('btnDelay');
+console.log('延时跳转：', btnDelay);
+
+btnDelay.addEventListener('click', function () {
+  // 单次延时执行
+  setTimeout(function () {
+    // js跳转页面的方法，效果和a标记一样
+    // 后面的值就是a标记href属性的内容
+    location = 'https://huhuiyu.top';
+  }, 5 * 1000);
+
+  // setTimeout，单次延时执行，会返回一个计时器对象
+  // clearTimeout，终止延时执行，参数是上面的计时器
 });

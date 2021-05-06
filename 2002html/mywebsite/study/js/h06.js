@@ -37,3 +37,42 @@ setInterval(function () {
 let btnCountdown = document.getElementById('btnCountdown');
 let spCountdown = document.getElementById('spCountdown');
 console.log('倒计时相关元素：', btnCountdown, spCountdown);
+
+// 记录倒计时的时间
+let count = 10;
+// 记录是否已经进入倒计时状态
+let countdown = false;
+// 记录倒计时的计时器对象，用于停止倒计时功能
+let timer;
+
+btnCountdown.addEventListener('click', function () {
+  // 如果已经开启了倒计时就不要执行后续的代码
+  if (countdown) {
+    return;
+  }
+  // 进入倒计时，要切换状态
+  countdown = true;
+  count = count - 1;
+  spCountdown.innerHTML = count + '秒';
+
+  // 重复延时执行并记录计时器对象
+  timer = setInterval(function () {
+    console.log('倒计时中', count);
+    // 倒计时到0之后要停止延时执行
+    if (count <= 0) {
+      // 清除计时器对象指定的延时任务
+      clearInterval(timer);
+      // 恢复倒计时相关变量值
+      countdown = false;
+      count = 10;
+      // return只能中断方法执行，不能终止延时执行
+      return;
+    }
+
+    count = count - 1;
+    spCountdown.innerHTML = count + '秒';
+  }, 1000);
+});
+
+// setInterval是开启重复执行的延时任务，并返回计时器对象
+// clearInterval用于终止重复执行的延时任务，参数是计时器对象
