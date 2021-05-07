@@ -1,0 +1,15 @@
+/* #id值 id选择器，表示页面对应id的元素套用样式 */
+#mydiv {
+  width: 16rem;
+  height: 9rem;
+  transition: background-image 1s;
+  border: 1px solid #ff0000;
+}
+
+.mybox > span {
+  display: inline-block;
+  margin: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #ff0000;
+  border-radius: 0.5rem;
+}
