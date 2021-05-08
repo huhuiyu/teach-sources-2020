@@ -10,8 +10,27 @@
 </head>
 
 <body>
+
+
   <div id="divNow"></div>
 
+  <div id="divTime"></div>
+
+  <!-- function版本的整数判断 -->
+  <div>
+    <input type="text" id="numb1" placeholder="数值一">
+    <input type="text" id="numb2" placeholder="数值二">
+    <button id="btnNum">校验整数</button>
+    <span id="spNum"></span>
+  </div>
+
+  <!-- 
+    js的执行会有先后次序，没有执行完会阻塞后续代码执行
+    所以js的导入必须严格的按照次序导入
+    一般来说，js导入都是在页面的最后，避免阻塞html的内容显示
+    其次，第三方的js最先导入，然后是公用js，最后是页面js
+  -->
+  <script src="js/common.js"></script>
   <script src="js/h08.js"></script>
 </body>
 
