@@ -1,0 +1,15 @@
+/* #id值 id选择器，id值匹配样式 */
+#divBg {
+  width: 800px;
+  height: 600px;
+  transition: background-image 1s;
+}
+
+.mybox > span {
+  display: inline-block;
+  border: 1px solid #ff00ff;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin: 5px;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>js基础-function</title>
+  <link rel="stylesheet" href="../css/common.css">
+</head>
+
+<body>
+  <div id="divNow"></div>
+  <div id="divTime"></div>
+  <!-- 公用js判断整数的部分 -->
+
+  <!-- 
+    js执行会严格按照加载次序执行，且前面的js没有执行完毕
+    后续所有内容都将阻塞无法继续！！！！！
+    所以加载js最好是在页面的最后
+    加载的次序一般是：第三方js最先
+    其次是公用js，最后才是页面自身的js
+  -->
+  <script src="js/common.js"></script>
+  <script src="js/h08.js"></script>
+</body>
+
+</html>

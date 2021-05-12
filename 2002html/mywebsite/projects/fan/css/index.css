@@ -1,0 +1,64 @@
+/* 容器 */
+.fan-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+/* 风扇主体 */
+.fan {
+  border: 5px solid #000000;
+  border-radius: 50%;
+}
+
+/* 控制器部分 */
+.control {
+  margin-top: 1rem;
+  text-align: center;
+}
+.control > span {
+  display: inline-block;
+  border: 1px solid #ff0000;
+  border-radius: 0.5rem;
+  width: 1.5rem;
+  margin: 0.5rem 0.1rem;
+}
+
+.active {
+  background-color: #ff0000;
+  color: #ffffff;
+}
+
+/* 动画部分 */
+@keyframes fan {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(1080deg);
+  }
+}
+/* 三档动画 */
+.fan01 {
+  /* linear：动画时间曲线为直线，简单的说就是动画是匀速 */
+  animation: fan 3s infinite linear;
+}
+.fan02 {
+  animation: fan 2s infinite linear;
+}
+.fan03 {
+  animation: fan 1s infinite linear;
+}
+
+@keyframes fan-off {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.fan00 {
+  animation: fan-off 2s;
+}

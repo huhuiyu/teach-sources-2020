@@ -1,0 +1,74 @@
+/* 风扇顶级容器，固定到中间区域 */
+.fan-container {
+  display: flex;
+  justify-content: center;
+  padding: 5rem;
+}
+
+.fan-container img {
+  /* 图片自适应容器的固定代码 */
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.fan {
+  border: 5px solid #000000;
+  border-radius: 50%;
+}
+
+/* 开关的样式 */
+.switch {
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.switch > span {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.1rem;
+  margin: 0.2rem;
+  border-radius: 0.2rem;
+  border: 1px solid #ff0000;
+  width: 1.5rem;
+}
+
+.switch .active {
+  background-color: #ff0000;
+  color: #ffffff;
+}
+
+/* 动画的部分 */
+@keyframes fan {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(1080deg);
+  }
+}
+
+.fan01 {
+  /* linear表示动画的时间曲线为线性 */
+  animation: fan 3s infinite linear;
+}
+
+.fan02 {
+  animation: fan 2s infinite linear;
+}
+
+.fan03 {
+  animation: fan 1s infinite linear;
+}
+
+@keyframes fan-off {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.fan-off {
+  animation: fan-off 1s;
+}
