@@ -62,3 +62,8 @@
 .fan00 {
   animation: fan-off 2s;
 }
+
+#myaudio {
+  width: 0px;
+  height: 0px;
+}

@@ -6,7 +6,11 @@ let imgFan = document.getElementById('imgFan');
 let switches = document.querySelectorAll('.switch > span');
 // 开关状态
 let fanStatus = false;
-console.log('风扇相关元素：', imgFan, switches);
+// 音频元素
+let myaudio = document.getElementById('myaudio');
+// 音频播放开启循环
+myaudio.loop = true;
+console.log('风扇相关元素：', imgFan, switches, myaudio);
 
 // 功能一，清除按钮状态的function
 function clearActive() {
@@ -30,6 +34,10 @@ switches[0].addEventListener('click', function () {
   // 启动关闭的动画效果
   imgFan.classList.remove('fan01', 'fan02', 'fan03', 'fan-off');
   imgFan.classList.add('fan-off');
+  // 暂停播放
+  myaudio.pause();
+  // 将播放时间回退到开始
+  myaudio.currentTime = 0;
 });
 
 switches[1].addEventListener('click', function () {
@@ -40,6 +48,8 @@ switches[1].addEventListener('click', function () {
   // 切换到一档动画
   imgFan.classList.remove('fan01', 'fan02', 'fan03', 'fan-off');
   imgFan.classList.add('fan01');
+  // 播放声音
+  myaudio.play();
 });
 
 switches[2].addEventListener('click', function () {
@@ -50,6 +60,8 @@ switches[2].addEventListener('click', function () {
   // 切换到二档动画
   imgFan.classList.remove('fan01', 'fan02', 'fan03', 'fan-off');
   imgFan.classList.add('fan02');
+  // 播放声音
+  myaudio.play();
 });
 
 switches[3].addEventListener('click', function () {
@@ -60,4 +72,6 @@ switches[3].addEventListener('click', function () {
   // 切换到三档动画
   imgFan.classList.remove('fan01', 'fan02', 'fan03', 'fan-off');
   imgFan.classList.add('fan03');
+  // 播放声音
+  myaudio.play();
 });

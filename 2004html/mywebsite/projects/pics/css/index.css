@@ -1,0 +1,69 @@
+/* 容器 */
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+}
+
+.container > div {
+  width: 530px;
+  height: 300px;
+  position: relative;
+}
+
+#divBg {
+  height: 100%;
+  width: 100%;
+  background-image: url('../../../images/xunlei-bg.jpg');
+  transition: background-image 2s linear;
+}
+/* ,表示或，就是任何一个选择匹配都生效 */
+#divPre,
+#divNext,
+#divPoint {
+  position: absolute;
+}
+#divPre,
+#divNext {
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #aaaaaa;
+  font-size: 3rem;
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+}
+#divPre {
+  top: 0px;
+  left: 0px;
+}
+#divNext {
+  top: 0px;
+  right: 0px;
+}
+#divPre:hover,
+#divNext:hover {
+  color: #ffffff;
+}
+#divPoint {
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  text-align: center;
+}
+/* 模拟圆点 */
+#divPoint span {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border: 2px solid #777;
+  border-radius: 50%;
+  background-color: #000;
+  margin-right: 0.1rem;
+}
+
+#divPoint .active {
+  background-color: #fff;
+}
