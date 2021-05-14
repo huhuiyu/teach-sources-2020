@@ -55,4 +55,6 @@ btnNum.addEventListener('click', function () {
   let n1 = numb1.value.trim();
   let n2 = numb2.value.trim();
   console.log('输入的数据是', n1, n2);
+  console.log('输入的是否为整数'
+    ,isInt(n1),isInt(n2));
 });

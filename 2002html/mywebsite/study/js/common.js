@@ -25,3 +25,20 @@ function getNowInfo() {
   // 所以要么在代码的最后，要么在判断中
   return result;
 }
+
+// 判断值是否为整数的方法
+// 需要传入要判断的值，写在function括号里面的就是要传入的数据
+function isInt(value) {
+  if (value == null) {
+    return false;
+  }
+  if (value.trim() == '') {
+    return false;
+  }
+  if (isNaN(value)) {
+    return false;
+  }
+  let intv = parseInt(value);
+  let floatv = parseFloat(value);
+  return intv == floatv;
+}

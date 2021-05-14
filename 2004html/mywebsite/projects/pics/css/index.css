@@ -15,6 +15,8 @@
   height: 100%;
   width: 100%;
   background-image: url('../../../images/xunlei-bg.jpg');
+  background-size: cover;
+  background-position: center center;
   transition: background-image 2s linear;
 }
 /* ,表示或，就是任何一个选择匹配都生效 */
@@ -62,6 +64,7 @@
   border-radius: 50%;
   background-color: #000;
   margin-right: 0.1rem;
+  transition: all 1s;
 }
 
 #divPoint .active {
