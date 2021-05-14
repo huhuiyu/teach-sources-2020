@@ -1,0 +1,79 @@
+/* 相册容器 */
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.container > div {
+  width: 540px;
+  height: 300px;
+  /* 里面有绝对定位，需要容器相对定位 */
+  position: relative;
+}
+
+/* 背景图片部分 */
+#divBg {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../../images/xunlei-bg.jpg');
+  background-size: cover;
+  background-position: center center;
+  transition: background-image 2s;
+}
+
+/* ,表示或者，任意一个选择器匹配都会套用对应样式 */
+#divPre,
+#divNext,
+#divPoint {
+  position: absolute;
+}
+
+/* 上一页样式 */
+#divPre,
+#divNext {
+  top: 0px;
+  font-size: 2rem;
+  padding: 0px 0.5rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+#divPre {
+  left: 0px;
+}
+#divNext {
+  right: 0px;
+}
+
+#divPre:hover,
+#divNext:hover {
+  cursor: pointer;
+  color: #999;
+}
+
+/* 指示器样式 */
+#divPoint {
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  text-align: center;
+}
+
+/* 指示器圆点 */
+#divPoint > span {
+  display: inline-block;
+  width: 0.6rem;
+  height: 0.6rem;
+  border: 0.1rem solid #777;
+  background-color: #000;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 1s;
+}
+
+/* 激活的指示器圆点 */
+#divPoint .active {
+  background-color: #ffffff;
+}
