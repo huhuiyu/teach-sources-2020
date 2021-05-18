@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.container > div {
+  width: 540px;
+  height: 300px;
+  /* 绝对定位的容器一定要有相对定位约束！！！！！！ */
+  position: relative;
+}
+
+/* 背景图片区域 */
+#divBg {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../../images/img1.jpg');
+  background-position: center center;
+  background-size: cover;
+}
+
+/* 上一页和下一页 */
+/* ,或，表示任何一个匹配都会套用样式 */
+#divPre,
+#divNext,
+#divPoint {
+  position: absolute;
+}
+
+#divPre {
+  left: 0px;
+  top: 0px;
+  font-size: 2rem;
+}

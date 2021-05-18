@@ -4,7 +4,9 @@ let imgFan = document.getElementById('imgFan');
 // 获取css选择器对应的一组元素
 // 下面表示获取class为controls中的span
 let controls = document.querySelectorAll('.controls > span');
-console.log('风扇相关元素：', imgFan, controls);
+let myaudio = document.getElementById('myaudio');
+myaudio.loop = true;
+console.log('风扇相关元素：', imgFan, controls, myaudio);
 // 记录风扇是否开启
 let status = false;
 // 第一个元素是关闭
@@ -28,6 +30,9 @@ controls[0].addEventListener('click', function () {
   imgFan.classList.remove('fan01', 'fan02', 'fan03', 'fan-off');
   //关闭动画
   imgFan.classList.add('fan-off');
+  // 停止音频播放并重置播放的进度
+  myaudio.currentTime = 0;
+  myaudio.pause();
 });
 
 // 一档按钮
@@ -45,6 +50,8 @@ controls[1].addEventListener('click', function () {
   imgFan.classList.remove('fan01', 'fan02', 'fan03', 'fan-off');
   //一档动画
   imgFan.classList.add('fan01');
+  // 播放声音
+  myaudio.play();
 });
 
 // 二档按钮
@@ -62,6 +69,8 @@ controls[2].addEventListener('click', function () {
   imgFan.classList.remove('fan01', 'fan02', 'fan03', 'fan-off');
   //二档动画
   imgFan.classList.add('fan02');
+  // 播放声音
+  myaudio.play();
 });
 
 // 三档按钮
@@ -79,4 +88,6 @@ controls[3].addEventListener('click', function () {
   imgFan.classList.remove('fan01', 'fan02', 'fan03', 'fan-off');
   //三档动画
   imgFan.classList.add('fan03');
+  // 播放声音
+  myaudio.play();
 });

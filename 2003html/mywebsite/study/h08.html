@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>js基础-function</title>
+  <link rel="stylesheet" href="../css/common.css">
+</head>
+
+<body>
+  <div id="divNow"></div>
+  <div id="divTime"></div>
+
+  <input type="text" id="txtNumb1">
+  <input type="text" id="txtNumb2">
+  <button id="btnNumb">整数判断</button>
+
+  <!-- 
+    js的执行有先后次序，且带有阻塞效果
+    所以js一定是在页面最后导入
+    而且js的导入次序一般是第三方的js最先导入
+    其次是公共的js，最后才是页面自己的js
+  -->
+  <script src="js/common.js"></script>
+  <script src="js/h08.js"></script>
+</body>
+
+</html>

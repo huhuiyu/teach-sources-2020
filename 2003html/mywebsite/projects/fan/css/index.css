@@ -71,3 +71,8 @@
 .fan-off {
   animation: fan-off 1s;
 }
+
+#myaudio {
+  width: 0px;
+  height: 0px;
+}
