@@ -24,7 +24,7 @@ btnScore.addEventListener('click', function () {
   } else if (parseInt(score) >= 60) {
     spScore.innerHTML = '你的成绩是D';
   } else {
-    spScore.innerHTML = '你的成绩不及格';
+    spScore.innerHTML = '你的成绩是E';
   }
 
   // 阶梯判断的语言和格式
@@ -41,3 +41,65 @@ btnScore.addEventListener('click', function () {
   // 阶梯的注意事项！！！！！！！！！！！
   // 任何一级判断为真，其它的部分都不会执行！！！！
 });
+
+// 输入年月，计算当月天数的部分
+let txtYear = document.getElementById('txtYear');
+let txtMonth = document.getElementById('txtMonth');
+let btnDay = document.getElementById('btnDay');
+let spDay = document.getElementById('spDay');
+console.log('年月日相关元素：', txtYear, txtMonth, btnDay, spDay);
+
+btnDay.addEventListener('click', function () {
+  // 清空信息
+  spDay.innerHTML = '';
+  // 获取年月的输入值
+  let year = txtYear.value.trim();
+  let month = txtMonth.value.trim();
+  console.log('年月的信息：', year, month);
+  // 数据有效性校验
+  let y = new Date().getFullYear(); // 当前年份
+  if (!isInt(year)) {
+    spDay.innerHTML = '年份必须是整数';
+    return;
+  }
+  year = parseInt(year);
+  if (year < 1900 || year > y) {
+    spDay.innerHTML = '年份超出范围';
+    return;
+  }
+  if (!isInt(month)) {
+    spDay.innerHTML = '月份必须是整数';
+    return;
+  }
+  month = parseInt(month);
+  if (month < 1 || month > 12) {
+    spDay.innerHTML = '月份超出范围';
+    return;
+  }
+  // 计算日期的部分
+  // 闰年的判断结果，能够被400整除
+  // 或者能被4整除，但是不能被100整除
+  let run = year % 400 == 0 || (year % 4 == 0 && year % 100 != 0);
+  // 阶梯判断
+  if (
+    month == 1 ||
+    month == 3 ||
+    month == 5 ||
+    month == 7 ||
+    month == 8 ||
+    month == 10 ||
+    month == 12
+  ) {
+    spDay.innerHTML = '该月有31天';
+  } else if (month == 4 || month == 6 || month == 9 || month == 11) {
+    spDay.innerHTML = '该月有30天';
+  } else if (run && month == 2) {
+    spDay.innerHTML = '该月有29天';
+  } else {
+    spDay.innerHTML = '该月有28天';
+  }
+});
+
+// 练习题
+// 输入工资，将工资分切成蓝领，白领和金领
+// 输入工资，计算工资等级对应的个人所得税
