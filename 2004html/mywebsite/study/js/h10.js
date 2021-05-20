@@ -32,3 +32,59 @@ btn02.addEventListener('click', function () {
   div01.setAttribute('title', '属性修改' + new Date());
   div01.setAttribute('style', 'text-align:center;');
 });
+
+// 混合动态创建知识
+let txt01 = document.getElementById('txt01');
+let btn03 = document.getElementById('btn03');
+let div02 = document.getElementById('div02');
+// 墨池
+console.log('动态创建二：', txt01, btn03, div02);
+
+btn03.addEventListener('click', function () {
+  let type = txt01.value;
+  let input = document.createElement('input');
+  input.setAttribute('type', type);
+  div02.append(input);
+});
+
+let sel01 = document.getElementById('sel01');
+// 循环创建年份的下拉项
+//  <option value="1950">1950年</option>
+
+// 计算循环执行代码
+// for(变量初始化;循环是否继续的逻辑表达式;每次循环之后执行代码){
+// 循环执行的代码
+// }
+let nowy = new Date().getFullYear();
+for (let i = 1990; i <= nowy; i++) {
+  let op = document.createElement('option');
+  op.setAttribute('value', i);
+  op.append(i + '年');
+  sel01.append(op);
+}
+let sel02 = document.getElementById('sel02');
+for (let i = 1; i < 13; i++) {
+  let op = document.createElement('option');
+  op.setAttribute('value', i);
+  op.append(i + '月');
+  sel02.append(op);
+}
+
+// 循环的指示器切换
+let images = [
+  '../images/img1.jpg',
+  '../images/img2.jpg',
+  '../images/img12.jpg'
+];
+// 循环产生指示器
+let div03 = document.getElementById('div03');
+let myimg = document.getElementById('myimg');
+
+for (let i = 0; i < images.length; i++) {
+  let span = document.createElement('span');
+  div03.append(span);
+  span.addEventListener('click', function () {
+    console.log('点击的span和索引值:', span, i, images[i]);
+    myimg.setAttribute('src', images[i]);
+  });
+}
