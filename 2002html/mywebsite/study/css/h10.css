@@ -1,0 +1,14 @@
+img {
+  display: block;
+  width: 10rem;
+  height: auto;
+}
+
+#divPoint > span {
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  border: 0.2rem solid #777;
+  border-radius: 50%;
+  background-color: #000;
+}
