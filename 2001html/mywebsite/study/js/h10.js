@@ -63,3 +63,24 @@ for (let i = 1; i < 13; i++) {
   op.append(i + '月');
   sel02.append(op);
 }
+
+// 图片指示器点击效果
+let images = [
+  '../images/img1.jpg',
+  '../images/img2.jpg',
+  '../images/img12.jpg',
+  '../images/xunlei-bg.jpg',
+  '../images/batman01.jpg'
+];
+let divPoint = document.getElementById('divPoint');
+let myimg = document.getElementById('myimg');
+// 循环生成指示器元素，以确保指示器数量和图片数量一致
+for (let i = 0; i < images.length; i++) {
+  let sp = document.createElement('span');
+  divPoint.append(sp);
+  sp.addEventListener('click', function () {
+    console.log('点击的指示器对应的i值', i, images[i]);
+    // 通过修改src属性来切换图片！！！
+    myimg.setAttribute('src', images[i]);
+  });
+}
