@@ -80,3 +80,4 @@ btnJiang.addEventListener('click', function () {
 // js的随机数是小数，所以需要算法来随机整数
 // 随机数公式 随机数*(上届-下届+1)+下届
 // 随机可以让页面变得更加生动
+  
