@@ -82,5 +82,6 @@ for (let i = 0; i < images.length; i++) {
   divPoint.append(sp);
   sp.addEventListener('click', function () {
     console.log('单击的指示器：', i, images[i]);
+    myimg.setAttribute('src', images[i]);
   });
 }

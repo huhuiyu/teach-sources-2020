@@ -73,3 +73,26 @@ for (let i = 1; i < 13; i++) {
   op.append(i + '月');
   sel02.append(op);
 }
+
+// 指示器切换图片的效果
+let images = [
+  '../images/img1.jpg',
+  '../images/img2.jpg',
+  '../images/img3.jpg',
+  '../images/img12.jpg'
+];
+// 指示器的数量和图片一致
+// 原理就是通过循环产生
+let divPoint = document.getElementById('divPoint');
+let myimg = document.getElementById('myimg');
+
+// 下标的循环从0开始
+for (let i = 0; i < images.length; i++) {
+  // 产生指示器元素（span）
+  let sp = document.createElement('span');
+  divPoint.append(sp);
+  sp.addEventListener('click', function () {
+    console.log('点击的元素索引：', i, images[i]);
+    myimg.setAttribute('src', images[i]);
+  });
+}
