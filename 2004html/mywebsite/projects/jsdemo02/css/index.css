@@ -1,0 +1,12 @@
+img {
+  width: 5rem;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  transition: all 1s;
+}
+
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+}

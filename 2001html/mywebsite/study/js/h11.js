@@ -33,9 +33,25 @@ let names = ['蔡妮娜', '程瀚', '熊泰', '周俊佑', '帅兰珺'];
 
 let myimg = document.getElementById('myimg');
 let spName = document.getElementById('spName');
-setInterval(function () {
-  // 随机索引挑选图片(0到长度减一)
-  let index = parseInt(Math.random() * images.length);
-  myimg.setAttribute('src', images[index]);
-  spName.innerHTML = names[index];
-}, 0.05 * 1000);
+
+let btnStart = document.getElementById('btnStart');
+let timer;
+let randcount = 0;
+
+btnStart.addEventListener('click', function () {
+  btnStart.style.display = 'none';
+
+  timer = setInterval(function () {
+    randcount++;
+    if (randcount > 100) {
+      clearInterval(timer);
+      randcount = 0;
+      btnStart.style.display = 'inline';
+      return;
+    }
+    // 随机索引挑选图片(0到长度减一)
+    let index = parseInt(Math.random() * images.length);
+    myimg.setAttribute('src', images[index]);
+    spName.innerHTML = names[index];
+  }, 0.05 * 1000);
+});

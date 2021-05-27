@@ -113,3 +113,52 @@ txtKey.addEventListener('keyup', function (event) {
 txtKey.addEventListener('keypress', function (event) {
   console.log('按键按压：', event);
 });
+
+// 鼠标相关事件
+let divMouse = document.getElementById('divMouse');
+
+divMouse.addEventListener('mouseover', function () {
+  console.log('鼠标悬停在元素上');
+});
+
+divMouse.addEventListener('mouseenter', function () {
+  console.log('鼠标进入元素');
+});
+
+divMouse.addEventListener('mouseleave', function () {
+  console.log('鼠标离开元素');
+});
+
+divMouse.addEventListener('mousedown', function (event) {
+  console.log('鼠标按下：', event);
+});
+
+divMouse.addEventListener('mouseup', function (event) {
+  console.log('鼠标释放：', event);
+});
+
+divMouse.addEventListener('mousemove', function (event) {
+  // 鼠标事件信息中的clientX表示鼠标所在位置横坐标
+  // clientY表示鼠标所在位置纵坐标
+  console.log('鼠标移动：', event);
+  divMouse.innerHTML = '鼠标位置：' + event.clientX + ',' + event.clientY;
+});
+
+// 手机版本的特有事件，测试需要切换到手机模式
+divMouse.addEventListener('touchstart', function (event) {
+  console.log('开始触摸：', event, event.touches);
+  // 手机的触摸是多点，所以触摸点的值是一个数组
+  divMouse.innerHTML =
+    '第一个触摸点：' +
+    event.touches[0].clientX +
+    ',' +
+    event.touches[0].clientY;
+});
+
+divMouse.addEventListener('touchend', function (event) {
+  console.log('触摸结束', event);
+});
+
+divMouse.addEventListener('touchmove', function (event) {
+  console.log('触摸移动', event);
+});
