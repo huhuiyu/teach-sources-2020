@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>js基础-事件进阶和视频播放</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="css/h12.css">
+</head>
+
+<body>
+  <select id="sel01"></select>
+  <select id="sel02"></select>
+  <select id="sel03"></select>
+  <button id="btnOk">确定</button>
+  <span id="spDay"></span>
+
+  <hr>
+  <!-- 
+    页面上绑定事件的方法
+    on事件名称="js中function名称()"
+    表示事件触发时执行对应的function
+    focus事件是元素获得焦点时
+    blur事件是元素丢失焦点时
+  -->
+  <input type="text" onfocus="haveFocus(this)" onblur="lostFocus(this)" placeholder="焦点元素一">
+  <input type="text" onfocus="haveFocus(this)" onblur="lostFocus(this)" placeholder="另一个焦点元素">
+
+  <input type="text" id="txtKey" placeholder="按键事件">
+
+  <hr>
+
+  <div id="divMouse"></div>
+
+
+
+  <script src="js/h12.js"></script>
+</body>
+
+</html>
