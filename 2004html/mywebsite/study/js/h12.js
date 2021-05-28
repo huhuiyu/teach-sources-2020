@@ -162,3 +162,28 @@ divMouse.addEventListener('touchend', function (event) {
 divMouse.addEventListener('touchmove', function (event) {
   console.log('触摸移动', event);
 });
+
+// 视频播放的部分
+let myvideo = document.getElementById('myvideo');
+let spPlay = document.getElementById('spPlay');
+
+// currentTime可以控制播放的画面在多少秒的位置
+myvideo.currentTime = 2;
+
+// 播放和暂停的控制
+let inplay = false;
+spPlay.addEventListener('click', function () {
+  if (inplay) {
+    // 播放中状态
+    inplay = false;
+    // pause()就是暂停播放
+    myvideo.pause();
+    spPlay.innerHTML = '播放';
+  } else {
+    // 暂停状态中
+    inplay = true;
+    // play()就是开始播放
+    myvideo.play();
+    spPlay.innerHTML = '暂停';
+  }
+});

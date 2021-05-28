@@ -1,0 +1,35 @@
+/* 容器 */
+.container {
+  /* 对块元素设定宽度，且宽度低于容器，
+  加margin: 0px auto;就会让元素在容器内居中 */
+  width: 20rem;
+  margin: 0px auto;
+  text-align: center;
+}
+
+.container > div:first-child {
+  margin: 1rem;
+  border: 1px solid #dcdcdc;
+  border-radius: 0.5rem;
+  padding: 0.2rem;
+}
+
+#imgRand {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+#spStart {
+  display: inline-block;
+  margin: 1rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  background-color: #ff00aa;
+  color: #ffffff;
+}
+
+#spStart:hover {
+  cursor: pointer;
+  background-color: #dd0099;
+}
