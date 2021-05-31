@@ -77,3 +77,68 @@ btnOk.addEventListener('click', function () {
   spResult.innerHTML =
     selYear.value + '-' + selMonth.value + '-' + selDay.value;
 });
+
+// 事件相关演示======
+function changeFocus(ele) {
+  console.log('获取到焦点：', ele);
+}
+
+function lostFocus(ele) {
+  console.log('丢失焦点：', ele);
+}
+
+// 按键相关事件
+let txtKey = document.getElementById('txtKey');
+
+txtKey.addEventListener('keydown', function (event) {
+  // 按键一直不释放会反复触发本事件
+  console.log('按键按下：', event);
+});
+txtKey.addEventListener('keyup', function (event) {
+  console.log('按键释放：', event);
+});
+
+// 鼠标相关事件
+let divMouse = document.getElementById('divMouse');
+
+divMouse.addEventListener('mouseover', function () {
+  divMouse.innerHTML = '鼠标悬停';
+  console.log('鼠标悬停');
+});
+
+divMouse.addEventListener('mouseenter', function () {
+  console.log('鼠标进入');
+});
+
+divMouse.addEventListener('mouseout', function () {
+  divMouse.innerHTML = '鼠标离开';
+});
+
+divMouse.addEventListener('mousemove', function (event) {
+  // 移动事件带有鼠标位置的坐标信息
+  divMouse.innerHTML = '鼠标移动' + event.clientX + ',' + event.clientY;
+});
+
+divMouse.addEventListener('mousedown', function (event) {
+  divMouse.innerHTML = '鼠标按下：' + event.clientX + ',' + event.clientY;
+  console.log('鼠标按下', event);
+});
+
+// 手机相关事件，需要将浏览器切换到手机模式或者真机测试
+divMouse.addEventListener('touchstart', function (event) {
+  // 触摸事件比较特殊，手机一般支持多点触摸
+  // 所以触摸点是返回一个数组，且至少有一个值
+  let ts = event.touches[0];
+  divMouse.innerHTML = '开始触摸：' + ts.clientX + ',' + ts.clientY;
+});
+
+divMouse.addEventListener('touchend', function (event) {
+  divMouse.innerHTML = '触摸结束';
+  console.log('触摸结束', event);
+});
+
+divMouse.addEventListener('touchmove', function (event) {
+  let ts = event.touches[0];
+  divMouse.innerHTML = 
+    '触摸移动：' + ts.clientX + ',' + ts.clientY;
+});

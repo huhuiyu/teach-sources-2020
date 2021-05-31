@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>js基础-事件进阶和视频播放</title>
   <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="css/h12.css">
 </head>
 
 <body>
@@ -17,6 +18,20 @@
   <select id="selDay"></select>
   <button id="btnOk">确定</button>
   <span id="spResult"></span>
+  <hr>
+
+  <!-- 
+    事件相关属性 on事件名称="js中function名称()"
+    表示当事件触发时执行对应的fuction
+    focus事件是元素拥有焦点的时候
+  -->
+  <input type="text" onblur="lostFocus(this)" onfocus="changeFocus(this);" placeholder="焦点事件元素一">
+  <input type="text" onblur="lostFocus(this)" onfocus="changeFocus(this)" placeholder="另一个焦点事件元素">
+
+  <input type="text" id="txtKey" placeholder="按键事件">
+
+  <hr>
+  <div id="divMouse"></div>
 
 
   <script src="js/h12.js"></script>
