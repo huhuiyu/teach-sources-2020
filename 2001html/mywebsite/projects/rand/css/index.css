@@ -1,0 +1,38 @@
+.container {
+  /* 将元素放置在容器的中间的旧版本方法 */
+  /* 必须要有宽度，且宽度小于容器 */
+  width: 20rem;
+  margin: 0px auto;
+
+  text-align: center;
+}
+
+.container > div {
+  padding: 0.2rem;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+}
+
+/* 开始按钮 */
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  background-color: #ff00aa;
+  color: #ffffff;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: #cc0088;
+}
+/* 请注意：如果两个class直接没有空格分开，表示同时套用两个class
+  的元素，也就是class="btn disible" */
+.btn.disible {
+  background-color: #dcdcdc;
+  cursor: no-drop;
+}
