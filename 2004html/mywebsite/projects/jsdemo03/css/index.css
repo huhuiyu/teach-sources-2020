@@ -1,0 +1,55 @@
+body {
+  overflow: hidden;
+}
+#container {
+  overflow: hidden;
+  position: relative;
+}
+#container,
+#container > div {
+  width: 100vw;
+  height: 100vh;
+}
+
+#container > div {
+  position: absolute;
+  transition: transform 1s;
+}
+
+#container > div:nth-child(1) {
+  top: 0px;
+  left: 0px;
+}
+
+#container > div:nth-child(2) {
+  top: 0px;
+  left: 100%;
+}
+
+#container > div:nth-child(3) {
+  top: 0px;
+  left: 200%;
+}
+
+/* 指示器的部分 */
+#divPoints {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+}
+
+#divPoints span {
+  display: inline-block;
+  border: 0.2rem solid #fff;
+  width: 1rem;
+  height: 1rem;
+  background-color: #fff;
+  border-radius: 50%;
+  margin: 0.1rem;
+}
+
+#divPoints span.active {
+  border-color: #ff0000;
+}

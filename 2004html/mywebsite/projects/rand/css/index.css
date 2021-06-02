@@ -7,7 +7,7 @@
   text-align: center;
 }
 
-.container > div:first-child {
+.container > div:last-child {
   margin: 1rem;
   border: 1px solid #dcdcdc;
   border-radius: 0.5rem;
@@ -32,4 +32,10 @@
 #spStart:hover {
   cursor: pointer;
   background-color: #dd0099;
+}
+
+/* 选择器中间没有空格表示同时匹配两个选择器的元素才会生效 */
+#spStart.disible {
+  background-color: #dcdcdc;
+  cursor: not-allowed;
 }
