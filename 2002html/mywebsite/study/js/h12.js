@@ -146,3 +146,24 @@ divMouse.addEventListener('touchmove', function (event) {
   let t = event.touches[0];
   divMouse.innerHTML = '触摸拖动' + t.clientX + ',' + t.clientY;
 });
+
+// 视频播放的部分
+let myvideo = document.getElementById('myvideo');
+let spPlay = document.getElementById('spPlay');
+// 是否播放中
+let inplay = false;
+spPlay.addEventListener('click', function () {
+  if (inplay) {
+    // 在播放中的情况
+    myvideo.pause();
+    inplay = false;
+    spPlay.innerHTML = '播放';
+  } else {
+    // 暂停的情况
+    myvideo.play();
+    inplay = true;
+    spPlay.innerHTML = '暂停';
+  }
+});
+
+myvideo.currentTime = 2;

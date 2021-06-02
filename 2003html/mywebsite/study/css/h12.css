@@ -3,3 +3,34 @@
   height: 20rem;
   border: 1px solid #ff0000;
 }
+
+.myvideo {
+  width: 16rem;
+  height: 9rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.myvideo video {
+  width: 100%;
+  height: 100%;
+}
+
+.div-play {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(100%);
+  transition: transform 0.5s;
+}
+
+.myvideo:hover .div-play {
+  transform: translateY(0%);
+}

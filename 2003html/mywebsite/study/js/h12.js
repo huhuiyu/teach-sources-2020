@@ -128,3 +128,38 @@ divMouse.addEventListener('mouseup', function (event) {
 
 // 手机的事件不一样，需要开启浏览器手机模式才能测试
 // 或者是真机测试，手机的事件多半都是触摸相关的
+divMouse.addEventListener('touchstart', function (event) {
+  // 手机触摸事件的触摸点的信息是多个（多点触摸）
+  // 所以触摸点的信息是数组
+  let touch = event.touches[0]; //只要第一个点
+  divMouse.innerHTML = '手机触摸按下：' + touch.clientX + ',' + touch.clientY;
+});
+
+divMouse.addEventListener('touchend', function () {
+  divMouse.innerHTML = '手机触摸结束';
+});
+
+divMouse.addEventListener('touchmove', function (ev) {
+  let touch = ev.touches[0];
+  divMouse.innerHTML = '手机触摸移动' + touch.clientX + ',' + touch.clientY;
+});
+
+// 视频播放的部分
+let myvideo = document.getElementById('myvideo');
+let spPlay = document.getElementById('spPlay');
+let inplay = false;
+spPlay.addEventListener('click', function () {
+  if (inplay) {
+    // 已经在播放中
+    inplay = false;
+    myvideo.pause();
+    spPlay.innerHTML = '播放';
+  } else {
+    // 停止状态中
+    inplay = true;
+    myvideo.play();
+    spPlay.innerHTML = '暂停';
+  }
+});
+// 设置到一个有画面的时间点
+myvideo.currentTime = 2;
