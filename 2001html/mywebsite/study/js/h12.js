@@ -139,6 +139,27 @@ divMouse.addEventListener('touchend', function (event) {
 
 divMouse.addEventListener('touchmove', function (event) {
   let ts = event.touches[0];
-  divMouse.innerHTML = 
-    '触摸移动：' + ts.clientX + ',' + ts.clientY;
+  divMouse.innerHTML = '触摸移动：' + ts.clientX + ',' + ts.clientY;
+});
+
+// 视频播放部分
+let myvideo = document.getElementById('myvideo');
+let spPlay = document.getElementById('spPlay');
+
+let inplay = false;
+// 将初始的进度调整到有画面的一帧
+myvideo.currentTime = 2;
+
+spPlay.addEventListener('click', function () {
+  if (inplay) {
+    // 播放中情况
+    myvideo.pause();
+    spPlay.innerHTML = '播放';
+    inplay = false;
+  } else {
+    // 暂停中情况
+    myvideo.play();
+    spPlay.innerHTML = '暂停';
+    inplay = true;
+  }
 });
