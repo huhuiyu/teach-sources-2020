@@ -24,3 +24,65 @@
   display: flex;
   justify-content: space-between;
 }
+
+.left-menu {
+  display: flex;
+  align-items: center;
+}
+
+.left-menu img {
+  height: 2rem;
+}
+
+.left-menu > span {
+  display: inline-block;
+  margin: 0px 0.5rem;
+}
+
+.khd {
+  display: inline-block;
+  background-color: #0078f2;
+  color: #fff;
+  padding: 1rem 2rem;
+}
+
+/* 图片区域总容器 */
+.images {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 单个图片的容器 */
+.img-box {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 33.33333333%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.img-box > img {
+  height: 100%;
+  transform: scale(1);
+  filter: brightness(0.5);
+  transition: all 0.5s;
+}
+
+.img-box > img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.2);
+  cursor: pointer;
+}
+
+/* 关闭按钮样式 */
+.span-close {
+  display: inline-block;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  font-size: 2rem;
+  padding: 0px 0.2rem;
+}
