@@ -47,18 +47,43 @@
   width: 33.33333%;
   top: 0px;
   left: 0px;
+  height: 100%;
 }
 
 .img-box img {
   display: block;
-  height: 100%;
   transform: scale(1);
   filter: brightness(0.6);
   transition: all 0.5s;
 }
 
-.img-box img:hover {
+.img-box:hover img {
   cursor: pointer;
   filter: brightness(1);
   transform: scale(1.05);
+}
+
+.img-box.active {
+  width: 100%;
+  z-index: 100;
+  transition: all 1s;
+}
+
+.img-box.active img,
+.img-box.active:hover img {
+  filter: brightness(1);
+  transform: scale(1);
+}
+
+/* 关闭按钮 */
+.close-box {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 0.2rem 0.5rem;
+  font-size: 2rem;
+  display: none;
+  cursor: pointer;
 }
