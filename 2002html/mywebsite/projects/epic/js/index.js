@@ -2,7 +2,14 @@ console.log('in index.js=====>');
 // 获取所有的图片div
 // document.querySelectorAll是获取css选择器对应的元素数组
 let imgdivs = document.querySelectorAll('.img-box');
-console.log('图片div：', imgdivs, imgdivs.length);
+let spancloses = document.querySelectorAll('.span-close');
+console.log(
+  '图片div：',
+  imgdivs,
+  imgdivs.length,
+  spancloses,
+  spancloses.length
+);
 
 // imgdivs[0].style.transform = 'translateX(0%)';
 // imgdivs[1].style.transform = 'translateX(100%)';
@@ -46,5 +53,21 @@ for (let i = 0; i < imgdivs.length; i++) {
   divimg.addEventListener('click', function () {
     stopmove = true;
     console.log('点击的图片：', divimg, i);
+    spancloses[i].style.display = 'inline-block';
+
+    divimg.classList.add('active');
+    imgdivs[i].style.transform = 'translateX(0%)';
+  });
+}
+// 点击关闭事件
+for (let i = 0; i < spancloses.length; i++) {
+  let sc = spancloses[i];
+  sc.addEventListener('click', function (event) {
+    sc.style.display = 'none';
+    imgdivs[i].classList.remove('active');
+    stopmove = false;
+    // 这一句的意思是本元素已经处理事件
+    // 它上层的元素不再处理
+    event.stopPropagation();
   });
 }
