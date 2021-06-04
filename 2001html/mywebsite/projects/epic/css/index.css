@@ -8,6 +8,8 @@
 /* 图片区域，填满 */
 .images {
   flex: 1;
+  overflow: hidden;
+  position: relative;
 }
 
 /* 上方菜单容器，左右布局 */
@@ -38,4 +40,56 @@
   background-color: #0078f2;
   color: #ffffff;
   padding: 1rem 2rem;
+}
+
+/* 图片层 */
+.img-box {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 33.33333333%;
+  overflow: hidden;
+}
+
+.img-box img {
+  filter: brightness(0.5);
+  transform: scale(1);
+  transition: all 0.5s;
+}
+
+.img-box:hover img {
+  filter: brightness(1);
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+/* 激活状态的图片盒子 */
+.img-box.active {
+  width: 100%;
+  /* z-index大的值的元素靠前显示 */
+  z-index: 10;
+  transition: all 1s;
+}
+
+/* 关闭样式 */
+.close-box {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+  display: none;
+}
+.active .close-box {
+  display: block;
+}
+
+/* 激活状态下，图片样式固定 */
+.img-box.active img,
+.img-box.active:hover img {
+  filter: brightness(1);
+  transform: scale(1);
 }
