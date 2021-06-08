@@ -1,0 +1,110 @@
+/* 第一屏容器 */
+.container {
+  /* 填满页面高度，垂直的压力布局 */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+/* 图片区要占满第一屏的剩余空间 */
+.container > div:nth-child(2) {
+  flex: 1;
+}
+/* 菜单区布局左右分散对齐 */
+.container > div:nth-child(1) {
+  display: flex;
+  justify-content: space-between;
+  background-color: #2c2c2c;
+  color: #cccccc;
+}
+/* 左边菜单样式 */
+.left-box {
+  display: flex;
+  align-items: center;
+}
+.left-box img {
+  height: 2rem;
+  margin-left: 0.5rem;
+}
+.left-box > span {
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+
+/* 下载客户端样式 */
+.khd {
+  background-color: #0078f2;
+  color: #fff;
+  display: inline-block;
+  padding: 1rem 1.5rem;
+}
+
+.bottom-box {
+  background-color: #2c2c2c;
+  color: #ccc;
+  padding: 1rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+/* 图片区域 */
+.imgs-box {
+  /* 超出范围不出现滚动条，也就是超出的都不会显示 */
+  overflow: hidden;
+  /* 里面元素移动需要绝对定位，所以容器要相对定位 */
+  position: relative;
+}
+
+/* 单个图片容器 */
+.image-box {
+  overflow: hidden;
+  height: 100%;
+  width: 33.333333333%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.image-box img {
+  transform: scale(1);
+  filter: brightness(0.5);
+  transition: all 0.5s;
+}
+
+.image-box:hover img {
+  transform: scale(1.05);
+  filter: brightness(1);
+  cursor: pointer;
+}
+
+/* 点击效果的部分 */
+.close-box {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  font-size: 2rem;
+  padding: 0.2rem 0.5rem;
+  display: none;
+}
+
+/* 图片激活样式 */
+/* 
+  两个选择器中间没有空格连着表示同时吻合两个选择器的元素才会生效
+  下面的意思表示只有class="image-box active"的元素
+*/
+.image-box.active {
+  width: 100%;
+  transition: all 1s;
+  z-index: 100;
+}
+
+.image-box.active .close-box {
+  display: block;
+}
+
+.image-box.active img,
+.image-box.active:hover img {
+  transform: scale(1);
+  filter: brightness(1);
+}
