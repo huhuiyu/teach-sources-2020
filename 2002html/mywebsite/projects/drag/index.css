@@ -1,0 +1,76 @@
+.container {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+#dnd {
+  position: fixed;
+  top: 5rem;
+  right: 5rem;
+  border: 1px solid #acacac;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(#ffffff, #acacac);
+  cursor: pointer;
+}
+
+/* 弹出层样式 */
+#maskBox {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#contentBox {
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 10px #ffffff;
+}
+
+#contentBox > div {
+  padding: 1rem 4rem;
+}
+
+@keyframes move-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-200%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+.movein {
+  animation: move-in 0.5s linear;
+}
+
+@keyframes move-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(200%);
+  }
+}
+
+.moveout {
+  animation: move-out 0.5s linear;
+}

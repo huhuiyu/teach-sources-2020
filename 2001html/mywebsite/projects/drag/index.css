@@ -1,0 +1,21 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#dnd {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  border: 1px solid #acacac;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  /* 背景颜色是圆心渐变 */
+  background: radial-gradient(#ffffff, #acacac);
+}

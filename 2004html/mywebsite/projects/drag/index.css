@@ -1,0 +1,50 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#dnd {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid #acacac;
+  border-radius: 50%;
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* radial-gradient,圆形渐变，参数是多颜色 */
+  background: radial-gradient(#ffffff, #acacac);
+}
+
+/* 弹出框相关样式 */
+#maskBox {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+#contentBox {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-top: -5rem;
+}
+
+#spClose {
+  display: inline-block;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 2rem;
+}

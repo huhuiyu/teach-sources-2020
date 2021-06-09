@@ -1,0 +1,45 @@
+#dnd {
+  /* position：定位的模式，fixed:固定定位 */
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  border: 1px solid #acacac;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  /* radial-gradient，圆形渐变色 */
+  background: radial-gradient(#ffffff, #acacac);
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* 模拟弹出层效果 */
+#maskBox {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#contentBox {
+  border-radius: 1rem;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 1rem;
+}
