@@ -19,3 +19,58 @@
   /* 背景颜色是圆心渐变 */
   background: radial-gradient(#ffffff, #acacac);
 }
+
+/* 弹出层样式 */
+#mask {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#content {
+  /* margin-top: -15rem; */
+  background-color: #fff;
+  color: #000;
+  border-radius: 1rem;
+  text-align: center;
+}
+
+#content > div {
+  padding: 0.5rem;
+}
+
+@keyframes move-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-200%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+.movein {
+  animation: move-in 0.5s linear;
+}
+
+@keyframes move-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(200%);
+  }
+}
+
+.moveout {
+  animation: move-out 0.5s linear;
+}

@@ -48,3 +48,31 @@
   cursor: pointer;
   font-size: 2rem;
 }
+
+@keyframes movein {
+  0% {
+    opacity: 0;
+    transform: translateY(-200%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+.move-in {
+  animation: movein 1s linear;
+}
+
+@keyframes moveout {
+  0% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(200%);
+  }
+}
+.move-out {
+  animation: moveout 0.5s linear;
+}

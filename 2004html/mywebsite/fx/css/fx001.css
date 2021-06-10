@@ -1,0 +1,10 @@
+/* 压力盒子 */
+.flex-box {
+  display: flex;
+}
+/* 带边框的盒子 */
+.border-box {
+  /* 边框算到元素的总宽度里面 */
+  box-sizing: border-box;
+  border: 1px solid #ff0000;
+}

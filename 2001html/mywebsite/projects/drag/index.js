@@ -45,3 +45,30 @@ dnd.addEventListener('touchmove', function (ev) {
   dnd.style.top = touch.clientY + offsetY + 'px';
   dnd.style.left = touch.clientX + offsetX + 'px';
 });
+
+// 弹出层相关部分
+let btnOpen = document.getElementById('btnOpen');
+let mask = document.getElementById('mask');
+let content = document.getElementById('content');
+let spClose = document.getElementById('spClose');
+let btnClose = document.getElementById('btnClose');
+
+btnOpen.addEventListener('click', function () {
+  mask.style.display = 'flex';
+  content.classList.remove('moveout');
+  content.classList.add('movein');
+});
+
+btnClose.addEventListener('click', function () {
+  content.classList.remove('movein');
+  content.classList.add('moveout');
+  // 等待动画完毕才能隐藏弹出层
+  setTimeout(function () {
+    mask.style.display = 'none';
+  }, 0.5 * 1000);
+});
+
+spClose.addEventListener('click', function () {
+  // 元素.click()表示触发元素点击动作
+  btnClose.click();
+});

@@ -14,7 +14,28 @@
   <div class="container">
     <!-- 属性draggable="true"表示启用元素拖动  -->
     <div id="dnd" draggable="true">拖</div>
+
+    <button id="btnOpen">弹出对话框</button>
+
   </div>
+
+  <!-- 弹出层 -->
+  <div id="mask">
+    <div id="content">
+      <div>一个弹出对话框<span id="spClose">X</span></div>
+      <hr>
+      <div>
+        凡是重要的电影都是以黑色屏幕开头的
+        <br>
+        黑暗骑士
+      </div>
+      <hr>
+      <div>
+        <button id="btnClose">关闭</button>
+      </div>
+    </div>
+  </div>
+
 
   <script src="index.js"></script>
 </body>

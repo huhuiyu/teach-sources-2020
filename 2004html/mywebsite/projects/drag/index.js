@@ -56,9 +56,16 @@ let btnClose = document.getElementById('btnClose');
 
 btnPop.addEventListener('click', function () {
   maskBox.style.display = 'flex';
+  contentBox.classList.remove('move-out');
+  contentBox.classList.add('move-in');
 });
 btnClose.addEventListener('click', function () {
-  maskBox.style.display = 'none';
+  contentBox.classList.remove('move-in');
+  contentBox.classList.add('move-out');
+  // 在动画完成之后才隐藏弹出层
+  setTimeout(function () {
+    maskBox.style.display = 'none';
+  }, 0.5 * 1000);
 });
 spClose.addEventListener('click', function () {
   // 触发btnClose的点击事件
