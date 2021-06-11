@@ -1,0 +1,40 @@
+.flex-box {
+  display: flex;
+}
+
+.border-box {
+  /* border的宽度计算到元素的width中 */
+  box-sizing: border-box;
+  border: 1px solid #ff0000;
+}
+
+.box01 {
+  /* 水平分散对齐 */
+  justify-content: space-between;
+}
+.box02 {
+  justify-content: space-around;
+}
+.box03 {
+  justify-content: space-evenly;
+}
+.box04 {
+  /* center,flex-start,flex-end */
+  justify-content: center;
+}
+
+/* 
+  压力值，是压力盒子中的子元素样式 
+  压力值大的空间占用比例也就大
+  如果只有一个有压力值，那么该元素占满所有剩余空间
+  有压力值就没有水平对齐
+*/
+.flex1 {
+  flex: 1;
+}
+.flex2 {
+  flex: 2;
+}
+.flex3 {
+  flex: 3;
+}

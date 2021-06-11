@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>压力布局-水平方向</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/fx01.css">
+</head>
+
+<body>
+  <!-- 没有布局的对照组 -->
+  <div>
+    <div class="border-box">1111</div>
+    <div class="border-box">2222</div>
+    <div class="border-box">3333</div>
+  </div>
+  <!-- 
+    压力布局水平效果，压力布局会将一级的子元素压迫到一行
+    也意味着压力布局只会影响一级元素
+  -->
+  <hr>
+  <div class="flex-box">
+    <div class="border-box">1111</div>
+    <div class="border-box">2222</div>
+    <div class="border-box">3333</div>
+  </div>
+
+  <hr>
+  <div class="flex-box">
+    <div class="border-box">
+      <div>sadfasdfasdf</div>
+      <div>sadfasdfasdf</div>
+      <div>sadfasdfasdf</div>
+      <div>sadfasdfasdf</div>
+    </div>
+    <div class="border-box">2222</div>
+    <div class="border-box">
+      <div>aaaaaa</div>
+      <div>bbbbbb</div>
+    </div>
+  </div>
+
+  <hr>
+  <div class="flex-box box01">
+    <div class="border-box">1111</div>
+    <div class="border-box">2222</div>
+    <div class="border-box">3333</div>
+  </div>
+
+  <hr>
+  <div class="flex-box box02">
+    <div class="border-box">1111</div>
+    <div class="border-box">2222</div>
+    <div class="border-box">3333</div>
+  </div>
+
+  <hr>
+  <div class="flex-box box03">
+    <div class="border-box">1111</div>
+    <div class="border-box">2222</div>
+    <div class="border-box">3333</div>
+  </div>
+
+  <hr>
+  <div class="flex-box box04">
+    <div class="border-box">1111</div>
+    <div class="border-box">2222</div>
+    <div class="border-box">3333</div>
+  </div>
+
+  <hr>
+  <div class="flex-box">
+    <div class="border-box flex1">1111</div>
+    <div class="border-box flex2">2222</div>
+    <div class="border-box flex3">3333</div>
+  </div>
+
+  <hr>
+  <div class="flex-box">
+    <div class="border-box">1111</div>
+    <div class="border-box flex2">2222</div>
+    <div class="border-box">3333</div>
+  </div>
+
+</body>
+
+</html>
