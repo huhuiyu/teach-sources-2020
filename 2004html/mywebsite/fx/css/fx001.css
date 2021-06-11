@@ -8,3 +8,52 @@
   box-sizing: border-box;
   border: 1px solid #ff0000;
 }
+
+.box01 {
+  /* 分散对齐 */
+  justify-content: space-between;
+}
+.box02 {
+  /* 空白分配在每个子元素的两侧 */
+  justify-content: space-around;
+}
+.box03 {
+  /* 空白平均分配 */
+  justify-content: space-evenly;
+}
+.box04 {
+  /* 左中右对齐 */
+  /* flex-start,flex-end */
+  justify-content: center;
+}
+/* 注意！压力值是压力盒子中一级子元素的样式 */
+/* 
+  压力值的大的占用空间也就更大，但是不是绝对的按照比例分配
+  比如空间没有多余的地方，如果只有一个有压力值，会占满所有空白
+*/
+.flex1 {
+  flex: 1;
+}
+.flex2 {
+  flex: 2;
+}
+.flex3 {
+  flex: 3;
+}
+
+.box05 {
+  /* 子元素总宽度超过容器时，是否允许换行显示 */
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.box05 > div {
+  width: 33.333333%;
+}
+
+/* 垂直轴对齐（交叉轴） */
+.box06 {
+  /* stretch:默认值，拉伸，center:居中，flex-start：靠上
+  flex-end：靠下 */
+  align-items: center;
+}

@@ -1,0 +1,21 @@
+/* 通过垂直布局来完成上中下布局模式 */
+.container {
+  display: flex;
+  /* 垂直方向布局 */
+  flex-direction: column;
+  /* 由于div天生换行，所有如果没有容器没有高度，没有必要使用布局 */
+  height: 100vh;
+  border: 5px solid #00ff00;
+  box-sizing: border-box;
+  /* justify-content: space-between; */
+}
+.container > div {
+  border: 1px solid #ff0000;
+}
+.container > div:nth-child(2) {
+  flex: 1;
+  /* 压力布局可以无限嵌套 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

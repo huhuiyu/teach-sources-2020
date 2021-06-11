@@ -1,0 +1,20 @@
+.container {
+  border: 5px solid #00ff00;
+  display: flex;
+  /* 垂直向的压力布局 */
+  flex-direction: column;
+  /* 由于div天生满行，就是垂直向，所有没有足够高度就不需要布局 */
+  height: 100vh;
+  box-sizing: border-box;
+  /* justify-content: space-between; */
+}
+.container > div {
+  border: 1px solid #ff0000;
+}
+.container > div:nth-child(2) {
+  flex: 1;
+  /* 嵌套的压力布局 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

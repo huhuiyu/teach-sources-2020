@@ -1,0 +1,25 @@
+.fixed-box {
+  /* 固定定位会脱离文档流，不受父元素的约束 */
+  position: fixed;
+  /* 通过top,right,bottom,left四个值来调控位置 */
+  top: 1rem;
+  right: 0px;
+}
+
+/* 绝对定位元素的容器 */
+.abs-container {
+  /* 
+  position: relative;表示里面的绝对定位元素的位置要参考自己
+  */
+  position: relative;
+  border: 1px solid;
+  height: 10rem;
+  width: 20rem;
+}
+
+/* 绝对定位元素 */
+.abs-box {
+  position: absolute;
+  bottom: 2rem;
+  left: 5rem;
+}

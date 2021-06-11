@@ -1,0 +1,68 @@
+/* 带压力布局的容器 */
+.flex-box {
+  display: flex;
+}
+
+/* 带边框的容器 */
+.border-box {
+  box-sizing: border-box;
+  border: 1px solid #ff0000;
+}
+
+.box01 {
+  /* 水平对齐方式-分散对齐 */
+  justify-content: space-between;
+}
+.box02 {
+  justify-content: space-around;
+}
+.box03 {
+  justify-content: space-evenly;
+}
+.box04 {
+  /* center，flex-start，flex-end */
+  justify-content: center;
+}
+
+/* 
+  压力值，套用在压力布局里面子元素
+  会根据压力值的大小分配空间，其次有压力就没有水平对齐
+  如果只有一个子元素给了压力值，它会占满所有剩余空间
+*/
+.flex1 {
+  flex: 1;
+}
+.flex2 {
+  flex: 2;
+}
+.flex3 {
+  flex: 3;
+}
+
+/* 压力带换行样式，配合媒体查询可以完美自适应屏幕大小 */
+.box05 {
+  /* 如果子元素的总宽度超过容器宽度允许子元素换行 */
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.box05 > div {
+  width: 30%;
+}
+
+/* 通过媒体查询功能完成手机版布局 */
+@media screen and (max-width: 768px) {
+  /* 手机模式下一行两个 */
+  .box05 > div {
+    width: 45%;
+  }
+}
+
+/* 交叉轴对齐（垂直对齐）方法 */
+.box06 {
+  /* 
+    stretch（默认，高度填满），center，居中
+    flex-start，靠上，flex-end，靠下
+  */
+  align-items: center;
+}

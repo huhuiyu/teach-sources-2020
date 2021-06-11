@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>复习-压力布局一</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/fx01.css">
+</head>
+
+<body>
+  <!-- 压力布局对照组 -->
+  <div>
+    <div class="border-box">1111</div>
+    <div class="border-box">2222</div>
+    <div class="border-box">3333</div>
+  </div>
+  <hr>
+  <!-- 
+    基本的压力布局，会将一级的子元素压迫到一行上
+    布局和内容没有关系，压力也只会影响一级子元素
+  -->
+  <div class="flex-box">
+    <div class="border-box">1111</div>
+    <div class="border-box">2222</div>
+    <div class="border-box">3333</div>
+  </div>
+  <!-- 水平对齐演示 -->
+  <hr>
+  <div class="flex-box box01">
+    <div class="border-box">1111</div>
+    <div class="border-box">2222</div>
+    <div class="border-box">3333</div>
+  </div>
+
+  <hr>
+  <div class="flex-box box02">
+    <div class="border-box">1111</div>
+    <div class="border-box">2222</div>
+    <div class="border-box">3333</div>
+  </div>
+
+  <hr>
+  <div class="flex-box box03">
+    <div class="border-box">1111</div>
+    <div class="border-box">2222</div>
+    <div class="border-box">3333</div>
+  </div>
+
+  <hr>
+  <div class="flex-box box04">
+    <div class="border-box">1111</div>
+    <div class="border-box">2222</div>
+    <div class="border-box">3333</div>
+  </div>
+  <!-- 压力值 -->
+  <hr>
+  <div class="flex-box">
+    <div class="border-box flex1">1111</div>
+    <div class="border-box flex2">2222</div>
+    <div class="border-box flex3">3333</div>
+  </div>
+  <hr>
+  <div class="flex-box">
+    <div class="border-box">1111</div>
+    <div class="border-box flex2">2222</div>
+    <div class="border-box">3333</div>
+  </div>
+
+  <hr>
+  <div class="flex-box box05">
+    <div class="border-box">1111</div>
+    <div class="border-box">2222</div>
+    <div class="border-box">3333</div>
+    <div class="border-box">4444</div>
+    <div class="border-box">5555</div>
+  </div>
+
+  <!-- 最后一个强调，布局和内容无关 -->
+  <hr>
+  <div class="flex-box box06">
+    <div class="border-box">
+      <div>大撒发射点发射点发</div>
+      <div>大撒发射点发射点发</div>
+      <div>大撒发射点发射点发</div>
+      <div>大撒发射点发射点发</div>
+    </div>
+    <div class="border-box">2222</div>
+    <div class="border-box">
+      <div>sdfsaddfasdfasfd</div>
+      <div>
+        <div>adfadfadsf</div>
+        <div>adfadfadsf</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

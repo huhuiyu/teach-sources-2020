@@ -71,3 +71,11 @@ spClose.addEventListener('click', function () {
   // 触发btnClose的点击事件
   btnClose.click();
 });
+
+btnClosePop.addEventListener('click', function () {
+  btnPop.click();
+  // 延时关闭
+  setTimeout(function () {
+    btnClose.click();
+  }, 3 * 1000);
+});
