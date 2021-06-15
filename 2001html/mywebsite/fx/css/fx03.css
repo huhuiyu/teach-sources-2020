@@ -1,0 +1,39 @@
+.fixed-box {
+  /*
+  固定定位，脱离文档流，不受页面滚动影响
+  */
+  position: fixed;
+  /* 四个方向值控制位置 */
+  top: 1rem;
+  right: 5rem;
+
+  border: 1px solid #ff0000;
+  /* width: 1rem; */
+}
+
+/* 绝对定位元素的容器 */
+.abs-container {
+  /* 相对定位，约束里面绝对定位的子元素的坐标为本元素 */
+  position: relative;
+  width: 20rem;
+  height: 15rem;
+  border: 1px solid #ff00ff;
+}
+
+.abs-box {
+  /* 绝对定位 */
+  position: absolute;
+  /* top,right,bottom,left */
+  right: 1rem;
+  bottom: 5rem;
+}
+
+/* 
+  定位一定要慎用！！！！！，如果没有遮罩或者的特殊的移动效果
+  一般没有必要使用
+*/
+
+#div99 > span {
+  display: inline-block;
+  width: 5rem;
+}

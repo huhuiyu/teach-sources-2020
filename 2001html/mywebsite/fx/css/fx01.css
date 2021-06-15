@@ -38,3 +38,18 @@
 .flex3 {
   flex: 3;
 }
+
+/* 压力布局允许子元素总宽度超出后换行 */
+.box05 {
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.box05 > div {
+  width: 30%;
+}
+/* 手机模式下的样式 */
+@media screen and (max-width: 768px) {
+  .box05 > div {
+    width: 50%;
+  }
+}

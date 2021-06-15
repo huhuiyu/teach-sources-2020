@@ -1,0 +1,20 @@
+.container {
+  height: 100vh;
+  /* box-sizing: border-box;
+  border: 10px solid #00ffff; */
+  display: flex;
+  /* 垂直方向的压力布局 */
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+.container > div {
+  box-sizing: border-box;
+  border: 1px solid #ff0000;
+}
+.container > div:nth-child(2) {
+  flex: 1;
+  /* 嵌套使用压力盒子 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
