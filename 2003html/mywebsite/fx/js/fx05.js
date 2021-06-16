@@ -20,3 +20,27 @@ for (let i = 1; i < 10; i++) {
   let br = document.createElement('br');
   div99.append(br);
 }
+
+// 打字效果
+let spType = document.getElementById('spType');
+let info = '乐高蝙蝠侠大电影真的很好看';
+// 需要的知识点
+console.log(
+  '字符串信息：',
+  info.length,
+  info.charAt(1),
+  info.substr(2, 3),
+  info.substring(2, 3)
+);
+// 记录当前索引
+let index = 0;
+
+let timer = setInterval(function () {
+  let char = info.charAt(index);
+  spType.append(char);
+  index++;
+  if (index >= info.length) {
+    clearInterval(timer);
+    // index = 0;
+  }
+}, 500);

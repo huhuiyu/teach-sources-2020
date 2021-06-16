@@ -1,0 +1,36 @@
+.fixed-box {
+  /* 固定定位，不会因为页面滚动变化位置 */
+  position: fixed;
+  /* 通过top,right,bottom,letf四个值控制位置 */
+  top: 0.5rem;
+  right: 3rem;
+  border: 1px solid #0000ff;
+}
+
+/* 绝对定位的容器 */
+.abs-container {
+  /* 
+  相对定位，用于绝对定位元素的容器样式
+  表示该元素里面的绝对定位元素的坐标是参考自己，而不是页面
+  绝大多少情况下，绝对定位都会有一个相对定位的容器约束
+  */
+  position: relative;
+  border: 1px solid #ff0000;
+  width: 20rem;
+  height: 15rem;
+}
+/* 绝对定位元素 */
+.abs-box {
+  position: absolute;
+  bottom: 5rem;
+  right: 1rem;
+  border: 1px solid #0000ff;
+}
+
+/* 
+固定定位和绝对定位都是脱离文档流，所以一定要慎重使用
+一般只会在遮挡或者移动元素的情况下使用
+而绝对定位可以被相对定位容器约束
+固定定位不受任何元素或者页面滚动影响，一定会出现在指定的位置
+如果多个定位重叠，可以通过z-index样式值控制谁在上面
+*/

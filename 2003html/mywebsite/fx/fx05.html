@@ -15,6 +15,21 @@
     #div99 span:nth-child(2n+1) {
       background-color: #ccc;
     }
+
+    /* 打字效果的光标特效 */
+    @keyframes cur {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    .cur {
+      animation: cur 1s infinite linear;
+    }
   </style>
 </head>
 
@@ -24,11 +39,14 @@
   <button id="btnfor">输出</button>
   <div id="divfor"></div>
 
+  <div id="div99"></div>
 
-  <div id="div99">
 
+  <hr>
+  <div style="font-size: 2rem;">
+    <span id="spType"></span>
+    <span class="cur">|</span>
   </div>
-
 
   <script src="js/fx05.js"></script>
 </body>
