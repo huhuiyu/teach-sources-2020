@@ -1,0 +1,26 @@
+.fixed-box {
+  /* 固定位置，不受页面滚动影响 */
+  position: fixed;
+  /* 位置受四个值影响,top,left,rigth,bottom */
+  top: 1rem;
+  right: 5rem;
+  border: 1px solid #ff0000;
+  /* 固定定位会丢失块元素必须填满一行的特质，
+  宽度会变成内容占用的宽度，且脱离文档流 */
+}
+
+/* 绝大多少情况绝对定位都需要一个相对定位的容器约束 */
+.abs-container {
+  /* 相对定位，约束子元素的绝对定位要参考自己 */
+  position: relative;
+  width: 20rem;
+  height: 15rem;
+  border: 1px solid #00ff00;
+}
+
+.abs-box {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  border: 1px solid #0000ff;
+}

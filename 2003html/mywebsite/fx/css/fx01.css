@@ -1,0 +1,59 @@
+.flex-box {
+  display: flex;
+}
+
+.border-box {
+  box-sizing: border-box;
+  border: 1px solid #ff0000;
+}
+
+.box01 {
+  /* 水平轴对齐方式 */
+  justify-content: space-between;
+}
+
+.box02 {
+  justify-content: space-around;
+}
+
+.box03 {
+  justify-content: space-evenly;
+}
+
+.box04 {
+  /* center,flex-start,flex-end */
+  justify-content: center;
+}
+
+/* 
+压力值是压力盒子中子元素的样式
+有压力值就没有多余的空白，无需设置水平对齐
+压力值大的分配空间也就大
+如果只有一个子元素拥有压力值，该元素会占满所有空白空间
+*/
+.flex1 {
+  flex: 1;
+}
+.flex2 {
+  flex: 2;
+}
+.flex3 {
+  flex: 3;
+}
+
+/* 允许子元素总宽度超过容器时换行 */
+.box05 {
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.box05 > div {
+  width: 30%;
+}
+
+/* 通过媒体查询判定手机模式 */
+@media screen and (max-width: 768px) {
+  .box05 > div {
+    width: 45%;
+  }
+}

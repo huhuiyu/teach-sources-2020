@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>复习一，压力布局</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/fx01.css">
+</head>
+
+<body>
+
+  <!-- 没有压力布局的对照组 -->
+  <div>
+    <div class="border-box">1111</div>
+    <div class="border-box">2222</div>
+    <div class="border-box">3333</div>
+  </div>
+  <hr>
+  <!-- 
+    压力布局，会将一级的子元素压迫到一行上
+    也意味着只会影响一级，所以很适合布局
+  -->
+  <div class="flex-box">
+    <div class="border-box">1111</div>
+    <div class="border-box">
+      <div>的大幅度反对法</div>
+      <div>打发打发发顶顶顶顶顶</div>
+    </div>
+    <div class="border-box">3333</div>
+  </div>
+
+  <hr>
+  <div class="flex-box box01">
+    <div class="border-box">1111</div>
+    <div class="border-box">2222</div>
+    <div class="border-box">3333</div>
+  </div>
+
+  <hr>
+  <div class="flex-box box02">
+    <div class="border-box">1111</div>
+    <div class="border-box">2222</div>
+    <div class="border-box">3333</div>
+  </div>
+
+  <hr>
+  <div class="flex-box box03">
+    <div class="border-box">1111</div>
+    <div class="border-box">2222</div>
+    <div class="border-box">3333</div>
+  </div>
+
+  <hr>
+  <div class="flex-box box04">
+    <div class="border-box">1111</div>
+    <div class="border-box">2222</div>
+    <div class="border-box">3333</div>
+  </div>
+
+  <hr>
+  <div class="flex-box">
+    <div class="border-box flex1">1111</div>
+    <div class="border-box flex2">2222</div>
+    <div class="border-box flex3">3333</div>
+  </div>
+
+  <hr>
+  <div class="flex-box">
+    <div class="border-box">1111</div>
+    <div class="border-box flex2">2222</div>
+    <div class="border-box">3333</div>
+  </div>
+
+  <hr>
+  <div class="flex-box box05">
+    <div class="border-box">1111</div>
+    <div class="border-box">2222</div>
+    <div class="border-box">3333</div>
+    <div class="border-box">4444</div>
+    <div class="border-box">5555</div>
+  </div>
+
+
+</body>
+
+</html>
