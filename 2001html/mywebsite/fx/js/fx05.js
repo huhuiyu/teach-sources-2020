@@ -7,7 +7,10 @@ let videos = [
 ];
 let audios = [
   'https://klcxy.top/myoss/common/queryOssUrl?tbOssInfo.oiid=1111&tbOssInfo.obid=3',
-  'https://klcxy.top/myoss/common/queryOssUrl?tbOssInfo.oiid=12&tbOssInfo.obid=1'
+  'https://klcxy.top/myoss/common/queryOssUrl?tbOssInfo.oiid=12&tbOssInfo.obid=1',
+  'https://klcxy.top/myoss/common/queryOssUrl?tbOssInfo.oiid=8&tbOssInfo.obid=1',
+  'https://klcxy.top/myoss/common/queryOssUrl?tbOssInfo.oiid=1112&tbOssInfo.obid=3',
+  'https://klcxy.top/myoss/common/queryOssUrl?tbOssInfo.oiid=8&tbOssInfo.obid=1'
 ];
 
 let images = [
@@ -29,3 +32,26 @@ btnvideo.addEventListener('click', function () {
 document.getElementById('btnpause').addEventListener('click', function () {
   myvideo.pause();
 });
+
+let btnMusic = document.getElementById('btnMusic');
+let chkMusic = document.getElementById('chkMusic');
+let myaudio = document.getElementById('myaudio');
+
+btnMusic.addEventListener('click', function () {
+  let index = parseInt(Math.random() * audios.length);
+  myaudio.setAttribute('src', audios[index]);
+});
+
+// loadeddata事件，音频和视频元素特别的事件，表示内容已经加载
+myaudio.addEventListener('loadeddata', function () {
+  myaudio.play();
+});
+
+chkMusic.addEventListener('change', function () {
+  console.log('选中状态变化：', chkMusic.checked);
+
+  chkMusic.checked ? myaudio.play() : myaudio.pause();
+});
+
+//  https://huhuiyu.top/teach-demo-service/docs.html
+// https://myoss.huhuiyu.top/#!/route/page/main
