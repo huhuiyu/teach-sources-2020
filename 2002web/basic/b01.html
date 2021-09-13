@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>js-dom知识点一</title>
+  <link rel="stylesheet" href="../css/common.css">
+</head>
+
+<body>
+  <!-- 基础知识 -->
+  <div>
+    <input type="text" id="txtName" placeholder="名称">
+    <button id="btnDom">dom操作入门</button>
+  </div>
+  <div id="divDom"></div>
+  <hr>
+  <!-- 应用 -->
+  <!-- 添加数据的部分 -->
+  <div>
+    <input type="text" id="txtUserName" placeholder="姓名">
+    <input type="text" id="txtClass" placeholder="班级">
+    <input type="text" id="txtSex" placeholder="性别">
+    <button id="btnAddInfo">添加学生</button>
+  </div>
+  <!-- 数据表格的部分 -->
+  <table border="1">
+    <thead>
+      <tr>
+        <th>编号</th>
+        <th>姓名</th>
+        <th>班级</th>
+        <th>性别</th>
+      </tr>
+    </thead>
+    <!-- 数据是动态添加 -->
+    <tbody id="tbData">
+      <!-- 
+      <tr>
+        <td>100</td>
+        <td>李吉弘</td>
+        <td>2002班</td>
+        <td>男</td>
+      </tr> 
+      -->
+    </tbody>
+  </table>
+
+
+  <script src="js/b01.js"></script>
+</body>
+
+</html>

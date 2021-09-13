@@ -1,0 +1,7 @@
+#tbData tr:nth-child(2n) {
+  background-color: #acacac;
+}
+
+#tbData tr:nth-child(2n+1) {
+  background-color: #dcacac;
+}

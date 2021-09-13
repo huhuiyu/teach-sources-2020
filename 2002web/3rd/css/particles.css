@@ -2,4 +2,13 @@
   width: 100vw;
   height: 100vh;
   background-color: #000;
+  /* 星空要弄成背景 */
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+}
+
+.info {
+  color: #fff;
 }

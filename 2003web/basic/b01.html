@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dom基础一</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="css/b01.css">
+</head>
+
+<body>
+  <!-- 知识点 -->
+  <div>
+    <input type="text" id="txtDom" placeholder="信息">
+    <button id="btnDom">dom基础</button>
+  </div>
+  <div id="divDom"></div>
+  <hr>
+  <!-- 简单的应用 -->
+  <!-- 数据添加的部分 -->
+  <div>
+    <input type="text" id="txtName" placeholder="姓名">
+    <input type="text" id="txtSex" placeholder="性别">
+    <input type="text" id="txtClass" placeholder="班级">
+    <button id="btnAddInfo">添加信息</button>
+  </div>
+  <!-- 数据呈现表格 -->
+  <table border="1">
+    <thead>
+      <tr>
+        <th>编号</th>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>所在班级</th>
+      </tr>
+    </thead>
+
+    <tbody id="tbData">
+      <!-- 
+      <tr>
+        <td>100</td>
+        <td>刘兴</td>
+        <td>女</td>
+        <td>2003班</td>
+      </tr>
+      -->
+    </tbody>
+
+
+  </table>
+
+
+  <script src="js/b01.js"></script>
+</body>
+
+</html>
