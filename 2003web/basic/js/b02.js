@@ -72,3 +72,33 @@ let json = JSON.parse(strJson);
 console.log('字符串转的json', json.name, json);
 
 // json和本地存储配合保存复杂的信息
+let txtName = document.getElementById('txtName');
+let txtSex = document.getElementById('txtSex');
+let btnSaveJson = document.getElementById('btnSaveJson');
+let btnLoadJson = document.getElementById('btnLoadJson');
+let preJsonInfo = document.getElementById('preJsonInfo');
+
+// 保存json信息
+let user = {
+  name: '',
+  sex: ''
+};
+
+btnSaveJson.addEventListener('click', function () {
+  // 从界面收集json信息
+  user.name = txtName.value;
+  user.sex = txtSex.value;
+  // 保存json到本地需要转换成字符串
+  localStorage.setItem('user-info', JSON.stringify(user));
+  preJsonInfo.innerHTML = '保存JSON信息成功';
+});
+
+btnLoadJson.addEventListener('click', function () {
+  let userInfo = localStorage.getItem('user-info');
+  if (userInfo) {
+    userInfo = JSON.parse(userInfo);
+    preJsonInfo.innerHTML = userInfo.name + ':' + userInfo.sex;
+  } else {
+    preJsonInfo.innerHTML = '没有用户信息';
+  }
+});

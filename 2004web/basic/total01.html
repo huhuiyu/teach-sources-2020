@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第一阶段应用</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="css/total01.css">
+</head>
+
+<body>
+  <h1 class="tc">本地版本商品管理</h1>
+  <!-- 数据添加用表单 -->
+  <div>
+    <!-- 商品分类 -->
+    <label>
+      分类：<select id="selGoodsType"></select>
+    </label>
+    <input type="text" id="txtGoodsName" placeholder="名称">
+    <input type="text" id="txtPrice" placeholder="价格">
+    <button id="btnAdd">添加商品</button>
+  </div>
+  <!-- 数据表格 -->
+  <table>
+    <thead>
+      <tr>
+        <th>序号</th>
+        <th>商品类型</th>
+        <th>商品名称</th>
+        <th>价格</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+
+    <tbody id="tbData"></tbody>
+
+  </table>
+
+  <script src="js/total01.js"></script>
+</body>
+
+</html>
