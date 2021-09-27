@@ -1,0 +1,19 @@
+table,
+th,
+td {
+  border: 1px solid #ff00ff;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#divDialog {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  width: 100vw;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+}
