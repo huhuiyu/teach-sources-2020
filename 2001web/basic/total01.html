@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>简易商品管理系统</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="css/total01.css">
+</head>
+
+<body>
+  <h1 class="tc">商品管理</h1>
+  <!-- 添加的表单 -->
+  <div class="tc">
+    <label>
+      类型：<select id="selType"></select>
+    </label>
+    <input type="text" id="txtName" placeholder="名称">
+    <input type="text" id="txtPrice" placeholder="售价">
+    <button id="btnAdd">添加</button>
+    <button id="btnReset">重置</button>
+  </div>
+  <hr>
+  <!-- 数据表格 -->
+  <table>
+    <thead>
+      <tr>
+        <th>序号</th>
+        <th>商品分类</th>
+        <th>商品名称</th>
+        <th>售价</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody id="tbData"></tbody>
+
+  </table>
+
+
+  <script src="js/total01.js"></script>
+</body>
+
+</html>
