@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>第一阶段应用</title>
+  <link rel="stylesheet" href="../3rd/layui/css/layui.css">
   <link rel="stylesheet" href="../css/common.css">
   <link rel="stylesheet" href="css/total01.css">
 </head>
@@ -13,18 +14,17 @@
 <body>
   <h1 class="tc">本地版本商品管理</h1>
   <!-- 数据添加用表单 -->
-  <div>
+  <div class="layui-form" style="display: flex;">
     <!-- 商品分类 -->
-    <label>
-      分类：<select id="selGoodsType"></select>
-    </label>
-    <input type="text" id="txtGoodsName" placeholder="名称">
-    <input type="text" id="txtPrice" placeholder="价格">
-    <button id="btnAdd">添加商品</button>
+    <select id="selGoodsType"></select>
+    <input class="layui-input" type="text" id="txtGoodsName" placeholder="名称">
+    <input class="layui-input" type="text" id="txtPrice" placeholder="价格">
+    <button class="layui-btn" id="btnAdd">添加商品</button>
+    <button onclick="resetAdd()" class="layui-btn layui-btn-danger">重置</button>
   </div>
   <hr>
   <!-- 数据表格 -->
-  <table>
+  <table class="layui-table" lay-skin="line">
     <thead>
       <tr>
         <th>序号</th>
@@ -41,10 +41,27 @@
 
   <!-- 修改的弹出对话框 -->
   <div id="divDialog">
-    <div>修改信息</div>
+    <div>
+      <div>修改商品信息</div>
+      <div>
+        <select id="selMType"></select>
+      </div>
+      <div>
+        <input type="text" id="txtMName">
+      </div>
+      <div>
+        <input type="text" id="txtMPrice">
+      </div>
+      <div>
+        <button id="btnUpdate">保存</button>
+        <button id="btnClose">关闭</button>
+      </div>
+
+    </div>
   </div>
   <!-- 修改的弹出对话框结束 -->
 
+  <script src="../3rd/layui/layui.js"></script>
   <script src="js/total01.js"></script>
 </body>
 

@@ -58,9 +58,65 @@ function showGoodsList() {
       // 把序号传入到删除的方法，以确定要删除的记录
       delGoods(i);
     });
+    // 修改按钮
+    let btnModify = document.createElement('button');
+    btnModify.append('修改');
+    td.appendChild(btnModify);
+    btnModify.addEventListener('click', function () {
+      showModify(i);
+    });
+
     tbData.appendChild(tr);
   }
 }
+
+// 显示修改的界面
+let modifyInfo; // 记录要修改的商品
+let divModify = document.getElementById('divModify');
+let btnClose = document.getElementById('btnClose');
+let selMtype = document.getElementById('selMtype');
+let txtMname = document.getElementById('txtMname');
+let txtMprice = document.getElementById('txtMprice');
+let btnToModify = document.getElementById('btnToModify');
+
+function showModify(index) {
+  modifyInfo = goodsList[index];
+  console.log('要修改的商品信息：', modifyInfo);
+  divModify.style.display = 'flex';
+  // 填写修改的信息值
+  selMtype.value = modifyInfo.type; //类型
+  txtMname.value = modifyInfo.name; //名称
+  txtMprice.value = modifyInfo.price; //售价
+}
+
+btnClose.addEventListener('click', function () {
+  divModify.style.display = 'none';
+});
+
+btnToModify.addEventListener('click', function () {
+  // 修改信息
+  modifyInfo.type = selMtype.value;
+  modifyInfo.name = txtMname.value;
+  modifyInfo.price = txtMprice.value;
+  // 保存修改的信息
+  saveGoodsList();
+  showGoodsList();
+  alert('保存成功！');
+});
+
+// 初始化修改商品分类的下拉选项
+function initMTypes() {
+  selMtype.innerHTML = '';
+  for (let i = 0; i < types.length; i++) {
+    let op = document.createElement('option');
+    op.setAttribute('value', types[i]);
+    op.append(types[i]);
+    selMtype.appendChild(op);
+  }
+}
+
+initMTypes();
+
 // 删除商品
 function delGoods(index) {
   console.log('要删除的记录：', index, goodsList[index]);

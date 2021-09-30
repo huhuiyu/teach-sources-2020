@@ -67,6 +67,9 @@ function showGoodsList() {
     td = document.createElement('td');
     // 删除按钮
     let btnDelete = document.createElement('button');
+    // 给动态创建的按钮添加样式
+    btnDelete.classList.add('layui-btn', 'layui-btn-danger');
+
     btnDelete.append('删除商品');
     td.appendChild(btnDelete);
     tr.appendChild(td);
@@ -84,13 +87,53 @@ function showGoodsList() {
     tbData.appendChild(tr);
   }
 }
+
+let selMType = document.getElementById('selMType');
+let txtMName = document.getElementById('txtMName');
+let txtMPrice = document.getElementById('txtMPrice');
+let btnUpdate = document.getElementById('btnUpdate');
+let btnClose = document.getElementById('btnClose');
+let divDialog = document.getElementById('divDialog');
+
 // 修改商品
 let goodsInfo = {};
 // 显示要修改的商品信息
 function showModify(index) {
   // 记录要修改的信息
   goodsInfo = goodsList[index];
+  divDialog.style.display = 'flex';
+  // 显示要修改的信息
+  selMType.value = goodsInfo.type;
+  txtMName.value = goodsInfo.name;
+  txtMPrice.value = goodsInfo.price;
 }
+
+btnClose.addEventListener('click', function () {
+  divDialog.style.display = 'none';
+});
+
+btnUpdate.addEventListener('click', function () {
+  // 保存修改
+  goodsInfo.type = selMType.value;
+  goodsInfo.name = txtMName.value;
+  goodsInfo.price = txtMPrice.value;
+  // 保存到本地并更新列表
+  saveGoodsList();
+  showGoodsList();
+  alert('修改成功！');
+});
+
+// 初始化商品类型
+function initMTypes() {
+  selMType.innerHTML = '';
+  for (let i = 0; i < types.length; i++) {
+    let op = document.createElement('option');
+    op.setAttribute('value', types[i]);
+    op.append(types[i]);
+    selMType.appendChild(op);
+  }
+}
+initMTypes();
 
 // 删除商品
 function delGoods(index) {
@@ -119,3 +162,11 @@ function loadGoodsList() {
 }
 
 loadGoodsList();
+
+// 重置添加表单
+function resetAdd() {
+  selMType.value = types[0];
+  txtGoodsName.value = '';
+  txtPrice.value = '';
+  txtGoodsName.focus();
+}

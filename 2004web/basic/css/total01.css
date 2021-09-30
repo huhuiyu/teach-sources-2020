@@ -1,4 +1,4 @@
-table,
+/* table,
 th,
 td {
   border: 1px solid #ff00ff;
@@ -6,7 +6,7 @@ td {
 table {
   border-collapse: collapse;
   width: 100%;
-}
+} */
 
 #divDialog {
   position: fixed;
@@ -16,4 +16,18 @@ table {
   width: 100vw;
   z-index: 10;
   background-color: rgba(0, 0, 0, 0.5);
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#divDialog > div {
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: #fff;
+}
+
+#divDialog > div > div {
+  margin: 0.5rem 0px;
 }

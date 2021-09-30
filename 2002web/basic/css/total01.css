@@ -7,3 +7,26 @@ table {
   border-collapse: collapse;
   width: 100%;
 }
+
+/* 修改对话框相关样式 */
+#divModify {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#divModify > div {
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: #fff;
+}
+
+#divModify > div > div {
+  margin: 0.5rem;
+}
