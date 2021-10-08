@@ -7,3 +7,21 @@ table {
   border-collapse: collapse;
   width: 100%;
 }
+
+#modifyDialog {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#modifyDialog > div {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 1rem;
+}
