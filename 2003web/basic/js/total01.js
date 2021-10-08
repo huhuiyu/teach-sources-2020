@@ -66,8 +66,56 @@ function showGoodsList() {
     td = document.createElement('td');
     td.append(goods.price);
     tr.appendChild(td);
+    //删除操作按钮
+    td = document.createElement('td');
+    let btnDel = document.createElement('button');
+    btnDel.append('删除');
+    td.appendChild(btnDel);
+    btnDel.addEventListener('click', function () {
+      delInfo(i);
+    });
+    // 修改按钮
+    let btnModify = document.createElement('button');
+    btnModify.append('修改');
+    td.appendChild(btnModify);
+    btnModify.addEventListener('click', function () {
+      showModify(i);
+    });
+
+    tr.appendChild(td);
 
     tbData.appendChild(tr);
+  }
+}
+
+// 修改数据
+let modifyData; // 记住要修改的对象
+// 通过css选择器获取元素
+let modifyDialog = document.querySelector('.modify-dialog');
+let selMType = document.getElementById('selMType');
+let txtMName = document.getElementById('txtMName');
+let btnSave = document.getElementById('btnSave');
+let btnClose = document.getElementById('btnClose');
+
+function showModify(index) {
+  modifyData = goodsList[index];
+  console.log('修改数据：', modifyData);
+  modifyDialog.style.display = 'flex';
+}
+
+btnClose.addEventListener('click', function () {
+  modifyDialog.style.display = 'none';
+});
+
+// 删除数据
+function delInfo(index) {
+  console.log('删除：', index, goodsList[index]);
+  // 确认对话框的返回值为是否点击的确定按钮
+  let result = confirm('是否删除：' + goodsList[index].name);
+  if (result) {
+    goodsList.splice(index, 1);
+    saveData();
+    showGoodsList();
   }
 }
 
@@ -87,3 +135,17 @@ function loadData() {
 }
 
 loadData();
+
+// 初始化修改的商品分类
+function initMTypes() {
+  selMType.innerHTML = '';
+  for (let i = 0; i < types.length; i++) {
+    let type = types[i];
+    let op = document.createElement('option');
+    op.setAttribute('value', type);
+    op.append(type);
+    selMType.appendChild(op);
+  }
+}
+
+initMTypes();
