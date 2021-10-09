@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ajax入门1</title>
+  <link rel="stylesheet" href="../css/common.css">
+</head>
+
+<body>
+  <!-- 
+  https://cn.bing.com/search?q=layui&PC=U316&FORM=CHROMN
+  https://cn.bing.com/search?q=%E8%83%A1%E8%BE%89%E7%85%9C&qs=n&form=QBRE&sp=-1&pq=%E8%83%A1%E8%BE%89%E7%85%9C&sc=1-3&sk=&cvid=75A10F0DF7E848CFA03841D0E0DE0B43
+  查询字符串 queryString
+  -->
+  <h1>html原生表单</h1>
+  <form action="querystring.html" method="get">
+    <input type="text" name="username">
+    <input type="text" name="age">
+    <input type="submit">
+  </form>
+  <h1>ajax回声请求演示</h1>
+  <input type="text" id="txtEcho" placeholder="echo">
+  <button id="btnSend">发送</button>
+  <pre id="preResult"></pre>
+  <div id="divEcho"></div>
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/qs/6.10.1/qs.min.js"></script>
+
+  <script src="js/ajax01.js"></script>
+
+</body>
+
+</html>

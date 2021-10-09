@@ -152,6 +152,7 @@ btnAdd.addEventListener('click', function () {
   saveGoodsList();
   // 更新商品列表
   showGoodsList();
+  layer.msg('商品信息添加成功');
 });
 
 // 保存商品信息
