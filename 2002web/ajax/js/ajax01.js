@@ -34,6 +34,7 @@ promise
 let txtEcho = document.getElementById('txtEcho');
 let btnSend = document.getElementById('btnSend');
 let preResult = document.getElementById('preResult');
+let divResult = document.getElementById('divResult');
 let info = { echo: '' };
 btnSend.addEventListener('click', function () {
   info.echo = txtEcho.value;
@@ -44,8 +45,18 @@ btnSend.addEventListener('click', function () {
   });
   promise
     .then(function (resp) {
-      preResult.innerHTML = 
-        JSON.stringify(resp.data,null,2);
+      preResult.innerHTML = JSON.stringify(resp.data, null, 2);
+      //自定义显示服务器端数据
+      let data = resp.data;
+      // 处理服务器应答的时间信息(一定要参考服务器文档)
+      let time = data.resultData.time;
+      // 服务器返回的是时间戳，需要转换成日期对象
+      let timeInfo = new Date();
+      timeInfo.setTime(time);
+
+      divResult.innerHTML =
+        '服务器消息：' + data.message 
+        + '<br>时间信息：' + timeInfo;
     })
     .catch(function (err) {
       console.error(err);

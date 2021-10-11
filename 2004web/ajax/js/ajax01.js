@@ -57,8 +57,18 @@ btnSend.addEventListener('click', function () {
       // 服务器应答结果是一个json，可以直接使用属性
       let data = resp.data;
       // 应答结果要看服务器文档说明，格式可以直接在network中查看
-      divEcho.innerHTML = '回声结果：' + data.message
-        +'，应答是否成功：'+data.success;
+      // 应答数据中的时间戳处理
+      let time = data.resultData.time;
+      // 还原时间戳为日期对象
+      let timeInfo = new Date();
+      timeInfo.setTime(time);
+      divEcho.innerHTML =
+        '回声结果：' +
+        data.message +
+        '，应答是否成功：' +
+        data.success +
+        '<br/>服务器时间：' +
+        timeInfo;
     })
     .catch(function (err) {
       console.error(err);
