@@ -94,14 +94,28 @@ let modifyData; // 记住要修改的对象
 let modifyDialog = document.querySelector('.modify-dialog');
 let selMType = document.getElementById('selMType');
 let txtMName = document.getElementById('txtMName');
+let txtMPrice = document.getElementById('txtMPrice');
 let btnSave = document.getElementById('btnSave');
 let btnClose = document.getElementById('btnClose');
 
 function showModify(index) {
   modifyData = goodsList[index];
   console.log('修改数据：', modifyData);
+  // 显示修改的数据
+  selMType.value = modifyData.type;
+  txtMName.value = modifyData.name;
+  txtMPrice.value = modifyData.price;
+  // 显示修改的对话框
   modifyDialog.style.display = 'flex';
 }
+
+btnSave.addEventListener('click', function () {
+  modifyData.type = selMType.value;
+  modifyData.name = txtMName.value;
+  modifyData.price = txtMPrice.value;
+  saveData();
+  showGoodsList();
+});
 
 btnClose.addEventListener('click', function () {
   modifyDialog.style.display = 'none';
