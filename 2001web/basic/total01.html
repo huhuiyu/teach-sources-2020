@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>简易商品管理系统</title>
+  <link rel="stylesheet" href="../3rd/layui/css/layui.css">
   <link rel="stylesheet" href="../css/common.css">
   <link rel="stylesheet" href="css/total01.css">
 </head>
@@ -13,18 +14,16 @@
 <body>
   <h1 class="tc">商品管理</h1>
   <!-- 添加的表单 -->
-  <div class="tc">
-    <label>
-      类型：<select id="selType"></select>
-    </label>
-    <input type="text" id="txtName" placeholder="名称">
-    <input type="text" id="txtPrice" placeholder="售价">
-    <button id="btnAdd">添加</button>
-    <button id="btnReset">重置</button>
+  <div class="layui-form" style="display: flex;">
+    <select class="layui-input" id="selType"></select>
+    <input class="layui-input" type="text" id="txtName" placeholder="名称">
+    <input class="layui-input" type="text" id="txtPrice" placeholder="售价">
+    <button class="layui-btn layui-btn-danger" id="btnAdd">添加</button>
+    <button class="layui-btn layui-btn-primary" id="btnReset">重置</button>
   </div>
   <hr>
   <!-- 数据表格 -->
-  <table>
+  <table class="layui-table">
     <thead>
       <tr>
         <th>序号</th>
@@ -57,6 +56,8 @@
       </div>
     </div>
   </div>
+
+  <script src="../3rd/layui/layui.js"></script>
 
   <script src="js/total01.js"></script>
 

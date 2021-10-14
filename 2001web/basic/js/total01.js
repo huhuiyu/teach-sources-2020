@@ -79,13 +79,68 @@ function showGoodsList() {
     btnDel.addEventListener('click', function () {
       delInfo(i);
     });
+    // 修改按钮
+    let btnModify = document.createElement('button');
+    btnModify.append('修改');
+    td.appendChild(btnModify);
+    btnModify.addEventListener('click', function () {
+      showModify(i);
+    });
 
     tr.appendChild(td);
 
     tbData.appendChild(tr);
   }
 }
+// 修改的相关变量
+let selMType = document.getElementById('selMType');
+let txtMName = document.getElementById('txtMName');
+let txtMPrice = document.getElementById('txtMPrice');
+let btnSave = document.getElementById('btnSave');
+let btnClose = document.getElementById('btnClose');
 
+let modifyInfo; //记录要修改的信息
+// 修改的弹出对话框
+let modifyDialog = document.getElementById('modifyDialog');
+
+// 修改的部分
+function showModify(index) {
+  modifyInfo = goodsList[index];
+  console.log('要修改的商品信息：', modifyInfo);
+  // 显示要修改的信息
+  selMType.value = modifyInfo.type;
+  txtMName.value = modifyInfo.name;
+  txtMPrice.value = modifyInfo.price;
+  // 显示修改的对话框
+  modifyDialog.style.display = 'flex';
+}
+
+btnSave.addEventListener('click', function () {
+  modifyInfo.type = selMType.value;
+  modifyInfo.name = txtMName.value;
+  modifyInfo.price = parseInt(txtMPrice.value);
+  saveGoods();
+  showGoodsList();
+});
+
+btnClose.addEventListener('click', function () {
+  modifyDialog.style.display = 'none';
+});
+
+// 初始化修改的列表
+function initMType() {
+  selMType.innerHTML = '';
+  for (let i = 0; i < types.length; i++) {
+    let op = document.createElement('option');
+    op.setAttribute('value', types[i]);
+    op.append(types[i]);
+    selMType.appendChild(op);
+  }
+}
+
+initMType();
+
+// 删除的部分
 function delInfo(index) {
   console.log('删除：', index, goodsList[index]);
   // 确认对话框，返回值为是否点击的确定
