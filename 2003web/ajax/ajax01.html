@@ -10,7 +10,20 @@
 </head>
 
 <body>
-
+  <!-- 表单知识点（查询字符串） -->
+  <form action="form.html" method="get">
+    <!-- 
+      http协议提交数据默认就是查询字符串格式
+      格式：在地址栏的?后面，名称1=值1&名称2=值2...
+    -->
+    <input type="text" name="username" placeholder="姓名">
+    <input type="submit">
+  </form>
+  <hr>
+  <!-- 带界面的echo请求演示 -->
+  <input type="text" id="txtEcho" placeholder="echo">
+  <button id="btnSend">发送</button>
+  <pre id="preResult"></pre>
 
   <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
   <script src="https://cdn.bootcdn.net/ajax/libs/qs/6.10.1/qs.min.js"></script>

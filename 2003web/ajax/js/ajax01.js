@@ -29,3 +29,41 @@ promise
 // 发生错误是回调catch里面的function
 // 正常应答会通过参数传入应答结果,data属性就是服务器数据
 // 服务器数据对应文档中的Responses小节
+
+// Qs库的作用是在json格式和查询字符串格式之间转换
+let jsonInfo = { username: '黑暗骑士', sex: 'm' };
+console.log('Qs转换json的结果', Qs.stringify(jsonInfo));
+let queryInfo = 'username=zhangsan&sex=f';
+console.log('Qs转换查询字符串的结果', Qs.parse(queryInfo));
+
+// 带界面的ajax请求
+let txtEcho = document.getElementById('txtEcho');
+let btnSend = document.getElementById('btnSend');
+let preResult = document.getElementById('preResult');
+
+let info = { echo: '' };
+btnSend.addEventListener('click', function () {
+  // 用json收集界面数据
+  info.echo = txtEcho.value;
+  // ajax请求
+  // url就是服务器文档中的path
+  // method就是请求方式，后端决定的，看文档就能确定
+  // data是发送给后端服务的数据，看文档中的Parameters
+  let promise = axios({
+    url: SERVER_BASE_URL + '/',
+    method: 'post',
+    data: Qs.stringify(info)
+  });
+  // 请求的结果处理
+  // 应答的结果可以在控制台里面查看，也可以在network中看
+  // 最详细的结果描述在文档中看Responses
+  promise
+    .then(function (resp) {
+      console.log(resp.data);
+      // 显示在页面上
+      preResult.innerHTML = JSON.stringify(resp.data, null, 2);
+    })
+    .catch(function (err) {
+      console.error(err);
+    });
+});
