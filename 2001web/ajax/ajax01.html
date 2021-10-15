@@ -11,8 +11,29 @@
 
 <body>
 
-  <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
+  <!-- 
+    查询字符串 queryString 是http提交数据原初标准格式
+    在地址栏的?后面出现，格式是：名称1=值1&名称2=值2...
+    没有特殊符号和中文字符等非字母，这些都会被转换
+  -->
+  <form action="form.html" method="get">
+    <input type="text" name="username" placeholder="姓名">
+    <input type="text" name="age" placeholder="年龄">
+    <input type="submit">
+  </form>
 
+  <hr>
+
+  <input type="text" id="txtEcho" placeholder="echo">
+  <button id="btnSend">发送</button>
+  <pre id="preResult"></pre>
+
+  <!-- http://127.0.0.1:5500/ajax/form.html?username=%E9%BB%91%E6%9A%97%E9%AA%91%E5%A3%AB&age=18 -->
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/qs/6.10.1/qs.min.js"></script>
+
+  <script src="js/ajax01.js"></script>
 </body>
 
 </html>
