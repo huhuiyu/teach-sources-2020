@@ -5,35 +5,26 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ajax封装和另一个联动</title>
+  <title>ajax一阶段应用（部门管理）</title>
   <link rel="stylesheet" href="../css/common.css">
 </head>
 
 <body>
-  <!-- 部门和员工的联动效果 -->
-  部门：<select id="selDept"></select>
-  <!-- 员工列表 -->
-  <table>
-    <caption>员工信息</caption>
-    <thead>
-      <tr>
-        <th>员工编号</th>
-        <th>员工姓名</th>
-        <th>电话</th>
-        <th>信息最后修改时间</th>
-      </tr>
-    </thead>
-    <tbody id="tbEmployee"></tbody>
-
-  </table>
-
+  <h1 class="tc">部门信息管理</h1>
+  <!-- 添加的表单 -->
+  <div>
+    <input type="text" id="txtDeptName" placeholder="部门名称">
+    <input type="text" id="txtDeptInfo" placeholder="部门描述">
+    <button id="btnAdd">添加</button>
+  </div>
+  <!-- 数据表格 -->
 
   <script src="https://cdn.bootcdn.net/ajax/libs/qs/6.10.1/qs.min.js"></script>
   <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
   <!-- 公用ajax请求js -->
   <script src="js/server.js"></script>
 
-  <script src="js/ajax03.js"></script>
+  <script src="js/dept.js"></script>
 </body>
 
 </html>
