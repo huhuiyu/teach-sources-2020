@@ -6,6 +6,10 @@ let spInfo = document.getElementById('spInfo');
 // 服务器接口地址
 const SERVER_BASE_URL = 'https://huhuiyu.top/teach-service';
 
+// 记录省份和城市的列表
+let plist = [];
+let clist = [];
+
 // 省份信息查询
 function queryProvince() {
   let promise = axios({
@@ -19,6 +23,7 @@ function queryProvince() {
       // 获取省份的列表
       let list = resp.data.resultData.list;
       console.log('省份列表：', list);
+      plist = list;
       // 循环处理省份数组
       for (let i = 0; i < list.length; i++) {
         let p = list[i];
@@ -53,6 +58,7 @@ function queryCity() {
     .then(function (resp) {
       console.log('城市信息：', resp.data);
       let list = resp.data.resultData.list;
+      clist = list;
       selCity.innerHTML = '';
       for (let i = 0; i < list.length; i++) {
         let c = list[i];
@@ -69,3 +75,15 @@ function queryCity() {
 
 // 省份联动
 selProvince.addEventListener('change', queryCity);
+
+// 获取并显示选中的信息
+btnOk.addEventListener('click', function () {
+  // 获取选中的索引
+  let pindex = selProvince.selectedIndex;
+  let cindex = selCity.selectedIndex;
+  // 从数组中找到对应的信息
+  let p = plist[pindex];
+  let c = clist[cindex];
+  // 显示
+  spInfo.innerHTML = p.province + c.city;
+});
