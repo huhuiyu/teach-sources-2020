@@ -53,6 +53,12 @@ function formatTimestamp(ts) {
   let s = date.getSeconds();
   return y + '-' + m + '-' + d + ' ' + h + ':' + mm + ':' + s;
 }
+
+// md5加密
+function md5(info) {
+  return SparkMD5.hash(info);
+}
+
 // 完成班级和学生信息的联动效果
 // 要求班级信息和上课一样是select
 // 但是学习信息要显示两种格式，一个是select，一个是table

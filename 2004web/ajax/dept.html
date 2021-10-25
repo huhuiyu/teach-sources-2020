@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ajax一阶段项目（部门信息管理）</title>
   <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="css/dept.css">
 </head>
 
 <body>
@@ -33,10 +34,17 @@
     </thead>
     <tbody id="tbData"></tbody>
   </table>
-
+  <!-- 分页的部分 -->
+  <div class="tc">
+    <span id="spPre" class="pager">上一页</span>
+    <span id="spPage"></span>
+    <span id="spNext" class="pager">下一页</span>
+  </div>
 
   <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
   <script src="https://cdn.bootcdn.net/ajax/libs/qs/6.10.1/qs.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/spark-md5/3.0.0/spark-md5.min.js"></script>
+  
   <!-- 通用的ajax请求js -->
   <script src="js/server.js"></script>
 
