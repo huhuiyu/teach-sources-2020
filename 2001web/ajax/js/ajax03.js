@@ -32,6 +32,7 @@ function queryDept() {
 
 queryDept();
 
+let tbData = document.getElementById('tbData');
 // 联动查询员工信息
 function queryEmployee() {
   // 需要部门编号
@@ -43,6 +44,30 @@ function queryEmployee() {
     },
     function (data) {
       console.log('员工信息', data);
+      let list = data.resultData.list;
+      tbData.innerHTML = '';
+      for (let i = 0; i < list.length; i++) {
+        let emp = list[i];
+        let tr = document.createElement('tr');
+        // 编号
+        let td = document.createElement('td');
+        td.append(emp.employeeId);
+        tr.append(td);
+        // 姓名
+        td = document.createElement('td');
+        td.append(emp.employeeName);
+        tr.append(td);
+        // 电话
+        td = document.createElement('td');
+        td.append(emp.phone);
+        tr.append(td);
+        // 信息修改时间（服务器返回是时间戳，需要处理）
+        td = document.createElement('td');
+        td.append(formatTimestamp(emp.lastupdate));
+        tr.append(td);
+
+        tbData.append(tr);
+      }
     }
   );
 }

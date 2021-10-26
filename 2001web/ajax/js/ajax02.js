@@ -84,6 +84,8 @@ function showCity() {
 // 联动事件
 selProvince.addEventListener('change', queryCity);
 // 作业：完成班级和学生信息联动
+// 两种模式都要完成
+// 也就是学生信息要呈现成select和table两种
 
 btnOk.addEventListener('click', function () {
   let pindex = selProvince.selectedIndex;
