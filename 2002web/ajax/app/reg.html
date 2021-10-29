@@ -7,23 +7,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>用户注册</title>
   <link rel="stylesheet" href="../../css/common.css">
-
 </head>
 
 <body>
-
+  <!-- 上课的界面是最简化的，你们需要美化 -->
   <input type="text" id="txtName" placeholder="登录名">
   <input type="password" id="txtPwd" placeholder="密码">
   <input type="text" id="txtNickname" placeholder="昵称">
   <button id="btnReg">注册</button>
-  <!-- 死链接，要通过js动作 -->
+  <!-- 小技巧，死的超链接（通过js动作） -->
   <a href="javascript:void(0)" id="btnLogin">返回登录</a>
 
-  <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
+  <!-- 第三方库导入 -->
   <script src="https://cdn.bootcdn.net/ajax/libs/qs/6.10.1/qs.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
   <script src="https://cdn.bootcdn.net/ajax/libs/spark-md5/3.0.0/spark-md5.min.js"></script>
-
+  <!-- ajax公共js导入 -->
   <script src="../js/server.js"></script>
+
   <script src="js/reg.js"></script>
 
 </body>
