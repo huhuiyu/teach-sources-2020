@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ajax部门信息管理</title>
+  <link rel="stylesheet" href="../../css/common.css">
+</head>
+
+<body>
+  <h1>部门信息管理</h1>
+  <!-- 部门添加的表单 -->
+  <div>
+    <input type="text" id="txtName" placeholder="部门名称">
+    <input type="text" id="txtInfo" placeholder="部门描述">
+    <button id="btnAdd">添加</button>
+    <button id="btnReset">重置</button>
+  </div>
+  <!-- 数据显示表格 -->
+  <table>
+    <thead>
+      <tr>
+        <th>编号</th>
+        <th>部门名称</th>
+        <th>部门描述</th>
+        <th>信息最后修改时间</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody id="tbData"></tbody>
+  </table>
+
+  <!-- 第三方js导入 -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/qs/6.10.1/qs.min.js"></script>
+  <script src="../js/server.js"></script>
+
+  <script src="js/dept.js"></script>
+</body>
+
+</html>

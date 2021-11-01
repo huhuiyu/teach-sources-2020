@@ -29,3 +29,10 @@ let btnExit = document.getElementById('btnExit');
 btnShowKey.addEventListener('click', function () {
   alert(userinfo.accessKey);
 });
+
+btnExit.addEventListener('click', function () {
+  ajaxRequest('/user/logout', {}, function (data) {
+    console.log('登出的结果', data);
+    location = 'login.html';
+  });
+});

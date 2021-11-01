@@ -16,3 +16,21 @@ function loadImageCode() {
 }
 
 loadImageCode();
+
+imgCode.addEventListener('click', loadImageCode);
+
+// 校验的部分
+let txtCode = document.getElementById('txtCode');
+let btnCode = document.getElementById('btnCode');
+
+btnCode.addEventListener('click', function () {
+  ajax(
+    '/test/checkImageCode',
+    {
+      imageCode: txtCode.value
+    },
+    function (data) {
+      alert(data.message);
+    }
+  );
+});

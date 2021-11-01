@@ -99,12 +99,59 @@ function showInfo(list) {
       del(d);
     });
     td.append(btnDel);
+    // 修改按钮
+    let btnModify = document.createElement('button');
+    btnModify.append('修改');
+    td.append(btnModify);
+    btnModify.addEventListener('click', function () {
+      // 记录要修改的信息
+      modifyInfo = d;
+      showModify();
+    });
 
     tr.append(td);
 
     tbData.appendChild(tr);
   }
 }
+
+// 修改的部分
+let modifyInfo = {};
+let divModifyDialog = document.getElementById('divModifyDialog');
+let txtMName = document.getElementById('txtMName');
+let txtMInfo = document.getElementById('txtMInfo');
+let btnSave = document.getElementById('btnSave');
+let btnClose = document.getElementById('btnClose');
+
+function showModify() {
+  console.log('要修改的信息', modifyInfo);
+  // 显示要修改的值
+  txtMName.value = modifyInfo.deptName;
+  txtMInfo.value = modifyInfo.deptInfo;
+  // 显示对话框
+  divModifyDialog.style.display = 'flex';
+}
+
+btnClose.addEventListener('click', function () {
+  divModifyDialog.style.display = 'none';
+  query();
+});
+
+btnSave.addEventListener('click', function () {
+  modifyInfo.deptName = txtMName.value;
+  modifyInfo.deptInfo = txtMInfo.value;
+
+  ajaxRequest(
+    '/manange/dept/update',
+    {
+      tbDept: modifyInfo
+    },
+    function (data) {
+      alert(data.message);
+      query();
+    }
+  );
+});
 
 // 删除的部分
 function del(info) {

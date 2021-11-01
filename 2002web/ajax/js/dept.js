@@ -83,8 +83,44 @@ function showDeptList() {
     td = document.createElement('td');
     td.append(formatTimestamp(dept.lastupdate));
     tr.appendChild(td);
+    // 删除和修改功能
+    td = document.createElement('td');
+    // 删除的部分
+    let btnDel = document.createElement('button');
+    btnDel.append('删除');
+    td.append(btnDel);
+    btnDel.addEventListener('click', function () {
+      // 要删除的记录
+      console.log('要删除的记录', dept);
+      delInfo(dept);
+    });
+    // 修改的部分
+    let btnModify = document.createElement('button');
+    btnModify.append('修改');
+    td.append(btnModify);
+    btnModify.addEventListener('click', function () {
+      console.log('要修改的记录', dept);
+    });
+
+    tr.append(td);
 
     tdData.appendChild(tr);
+  }
+}
+// 删除功能
+function delInfo(info) {
+  if (confirm('是否删除：' + info.deptName)) {
+    ajaxRequest(
+      '/manange/dept/delete',
+      {
+        'tbDept.deptId': info.deptId
+      },
+      function (data) {
+        alert(data.message);
+        // 删除后要重新查询数据
+        query();
+      }
+    );
   }
 }
 

@@ -1,16 +1,4 @@
-.pager {
-  display: inline-block;
-  border-radius: 0.2rem;
-  border: 1px solid #0000ff;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-}
-
-.pager:hover {
-  border-color: #ff0000;
-}
-
-#divModifyDialog {
+#waitDialog {
   position: fixed;
   top: 0px;
   left: 0px;
@@ -20,8 +8,9 @@
   display: none;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 }
-#divModifyDialog > div {
+#waitDialog > div {
   background-color: #ffffff;
   padding: 1rem;
 }

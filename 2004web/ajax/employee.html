@@ -5,23 +5,30 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>图片验证码（token信息处理）</title>
+  <title>员工管理</title>
   <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="css/employee.css">
 </head>
 
 <body>
+  <!-- 等待时的遮罩 -->
+  <div id="waitDialog">
+    <div>等待中，请稍候</div>
+  </div>
 
-  <img src="" alt="" id="imgCode">
-  <input type="text" id="txtCode" placeholder="校验码">
-  <button id="btnCode">校验</button>
+  <div>
+    页面主要信息
+  </div>
 
-  <!-- 第三方js导入 -->
   <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
   <script src="https://cdn.bootcdn.net/ajax/libs/qs/6.10.1/qs.min.js"></script>
-  <!-- ajax的封装通用js -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/spark-md5/3.0.0/spark-md5.min.js"></script>
+  <!-- 通用的ajax请求js -->
   <script src="js/server.js"></script>
 
-  <script src="js/ajax04.js"></script>
+  <script src="js/employee.js"></script>
+
+
 </body>
 
 </html>

@@ -1,0 +1,14 @@
+/* 公用样式 */
+body {
+  margin: 0px;
+}
+/* 文本对齐 */
+.tc {
+  text-align: center;
+}
+.tr {
+  text-align: right;
+}
+.tl {
+  text-align: left;
+}
