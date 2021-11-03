@@ -2,22 +2,33 @@ let tbData = document.getElementById('tbData');
 
 // 服务器查询结果有两个重要信息
 let list = []; //一个是部门的列表
-let page = {}; //一个分页的信息
+//一个分页的信息
+let page = {
+  pageNumber: 1,
+  pageSize: 5
+};
 
 // 查询部门信息
 function queryDept() {
-  ajax('/manange/dept/query', {}, function (data) {
-    console.log('部门信息：', data);
-    if (data.success) {
-      // 成功就获取数据并显示
-      list = data.resultData.list;
-      page = data.resultData.page;
-      showDeptList();
-    } else {
-      // 失败就显示原因
-      alert(data.message);
+  ajax(
+    '/manange/dept/query',
+    {
+      page: page
+    },
+    function (data) {
+      console.log('部门信息：', data);
+      if (data.success) {
+        // 成功就获取数据并显示
+        list = data.resultData.list;
+        page = data.resultData.page;
+        showDeptList();
+        showPageInfo();
+      } else {
+        // 失败就显示原因
+        alert(data.message);
+      }
     }
-  });
+  );
 }
 
 // 显示部门信息
@@ -79,4 +90,39 @@ btnAdd.addEventListener('click', function () {
       queryDept();
     }
   );
+});
+
+let spPre = document.getElementById('spPre');
+let spPageInfo = document.getElementById('spPageInfo');
+let spNext = document.getElementById('spNext');
+
+// 显示分页信息
+function showPageInfo() {
+  spPageInfo.innerHTML =
+    '当前页/总页数/记录数：' +
+    page.pageNumber +
+    '/' +
+    page.pageCount +
+    '/' +
+    page.total;
+}
+
+// 下一页
+spNext.addEventListener('click', function () {
+  page.pageNumber++;
+  if (page.pageNumber > page.pageCount) {
+    page.pageNumber = page.pageCount;
+    return;
+  }
+  queryDept();
+});
+
+// 上一页
+spPre.addEventListener('click', function () {
+  page.pageNumber--;
+  if (page.pageNumber < 1) {
+    page.pageNumber = 1;
+    return;
+  }
+  queryDept();
 });
