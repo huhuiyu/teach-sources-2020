@@ -1,4 +1,5 @@
-#waitDialog {
+#waitDialog,
+#divAddDiglog {
   position: fixed;
   top: 0px;
   left: 0px;
@@ -10,7 +11,11 @@
   align-items: center;
   z-index: 1000;
 }
-#waitDialog > div {
+#divAddDiglog {
+  z-index: 500;
+}
+#waitDialog > div,
+#divAddDiglog > div {
   background-color: #ffffff;
   padding: 1rem;
 }

@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ajax一阶段应用（部门管理）</title>
   <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="css/dept.css">
 </head>
 
 <body>
@@ -38,6 +39,24 @@
     <span id="spPage"></span>
     <span id="spNext">下一页</span>
   </div>
+
+  <!-- 修改的弹出层 -->
+  <div id="divModify">
+    <div>
+      <div class="tc">修改信息</div>
+      <div>
+        <input type="text" id="txtMName" placeholder="名称">
+      </div>
+      <div>
+        <input type="text" id="txtMInfo" placeholder="描述">
+      </div>
+      <div>
+        <button id="btnSave">保存</button>
+        <button id="btnClose">关闭</button>
+      </div>
+    </div>
+  </div>
+
 
 
   <script src="https://cdn.bootcdn.net/ajax/libs/qs/6.10.1/qs.min.js"></script>

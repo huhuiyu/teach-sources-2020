@@ -100,6 +100,8 @@ function showDeptList() {
     td.append(btnModify);
     btnModify.addEventListener('click', function () {
       console.log('要修改的记录', dept);
+      modifyInfo = dept;
+      showModify();
     });
 
     tr.append(td);
@@ -107,6 +109,42 @@ function showDeptList() {
     tdData.appendChild(tr);
   }
 }
+
+// 修改的功能
+let modifyInfo = null;
+let txtMName = document.getElementById('txtMName');
+let txtMInfo = document.getElementById('txtMInfo');
+let btnSave = document.getElementById('btnSave');
+let btnClose = document.getElementById('btnClose');
+let divModify = document.getElementById('divModify');
+
+function showModify() {
+  txtMName.value = modifyInfo.deptName;
+  txtMInfo.value = modifyInfo.deptInfo;
+  divModify.style.display = 'flex';
+}
+
+function closeModify() {
+  divModify.style.display = 'none';
+  query();
+}
+
+btnClose.addEventListener('click', closeModify);
+
+btnSave.addEventListener('click', function () {
+  modifyInfo.deptName = txtMName.value;
+  modifyInfo.deptInfo = txtMInfo.value;
+  ajaxRequest(
+    '/manange/dept/update',
+    {
+      tbDept: modifyInfo
+    },
+    function (data) {
+      alert(data.message);
+    }
+  );
+});
+
 // 删除功能
 function delInfo(info) {
   if (confirm('是否删除：' + info.deptName)) {
