@@ -49,12 +49,39 @@ function showDeptList() {
     td = document.createElement('td');
     td.append(dept.deptInfo);
     tr.append(td);
-    // 部门描述
+    // 修改时间
     td = document.createElement('td');
     td.append(formatTimestamp(dept.lastupdate));
     tr.append(td);
 
+    // 操作部分
+    td = document.createElement('td');
+    // 删除按钮
+    let btnDel = document.createElement('button');
+    btnDel.append('删除');
+    td.append(btnDel);
+    btnDel.addEventListener('click', function () {
+      toDel(dept);
+    });
+
+    tr.append(td);
     tbData.append(tr);
+  }
+}
+
+// 删除的部分
+function toDel(info) {
+  if (confirm('是否删除：' + info.deptName)) {
+    ajax(
+      '/manange/dept/delete',
+      {
+        'tbDept.deptId': info.deptId
+      },
+      function (data) {
+        alert(data.message);
+        queryDept();
+      }
+    );
   }
 }
 

@@ -16,6 +16,8 @@ btnLogin.addEventListener('click', function () {
     function (data) {
       if (data.success) {
         alert('登录成功');
+        // js跳转页面的功能，类似于a标记href功能
+        location = 'main.html';
       } else {
         alert(data.message);
       }
