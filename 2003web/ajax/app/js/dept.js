@@ -50,8 +50,82 @@ function showDeptList() {
     td = document.createElement('td');
     td.append(formatDate(dept.lastupdate));
     tr.append(td);
+    // 操作的部分
+    td = document.createElement('td');
+    // 删除
+    let btnDel = document.createElement('button');
+    td.append(btnDel);
+    btnDel.append('删除');
+    btnDel.addEventListener('click', function () {
+      delInfo(dept);
+    });
+    // 修改
+    let btnModify = document.createElement('button');
+    td.append(btnModify);
+    btnModify.append('修改');
+    btnModify.addEventListener('click', function () {
+      showModify(dept);
+    });
+
+    tr.append(td);
 
     tbData.append(tr);
+  }
+}
+
+// 修改相关
+let divDialog = document.getElementById('divDialog');
+let txtMName = document.getElementById('txtMName');
+let txtMInfo = document.getElementById('txtMInfo');
+let btnSave = document.getElementById('btnSave');
+let btnClose = document.getElementById('btnClose');
+let modifyInfo = null; // 记录要修改的信息
+
+btnClose.addEventListener('click', function () {
+  divDialog.style.display = 'none';
+  queryDept();
+});
+
+btnSave.addEventListener('click', function () {
+  // 保存修改
+  modifyInfo.deptName = txtMName.value;
+  modifyInfo.deptInfo = txtMInfo.value;
+  ajaxRequest(
+    '/manange/dept/update',
+    {
+      tbDept: modifyInfo
+    },
+    function (data) {
+      alert(data.message);
+      queryDept();
+      // if (data.success) {
+      //   btnClose.click();
+      // }
+    }
+  );
+});
+
+function showModify(info) {
+  modifyInfo = info;
+  txtMName.value = modifyInfo.deptName;
+  txtMInfo.value = modifyInfo.deptInfo;
+  divDialog.style.display = 'flex';
+}
+
+// 删除相关
+function delInfo(info) {
+  console.log('删除：', info);
+  if (confirm('是否删除：' + info.deptName)) {
+    ajaxRequest(
+      '/manange/dept/delete',
+      {
+        'tbDept.deptId': info.deptId
+      },
+      function (data) {
+        alert(data.message);
+        queryDept();
+      }
+    );
   }
 }
 

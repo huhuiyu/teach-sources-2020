@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ajax部门信息管理</title>
   <link rel="stylesheet" href="../../css/common.css">
+  <link rel="stylesheet" href="css/dept.css">
 </head>
 
 <body>
@@ -41,11 +42,29 @@
     <span id="spNext">下一页</span>
   </div>
 
+  <!-- 修改的部分 -->
+  <div id="divDialog">
+    <div>
+      <div>修改信息</div>
+      <div>
+        <input type="text" id="txtMName" placeholder="名称">
+      </div>
+      <div>
+        <input type="text" id="txtMInfo" placeholder="描述">
+      </div>
+      <div>
+        <button id="btnSave">保存</button>
+        <button id="btnClose">关闭</button>
+      </div>
+    </div>
+  </div>
+
+
   <!-- 第三方 -->
   <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
   <script src="https://cdn.bootcdn.net/ajax/libs/qs/6.10.1/qs.min.js"></script>
   <script src="https://cdn.bootcdn.net/ajax/libs/spark-md5/3.0.0/spark-md5.min.js"></script>
-  
+
   <!-- 公共ajax封装 -->
   <script src="../js/server.js"></script>
 
