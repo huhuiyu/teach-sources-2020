@@ -1,4 +1,9 @@
+table {
+  width: 100%;
+}
+
 #waitDialog,
+#divModifyDialog,
 #divAddDiglog {
   position: fixed;
   top: 0px;
@@ -15,6 +20,7 @@
   z-index: 500;
 }
 #waitDialog > div,
+#divModifyDialog > div,
 #divAddDiglog > div {
   background-color: #ffffff;
   padding: 1rem;

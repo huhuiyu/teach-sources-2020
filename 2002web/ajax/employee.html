@@ -11,7 +11,16 @@
 </head>
 
 <body>
-
+  <!-- 员工查询过滤条件 -->
+  <div>
+    <select id="selQDept"></select>
+    <input type="text" id="txtQName" placeholder="姓名模糊查询">
+    <input type="text" id="txtQPhone" placeholder="电话模糊查询">
+    <button id="btnQuery">查询</button>
+    <button id="btnReset">重置</button>
+    <button id="btnAdd">添加</button>
+  </div>
+  <hr>
   <!-- 数据信息表格 -->
   <table>
     <thead>
@@ -26,6 +35,32 @@
     <tbody id="tbData"></tbody>
   </table>
 
+  <!-- 分页的部分 -->
+  <div class="tc">
+    <span id="spPre">上一页</span>
+    <span id="spPage"></span>
+    <span id="spNext">下一页</span>
+  </div>
+
+  <!-- 添加的表单和弹出层 -->
+  <div id="divAddDialog">
+    <div>
+      <div>添加员工</div>
+      <div>
+        <select id="selDept"></select>
+      </div>
+      <div>
+        <input type="text" id="txtName" placeholder="姓名">
+      </div>
+      <div>
+        <input type="text" id="txtPhone" placeholder="电话">
+      </div>
+      <div>
+        <button id="btnAddInfo">添加</button>
+        <button id="btnCloseAdd">关闭</button>
+      </div>
+    </div>
+  </div>
 
 
   <script src="https://cdn.bootcdn.net/ajax/libs/qs/6.10.1/qs.min.js"></script>

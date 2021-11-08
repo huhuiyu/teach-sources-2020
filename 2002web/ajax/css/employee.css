@@ -1,0 +1,20 @@
+table {
+  width: 100%;
+}
+
+#divAddDialog {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+#divAddDialog > div {
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #ffffff;
+}
