@@ -63,11 +63,59 @@ function showDeptList() {
     btnDel.addEventListener('click', function () {
       toDel(dept);
     });
+    // 修改按钮
+    let btnModify = document.createElement('button');
+    btnModify.append('修改');
+    td.append(btnModify);
+    btnModify.addEventListener('click', function () {
+      showModify(dept);
+    });
 
     tr.append(td);
     tbData.append(tr);
   }
 }
+
+// 修改的部分开始 =========================
+let divDialog = document.getElementById('divDialog');
+let txtMName = document.getElementById('txtMName');
+let txtMInfo = document.getElementById('txtMInfo');
+let btnSave = document.getElementById('btnSave');
+let btnClose = document.getElementById('btnClose');
+let modifyInfo = null; // 用于记住要修改的部门
+
+function showModify(info) {
+  modifyInfo = info;
+  console.log('要修改的对象', modifyInfo);
+  // 显示原值
+  txtMName.value = modifyInfo.deptName;
+  txtMInfo.value = modifyInfo.deptInfo;
+  // 显示对话框
+  divDialog.style.display = 'flex';
+}
+
+btnClose.addEventListener('click', function () {
+  divDialog.style.display = 'none';
+  queryDept();
+});
+
+btnSave.addEventListener('click', function () {
+  // 获取更新的值
+  modifyInfo.deptName = txtMName.value;
+  modifyInfo.deptInfo = txtMInfo.value;
+  // 保存
+  ajax(
+    '/manange/dept/update',
+    {
+      tbDept: modifyInfo
+    },
+    function (data) {
+      alert(data.message);
+    }
+  );
+});
+
+// 修改的部分结束 =========================
 
 // 删除的部分
 function toDel(info) {
@@ -153,3 +201,8 @@ spPre.addEventListener('click', function () {
   }
   queryDept();
 });
+
+// 作业！要在正课时间演示的！！！
+// 按照上课的部门和员工信息管理，完成班级和学生的信息管理
+// 给三周时间完成
+// 还要求美好页面！！！
