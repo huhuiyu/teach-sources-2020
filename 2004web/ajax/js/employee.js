@@ -118,7 +118,7 @@ let modifyInfo = null;
 
 btnSaveEmp.addEventListener('click', function () {
   // 获取更新值
-  modifyInfo.deptId = selDept.value;
+  modifyInfo.deptId = selMDept.value;
   modifyInfo.employeeName = txtMName.value;
   modifyInfo.phone = txtMPhone.value;
   // 修改

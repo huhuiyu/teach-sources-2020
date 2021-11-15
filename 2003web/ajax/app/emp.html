@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>员工管理</title>
+  <link rel="stylesheet" href="../../css/common.css">
+  <link rel="stylesheet" href="css/emp.css">
+</head>
+
+<body>
+
+  <!-- 查询的表单 -->
+  <div>
+    <!-- 部门过滤 -->
+    <select id="selQDept"></select>
+    <input type="text" id="txtQName" placeholder="姓名模糊查询">
+    <input type="text" id="txtQPhone" placeholder="电话模糊查询">
+    <button id="btnQuery">查询</button>
+    <button id="btnReset">重置</button>
+    <button id="btnShowAdd">添加</button>
+  </div>
+
+  <!-- 员工表格戴卓宏 -->
+  <table>
+    <thead>
+      <tr>
+        <th>所属部门</th>
+        <th>姓名</th>
+        <th>电话</th>
+        <th>信息最后修改时间</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+
+    <tbody id="tbData"></tbody>
+
+  </table>
+
+  <!-- 分页的部分 -->
+  <div>
+    <span id="spPre">上一页</span>
+    <span id="spPage"></span>
+    <span id="spNext">下一页</span>
+  </div>
+
+
+  <!-- 第三方 -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/qs/6.10.1/qs.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/spark-md5/3.0.0/spark-md5.min.js"></script>
+  <!-- 公共ajax封装 -->
+  <script src="../js/server.js"></script>
+
+  <script src="js/emp.js"></script>
+
+</body>
+
+</html>
