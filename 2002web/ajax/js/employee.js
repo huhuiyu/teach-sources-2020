@@ -90,10 +90,90 @@ function showEmpInfo() {
     td = document.createElement('td');
     td.append(formatTimestamp(emp.lastupdate));
     tr.append(td);
+    // 功能
+    td = document.createElement('td');
+    // 修改功能
+    let btnModify = document.createElement('button');
+    btnModify.append('修改');
+    td.append(btnModify);
+    btnModify.addEventListener('click', function () {
+      showModify(emp);
+    });
+    // 删除功能
+    let btnDel = document.createElement('button');
+    btnDel.append('删除');
+    td.append(btnDel);
+    btnDel.addEventListener('click', function () {
+      del(emp);
+    });
+
+    tr.append(td);
 
     tbData.append(tr);
   }
 }
+
+// 删除的部分
+function del(info) {
+  if (confirm('是否删除:' + info.employeeName)) {
+    ajaxRequest(
+      '/manange/employee/delete',
+      {
+        'tbEmployee.employeeId': info.employeeId
+      },
+      function (data) {
+        alert(data.message);
+        query();
+      }
+    );
+  }
+}
+
+// 修改的部分
+let modifyInfo = {};
+let divModifyDialog = document.getElementById('divModifyDialog');
+let selMDept = document.getElementById('selMDept');
+let txtMName = document.getElementById('txtMName');
+let txtMPhone = document.getElementById('txtMPhone');
+let btnSaveModify = document.getElementById('btnSaveModify');
+let btnCloseModify = document.getElementById('btnCloseModify');
+
+function showModify(info) {
+  modifyInfo = info;
+  console.log('要修改的信息：', modifyInfo);
+  // 显示修改值
+  selMDept.value = modifyInfo.deptId;
+  txtMName.value = modifyInfo.employeeName;
+  txtMPhone.value = modifyInfo.phone;
+  // 显示对话框
+  divModifyDialog.style.display = 'flex';
+}
+
+btnCloseModify.addEventListener('click', function () {
+  divModifyDialog.style.display = 'none';
+  query();
+});
+
+btnSaveModify.addEventListener('click', function () {
+  // 获取修改的值
+  modifyInfo.deptId = selMDept.value;
+  modifyInfo.employeeName = txtMName.value;
+  modifyInfo.phone = txtMPhone.value;
+  // 保存修改
+  ajaxRequest(
+    '/manange/employee/update',
+    {
+      tbEmployee: modifyInfo
+    },
+    function (data) {
+      alert(data.message);
+      if (data.success) {
+        // 成功就关闭对话框
+        btnCloseModify.click();
+      }
+    }
+  );
+});
 
 // 显示部门列表
 function showDept() {
@@ -127,6 +207,17 @@ function showDept() {
     op.append(dept.deptName);
     op.setAttribute('value', dept.deptId);
     selDept.append(op);
+  }
+
+  // 修改的部门
+  selMDept.innerHTML = '';
+
+  for (let i = 0; i < deptList.length; i++) {
+    let dept = deptList[i];
+    let op = document.createElement('option');
+    op.append(dept.deptName);
+    op.setAttribute('value', dept.deptId);
+    selMDept.append(op);
   }
 }
 
@@ -195,6 +286,25 @@ btnAdd.addEventListener('click', function () {
 btnCloseAdd.addEventListener('click', function () {
   divAddDialog.style.display = 'none';
   query();
+});
+
+btnAddInfo.addEventListener('click', function () {
+  // 收集信息
+  let info = {
+    deptId: selDept.value,
+    employeeName: txtName.value,
+    phone: txtPhone.value
+  };
+  // 添加信息
+  ajaxRequest(
+    '/manange/employee/add',
+    {
+      tbEmployee: info
+    },
+    function (data) {
+      alert(data.message);
+    }
+  );
 });
 
 // 两个星期之内完成，上课会展示

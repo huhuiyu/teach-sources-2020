@@ -2,7 +2,8 @@ table {
   width: 100%;
 }
 
-#divAddDialog {
+#divAddDialog,
+#divModifyDialog {
   position: fixed;
   width: 100vw;
   height: 100vh;
@@ -13,7 +14,8 @@ table {
   justify-content: center;
   align-items: center;
 }
-#divAddDialog > div {
+#divAddDialog > div,
+#divModifyDialog > div {
   padding: 1rem;
   border-radius: 1rem;
   background-color: #ffffff;
