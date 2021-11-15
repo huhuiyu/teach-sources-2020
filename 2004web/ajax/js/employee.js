@@ -116,6 +116,28 @@ let btnSaveEmp = document.getElementById('btnSaveEmp');
 let btnCloseModify = document.getElementById('btnCloseModify');
 let modifyInfo = null;
 
+btnSaveEmp.addEventListener('click', function () {
+  // 获取更新值
+  modifyInfo.deptId = selDept.value;
+  modifyInfo.employeeName = txtMName.value;
+  modifyInfo.phone = txtMPhone.value;
+  // 修改
+  ajaxRequest(
+    '/manange/employee/update',
+    {
+      tbEmployee: modifyInfo
+    },
+    function (data) {
+      alert(data.message);
+    }
+  );
+});
+
+btnCloseModify.addEventListener('click', function () {
+  divModifyDialog.style.display = 'none';
+  query();
+});
+
 function showModifyInfo(info) {
   modifyInfo = info;
   selMDept.value = modifyInfo.deptId;
