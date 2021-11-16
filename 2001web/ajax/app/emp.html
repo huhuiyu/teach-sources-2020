@@ -10,6 +10,37 @@
 </head>
 
 <body>
+  <!-- 查询的表单 -->
+  <div>
+    <select id="selQDept"></select>
+    <input type="text" id="txtQName" placeholder="姓名模糊查询">
+    <input type="text" id="txtQPhone" placeholder="电话模糊查询">
+    <button id="btnQuery">查询</button>
+    <button id="btnReset">重置</button>
+    <button id="btnShowAdd">添加</button>
+  </div>
+  <hr>
+  <!-- 数据表格 -->
+  <table>
+    <thead>
+      <tr>
+        <th>所属部门</th>
+        <th>姓名</th>
+        <th>电话</th>
+        <th>信息最后修改时间</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody id="tbData"></tbody>
+
+  </table>
+
+  <!-- 分页的部分 -->
+  <div>
+    <span id="spPre">上一页</span>
+    <span id="spPageInfo"></span>
+    <span id="spNext">下一页</span>
+  </div>
 
 
   <!-- 第三方js导入 -->
