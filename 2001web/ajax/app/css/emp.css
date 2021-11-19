@@ -1,0 +1,24 @@
+#divDialog,
+#divMDialog {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#divDialog > div,
+#divMDialog > div {
+  border-radius: 1rem;
+  background-color: #fff;
+  padding: 1rem;
+}
+
+#divDialog > div > div,
+#divMDialog > div > div {
+  margin: 1rem;
+}

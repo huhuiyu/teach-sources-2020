@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>员工管理</title>
   <link rel="stylesheet" href="../../css/common.css">
+  <link rel="stylesheet" href="css/emp.css">
 </head>
 
 <body>
@@ -41,6 +42,48 @@
     <span id="spPageInfo"></span>
     <span id="spNext">下一页</span>
   </div>
+
+
+  <!-- 添加的弹出框 -->
+  <div id="divDialog">
+    <div>
+      <div>添加员工</div>
+      <div>
+        <select id="selDept"></select>
+      </div>
+      <div>
+        <input type="text" id="txtName" placeholder="姓名">
+      </div>
+      <div>
+        <input type="text" id="txtPhone" placeholder="电话">
+      </div>
+      <div>
+        <button id="btnAdd">添加</button>
+        <button id="btnClose">关闭</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 修改的弹出框 -->
+  <div id="divMDialog">
+    <div>
+      <div>修改员工</div>
+      <div>
+        <select id="selMDept"></select>
+      </div>
+      <div>
+        <input type="text" id="txtMName" placeholder="姓名">
+      </div>
+      <div>
+        <input type="text" id="txtMPhone" placeholder="电话">
+      </div>
+      <div>
+        <button id="btnModify">保存</button>
+        <button id="btnMClose">关闭</button>
+      </div>
+    </div>
+  </div>
+
 
 
   <!-- 第三方js导入 -->

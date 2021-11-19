@@ -5,6 +5,13 @@ let queryInfo = {}; // 查询条件！！！！！
 
 // 查询员工信息
 function query() {
+  // 处理查询的参数
+  queryInfo = {
+    deptId: selQDept.value,
+    employeeName: txtQName.value,
+    phone: txtQPhone.value
+  };
+
   ajax(
     '/manange/employee/query',
     {
@@ -52,6 +59,16 @@ function showData() {
     // 信息修改时间
     td = document.createElement('td');
     td.append(formatTimestamp(emp.lastupdate));
+    tr.append(td);
+    // 操作的部分
+    td = document.createElement('td');
+    // 修改按钮
+    let btnShowModify = document.createElement('button');
+    btnShowModify.append('修改');
+    td.append(btnShowModify);
+    btnShowModify.addEventListener('click', function () {
+      showModify(emp);
+    });
     tr.append(td);
 
     tbData.append(tr);
@@ -113,6 +130,87 @@ let btnQuery = document.getElementById('btnQuery');
 let btnReset = document.getElementById('btnReset');
 let btnShowAdd = document.getElementById('btnShowAdd');
 
+btnQuery.addEventListener('click', query);
+
+btnReset.addEventListener('click', function () {
+  selQDept.value = -1;
+  txtQPhone.value = '';
+  txtQName.value = '';
+  queryInfo = {};
+  query();
+});
+
+// 添加信息的部分
+let divDialog = document.getElementById('divDialog');
+let selDept = document.getElementById('selDept');
+let txtName = document.getElementById('txtName');
+let txtPhone = document.getElementById('txtPhone');
+let btnAdd = document.getElementById('btnAdd');
+let btnClose = document.getElementById('btnClose');
+
+btnShowAdd.addEventListener('click', function () {
+  divDialog.style.display = 'flex';
+});
+
+btnClose.addEventListener('click', function () {
+  divDialog.style.display = 'none';
+  query();
+});
+
+btnAdd.addEventListener('click', function () {
+  let tbEmployee = {
+    deptId: selDept.value,
+    employeeName: txtName.value,
+    phone: txtPhone.value
+  };
+  ajax(
+    '/manange/employee/add',
+    {
+      tbEmployee: tbEmployee
+    },
+    function (data) {
+      alert(data.message);
+      if (data.success) {
+        txtName.value = '';
+        txtPhone.value = '';
+      }
+    }
+  );
+});
+
+// 修改的部分
+let modifyInfo;
+let divMDialog = document.getElementById('divMDialog');
+let selMDept = document.getElementById('selMDept');
+let txtMName = document.getElementById('txtMName');
+let txtMPhone = document.getElementById('txtMPhone');
+let btnModify = document.getElementById('btnModify');
+let btnMClose = document.getElementById('btnMClose');
+
+function showModify(info) {
+  modifyInfo = info;
+  selMDept.value = info.deptId;
+  txtMName.value = info.employeeName;
+  txtMPhone.value = info.phone;
+  divMDialog.style.display = 'flex';
+}
+
+btnMClose.addEventListener('click', function () {
+  divMDialog.style.display = 'none';
+  query();
+});
+
+btnModify.addEventListener('click', function () {
+  modifyInfo.deptId = selMDept.value;
+  modifyInfo.employeeName = txtMName.value;
+  modifyInfo.phone = txtMPhone.value;
+  ajax('/manange/employee/update', {
+    tbEmployee: modifyInfo
+  },function(data){
+    alert(data.message)
+  });
+});
+
 // 显示部门信息
 function showDeptList() {
   selQDept.innerHTML = '';
@@ -127,6 +225,29 @@ function showDeptList() {
     op.append(dept.deptName);
     op.setAttribute('value', dept.deptId);
     selQDept.append(op);
+  }
+  // 要记住用户选中的部门值
+  if (queryInfo.deptId) {
+    selQDept.value = queryInfo.deptId;
+  }
+  // 添加的部门列表
+  selDept.innerHTML = '';
+  for (let i = 0; i < deptList.length; i++) {
+    let dept = deptList[i];
+    let op = document.createElement('option');
+    op.setAttribute('value', dept.deptId);
+    op.append(dept.deptName);
+    selDept.append(op);
+  }
+
+  // 修改的部门列表
+  selMDept.innerHTML = '';
+  for (let i = 0; i < deptList.length; i++) {
+    let dept = deptList[i];
+    let op = document.createElement('option');
+    op.setAttribute('value', dept.deptId);
+    op.append(dept.deptName);
+    selMDept.append(op);
   }
 }
 
