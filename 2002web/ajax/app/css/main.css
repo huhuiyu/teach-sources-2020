@@ -1,0 +1,24 @@
+#divModify {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+#divModify > div {
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #ffffff;
+}
+
+#myimg {
+  display: none;
+  width: 2rem;
+  height: auto;
+  margin-right: 5rem;
+  margin-left: 1rem;
+}

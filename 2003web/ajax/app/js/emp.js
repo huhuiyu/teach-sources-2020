@@ -17,7 +17,90 @@ let btnQuery = document.getElementById('btnQuery');
 let btnReset = document.getElementById('btnReset');
 let btnShowAdd = document.getElementById('btnShowAdd');
 
+// 添加的部分
+let divDialog = document.getElementById('divDialog');
+let selDept = document.getElementById('selDept');
+let txtName = document.getElementById('txtName');
+let txtPhone = document.getElementById('txtPhone');
+let btnAddInfo = document.getElementById('btnAddInfo');
+let btnClose = document.getElementById('btnClose');
+
+btnShowAdd.addEventListener('click', function () {
+  divDialog.style.display = 'flex';
+});
+
+btnClose.addEventListener('click', function () {
+  divDialog.style.display = 'none';
+  query();
+});
+
+btnAddInfo.addEventListener('click', function () {
+  let tbEmployee = {
+    deptId: selDept.value,
+    employeeName: txtName.value,
+    phone: txtPhone.value
+  };
+  ajaxRequest(
+    '/manange/employee/add',
+    {
+      tbEmployee: tbEmployee
+    },
+    function (data) {
+      alert(data.message);
+    }
+  );
+});
+
+// 显示部门的列表
+function showDeptInfo() {
+  // 查询参数的部门列表
+  // 查询需要一个假的部门信息作为查询全部部门的标志
+  selQDept.innerHTML = '';
+  let dinfo = document.createElement('option');
+  dinfo.setAttribute('value', -1);
+  dinfo.append('===请选择部门===');
+  selQDept.append(dinfo);
+
+  for (let i = 0; i < deptList.length; i++) {
+    let dept = deptList[i];
+    let op = document.createElement('option');
+    op.setAttribute('value', dept.deptId);
+    op.append(dept.deptName);
+    selQDept.append(op);
+  }
+  // 记住上一次选中的部门值
+  if (queryInfo.deptId) {
+    selQDept.value = queryInfo.deptId;
+  }
+  // 添加的部门列表
+  selDept.innerHTML = '';
+  for (let i = 0; i < deptList.length; i++) {
+    let dept = deptList[i];
+    let op = document.createElement('option');
+    op.setAttribute('value', dept.deptId);
+    op.append(dept.deptName);
+    selDept.append(op);
+  }
+}
+
+btnQuery.addEventListener('click', query);
+
+btnReset.addEventListener('click', function () {
+  queryInfo = { deptId: -1 };
+  selQDept.value = -1;
+  txtQName.value = '';
+  txtQPhone.value = '';
+  query();
+});
+
 function query() {
+  // 获取查询参数
+  queryInfo = {
+    deptId: selQDept.value,
+    employeeName: txtQName.value,
+    phone: txtQPhone.value
+  };
+
   ajaxRequest(
     '/manange/employee/query',
     {
@@ -38,6 +121,7 @@ function query() {
       // 显示数据
       showInfo();
       showPageInfo();
+      showDeptInfo();
     }
   );
 }

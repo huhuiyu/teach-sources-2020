@@ -7,11 +7,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>用户首页</title>
   <link rel="stylesheet" href="../../css/common.css">
+  <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
+  <img id="myimg" src="" alt="">
+
+  <button id="btnUserInfo">用户附加信息</button>
+
   <button id="btnLogout">安全退出</button>
   <div id="divUserInfo"></div>
+
+  <!-- 用户附件信息修改对话框 -->
+  <div id="divModify">
+    <div>
+      <div>用户附加信息</div>
+      <div>
+        性别：
+        <select id="selSex">
+          <option value="m">男</option>
+          <option value="f">女</option>
+          <option value="n" selected>保密</option>
+        </select>
+      </div>
+      <div>
+        邮箱：<input type="text" id="txtEmail">
+      </div>
+      <div>
+        头像：<input type="text" id="txtImg">
+      </div>
+      <div>
+        手机：<input type="text" id="txtPhone">
+      </div>
+      <div>
+        QQ：<input type="text" id="txtQQ">
+      </div>
+      <div>
+        微信：<input type="text" id="txtWechat">
+      </div>
+      <div>
+        <textarea id="taInfo" placeholder="简介" cols="30" rows="5"></textarea>
+      </div>
+      <div>
+        <button id="btnSave">保存</button>
+        <button id="btnClose">关闭</button>
+      </div>
+    </div>
+  </div>
+
+
+
 
   <!-- 第三方库导入 -->
   <script src="https://cdn.bootcdn.net/ajax/libs/qs/6.10.1/qs.min.js"></script>

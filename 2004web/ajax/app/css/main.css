@@ -1,0 +1,22 @@
+#divModifyDialog {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+#divModifyDialog > div {
+  background-color: #ffffff;
+  padding: 1rem;
+}
+
+#myimg {
+  display: none;
+  width: 2rem;
+  height: auto;
+  margin: 0px 2rem 0px 1rem;
+}
