@@ -2,7 +2,8 @@ table {
   width: 100%;
 }
 
-#divDialog {
+#divDialog,
+#divMDialog {
   position: fixed;
   width: 100vw;
   height: 100vh;
@@ -15,12 +16,14 @@ table {
   align-items: center;
 }
 
-#divDialog > div {
+#divDialog > div,
+#divMDialog > div {
   background-color: #fff;
   padding: 1rem;
   border-radius: 1rem;
 }
 
-#divDialog > div > div {
+#divDialog > div > div,
+#divMDialog > div > div {
   margin: 1rem;
 }

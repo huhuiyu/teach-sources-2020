@@ -72,6 +72,7 @@ function showDeptInfo() {
   if (queryInfo.deptId) {
     selQDept.value = queryInfo.deptId;
   }
+
   // 添加的部门列表
   selDept.innerHTML = '';
   for (let i = 0; i < deptList.length; i++) {
@@ -80,6 +81,16 @@ function showDeptInfo() {
     op.setAttribute('value', dept.deptId);
     op.append(dept.deptName);
     selDept.append(op);
+  }
+
+  // 修改的部门列表
+  selMDept.innerHTML = '';
+  for (let i = 0; i < deptList.length; i++) {
+    let dept = deptList[i];
+    let op = document.createElement('option');
+    op.setAttribute('value', dept.deptId);
+    op.append(dept.deptName);
+    selMDept.append(op);
   }
 }
 
@@ -150,6 +161,24 @@ function showInfo() {
     td = document.createElement('td');
     td.append(formatDate(emp.lastupdate));
     tr.append(td);
+    // 操作按钮
+    td = document.createElement('td');
+    // 修改按钮
+    let btnModify = document.createElement('button');
+    btnModify.append('修改');
+    td.append(btnModify);
+    btnModify.addEventListener('click', function () {
+      showModify(emp);
+    });
+    // 删除按钮
+    let btnDel = document.createElement('button');
+    btnDel.append('删除');
+    td.append(btnDel);
+    btnDel.addEventListener('click', function () {
+      del(emp);
+    });
+
+    tr.append(td);
 
     tbData.append(tr);
   }
@@ -205,5 +234,62 @@ spPre.addEventListener('click', function () {
   }
   query();
 });
+
+// 修改的部分
+let divMDialog = document.getElementById('divMDialog');
+let selMDept = document.getElementById('selMDept');
+let txtMName = document.getElementById('txtMName');
+let txtMPhone = document.getElementById('txtMPhone');
+let btnModifyInfo = document.getElementById('btnModifyInfo');
+let btnMClose = document.getElementById('btnMClose');
+let modifyInfo; // 记住要修改的值
+
+function showModify(info) {
+  modifyInfo = info;
+  console.log('被修改信息：', modifyInfo);
+  // 显示修改值
+  selMDept.value = modifyInfo.deptId;
+  txtMName.value = modifyInfo.employeeName;
+  txtMPhone.value = modifyInfo.phone;
+  // 显示对话框
+  divMDialog.style.display = 'flex';
+}
+
+btnMClose.addEventListener('click', function () {
+  divMDialog.style.display = 'none';
+  query();
+});
+
+btnModifyInfo.addEventListener('click', function () {
+  modifyInfo.deptId = selMDept.value;
+  modifyInfo.employeeName = txtMName.value;
+  modifyInfo.phone = txtMPhone.value;
+  // 提交数据
+  ajaxRequest(
+    '/manange/employee/update',
+    {
+      tbEmployee: modifyInfo
+    },
+    function (data) {
+      alert(data.message);
+    }
+  );
+});
+
+// 删除的功能！！！！
+function del(info) {
+  if (confirm('是否删除：' + info.employeeName)) {
+    ajaxRequest(
+      '/manange/employee/delete',
+      {
+        'tbEmployee.employeeId': info.employeeId
+      },
+      function (data) {
+        alert(data.message);
+        query();
+      }
+    );
+  }
+}
 
 query();
