@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bootstrap5入门-表单元素</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bs02.css">
+</head>
+
+<body>
+
+  <!-- bs5表单元素，bs是手机优先框架，所有表单元素默认是一行 -->
+  <input type="text" placeholder="文本框" class="form-control">
+  <select class="form-control">
+    <option value="1">湖南</option>
+    <option value="2">湖北</option>
+  </select>
+  <textarea cols="30" rows="10" class="form-control"></textarea>
+  <!-- 单行表单，form元素里面人员表单元素动作都会触发action跳转 -->
+  <!-- 所以一般不要使用form，如果不希望跳转发生，添加onsubmit="return false" -->
+  <form class="form-inline form-check" action="https://huhuiyu.top" onsubmit="return false">
+    <input type="text" class="form-control form-control-sm">
+    <input type="password" class="form-control form-control-sm">
+    <input type="submit" class="btn btn-success btn-sm">
+  </form>
+  <!-- 大小通过sm，lg这两个控制 -->
+  <div class="form-check">
+    <label class="form-check-label">
+      男<input type="radio" class="form-check-input">
+    </label>
+  </div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input">
+  </div>
+  <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+.form-inline {
+  display: flex;
+}
+
+/* 通过级联这种方法控制bs的样式 */
+.form-inline .btn,
+.form-inline .form-control {
+  margin: 1rem;
+}
+
+/* 弹出框定制 */
+#div-alert {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  display: none;
+}

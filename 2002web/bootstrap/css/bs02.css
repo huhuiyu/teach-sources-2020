@@ -1,0 +1,7 @@
+.form-inline {
+  display: flex;
+}
+/* 通过级联的样式，改动bs的默认值 */
+.form-inline .form-control,.form-inline .btn{
+  margin: 1rem;
+}

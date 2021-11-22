@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bs5表单元素</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bs02.css">
+
+</head>
+
+<body>
+  <!-- 表单元素，bs是手机优先框架，所以表单元素默认是一行 -->
+  <div>
+    <input type="text" class="form-control" placeholder="文本框">
+    <input type="password" class="form-control" placeholder="密码">
+    <select class="form-select">
+      <option value="1">湖南</option>
+      <option value="1">湖北</option>
+    </select>
+    <textarea cols="30" rows="10" class="form-control"></textarea>
+  </div>
+
+  <!--
+    表单和自定义，form中表单元素会触发action
+    通过onsubmit="return false;"阻止默认的aciton动作
+  -->
+  <form class="form-inline" action="https://huhuiyu.top" onsubmit="return false;">
+    <!-- -sm是缩小版本，-lg是放大版本 -->
+    <input type="text" class="form-control form-control-sm">
+    <input type="submit" class="btn btn-primary btn-sm">
+    <input type="reset" class="btn btn-danger btn-sm">
+    <!-- 两个特殊的表单元素 -->
+    <div class="form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="radio" name="sex">男
+      </label>
+    </div>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" checked type="radio" name="sex">女
+      </label>
+    </div>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" checked type="checkbox">音乐
+      </label>
+    </div>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" checked type="checkbox">电影
+      </label>
+    </div>
+  </form>
+  <!-- 输入组 -->
+  <div>
+    <div class="input-group">
+      <span class="input-group-text">用户名：</span>
+      <input type="text" class="form-control">
+    </div>
+    <div class="input-group">
+      <select class="form-select">
+        <option value="-1">请选择</option>
+      </select>
+      <!-- 附加样式可以和其它样式叠加 -->
+      <span class="input-group-text btn btn-danger">url</span>
+    </div>
+  </div>
+  <!-- js的部分 -->
+  <div id="div-alert" class="alert alert-success alert-dismissible show fade">
+    一个浮动消息
+    <button class="btn-close" data-bs-dismiss="alert"></button>
+  </div>
+
+  <button id="btnAlert" class="btn btn-outline-info">弹出信息</button>
+
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+
+  <script src="js/bs02.js"></script>
+</body>
+
+</html>
