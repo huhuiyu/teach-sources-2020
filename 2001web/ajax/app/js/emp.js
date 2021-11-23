@@ -70,6 +70,13 @@ function showData() {
       showModify(emp);
     });
     tr.append(td);
+    // 删除按钮
+    let btnDel = document.createElement('button');
+    btnDel.append('删除');
+    td.append(btnDel);
+    btnDel.addEventListener('click', function () {
+      del(emp);
+    });
 
     tbData.append(tr);
   }
@@ -204,11 +211,15 @@ btnModify.addEventListener('click', function () {
   modifyInfo.deptId = selMDept.value;
   modifyInfo.employeeName = txtMName.value;
   modifyInfo.phone = txtMPhone.value;
-  ajax('/manange/employee/update', {
-    tbEmployee: modifyInfo
-  },function(data){
-    alert(data.message)
-  });
+  ajax(
+    '/manange/employee/update',
+    {
+      tbEmployee: modifyInfo
+    },
+    function (data) {
+      alert(data.message);
+    }
+  );
 });
 
 // 显示部门信息
@@ -248,6 +259,22 @@ function showDeptList() {
     op.setAttribute('value', dept.deptId);
     op.append(dept.deptName);
     selMDept.append(op);
+  }
+}
+
+// 删除员工信息
+function del(info) {
+  if (confirm('是否删除：' + info.employeeName)) {
+    ajax(
+      '/manange/employee/delete',
+      {
+        'tbEmployee.employeeId': info.employeeId
+      },
+      function (data) {
+        alert(data.message);
+        query();
+      }
+    );
   }
 }
 

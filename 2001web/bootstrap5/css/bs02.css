@@ -1,0 +1,9 @@
+.myform {
+  display: flex;
+}
+
+/* 通过级联控制区域的按钮样式 */
+.myform .btn,
+.myform .form-control {
+  margin: 0.5rem;
+}
