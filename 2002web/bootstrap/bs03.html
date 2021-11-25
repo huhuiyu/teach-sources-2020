@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bs5-表格</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+  <!-- 表格 -->
+  <table class="table table-hover table-success table-striped table-bordered">
+    <thead class="table-primary">
+      <tr>
+        <th>编号</th>
+        <th>姓名</th>
+        <th>地址</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1000</td>
+        <td>张亮</td>
+        <td>湖南常德</td>
+        <td>
+          <span class="btn btn-danger btn-sm">修改</span>
+        </td>
+      </tr>
+      <tr>
+        <td>1001</td>
+        <td>印琪琳</td>
+        <td>湖南长沙</td>
+        <td>
+          <span class="btn btn-danger btn-sm">修改</span>
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
+
+  <!-- 对话框 -->
+  <div id="div-dialog" data-bs-backdrop="static" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <div class="modal-title">一个对话框</div>
+          <button data-bs-toggle="modal" data-bs-target="#div-dialog" class="btn-close"></button>
+        </div>
+
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-sm-6">
+              <input type="text" class="form-control">
+            </div>
+            <div class="col-sm-6">
+              <input type="text" class="form-control">
+            </div>
+            <div class="col-sm-12">
+              <input type="text" class="form-control">
+            </div>
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <span class="btn btn-primary">保存</span>
+
+          <button data-bs-toggle="modal" data-bs-target="#div-dialog" class="btn btn-danger">关闭</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 
+    data-bs-toggle="modal"表示点击的时候触发对话框动作
+    data-bs-target="#div-dialog"表示指定id的对话框
+  -->
+  <button data-bs-toggle="modal" data-bs-target="#div-dialog" class="btn btn-primary">弹出对话框</button>
+
+
+
+  <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

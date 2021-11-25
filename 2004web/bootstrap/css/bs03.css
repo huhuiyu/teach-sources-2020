@@ -1,0 +1,11 @@
+.row > div {
+  border: 1px solid #ff0000;
+}
+
+.modal .row > div {
+  border-width: 0px;
+}
+
+.modal .row {
+  margin-top: 0.5rem;
+}

@@ -14,7 +14,7 @@
 
   <!-- bs5表单元素，bs是手机优先框架，所有表单元素默认是一行 -->
   <input type="text" placeholder="文本框" class="form-control">
-  <select class="form-control">
+  <select class="form-select">
     <option value="1">湖南</option>
     <option value="2">湖北</option>
   </select>
@@ -35,7 +35,67 @@
   <div class="form-check">
     <input type="checkbox" class="form-check-input">
   </div>
+
+  <!-- 容器网格和表单 -->
+  <div class="container-fluid">
+    <!-- 行 -->
+    <div class="row">
+      <div class="col-3">网格系统默认是12格</div>
+      <div class="col-9">这个是9</div>
+    </div>
+    <div class="row">
+      <div class="col-6">一半对一半</div>
+      <div class="col-6">另一半</div>
+    </div>
+    <!-- 自适应的大小 -->
+    <div class="row">
+      <div class="col">宽度自动调整</div>
+      <div class="col">其实就是flex的默认效果</div>
+      <div class="col">数量不限</div>
+    </div>
+  </div>
+  <hr>
+  <!-- 自带媒体查询的列模式 -->
+  <div class="container-fluid">
+    <div class="row">
+      <!-- sm是小屏幕（手机）,md是中等，lg是大，大小参考官方文档 -->
+      <!-- 
+        xs<576px	sm≥576px	md≥768px	
+        lg≥992px	xl≥1200px	xxl≥1400px
+      -->
+      <div class="col-sm-12 col-md-6 col-lg-3">第一列</div>
+      <div class="col-sm-12 col-md-6 col-lg-3">第二列</div>
+      <div class="col-sm-12 col-md-6 col-lg-3">第三列</div>
+      <div class="col-sm-12 col-md-6 col-lg-3">第四列</div>
+      <div class="col-sm-12 col-md-6 col-lg-3">第五列</div>
+    </div>
+  </div>
+
+  <div>
+    <!-- 
+      d-屏幕大小-none，表示在指定屏幕大小时不可见
+      d-屏幕大小-block，表示在指定屏幕大小时可见且display为block
+      d-屏幕大小-flex，表示在指定屏幕大小时可见且display为flex
+    -->
+    <div class="d-md-none d-sm-block">手机版本</div>
+    <div class="d-sm-none d-md-block">电脑版本</div>
+  </div>
+
+  <div class="form-floating">
+    <input id="txtUser" type="text" class="form-control" 
+      placeholder="用户名">
+    <label for="txtUser">用户名</label>
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-text">用户名</span>
+    <input type="text" class="form-control">
+    <span class="input-group-text">✔</span>
+  </div>
+
+
   <script src="js/bootstrap.min.js"></script>
+
 </body>
 
 </html>

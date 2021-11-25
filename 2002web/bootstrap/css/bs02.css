@@ -2,6 +2,11 @@
   display: flex;
 }
 /* 通过级联的样式，改动bs的默认值 */
-.form-inline .form-control,.form-inline .btn{
+.form-inline .form-control,
+.form-inline .btn {
   margin: 1rem;
+}
+
+.row > div {
+  border: 1px solid #ff0000;
 }
