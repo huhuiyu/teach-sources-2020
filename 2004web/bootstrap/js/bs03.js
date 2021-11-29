@@ -14,3 +14,12 @@ divDialog.addEventListener('shown.bs.modal', function () {
 divDialog.addEventListener('hidden.bs.modal', function () {
   console.log('对话框已经关闭完成');
 });
+
+// 通过js控制显示和关闭对话框
+// 转换页面对话框元素为bootstrap对象，方便调用相应的功能
+let bsDialog = bootstrap.Modal.getOrCreateInstance(divDialog);
+
+setTimeout(function () {
+  // 显示对话框
+  bsDialog.show();
+}, 2000);
