@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bs5-表单元素</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bs02.css">
+</head>
+
+<body>
+  <!-- 基本的表单，bs是手机优先框架 -->
+  <div>
+    <input type="text" placeholder="文本框" class="form-control">
+    <input type="password" placeholder="密码框" class="form-control">
+
+    <select class="form-select">
+      <option value="100">湖南</option>
+      <option value="101">湖北</option>
+    </select>
+
+  </div>
+
+  <!-- 
+    表单和表单元素，form有一个默认的动作，只要里面的表单元素动作
+    就会跳转到action指定的页面，如果没有action，会刷新当前页面
+    onsubmit="return false;"可以阻止表单默认动作
+  -->
+  <!-- d-flex压力盒子 m-n是外边距 -->
+  <form class="d-flex" action="https://huhuiyu.top" onsubmit="return false;">
+    <input type="text" class="form-control m-2">
+
+    <select class="form-select m-2">
+      <option value="100">湖南</option>
+      <option value="101">湖北</option>
+    </select>
+
+    <div class="input-group m-2">
+      <span class="input-group-text">@</span>
+      <input type="text" class="form-control">
+      <span class="input-group-text btn btn-danger">✔</span>
+    </div>
+
+
+
+    <!-- submit自带功能是触发表单action -->
+    <input type="submit" class="btn btn-primary m-2">
+
+    <!-- reset自带功能，点击就会恢复到表单默认状态 -->
+    <input type="reset" class="btn btn-danger m-2">
+  </form>
+
+
+
+  <div class="form-floating m-2">
+    <input class="form-control" type="text" id="txtName" placeholder="姓名">
+    <label for="txtName" class="form-label">姓名</label>
+  </div>
+
+
+
+  <div class="form-check-inline m-2">
+    <label class="form-check-label">
+      <input type="checkbox" class="form-check-input">电影
+    </label>
+  </div>
+
+  <div class="form-check-inline m-2">
+    <label class="form-check-label">
+      <input type="checkbox" class="form-check-input">音乐
+    </label>
+  </div>
+
+  <div class="form-check-inline m-2">
+    <label class="form-check-label">
+      <input name="sex" type="radio" class="form-check-input">男生
+    </label>
+  </div>
+
+  <div class="form-check-inline m-2">
+    <label class="form-check-label">
+      <input name="sex" checked type="radio" class="form-check-input">女生
+    </label>
+  </div>
+
+  <!-- 大小设置 ,input也有大小，自己看文档实验-->
+  <div>
+    <span class="btn btn-primary btn-lg">大按钮</span>
+    <span class="btn btn-primary btn-sm">小按钮</span>
+    <span class="btn btn-primary">按钮</span>
+  </div>
+
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

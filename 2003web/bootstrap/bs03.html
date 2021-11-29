@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bs5-网格系统,table，对话框</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bs03.css">
+</head>
+
+<body>
+  <!-- 网格系统，12格 -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">自适应的网格</div>
+      <div class="col">其实是压力布局</div>
+      <div class="col">flex都是1的效果</div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 
+    自带媒体查询的自适应网格
+    	xs<576px	sm≥576px	md≥768px	lg≥992px	
+      xl≥1200px	xxl≥1400px
+  -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6 col-lg-4 col-xl-3 col-xxl-2">第1个</div>
+      <div class="col-md-6 col-lg-4 col-xl-3 col-xxl-2">第2个</div>
+      <div class="col-md-6 col-lg-4 col-xl-3 col-xxl-2">第3个</div>
+      <div class="col-md-6 col-lg-4 col-xl-3 col-xxl-2">第4个</div>
+      <div class="col-md-6 col-lg-4 col-xl-3 col-xxl-2">第5个</div>
+    </div>
+
+  </div>
+
+  <div>
+    <!-- d-屏幕大小-显示模式 -->
+    <div class="d-sm-block d-md-none">小屏幕版本</div>
+    <div class="d-sm-none d-md-block">大屏幕版本</div>
+  </div>
+
+  <!-- 表格 -->
+  <table class="table table-hover table-bordered table-striped">
+    <thead class="table-primary">
+      <tr>
+        <th>编号</th>
+        <th>姓名</th>
+        <th>地址</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>1000</td>
+        <td>石桂权</td>
+        <td>湖南长沙</td>
+      </tr>
+      <tr>
+        <td>1001</td>
+        <td>苏铭子</td>
+        <td>湖南常德</td>
+      </tr>
+    </tbody>
+
+  </table>
+
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/bs03.js"></script>
+</body>
+
+</html>

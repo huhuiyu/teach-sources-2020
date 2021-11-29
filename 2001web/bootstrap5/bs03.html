@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bs5-网格布局，对话框，表格</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bs03.css">
+</head>
+
+<body>
+  <!-- bs5的网格默认是12格 -->
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col">默认列模式</div>
+      <div class="col">其实就是压力盒子</div>
+      <div class="col">压力值都是1</div>
+    </div>
+  </div>
+  <!-- 
+    自带媒体查询效果的网格布局
+    	xs <576px	sm≥576px	md≥768px	
+      lg≥992px	xl≥1200px	xxl≥1400px
+      col-媒体大小-网格数
+      col-md-6表示在md（768-992）直接显示成一半
+  -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-3 col-lg-4 col-md-6">第1个</div>
+      <div class="col-xl-3 col-lg-4 col-md-6">第2个</div>
+      <div class="col-xl-3 col-lg-4 col-md-6">第3个</div>
+      <div class="col-xl-3 col-lg-4 col-md-6">第4个</div>
+      <div class="col-xl-3 col-lg-4 col-md-6">第5个</div>
+    </div>
+
+    <div class="row">
+      <div class="col-2">固定模式</div>
+      <div class="col-10">固定模式</div>
+    </div>
+  </div>
+
+  <!-- 媒体查询的显示和隐藏 -->
+  <div>
+    <!-- display:none,flex,block,inline,inline-block -->
+    <!-- d-屏幕大小-显示模式 -->
+    <div class="d-sm-block d-md-none">小屏幕版本</div>
+    <div class="d-sm-none d-md-block">大屏幕版本</div>
+  </div>
+
+  <!-- 表格 -->
+  <table class="table table-hover table-striped">
+    <thead class="table-primary">
+      <tr>
+        <th>编号</th>
+        <th>姓名</th>
+        <th>地址</th>
+      </tr>
+    </thead>
+
+    <tbody class="table-success">
+      <tr>
+        <td>1000</td>
+        <td>黑暗骑士</td>
+        <td>哥谭市</td>
+      </tr>
+      <tr>
+        <td>1000</td>
+        <td>黑暗骑士</td>
+        <td>哥谭市</td>
+      </tr>
+      <tr>
+        <td>1001</td>
+        <td>小丑</td>
+        <td>哥谭市</td>
+      </tr>
+      <tr>
+        <td>1002</td>
+        <td>毒藤女</td>
+        <td>哥谭市</td>
+      </tr>
+    </tbody>
+
+  </table>
+
+  <!-- 弹出式对话框 -->
+  <span data-bs-toggle="modal" data-bs-target="#mydialog" class="btn btn-primary">弹出框</span>
+
+  <div class="modal fade" tabindex="-1" data-bs-backdrop="static" id="mydialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <div class="modal-title">
+            一个程瀚理解不了的对话框
+          </div>
+          <span data-bs-toggle="modal" data-bs-target="#mydialog"
+            class="btn-close"></span>
+        </div>
+
+        <div class="modal-body">
+          <input type="text" class="form-control m-2">
+          <input type="text" class="form-control m-2"> 
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/bs03.js"></script>
+</body>
+
+</html>

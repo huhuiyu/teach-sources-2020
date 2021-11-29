@@ -82,6 +82,22 @@
   -->
   <button data-bs-toggle="modal" data-bs-target="#div-dialog" class="btn btn-primary">弹出对话框</button>
 
+  <!-- 按钮组和下拉菜单 p-n,m-n分别是内边距和外边距-->
+  <div class="p-1 btn-group">
+    <span class="btn btn-danger">按钮一</span>
+    <span class="btn btn-danger">按钮二</span>
+    <span class="btn btn-danger">按钮三</span>
+  </div>
+
+  <div class="p-1 btn-group">
+    <span class="btn btn-primary">下拉菜单</span>
+    <span data-bs-toggle="dropdown" class="btn btn-primary dropdown-toggle dropdown-toggle-split"></span>
+    <ul class="dropdown-menu" id="dm01">
+      <li class="dropdown-item">下拉项1</li>
+      <li class="dropdown-item">下拉项2</li>
+      <li class="dropdown-item">下拉项3</li>
+    </ul>
+  </div>
 
 
   <script src="js/bootstrap.min.js"></script>

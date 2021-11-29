@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>用户登录</title>
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+  <!-- 
+    d-flex就是压力盒子
+    display:flex;justify-content:center;align-items:center;
+  -->
+  <div class="main d-flex justify-content-center align-items-center">
+    <form onsubmit="return false;">
+      <div class="card">
+        <div class="card-header">用户登录</div>
+        <div class="card-body">
+
+          <div class="form-floating m-2">
+            <input class="form-control" type="text" id="txtName" placeholder="用户名">
+            <label for="txtName">用户名</label>
+          </div>
+
+          <div class="form-floating m-2">
+            <input class="form-control" type="password" id="txtPwd" placeholder="密码">
+            <label for="txtPwd">密码</label>
+          </div>
+
+        </div>
+        <div class="card-footer text-end">
+          <span id="btnLogin" class="btn btn-primary btn-sm">登录</span>
+          <input type="reset" class="btn btn-danger btn-sm">
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- 服务器消息提示框 -->
+  <div class="modal fade" id="divDialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <div class="modal-title">登录失败</div>
+          <span data-bs-toggle="modal" class="btn-close"></span>
+        </div>
+        <!-- 消息的内容是服务器返回的 -->
+        <div class="modal-body" id="divInfo"></div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <script src="lib/bootstrap.bundle.min.js"></script>
+  <script src="lib/qs.min.js"></script>
+  <script src="lib/axios.min.js"></script>
+  <script src="lib/spark-md5.min.js"></script>
+  <script src="lib/server.js"></script>
+
+  <script src="js/login.js"></script>
+
+</body>
+
+</html>
