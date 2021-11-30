@@ -69,9 +69,53 @@
 
   </table>
 
+  <!-- 弹出对话框 data-bs-backdrop="static"表示点击遮罩层不可以关闭-->
+  <div class="modal fade" data-bs-backdrop="static" id="divDialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <div class="modal-title">一个对话框</div>
+          <span data-bs-toggle="modal" data-bs-target="#divDialog" class="btn-close"></span>
+        </div>
+
+        <div class="modal-body">
+          <!-- m方向-大小 是margin外边距 -->
+          <div class="input-group mt-2">
+            <span class="input-group-text">*</span>
+            <input type="text" class="form-control">
+            <input type="text" class="form-control">
+            <!-- bg-背景色 text-文字颜色 -->
+            <span class="input-group-text bg-primary text-white">@</span>
+          </div>
+
+          <!-- p方向-大小是padding内边距 -->
+          <div class="mt-2">
+            <input type="text" class="form-control">
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <span data-bs-toggle="modal" data-bs-target="#divDialog" class="btn btn-danger">关闭</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 
+    data-bs-toggle="modal" 表示触发弹出框动作
+    data-bs-target="#divDialog" 表示指定触发弹出框的id
+  -->
+  <span data-bs-toggle="modal" data-bs-target="#divDialog" class="btn btn-primary">弹出对话框</span>
+
+
 
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/bs03.js"></script>
+
+
 </body>
 
 </html>
