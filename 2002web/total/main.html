@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>用户首页</title>
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <link rel="stylesheet" href="lib/iconfont.css">
+
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <!-- 
+    bs5的文本对齐 text-对齐方式 p-内边距大小 bg-背景色 text-前景色
+    fs-字体大小 
+  -->
+  <div class="text-end p-2 fs-5">
+
+    <div class="btn-group">
+      <button class="btn btn-outline-primary">
+        <i class="iconfont">&#xe619;</i>菜单
+      </button>
+      <!-- data-bs-toggle="dropdown"表示触发下拉菜单 -->
+      <button data-bs-toggle="dropdown" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split"></button>
+      <ul class="dropdown-menu">
+        
+        <li class="dropdown-item">
+          <span id="spUser"></span>
+        </li>
+
+        <li class="dropdown-item">
+          用户附加信息
+        </li>
+      </ul>
+    </div>
+
+
+
+  </div>
+
+  <script src="lib/bootstrap.bundle.min.js"></script>
+  <script src="lib/qs.min.js"></script>
+  <script src="lib/axios.min.js"></script>
+  <script src="lib/spark-md5.min.js"></script>
+  <script src="lib/server.js"></script>
+
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>

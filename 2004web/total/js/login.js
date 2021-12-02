@@ -19,6 +19,7 @@ btnLogin.addEventListener('click', function () {
     function (data) {
       if (data.success) {
         // 跳转页面
+        location = 'main.html';
       } else {
         // 修改显示的内容
         bsBody.innerHTML = data.message;

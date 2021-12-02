@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>用户登录</title>
   <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <link rel="stylesheet" href="lib/iconfont.css">
+
   <link rel="stylesheet" href="css/login.css">
 </head>
 
@@ -18,7 +20,9 @@
   <div class="main d-flex justify-content-center align-items-center">
     <form onsubmit="return false;">
       <div class="card">
-        <div class="card-header">用户登录</div>
+        <div class="card-header">
+          <i class="iconfont">&#xe61e;</i> 用户登录
+        </div>
         <div class="card-body">
 
           <div class="form-floating m-2">
@@ -33,7 +37,9 @@
 
         </div>
         <div class="card-footer text-end">
-          <span id="btnLogin" class="btn btn-primary btn-sm">登录</span>
+          <span id="btnLogin" class="btn btn-primary btn-sm">
+            <i class="iconfont">&#xe89f;</i> 登录
+          </span>
           <input type="reset" class="btn btn-danger btn-sm">
         </div>
       </div>
@@ -41,13 +47,22 @@
   </div>
 
   <!-- 服务器消息提示框 -->
+  <!-- 
+    bs5弹出对话框,modal fade表示动画！！
+  -->
   <div class="modal fade" id="divDialog">
     <div class="modal-dialog">
       <div class="modal-content">
-
+        <!-- 内容可以header，body，footer三块 -->
         <div class="modal-header">
           <div class="modal-title">登录失败</div>
-          <span data-bs-toggle="modal" class="btn-close"></span>
+          <!-- 
+            任何元素带上 
+            data-bs-toggle="modal" data-bs-target="#divDialog"
+            就可以控制对话的开启和关闭而不需要js
+            data-bs-target的值是要动作的对话框元素
+          -->
+          <span data-bs-toggle="modal" data-bs-target="#divDialog" class="btn-close"></span>
         </div>
         <!-- 消息的内容是服务器返回的 -->
         <div class="modal-body" id="divInfo"></div>
