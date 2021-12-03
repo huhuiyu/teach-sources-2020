@@ -14,28 +14,44 @@
 <body>
   <div class="main">
     <div>
+      <!-- onclick="return false;"用于阻止表单提交 -->
+      <form onclick="return false;">
 
-      <div class="card">
+        <div class="card">
 
-        <div class="card-header">
-          <i class="iconfont">&#xe64a;</i> 用户登录
+          <div class="card-header">
+            <i class="iconfont">&#xe64a;</i> 用户登录
+          </div>
+
+          <div class="card-body">
+
+            <div class="input-group mb-2">
+              <span class="input-group-text iconfont">&#xe64a;</span>
+              <input id="txtName" type="text" class="form-control" placeholder="用户名">
+            </div>
+
+            <div class="input-group mb-2">
+              <span class="input-group-text iconfont">&#xe620;</span>
+              <input id="txtPwd" type="password" class="form-control" placeholder="密码">
+            </div>
+
+            <div id="divError" class="mb-2 text-center text-danger"></div>
+
+          </div>
+    
+          <div class="card-footer">
+            <button id="btnLogin" class="btn btn-primary">
+              <i class="iconfont">&#xe600;</i> 登录
+            </button>
+            <!-- 在表单里面的按钮添加this.form.reset()可以重置表单 -->
+            <button onclick="this.form.reset()" class="btn btn-danger">
+              <i class="iconfont">&#xe604;</i> 重置
+            </button>
+          </div>
+
         </div>
 
-        <div class="card-body">
-          登录表单
-        </div>
-
-        <div class="card-footer">
-          <span class="btn btn-primary">
-            <i class="iconfont">&#xe600;</i> 登录
-          </span>
-          <button class="btn btn-danger">
-            <i class="iconfont">&#xe604;</i> 重置
-          </button>
-        </div>
-
-      </div>
-
+      </form>
     </div>
   </div>
 
