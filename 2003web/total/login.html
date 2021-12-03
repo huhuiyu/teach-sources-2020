@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bs5-用户登录</title>
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <link rel="stylesheet" href="lib/iconfont.css">
+
+  <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+  <div style="height: 100vh;" class="w-100 d-flex justify-content-center align-items-center">
+    <div>
+      <!-- 校验和重置都需要表单 -->
+      <form onsubmit="return false;">
+
+        <div class="card">
+          <div class="card-header">
+            <i class="iconfont">&#xe662;</i> 用户登录
+          </div>
+
+          <div class="card-body">
+            <!-- m就是margin -->
+            <div class="input-group m-2">
+              <span class="input-group-text iconfont">&#xe7ab;</span>
+              <input required id="txtName" type="text" class="form-control" placeholder="用户名">
+            </div>
+
+            <div class="input-group m-2">
+              <span class="input-group-text iconfont">&#xe65e;</span>
+              <input id="txtPwd" type="password" class="form-control" placeholder="密码">
+            </div>
+            <!-- 错误信息 -->
+            <div id="divError" class="m-2 text-center text-danger"></div>
+
+          </div>
+
+          <div class="card-footer">
+            <button id="btnLogin" class="btn btn-primary btn-sm">
+              <i class="iconfont">&#xe600;</i> 登录
+            </button>
+            <!-- 
+            按钮添加 onclick="this.form.reset()"可以重置表单
+            但是要求在form中
+          -->
+            <button onclick="this.form.reset()" class="btn btn-danger btn-sm">
+              <i class="iconfont">&#xe60a;</i> 重置
+            </button>
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+  <script src="lib/bootstrap.bundle.min.js"></script>
+  <script src="lib/axios.min.js"></script>
+  <script src="lib/qs.min.js"></script>
+  <script src="lib/spark-md5.min.js"></script>
+  <script src="lib/server.js"></script>
+
+  <script src="js/login.js"></script>
+</body>
+
+</html>
