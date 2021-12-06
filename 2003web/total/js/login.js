@@ -16,6 +16,7 @@ btnLogin.addEventListener('click', function () {
       if (data.success) {
         divError.innerHTML = '';
         // 成功要跳首页
+        location = 'main.html';
       } else {
         divError.innerHTML = data.message;
       }
