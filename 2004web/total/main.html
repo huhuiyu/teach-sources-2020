@@ -84,11 +84,35 @@
             <input id="txtEMail" type="text" class="form-control" placeholder="邮箱">
           </div>
 
+          <div class="input-group m-1">
+            <span class="input-group-text iconfont">&#xe6b7;</span>
+            <input id="txtImg" type="text" class="form-control" placeholder="头像url">
+          </div>
+
+          <div class="input-group m-1">
+            <span class="input-group-text iconfont">&#xe6c7;</span>
+            <input id="txtPhone" type="text" class="form-control" placeholder="电话">
+          </div>
+
+          <div class="input-group m-1">
+            <span class="input-group-text iconfont">&#xe609;</span>
+            <input id="txtQQ" type="text" class="form-control" placeholder="qq">
+          </div>
+
+          <div class="input-group m-1">
+            <span class="input-group-text iconfont">&#xe62a;</span>
+            <input id="txtWechat" type="text" class="form-control" placeholder="微信">
+          </div>
+
+          <div class="input-group m-1">
+            <span class="input-group-text iconfont">&#xe610;</span>
+            <input id="txtInfo" type="text" class="form-control" placeholder="简介">
+          </div>
 
         </div>
 
         <div class="modal-footer">
-          <button class="btn btn-primary">
+          <button id="btnSave" class="btn btn-primary">
             <i class="iconfont">&#xe63b;</i> 保存
           </button>
           <button data-bs-toggle="modal" data-bs-target="#divUDialog" class="btn btn-danger">
@@ -102,6 +126,13 @@
   </div>
 
   <!-- 修改附加信息的对话框结束 -->
+
+  <!-- toast信息框 -->
+  <div class="position-fixed fixed-bottom" style="z-index: 2000;">
+    <div class="toast" id="divToast">
+      <div class="toast-body"></div>
+    </div>
+  </div>
 
   <script src="lib/bootstrap.bundle.min.js"></script>
   <script src="lib/axios.min.js"></script>

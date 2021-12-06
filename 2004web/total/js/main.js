@@ -31,5 +31,60 @@ function showUserInfo() {
   spUser.innerHTML = user.username + '(' + user.nickname + ')';
 }
 
-// email url 简介 手机 微信 qq 性别
-// 保存 修改 重置 关闭
+// 页面元素开始 ======================
+let divUDialog = document.getElementById('divUDialog');
+let selSex = document.getElementById('selSex');
+let txtEMail = document.getElementById('txtEMail');
+let txtImg = document.getElementById('txtImg');
+let txtPhone = document.getElementById('txtPhone');
+let txtQQ = document.getElementById('txtQQ');
+let txtWechat = document.getElementById('txtWechat');
+let txtInfo = document.getElementById('txtInfo');
+let btnSave = document.getElementById('btnSave');
+
+// toast的部分
+let divToast = document.getElementById('divToast');
+let divToastBody = document.querySelector('#divToast .toast-body');
+// 元素转bs对象
+let bsToast = bootstrap.Toast.getOrCreateInstance(divToast);
+
+// 页面元素结束 ======================
+
+// 弹出修改用户信息时要填写原始值
+divUDialog.addEventListener('shown.bs.modal', function () {
+  selSex.value = userattr.sex;
+  txtEMail.value = userattr.email;
+  txtImg.value = userattr.img;
+  txtInfo.value = userattr.info;
+  txtPhone.value = userattr.phone;
+  txtQQ.value = userattr.qq;
+  txtWechat.value = userattr.wechat;
+});
+
+// 关闭修改用户信息时要重新查询
+divUDialog.addEventListener('hidden.bs.modal', function () {
+  getUserInfo();
+});
+
+// 保存用户信息
+btnSave.addEventListener('click', function () {
+  ajaxRequest(
+    '/user/modifyUserInfo',
+    {
+      tbUserInfo: {
+        email: txtEMail.value,
+        img: txtImg.value,
+        info: txtInfo.value,
+        phone: txtPhone.value,
+        qq: txtQQ.value,
+        sex: selSex.value,
+        wechat: txtWechat.value
+      }
+    },
+    function (data) {
+      // alert(data.message);
+      divToastBody.innerHTML = data.message;
+      bsToast.show();
+    }
+  );
+});
