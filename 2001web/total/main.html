@@ -8,6 +8,7 @@
   <title>用户首页</title>
   <link rel="stylesheet" href="lib/bootstrap.min.css">
   <link rel="stylesheet" href="lib/iconfont.css">
+  <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
@@ -19,15 +20,114 @@
       </span>
       <span data-bs-toggle="dropdown" class="btn btn-outline-primary dropdown-toggle"></span>
       <ul class="dropdown-menu">
-        
+
         <li class="dropdown-item">
           <i class="iconfont">&#xe60c;</i>
           <span id="spUser"></span>
         </li>
 
+        <li data-bs-toggle="modal" data-bs-target="#divUDialog" class="dropdown-item">
+          <i class="iconfont">&#xe61d;</i>
+          用户附加信息
+        </li>
+        <li class="dropdown-divider"></li>
+
+        <li class="dropdown-item">
+          <i class="iconfont">&#xe620;</i>
+          修改密码
+        </li>
+        <li class="dropdown-item">
+          <i class="iconfont">&#xe64a;</i>
+          修改昵称
+        </li>
+
+        <li class="dropdown-divider"></li>
+
+        <li class="dropdown-item">
+          <i class="iconfont">&#xe651;</i>
+          安全退出
+        </li>
+        <!-- 
+          作业一：完成上课用户首页的修改密码，修改昵称，安全退出功能
+          作业二：完成邮箱注册和找回密码功能
+        -->
       </ul>
     </div>
   </div>
+  <!-- 
+    email，安全退出，重置，保存，qq，微信，url，phone，性别，简介
+  -->
+
+  <!-- 修改附加信息的弹出层 -->
+  <div id="divUDialog" class="modal fade" data-bs-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <span>
+            <i class="iconfont">&#xe64a;</i>
+            用户附加信息
+          </span>
+        </div>
+
+        <div class="modal-body">
+          <!-- m位置-外边距大小-->
+          <div class="input-group mb-2">
+            <span class="input-group-text iconfont">&#xe62e;</span>
+            <select id="selSex" class="form-select">
+              <option value="n">保密</option>
+              <option value="f">女</option>
+              <option value="m">男</option>
+            </select>
+          </div>
+
+          <div class="input-group mb-2">
+            <span class="input-group-text iconfont">&#xe66f;</span>
+            <input id="txtEmail" type="text" class="form-control" placeholder="邮箱">
+          </div>
+
+          <div class="input-group mb-2">
+            <span class="input-group-text iconfont">&#xe6af;</span>
+            <input id="txtImg" type="text" class="form-control" placeholder="用户头像">
+          </div>
+
+          <div class="input-group mb-2">
+            <span class="input-group-text iconfont">&#xe61d;</span>
+            <input id="txtInfo" type="text" class="form-control" placeholder="简介">
+          </div>
+
+          <div class="input-group mb-2">
+            <span class="input-group-text iconfont">&#xe74c;</span>
+            <input id="txtPhone" type="text" class="form-control" placeholder="手机">
+          </div>
+
+          <div class="input-group mb-2">
+            <span class="input-group-text iconfont">&#xe603;</span>
+            <input id="txtQq" type="text" class="form-control" placeholder="qq">
+          </div>
+
+          <div class="input-group mb-2">
+            <span class="input-group-text iconfont">&#xe8bb;</span>
+            <input id="txtWechat" type="text" class="form-control" placeholder="微信">
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <span id="btnSave" class="btn btn-primary">
+            <i class="iconfont">&#xe936;</i> 保存
+          </span>
+          <span data-bs-toggle="modal" data-bs-target="#divUDialog" class="btn btn-danger">
+            <i class="iconfont">&#xe6f7;</i> 关闭
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
 
   <script src="lib/bootstrap.bundle.min.js"></script>
   <script src="lib/axios.min.js"></script>
