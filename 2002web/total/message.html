@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>留言板首页</title>
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <link rel="stylesheet" href="lib/iconfont.css">
+
+  <link rel="stylesheet" href="css/message.css">
+</head>
+
+<body>
+  <div class="h1 text-center p-1">黑暗骑士的简易论坛</div>
+
+  <!-- 论坛留言显示模板 -->
+  <div id="container">
+    <!-- 头里面是发帖人,身体里面是帖子标题,脚部里面是发帖时间和回帖数 -->
+    <div class="card m-3">
+
+      <div class="card-header">黑暗骑士</div>
+      <div class="card-body">震惊！大学居然。。。</div>
+      <div class="card-footer">
+        <span>2021-9-4 11:11:11</span>
+        <span>回帖数：4</span>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- 分页的部分  -->
+  <nav class="d-flex justify-content-center p-2">
+    <ul class="pagination">
+      <li class="page-item" id="btnPre">
+        <a href="javascript:void(0)" class="page-link">&lt;&lt;</a>
+      </li>
+      <li class="page-item">
+        <a href="javascript:void(0)" class="page-link">
+          当前页/总页数/记录数<span id="spPage"></span>
+        </a>
+      </li>
+      <li class="page-item" id="btnNext">
+        <a href="javascript:void(0)" class="page-link">&gt;&gt;</a>
+      </li>
+    </ul>
+  </nav>
+
+
+  <script src="lib/bootstrap.bundle.min.js"></script>
+  <script src="lib/qs.min.js"></script>
+  <script src="lib/axios.min.js"></script>
+  <script src="lib/spark-md5.min.js"></script>
+  <script src="lib/server.js"></script>
+
+  <script src="js/message.js"></script>
+</body>
+
+</html>

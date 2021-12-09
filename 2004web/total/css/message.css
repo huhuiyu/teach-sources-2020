@@ -11,3 +11,37 @@
   justify-content: center;
   align-items: center;
 }
+
+* {
+  /* 字符超过容器宽度，强制折断字符换行 */
+  word-break: break-all;
+}
+
+#container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+#container > div {
+  max-width: 300px;
+}
+
+.card-footer span {
+  display: inline-block;
+  margin: 0.2rem;
+}
+
+.card-footer span:first-of-type::before {
+  content: '发帖时间：';
+}
+
+.card-body {
+  text-align: center;
+  text-decoration: underline;
+}
+
+.card-body:hover {
+  cursor: pointer;
+  color: #ff0000;
+}

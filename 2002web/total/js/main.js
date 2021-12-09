@@ -76,7 +76,9 @@ btnSave.addEventListener('click', function () {
       }
     },
     function (data) {
-      alert(data.message);
+      // alert(data.message);
+      divToastBody.innerHTML = data.message;
+      toast.show();
     }
   );
 });
