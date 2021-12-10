@@ -33,6 +33,12 @@ let txtEmail = document.getElementById('txtEmail');
 let selSex = document.getElementById('selSex');
 let divUDialog = document.getElementById('divUDialog');
 
+// toast轻提示
+let divToast = document.getElementById('divToast');
+let divToastBody = document.querySelector('#divToast .toast-body');
+// 转bs5对象
+let toast = bootstrap.Toast.getOrCreateInstance(divToast);
+
 // 页面元素结束 ===================================
 
 // 显示用户基本信息
@@ -72,7 +78,9 @@ btnSave.addEventListener('click', function () {
       }
     },
     function (data) {
-      alert(data.message);
+      // alert(data.message);
+      divToastBody.innerHTML = data.message;
+      toast.show();
     }
   );
 });

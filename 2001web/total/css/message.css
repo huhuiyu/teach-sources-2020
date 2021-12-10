@@ -1,0 +1,22 @@
+#constainer {
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+* {
+  /* 字符强制断行 */
+  word-break: break-all;
+}
+
+#constainer .card-body {
+  max-width: 15em;
+  cursor: pointer;
+  text-decoration: underline;
+  text-align:center;
+}
+
+#constainer .card-body:hover {
+  color: #ff0000;
+}

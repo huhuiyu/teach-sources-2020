@@ -57,11 +57,51 @@
         </div>
 
         <div class="modal-body">
-          表单
+
+          <div class="input-group mb-2">
+            <span class="input-group-text iconfont">&#xe63e;</span>
+            <select id="selSex" class="form-select">
+              <option value="n">保密</option>
+              <option value="f">女</option>
+              <option value="m">男</option>
+            </select>
+          </div>
+
+          <div class="input-group mb-2">
+            <span class="input-group-text iconfont">&#xe639;</span>
+            <input id="txtEmail" type="text" class="form-control" placeholder="邮箱">
+          </div>
+
+          <div class="input-group mb-2">
+            <span class="input-group-text iconfont">&#xe64c;</span>
+            <input id="txtImg" type="text" class="form-control" placeholder="用户头像">
+          </div>
+
+          <div class="input-group mb-2">
+            <span class="input-group-text iconfont">&#xe662;</span>
+            <input id="txtInfo" type="text" class="form-control" placeholder="简介">
+          </div>
+
+          <div class="input-group mb-2">
+            <span class="input-group-text iconfont">&#xe6c7;</span>
+            <input id="txtPhone" type="text" class="form-control" placeholder="手机">
+          </div>
+
+          <div class="input-group mb-2">
+            <span class="input-group-text iconfont">&#xe603;</span>
+            <input id="txtQq" type="text" class="form-control" placeholder="QQ">
+          </div>
+
+          <div class="input-group mb-2">
+            <span class="input-group-text iconfont">&#xe651;</span>
+            <input id="txtWechat" type="text" class="form-control" placeholder="微信">
+          </div>
+
+
         </div>
 
         <div class="modal-footer">
-          <span class="btn btn-primary">
+          <span id="btnSave" class="btn btn-primary">
             <i class="iconfont">&#xe63b;</i> 保存
           </span>
 
@@ -74,9 +114,17 @@
     </div>
   </div>
 
+  <!-- Toast对话框 -->
+  <div class="position-fixed bottom-0 end-0" style="z-index: 2000;">
+    <div class="toast" id="divToast">
+      <div class="toast-body"></div>
+    </div>
+  </div>
 
-
-
+  <!-- 
+    作业1：完成完全退出功能和修改昵称和密码功能
+    作业2：完成邮箱注册和找回密码功能
+  -->
 
   <script src="lib/bootstrap.bundle.min.js"></script>
   <script src="lib/axios.min.js"></script>
