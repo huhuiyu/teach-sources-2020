@@ -9,3 +9,12 @@
 #container > div {
   max-width: 23vw;
 }
+
+#container .card-body {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#container .card-body:hover {
+  color: #ff0000;
+}

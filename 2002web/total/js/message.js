@@ -11,7 +11,7 @@ let list = [];
 
 function query() {
   ajaxRequest(
-    '/userMessage/queryAll',
+    '/userMessage/queryAllBasic',
     {
       page: page,
       tbUserMessage: tbUserMessage
@@ -49,6 +49,11 @@ function showData() {
     divBody.classList.add('card-body');
     divBody.append(data.title);
     divCard.append(divBody);
+    // 点击标题跳转页面并传递umid的值
+    divBody.addEventListener('click', function () {
+      location = 'detail.html?umid=' + data.umid;
+    });
+
     // 脚里面是时间和回帖数
     let divFooter = document.createElement('div');
     divFooter.classList.add('card-footer');
@@ -67,7 +72,15 @@ function showData() {
 
 // 显示分页信息的部分 ===================================
 function showPage() {
-  spPage.innerHTML = page.pageNumber
-    + '/' + page.pageCount 
-    + '/' + page.total;
+  spPage.innerHTML = page.pageNumber + '/' + page.pageCount + '/' + page.total;
 }
+
+btnPre.addEventListener('click', function () {
+  page.pageNumber--;
+  query();
+});
+
+btnNext.addEventListener('click', function () {
+  page.pageNumber++;
+  query();
+});

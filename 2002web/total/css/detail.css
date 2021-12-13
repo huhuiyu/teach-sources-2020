@@ -1,0 +1,41 @@
+#title {
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+#message {
+  font-size: 0.9rem;
+  color: #999;
+  text-align: end;
+  padding: 0.2rem 1rem;
+}
+
+#info {
+  font-size: 1.2rem;
+  margin: 1rem;
+  /* 字符断行 */
+  word-break: break-all;
+  /* 首行缩进 */
+  text-indent: 2em;
+}
+
+/* 评论样式 */
+#replys {
+  margin: 1rem;
+}
+
+#replys > div {
+  display: flex;
+  padding: 1rem;
+}
+
+#replys > div > div:first-of-type {
+  margin: 0.5rem;
+  padding-right: 0.5rem;
+  border-right: 2px solid #000;
+  width: 5rem;
+  text-align: end;
+  text-overflow: ellipsis;
+}
