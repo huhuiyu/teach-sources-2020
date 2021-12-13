@@ -13,8 +13,58 @@
 </head>
 
 <body>
-  <div>帖子内容</div>
-  
+  <div class="text-end p-2">
+    <a href="message.html">返回列表</a>
+    |
+    <a data-bs-toggle="modal" data-bs-target="#replyDialog" id="btnReply" href="javascript:void(0)">我要评论</a>
+  </div>
+
+  <!-- 发布评论的对话框 -->
+  <div id="replyDialog" class="modal fade" data-bs-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">留言评论</div>
+
+        <div class="modal-body">
+          <textarea id="txtReply" rows="5" class="form-control" placeholder="评论"></textarea>
+        </div>
+
+        <div class="modal-footer">
+          <span id="btnPublish" class="btn btn-primary">发布评论</span>
+          <span data-bs-toggle="modal" data-bs-target="#replyDialog" class="btn btn-danger">关闭</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 帖子详细信息 -->
+  <div>
+    <div id="divTitle"></div>
+    <div id="divAttr"></div>
+    <div id="divInfo"></div>
+  </div>
+
+  <!-- 评论列表 -->
+  <div id="divReplies">
+
+    <!-- 评论的模板 -->
+    <div>
+      <div>黑暗骑士</div>
+      <div>
+        <div>评论内容</div>
+        <div>评论时间</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="divNoReply">
+    还没有评论，我要沙发
+  </div>
+
+
   <script src="lib/bootstrap.bundle.min.js"></script>
   <script src="lib/axios.min.js"></script>
   <script src="lib/qs.min.js"></script>

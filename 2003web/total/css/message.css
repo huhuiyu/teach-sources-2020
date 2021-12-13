@@ -1,0 +1,18 @@
+#divMessages {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
+
+#divMessages .card {
+  margin: 0.2rem;
+}
+
+#divMessages .card-body {
+  max-width: 300px;
+}
+
+* {
+  /* 强制打断单词 */
+  word-break: break-all;
+}

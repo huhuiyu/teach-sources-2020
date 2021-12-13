@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>留言板</title>
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <link rel="stylesheet" href="lib/iconfont.css">
+
+  <link rel="stylesheet" href="css/message.css">
+</head>
+
+<body>
+
+  <!-- 留言列表 -->
+  <div id="divMessages">
+
+    <!-- 留言模板 -->
+    <div class="card">
+      <div class="card-header">黑暗骑士</div>
+      <div class="card-body">震惊！！！！！</div>
+      <div class="card-footer">
+        <span>发帖时间：2021-09-09 12:11:10</span>
+        <span>评论数：4</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 分页的部分 -->
+  <div class="d-flex justify-content-center m-2">
+    <nav>
+      <ul class="pagination">
+
+        <li class="page-item">
+          <a id="apre" class="page-link" href="javascript:void(0)">&lt;&lt;</a>
+        </li>
+
+        <li class="page-item">
+          <a id="apage" class="page-link" href="javascript:void(0)"></a>
+        </li>
+
+        <li class="page-item">
+          <a id="anext" class="page-link" href="javascript:void(0)">&gt;&gt;</a>
+        </li>
+
+      </ul>
+    </nav>
+  </div>
+
+
+  <script src="lib/bootstrap.bundle.min.js"></script>
+  <script src="lib/axios.min.js"></script>
+  <script src="lib/qs.min.js"></script>
+  <script src="lib/spark-md5.min.js"></script>
+  <script src="lib/server.js"></script>
+
+  <script src="js/message.js"></script>
+
+</body>
+
+</html>
