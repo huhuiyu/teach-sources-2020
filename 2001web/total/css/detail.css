@@ -1,0 +1,41 @@
+#divTitle {
+  font-size: 1.5rem;
+  padding: 1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+#divMessage {
+  color: #999;
+  text-align: end;
+  padding-right: 1rem;
+}
+
+#divInfo {
+  margin: 0.5rem;
+  text-indent: 2em;
+}
+
+* {
+  word-break: break-all;
+}
+
+#divReplies {
+  padding: 1rem;
+}
+
+#divReplies > div {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+#divReplies > div > div:first-of-type {
+  width: 8rem;
+  /* 文字超出就显示... */
+  text-overflow: ellipsis;
+  text-align: end;
+}
+
+#divReplies > div > div:first-of-type::after {
+  content: '：';
+}

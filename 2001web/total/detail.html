@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>留言详情页</title>
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <link rel="stylesheet" href="lib/iconfont.css">
+
+  <link rel="stylesheet" href="css/detail.css">
+</head>
+
+<body>
+  <!-- 本页面必须是留言展示页跳转过来的（因为需要umid主键） -->
+  <div class="text-end p-2">
+    <a href="message.html" class="btn btn-danger">返回</a>
+  </div>
+
+  <!-- 帖子的详细信息 -->
+  <div>
+    <!-- 标题 -->
+    <div id="divTitle"></div>
+    <!-- 信息 -->
+    <div id="divMessage"></div>
+    <!-- 内容 -->
+    <div id="divInfo"></div>
+
+  </div>
+
+  <!-- 评论列表 -->
+  <div id="divReplies">
+
+    <div>
+      <div>评论人</div>
+      <div>
+        <div>内容</div>
+        <div>时间</div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+  <script src="lib/bootstrap.bundle.min.js"></script>
+  <script src="lib/axios.min.js"></script>
+  <script src="lib/qs.min.js"></script>
+  <script src="lib/spark-md5.min.js"></script>
+  <script src="lib/server.js"></script>
+
+  <script src="js/detail.js"></script>
+
+</body>
+
+</html>

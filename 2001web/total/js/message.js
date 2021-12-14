@@ -43,6 +43,11 @@ function showList() {
     divBody.classList.add('card-body');
     divBody.append(data.title);
     divCard.append(divBody);
+    // 点击标题跳转到详情页查看
+    divBody.addEventListener('click', function () {
+      location = 'detail.html?umid=' + data.umid;
+    });
+
     // card的脚部------发帖时间和回帖数
     let divFooter = document.createElement('div');
     divFooter.classList.add('card-footer');
