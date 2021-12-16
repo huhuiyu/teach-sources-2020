@@ -14,6 +14,9 @@
 
 <body>
   <div class="h1 text-center p-1">黑暗骑士的简易论坛</div>
+  <div class="text-end pe-2">
+    <span data-bs-toggle="modal" data-bs-target="#addDialog" class="btn btn-primary">我要发帖</span>
+  </div>
 
   <!-- 论坛留言显示模板 -->
   <div id="container">
@@ -47,6 +50,38 @@
       </li>
     </ul>
   </nav>
+
+  <!-- 添加的弹出对话框 -->
+  <div id="addDialog" class="modal fade" data-bs-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">我要发帖</div>
+
+        <div class="modal-body">
+
+          <div class="mb-2">
+            <input id="txtTitle" type="text" class="form-control" 
+              placeholder="标题">
+          </div>
+
+          <div class="mb-2">
+            <textarea id="txtInfo" rows="10" class="form-control"
+              placeholder="留言内容"></textarea>
+          </div>
+
+          <div id="divError" class="mb-2 text-danger"></div>
+
+        </div>
+
+        <div class="modal-footer">
+          <span id="btnAdd" class="btn btn-primary">发帖</span>
+          <span data-bs-toggle="modal" data-bs-target="#addDialog" class="btn btn-danger">关闭</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
 
   <script src="lib/bootstrap.bundle.min.js"></script>

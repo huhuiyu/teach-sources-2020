@@ -15,14 +15,29 @@ let replyDialog = document.getElementById('replyDialog');
 let txtReply = document.getElementById('txtReply');
 let btnPublish = document.getElementById('btnPublish');
 
+let divMore = document.getElementById('divMore');
+let divNoMore = document.getElementById('divNoMore');
+
 // 查询 ==========================================
-let page = { pageSize: 2 };
+let page = { pageSize: 5 };
 // 评论列表
 let list = [];
 // 帖子内容
 let detail = {};
 
+// 刷新页面
+function refresh() {
+  page.pageNumber = 1;
+  list = [];
+  query();
+}
+
 function query() {
+  // 加载更多的判断
+  if (page.pageCount && page.pageNumber > page.pageCount) {
+    page.pageNumber = page.pageCount;
+    return;
+  }
   ajaxRequest(
     '/userMessage/queryUserMessageDetail',
     {
@@ -32,12 +47,21 @@ function query() {
     function (data) {
       if (data.success) {
         page = data.resultData.page;
-        list = data.resultData.list;
+        // 加载更多是追加模式，而不是覆盖
+        list = list.concat(data.resultData.list);
         detail = data.resultData.tbUserMessage;
         console.log('detail：', detail);
 
         showDetail();
         showReplies();
+        // 判断加载更多是否出现
+        if (page.pageNumber >= page.pageCount) {
+          divNoMore.style.display = 'block';
+          divMore.style.display = 'none';
+        } else {
+          divNoMore.style.display = 'none';
+          divMore.style.display = 'block';
+        }
       } else {
         alert(data.message);
       }
@@ -84,6 +108,7 @@ function showReplies() {
     div02.append(divReplyInfo);
     let divReplyTime = document.createElement('div');
     divReplyTime.append(formatTimestamp(data.lastupdate));
+    // divReplyTime.append(data.mine);
     div02.append(divReplyTime);
 
     divReplies.append(div);
@@ -97,9 +122,41 @@ replyDialog.addEventListener('shown.bs.modal', function () {
 });
 
 replyDialog.addEventListener('hidden.bs.modal', function () {
-  query();
+  refresh();
+  // 最简单的刷新页面方法
+  // location.reload();
+  // 回退到历史记录中的上一页
+  // history.go(-1);
 });
 
+btnPublish.addEventListener('click', function () {
+  ajaxRequest(
+    '/userMessage/addReply',
+    {
+      tbUserMessageReply: {
+        umid: umid,
+        info: txtReply.value
+      }
+    },
+    function (data) {
+      // 如果code是1000，表示没有登录！！！这是全局的code标识
+      if (data.code == 1000) {
+        alert('回复需要登录！');
+        location = 'login.html';
+        return;
+      }
+      alert(data.message);
+      if (data.success) {
+        txtReply.value = '';
+      }
+    }
+  );
+});
 
+// 加载更多  ===============================
+divMore.addEventListener('click', function () {
+  page.pageNumber++;
+  query();
+});
 
 query();

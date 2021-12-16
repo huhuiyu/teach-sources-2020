@@ -9,6 +9,10 @@ let elmessage = document.getElementById('message');
 let elinfo = document.getElementById('info');
 let elreplys = document.getElementById('replys');
 
+let addDialog = document.getElementById('addDialog');
+let txtInfo = document.getElementById('txtInfo');
+let btnAdd = document.getElementById('btnAdd');
+
 // 查询数据 =============================================
 // 留言的详情
 let tbUserMessage = {};
@@ -65,9 +69,54 @@ function showReplys() {
     let divUser = document.createElement('div');
     divUser.innerHTML = data.user.username;
     div.append(divUser);
+    // 内容和时间
+    let div02 = document.createElement('div');
+    div.append(div02);
+
+    let divReplyInfo = document.createElement('div');
+    divReplyInfo.append(data.info);
+    div02.append(divReplyInfo);
+
+    let divReplyTime = document.createElement('div');
+    divReplyTime.append(formatTimestamp(data.lastupdate));
+    div02.append(divReplyTime);
 
     elreplys.append(div);
   }
 }
+
+// 评论的部分 ===========================================
+addDialog.addEventListener('hidden.bs.modal', function () {
+  query();
+});
+
+addDialog.addEventListener('shown.bs.modal', function () {
+  txtInfo.value = '';
+  txtInfo.focus();
+});
+
+btnAdd.addEventListener('click', function () {
+  ajaxRequest(
+    '/userMessage/addReply',
+    {
+      tbUserMessageReply: {
+        umid: umid,
+        info: txtInfo.value
+      }
+    },
+    function (data) {
+      // 如果是code是1000，表示没有登录！！！！！
+      if (data.code == 1000) {
+        alert('评论需要登录！');
+        location = 'login.html';
+        return;
+      }
+      alert(data.message);
+      if (data.success) {
+        txtInfo.value = '';
+      }
+    }
+  );
+});
 
 query();

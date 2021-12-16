@@ -29,7 +29,7 @@
 #divReplies > div > div:first-of-type {
   margin: 0px 1rem;
   border-right: 2px solid #acacac;
-  width: 5rem;
+  width: 15rem;
   text-overflow: ellipsis;
   text-align: end;
 }
@@ -39,5 +39,10 @@
 }
 
 #divNoReply {
+  display: none;
+}
+
+#divMore,
+#divNoMore {
   display: none;
 }

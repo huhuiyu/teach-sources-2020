@@ -15,6 +15,8 @@
 
 <body>
   <div style="text-align: end;padding: 0.2rem 1rem;">
+    <a data-bs-toggle="modal" data-bs-target="#addDialog" href="javascript:void(0)">我要评论</a>
+    |
     <a href="message.html">返回列表</a>
   </div>
   <!-- 留言的详细信息部分 -->
@@ -39,8 +41,25 @@
 
   </div>
 
+  <!-- 评论的对话框 -->
+  <div id="addDialog" class="modal fade" data-bs-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content">
 
+        <div class="modal-header">评论留言</div>
 
+        <div class="modal-body">
+          <textarea id="txtInfo" rows="10" class="form-control" placeholder="评论信息"></textarea>
+        </div>
+
+        <div class="modal-footer">
+          <span id="btnAdd" class="btn btn-primary">发布评论</span>
+          <span data-bs-toggle="modal" data-bs-target="#addDialog" class="btn btn-danger">关闭</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
 
   <script src="lib/bootstrap.bundle.min.js"></script>

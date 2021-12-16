@@ -45,8 +45,6 @@ function query() {
   );
 }
 
-query();
-
 // 显示数据的部分 ===================================
 let container = document.getElementById('container');
 
@@ -90,3 +88,47 @@ function showData() {
     container.append(divCard);
   }
 }
+
+// 发帖 =================================
+let addDialog = document.getElementById('addDialog');
+let txtTitle = document.getElementById('txtTitle');
+let txtInfo = document.getElementById('txtInfo');
+let btnPublish = document.getElementById('btnPublish');
+let divError = document.getElementById('divError');
+
+addDialog.addEventListener('shown.bs.modal', function () {
+  txtInfo.value = '';
+  txtTitle.value = '';
+  divError.innerHTML = '';
+  txtTitle.focus();
+});
+
+addDialog.addEventListener('hidden.bs.modal', function () {
+  query();
+});
+
+btnPublish.addEventListener('click', function () {
+  ajaxRequest(
+    '/userMessage/add',
+    {
+      tbUserMessage: {
+        title: txtTitle.value,
+        info: txtInfo.value
+      }
+    },
+    function (data) {
+      if (data.code == 1000) {
+        alert('发帖需要登录！');
+        location = 'login.html';
+        return;
+      }
+      divError.innerHTML = data.message;
+      if (data.success) {
+        txtTitle.value = '';
+        txtInfo.value = '';
+      }
+    }
+  );
+});
+
+query();

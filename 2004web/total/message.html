@@ -13,6 +13,10 @@
 </head>
 
 <body>
+  <div class="text-end p-1">
+    <span data-bs-toggle="modal" data-bs-target="#addDialog" class="btn btn-primary">我要发帖</span>
+  </div>
+
   <div id="container">
     <!-- 模板样式，头是发帖的用户信息，身体是帖子标题，脚是时间和回帖数 -->
     <div class="card m-3">
@@ -53,6 +57,34 @@
   </nav>
 
   <div id="divLoading"></div>
+  <!-- 发帖的对话框 -->
+  <div id="addDialog" class="modal fade" data-bs-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">发帖</div>
+        <div class="modal-body">
+
+          <div class="mb-2">
+            <input id="txtTitle" class="form-control" placeholder="标题" type="text">
+          </div>
+
+          <div class="mb-2">
+            <textarea id="txtInfo" class="form-control" placeholder="帖子内容" rows="10"></textarea>
+          </div>
+
+          <div id="divError" class="mb-2 text-danger"></div>
+
+        </div>
+
+        <div class="modal-footer">
+          <span id="btnPublish" class="btn btn-primary">发布</span>
+          <span data-bs-toggle="modal" data-bs-target="#addDialog" class="btn btn-danger">关闭</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
   <script src="lib/bootstrap.bundle.min.js"></script>
   <script src="lib/axios.min.js"></script>
