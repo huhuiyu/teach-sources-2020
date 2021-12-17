@@ -1,0 +1,39 @@
+#divTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 1rem;
+  text-align: center;
+}
+
+#divInfo {
+  word-break: break-all;
+  text-indent: 2em;
+  padding: 1rem;
+}
+
+#divMessage {
+  color: #999;
+  text-align: end;
+}
+
+#divReplies {
+  margin: 1rem;
+}
+/* 模板容器 */
+#divReplies > div {
+  display: flex;
+}
+
+#divReplies > div > div:first-of-type {
+  border-right: 2px solid #acacac;
+  width: 10rem;
+  text-align: end;
+}
+
+* {
+  word-break: break-all;
+}
+
+#divReplies > div > div {
+  padding: 0.5rem;
+}

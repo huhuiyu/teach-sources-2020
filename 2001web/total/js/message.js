@@ -1,6 +1,16 @@
 // 页面元素开始 =============================
 let constainer = document.getElementById('constainer');
 
+let apre = document.getElementById('apre');
+let apage = document.getElementById('apage');
+let anext = document.getElementById('anext');
+
+let divError = document.getElementById('divError');
+let addDialog = document.getElementById('addDialog');
+let txtTitle = document.getElementById('txtTitle');
+let txtInfo = document.getElementById('txtInfo');
+let btnAdd = document.getElementById('btnAdd');
+
 // 页面元素结束 =============================
 
 // 查询留言信息 ===============================
@@ -21,6 +31,7 @@ function query() {
       console.log('留言数据', page, list);
 
       showList();
+      showPageInfo();
     }
   );
 }
@@ -65,6 +76,63 @@ function showList() {
     constainer.append(divCard);
   }
 }
+
+// 分页功能 ==========================================
+function showPageInfo() {
+  apage.innerHTML =
+    '当前页/总页数/记录数：' +
+    page.pageNumber +
+    '/' +
+    page.pageCount +
+    '/' +
+    page.total;
+}
+
+anext.addEventListener('click', function () {
+  page.pageNumber++;
+  query();
+});
+
+apre.addEventListener('click', function () {
+  page.pageNumber--;
+  query();
+});
+
+// 发帖功能 =========================================
+addDialog.addEventListener('shown.bs.modal', function () {
+  divError.innerHTML = '';
+  txtTitle.value = '';
+  txtInfo.value = '';
+  txtTitle.focus();
+});
+
+addDialog.addEventListener('hidden.bs.modal', function () {
+  query();
+});
+
+btnAdd.addEventListener('click', function () {
+  ajax(
+    '/userMessage/add',
+    {
+      tbUserMessage: {
+        title: txtTitle.value,
+        info: txtInfo.value
+      }
+    },
+    function (data) {
+      // 服务器端如果返回code为1000，铁定就是没有登录！！！
+      if (data.code == 1000) {
+        location = 'login.html';
+        return;
+      }
+      divError.innerHTML = data.message;
+      if (data.success) {
+        txtTitle.value = '';
+        txtInfo.value = '';
+      }
+    }
+  );
+});
 
 // 最后调用查询
 query();

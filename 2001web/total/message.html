@@ -15,6 +15,43 @@
 <body>
   <div class="h1 m-1 text-center">黑暗骑士的留言板</div>
 
+  <div class="text-end p-2">
+    <span data-bs-toggle="modal" data-bs-target="#addDialog" class="btn btn-primary">我要发帖</span>
+  </div>
+
+  <!-- 发帖的弹出框 -->
+  <div id="addDialog" class="modal fade" data-bs-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">发帖</div>
+        <div class="modal-body">
+
+          <div class="mb-2">
+            <input id="txtTitle" type="text" class="form-control" placeholder="标题">
+          </div>
+
+          <div class="mb-2">
+            <textarea id="txtInfo" rows="10" placeholder="留言内容" class="form-control"></textarea>
+          </div>
+
+          <div id="divError" class="mb-2 text-danger"></div>
+
+        </div>
+
+        <div class="modal-footer">
+          <span id="btnAdd" class="btn btn-primary">添加</span>
+          <span data-bs-toggle="modal" data-bs-target="#addDialog" class="btn btn-danger">
+            关闭
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 帖子信息 -->
   <div id="constainer">
     <!-- 
       一个留言信息的模板
@@ -30,6 +67,31 @@
 
   </div>
 
+  <!-- 分页功能 -->
+  <nav class="d-flex justify-content-center">
+    <ul class="pagination">
+
+      <li class="page-item">
+        <a id="apre" class="page-link" href="javascript:void(0)">
+          &lt;&lt;
+        </a>
+      </li>
+
+      <li class="page-item">
+        <a id="apage" class="page-link" href="javascript:void(0)"></a>
+      </li>
+
+      <li class="page-item">
+        <a id="anext" class="page-link" href="javascript:void(0)">
+          &gt;&gt;
+        </a>
+      </li>
+
+    </ul>
+
+  </nav>
+
+  <!-- app-admin admin -->
 
 
   <script src="lib/bootstrap.bundle.min.js"></script>

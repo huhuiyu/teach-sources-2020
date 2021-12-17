@@ -13,6 +13,10 @@ let divInfo = document.getElementById('divInfo');
 let divMessage = document.getElementById('divMessage');
 let divReplies = document.getElementById('divReplies');
 
+let addDialog = document.getElementById('addDialog');
+let txtInfo = document.getElementById('txtInfo');
+let btnAdd = document.getElementById('btnAdd');
+
 // 查询 ===============================================
 let page = {}; // 分页
 let list = []; // 回帖列表
@@ -60,11 +64,10 @@ function showReplies() {
     let div02 = document.createElement('div');
     div.append(div02);
 
-    
     let divReplyInfo = document.createElement('div');
     divReplyInfo.innerHTML = data.info;
     div02.append(divReplyInfo);
-    
+
     let divReplyTime = document.createElement('div');
     divReplyTime.innerHTML = formatTimestamp(data.lastupdate);
     div02.append(divReplyTime);
@@ -72,5 +75,15 @@ function showReplies() {
     divReplies.append(div);
   }
 }
+
+// 评论的部分
+addDialog.addEventListener('shown.bs.modal', function () {
+  txtInfo.value = '';
+  txtInfo.focus();
+});
+
+addDialog.addEventListener('hidden.bs.modal', function () {
+  query();
+});
 
 query();

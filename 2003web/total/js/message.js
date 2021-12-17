@@ -49,6 +49,11 @@ function showData() {
     divBody.classList.add('card-body');
     divBody.append(data.title);
     divCard.append(divBody);
+    // 跳转详细页，必须要传递主键umid信息
+    divBody.addEventListener('click', function () {
+      location = 'detail.html?umid=' + data.umid;
+    });
+
     // 脚是发帖时间和评论数
     let divFooter = document.createElement('div');
     divFooter.classList.add('card-footer');
@@ -86,3 +91,5 @@ anext.addEventListener('click', function () {
 });
 
 query();
+
+// 应用管理员 app-admin admin
