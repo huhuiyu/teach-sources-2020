@@ -18,8 +18,23 @@ btnLogin.addEventListener('click', function () {
     },
     function (data) {
       if (data.success) {
-        // 跳转页面
-        location = 'main.html';
+        // 处理页面回转问题
+        let url = 'main.html';
+        // 获取地址栏中是否有回转页面
+        let search = location.search;
+        if (search.length <= 0) {
+          // 没有就直接跳转页面
+          location = url;
+          return;
+        }
+        // 获取backUrl
+        let backUrl = search.replace('?', '');
+        let backUrlJson = Qs.parse(backUrl);
+        console.log('backUrl信息：', search, backUrlJson);
+        if (backUrlJson && backUrlJson.backUrl) {
+          url = backUrlJson.backUrl;
+        }
+        location = url;
       } else {
         // 修改显示的内容
         bsBody.innerHTML = data.message;

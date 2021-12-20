@@ -13,6 +13,9 @@ let addDialog = document.getElementById('addDialog');
 let txtInfo = document.getElementById('txtInfo');
 let btnAdd = document.getElementById('btnAdd');
 
+// 分页元素
+let spans = document.querySelectorAll('#divPage span');
+console.log('分页元素：', spans);
 // 查询数据 =============================================
 // 留言的详情
 let tbUserMessage = {};
@@ -33,10 +36,18 @@ function query() {
     function (data) {
       if (data.success) {
         page = data.resultData.page;
-        list = data.resultData.list;
+        // 加载更多模式，应该叠加，而不是更新
+        list = list.concat(data.resultData.list);
         tbUserMessage = data.resultData.tbUserMessage;
         console.log('留言详情：', tbUserMessage, list);
-
+        // 分页的判断
+        if (page.pageNumber >= page.pageCount) {
+          spans[0].style.display = 'none';
+          spans[1].style.display = 'inline-block';
+        } else {
+          spans[1].style.display = 'none';
+          spans[0].style.display = 'inline-block';
+        }
         showDetail();
         showReplys();
       } else {
@@ -87,7 +98,7 @@ function showReplys() {
 
 // 评论的部分 ===========================================
 addDialog.addEventListener('hidden.bs.modal', function () {
-  query();
+  refresh();
 });
 
 addDialog.addEventListener('shown.bs.modal', function () {
@@ -118,5 +129,24 @@ btnAdd.addEventListener('click', function () {
     }
   );
 });
+
+// 刷新页面
+function refresh() {
+  list = [];
+  page.pageNumber = 1;
+  query();
+}
+
+// 加载更多（另一种分页模式）
+let nomore = false; // 判定是否还有记录
+function moreInfo() {
+  nomore = page.pageNumber >= page.pageCount;
+  if (nomore) {
+    return;
+  }
+
+  page.pageNumber++;
+  query();
+}
 
 query();

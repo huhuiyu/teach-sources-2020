@@ -31,11 +31,16 @@
   padding: 1rem;
 }
 
+* {
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
 #replys > div > div:first-of-type {
   margin: 0.5rem;
   padding-right: 0.5rem;
   border-right: 2px solid #000;
-  width: 5rem;
+  width: 10rem;
   text-align: end;
   text-overflow: ellipsis;
 }

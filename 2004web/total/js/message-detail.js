@@ -142,7 +142,13 @@ btnPublish.addEventListener('click', function () {
       // 如果code是1000，表示没有登录！！！这是全局的code标识
       if (data.code == 1000) {
         alert('回复需要登录！');
-        location = 'login.html';
+        // 跳转到登录页后回转的方法
+        let backUrl = location.href;
+
+        // 处理查询字符串
+        let url = 'login.html?' + Qs.stringify({ backUrl: backUrl });
+        console.log('回转的url信息：', backUrl, url);
+        location = url;
         return;
       }
       alert(data.message);
