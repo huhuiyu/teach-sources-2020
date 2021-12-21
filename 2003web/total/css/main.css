@@ -1,0 +1,21 @@
+.main {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: 1rem;
+}
+
+.main .card {
+  min-width: 10rem;
+  max-width: 15rem;
+  text-align: center;
+}
+
+.main .card .iconfont {
+  font-size: 5rem;
+}
+
+.main .card .iconfont:hover {
+  cursor: pointer;
+  color: #ff0000;
+}

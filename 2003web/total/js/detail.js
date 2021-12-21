@@ -15,6 +15,10 @@ let divMessage = document.getElementById('divMessage');
 
 let divReplies = document.getElementById('divReplies');
 
+let addDialog = document.getElementById('addDialog');
+let txtInfo = document.getElementById('txtInfo');
+let btnPublish = document.getElementById('btnPublish');
+
 // 查询数据 ========================================
 let page = {};
 let list = []; // 帖子的评论列表
@@ -65,9 +69,53 @@ function showReplies() {
     let divUser = document.createElement('div');
     divUser.innerHTML = data.user.username;
     div.append(divUser);
+    // 内容和时间
+    let div02 = document.createElement('div');
+    div.append(div02);
+    let divReplyInfo = document.createElement('div');
+    divReplyInfo.append(data.info);
+    div02.append(divReplyInfo);
+
+    let divReplyTime = document.createElement('div');
+    divReplyTime.append(formatTimestamp(data.lastupdate));
+    div02.append(divReplyTime);
 
     divReplies.append(div);
   }
 }
+
+// 评论 =================================
+addDialog.addEventListener('shown.bs.modal', function () {
+  txtInfo.value = '';
+  txtInfo.focus();
+});
+
+addDialog.addEventListener('hidden.bs.modal', function () {
+  query();
+});
+
+btnPublish.addEventListener('click', function () {
+  ajaxRequest(
+    '/userMessage/addReply',
+    {
+      tbUserMessageReply: {
+        info: txtInfo.value,
+        umid: umid
+      }
+    },
+    function (data) {
+      if (data.code == 1000) {
+        alert(data.message);
+        location = 'login.html';
+        return;
+      }
+      alert(data.message);
+      if (data.success) {
+        txtInfo.value = '';
+        txtInfo.focus();
+      }
+    }
+  );
+});
 
 query();

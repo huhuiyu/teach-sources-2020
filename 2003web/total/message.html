@@ -14,6 +14,42 @@
 
 <body>
 
+  <!-- 我要发贴链接 -->
+  <div class="text-end p-2">
+    <span data-bs-toggle="modal" data-bs-target="#addDialog" 
+      class="btn btn-danger">发帖</span>
+  </div>
+
+
+  <!-- 发帖的对话框 -->
+  <div id="addDialog" class="modal fade" data-bs-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">发帖</div>
+
+        <div class="modal-body">
+
+          <div class="mb-2">
+            <input type="text" id="txtTitle" class="form-control" placeholder="帖子标题">
+          </div>
+
+          <div class="mb-2">
+            <textarea id="txtInfo" rows="10" class="form-control" placeholder="帖子内容"></textarea>
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <span id="btnPublish" class="btn btn-primary">发帖</span>
+          <span data-bs-toggle="modal" data-bs-target="#addDialog" class="btn btn-danger">关闭</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
   <!-- 留言列表 -->
   <div id="divMessages">
 

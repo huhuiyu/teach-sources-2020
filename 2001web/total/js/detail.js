@@ -17,6 +17,10 @@ let addDialog = document.getElementById('addDialog');
 let txtInfo = document.getElementById('txtInfo');
 let btnAdd = document.getElementById('btnAdd');
 
+let apre = document.getElementById('apre');
+let apage = document.getElementById('apage');
+let anext = document.getElementById('anext');
+
 // 查询 ===============================================
 let page = {}; // 分页
 let list = []; // 回帖列表
@@ -36,6 +40,7 @@ function query() {
       console.log('帖子和评论', tbUserMessage, list);
       showDetail();
       showReplies();
+      showPageInfo();
     }
   );
 }
@@ -83,6 +88,53 @@ addDialog.addEventListener('shown.bs.modal', function () {
 });
 
 addDialog.addEventListener('hidden.bs.modal', function () {
+  query();
+});
+
+btnAdd.addEventListener('click', function () {
+  ajax(
+    '/userMessage/addReply',
+    {
+      tbUserMessageReply: {
+        info: txtInfo.value,
+        umid: umid
+      }
+    },
+    function (data) {
+      if (data.code == 1000) {
+        alert(data.message);
+        //  获取当前页面地址，方便跳回
+        let backUrl = location.href;
+        // 转换成查询字符串
+        let url = Qs.stringify({ url: backUrl });
+        console.log('地址信息：', backUrl, url);
+        // 传递参数到login页面，方便跳回
+        location = 'login.html?' + url;
+        return;
+      }
+      alert(data.message);
+    }
+  );
+});
+
+// 分页功能 ==========================================
+function showPageInfo() {
+  apage.innerHTML =
+    '当前页/总页数/记录数：' +
+    page.pageNumber +
+    '/' +
+    page.pageCount +
+    '/' +
+    page.total;
+}
+
+anext.addEventListener('click', function () {
+  page.pageNumber++;
+  query();
+});
+
+apre.addEventListener('click', function () {
+  page.pageNumber--;
   query();
 });
 

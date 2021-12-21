@@ -4,6 +4,11 @@ let apre = document.getElementById('apre');
 let apage = document.getElementById('apage');
 let anext = document.getElementById('anext');
 
+let addDialog = document.getElementById('addDialog');
+let txtTitle = document.getElementById('txtTitle');
+let txtInfo = document.getElementById('txtInfo');
+let btnPublish = document.getElementById('btnPublish');
+
 // 查询的部分 ===============================================
 let page = {};
 let list = [];
@@ -88,6 +93,43 @@ apre.addEventListener('click', function () {
 anext.addEventListener('click', function () {
   page.pageNumber++;
   query();
+});
+
+// 发帖功能 =======================================
+addDialog.addEventListener('shown.bs.modal', function () {
+  txtInfo.value = '';
+  txtTitle.value = '';
+  txtTitle.focus();
+});
+
+addDialog.addEventListener('hidden.bs.modal', function () {
+  query();
+});
+
+btnPublish.addEventListener('click', function () {
+  ajaxRequest(
+    '/userMessage/add',
+    {
+      tbUserMessage: {
+        title: txtTitle.value,
+        info: txtInfo.value
+      }
+    },
+    function (data) {
+      // 服务器code为1000是特殊标志，表示必须是对应角色登录才能访问
+      // 所以一定是跳转到登录页面！！！！！
+      if (data.code == 1000) {
+        alert(data.message);
+        location = 'login.html';
+        return;
+      }
+      alert(data.message);
+      if (data.success) {
+        txtTitle.value = '';
+        txtInfo.value = '';
+      }
+    }
+  );
 });
 
 query();

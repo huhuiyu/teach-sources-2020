@@ -11,11 +11,8 @@
 
 /* 每次更新都要更新下面的代码 */
 @font-face {
-  font-family: 'iconfont'; /* Project id 2466161 */
-  src: url('//at.alicdn.com/t/font_2466161_tj2dsiqiq9l.woff2?t=1638773082105')
-      format('woff2'),
-    url('//at.alicdn.com/t/font_2466161_tj2dsiqiq9l.woff?t=1638773082105')
-      format('woff'),
-    url('//at.alicdn.com/t/font_2466161_tj2dsiqiq9l.ttf?t=1638773082105')
-      format('truetype');
+  font-family: 'iconfont';  /* Project id 2466161 */
+  src: url('//at.alicdn.com/t/font_2466161_58hfg0b28y4.woff2?t=1639987229813') format('woff2'),
+       url('//at.alicdn.com/t/font_2466161_58hfg0b28y4.woff?t=1639987229813') format('woff'),
+       url('//at.alicdn.com/t/font_2466161_58hfg0b28y4.ttf?t=1639987229813') format('truetype');
 }
