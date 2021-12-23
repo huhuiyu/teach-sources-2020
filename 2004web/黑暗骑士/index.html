@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>学生管理</title>
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <link rel="stylesheet" href="index.css">
+
+</head>
+
+<body>
+  <span data-bs-toggle="modal" data-bs-target="#dialog01"
+  class="btn btn-primary">打开</span>
+
+  <div id="dialog01" class="modal fade" data-bs-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">对话框一</div>
+
+        <div class="modal-body">
+          内容是根据页面需求变化
+        </div>
+
+        <div class="modal-footer">
+          <span data-bs-toggle="modal" data-bs-target="#dialog01"
+            class="btn btn-primary">关闭</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <span data-bs-toggle="modal" data-bs-target="#dialog02"
+    class="btn btn-primary">打开</span>
+
+  <div id="dialog02" class="modal fade" data-bs-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">对话框二</div>
+
+        <div class="modal-body">
+          <input type="text" class="form-control">
+        </div>
+
+        <div class="modal-footer">
+          <span data-bs-toggle="modal" data-bs-target="#dialog02"
+            class="btn btn-primary">关闭</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <script src="lib/bootstrap.bundle.min.js"></script>
+  <script src="lib/qs.min.js"></script>
+  <script src="lib/axios.min.js"></script>
+  <script src="lib/spark-md5.min.js"></script>
+  <script src="lib/server.js"></script>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
