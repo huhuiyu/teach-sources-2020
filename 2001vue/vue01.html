@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vue入门一</title>
+</head>
+
+<body>
+  <!-- 
+    vue的实例要和某一个页面元素绑定，也是唯一需要id的地方
+  -->
+  <div id="app">
+    <!-- 将data中的值绑定到页面 -->
+    {{title}}
+    <span>可以在元素中{{title}}</span>
+    ====
+    <!-- 也可以通过vue扩展属性v-text绑定成元素的内容 -->
+    <span v-text="title"></span>
+    ====
+    <!-- 
+      data中的值还可以动态注入属性
+      只需要在属性前面加上:，就表示值是来源于data中的值
+    -->
+    <span :title="title">属性title来源于data中的值</span>
+    <hr>
+    <!-- 双向绑定效果，收集登录信息 -->
+    <input type="text" placeholder="用户名"
+      v-model="userinfo.username">
+    <input type="password" placeholder="密码"
+      v-model="userinfo.password">
+    收集的登录信息：{{userinfo}}
+
+  </div>
+
+  <script src="lib/vue.min.js"></script>
+
+  <script src="js/vue01.js"></script>
+</body>
+
+</html>
