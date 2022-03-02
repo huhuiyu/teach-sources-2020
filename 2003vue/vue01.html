@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vue入门一</title>
+</head>
+
+<body>
+  <!-- vue需要一个页面元素作为模板绑定实例 -->
+  <div id="app">
+    <!-- {{data中的值}}可以将data中定义的变量显示在页面上 -->
+    {{title}}
+    <span>可以在任意地方{{title}}</span>
+    <!-- 也可通过vue的扩展属性(divrective)v-text="data中的值"来替换内容 -->
+    <span v-text="title">这个值会被替换</span>
+    <!-- 
+      通过:属性名称="data中的值"可以动态注入属性值！！！
+    -->
+    <span :title="title">属性也可以被data注入</span>
+
+    <hr>
+
+    <!-- 
+      页面通过v-model可以将表单元素的value和data中的变量进行双向绑定！
+    -->
+    <input type="text" v-model="userinfo.username" placeholder="姓名">
+    <input type="password" v-model="userinfo.password" placeholder="密码">
+    <button>获取输入值</button>
+    {{userinfo}}
+
+  </div>
+
+  <script src="lib/vue.min.js"></script>
+
+  <script src="js/vue01.js"></script>
+</body>
+
+</html>

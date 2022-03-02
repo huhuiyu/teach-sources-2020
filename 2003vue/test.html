@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>测试页面</title>
+</head>
+
+<body>
+
+  <!-- 原生js演示 -->
+  <div>
+    <input type="text" id="txtInfo">
+    <span id="spInfo"></span>
+  </div>
+
+  <!-- vue版本 -->
+  <div id="app">
+    <input type="text" v-model="info">
+    <span>{{info}}</span>
+  </div>
+  <!-- powermode -->
+  <script src="lib/vue.min.js"></script>
+
+  <script src="js/test.js"></script>
+
+</body>
+
+</html>
