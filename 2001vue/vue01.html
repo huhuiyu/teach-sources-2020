@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>vue入门一</title>
+  <link rel="stylesheet" href="css/vue01.css">
 </head>
 
 <body>
@@ -27,11 +28,67 @@
     <span :title="title">属性title来源于data中的值</span>
     <hr>
     <!-- 双向绑定效果，收集登录信息 -->
-    <input type="text" placeholder="用户名"
-      v-model="userinfo.username">
-    <input type="password" placeholder="密码"
-      v-model="userinfo.password">
+    <input type="text" placeholder="用户名" v-model="userinfo.username">
+    <input type="password" placeholder="密码" v-model="userinfo.password">
     收集的登录信息：{{userinfo}}
+
+    <!-- 
+      @事件名称（事件名称是js里面的标准名称）="事件触发时要执行的fun名称"
+      事件的fun名称必须是在methods小节里面定义过的
+      例如@click="abc"表示当单击的时候执行methods里面abc方法
+    -->
+    <button @click="showInfo">获取信息</button>
+
+    <div class="menus">
+      <!-- 
+        v-for属性（directive）用于循环产生页面元素
+        里面的表达是 循环变量 in 数组变量（或者是可迭代的）
+        循环变量可供迭代元素里面使用，是数组的单一笔纪录
+      -->
+      <a v-for="d in menus" :href="d.link">
+        {{d.text}}
+      </a>
+
+    </div>
+
+    <hr>
+
+    <div class="tabs">
+      <!-- 
+        @事件名称="js的代码"为事件触发时不调用methods中的方法
+        而是执行一段js的代码，如果代码中有变量，必须是vue定义的 
+      -->
+      <span class="abc" :class="{active:tab==1}" @click="tab=1">选项一</span>
+      <!-- 
+        class属性的注入比较特殊，可以和元素class同时存在
+        因为是同classList来进行修改的操作
+        里面是json格式的表达式
+        {要套用class名称:class是否套用的逻辑表达式}
+        逻辑表达式为真，前面class就会生效
+        为假对应的class就会被移除
+      -->
+      <span class="abc" :class="{active:tab==2}" @click="tab=2">黑暗骑士</span>
+      <span class="abc" :class="{active:tab==3}" @click="tab=3">冷云龙</span>
+    </div>
+
+    <!-- 
+      v-if指令用于判断元素是否出现在页面中
+      值为逻辑判断表达式
+      当值为真的时候元素出现
+      为假的时候元素被物理移除，dom中都不存在该元素
+      要注意，表达式中的变量要是vue里面的或者常量
+    -->
+    <div style="color: red;" v-if="tab==1">
+      选项一的内容。。。
+    </div>
+    <div v-if="tab==2">
+      黑暗骑士就是百特曼。。。
+    </div>
+    <div v-if="tab==3">
+      冷云龙看程瀚挨骂。。。
+    </div>
+
+
 
   </div>
 

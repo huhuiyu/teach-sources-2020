@@ -1,0 +1,33 @@
+.menus {
+  text-align: center;
+  padding: 1rem;
+}
+
+.menus a {
+  display: inline-block;
+  font-size: 1.5;
+  margin: 0.5rem 1rem;
+  text-decoration: none;
+}
+
+.menus a:hover {
+  text-decoration: underline;
+}
+
+.tabs {
+  text-align: center;
+  padding: 1rem;
+  border: 1px solid #ff0000;
+  margin: 1rem;
+}
+.tabs > span {
+  display: inline-block;
+  margin: 0.5rem 1rem;
+  border: 1px solid #ff0000;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+.tabs > span.active {
+  background-color: #ff0000;
+  color: #ffffff;
+}

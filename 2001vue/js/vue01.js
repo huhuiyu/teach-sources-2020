@@ -12,8 +12,21 @@ new Vue({
       userinfo: {
         username: '黑暗骑士',
         password: ''
-      }
+      },
+      // 模拟菜单的数据
+      menus: [
+        { link: 'https://huhuiyu.top', text: '黑暗骑士的网站' },
+        { link: 'https://hnmochi.com', text: '墨池科技的官方网站' }
+      ],
+      // 用于记录当前tab的变量
+      tab: 1
     };
+  },
+  methods: {
+    showInfo() {
+      let info = JSON.stringify(this.userinfo);
+      alert(info);
+    }
   }
 });
 
