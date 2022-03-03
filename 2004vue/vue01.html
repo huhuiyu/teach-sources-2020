@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>vue入门一</title>
+  <link rel="stylesheet" href="css/vue01.css">
 </head>
 
 <body>
@@ -38,12 +39,75 @@
       也就是页面输入发生变化会同步到data的变量值
       反过来data中对应的变化值变化也会同步到页面
     -->
-    <input type="text" placeholder="用户名" 
-      v-model="userinfo.username">
-    <input type="password" placeholder="密码" 
-      v-model="userinfo.password">
+    <input type="text" placeholder="用户名" v-model="userinfo.username">
+    <input type="password" placeholder="密码" v-model="userinfo.password">
+
+    <!-- 
+      @事件名称="methods中定义function名称"
+      表示当事件发生的时候执行对应的function
+    -->
+    <button @click="showUser">显示数据</button>
     {{userinfo}}
 
+    <hr>
+    <h1>模拟菜单</h1>
+    <div class="menus">
+      <!-- 
+        v-for的作用循环生成页面模板
+        里面的值是循环表达式 每一笔循环值变量 in 数组或者其它可迭代对象
+        然后在v-for作用的页面模板中可以使用循环变量
+        v-for="d in menus"表示迭代menus中值，循环的每一笔值命名为d
+      -->
+      <a v-for="d in menus" :href="d.link">
+        {{d.text}}
+      </a>
+
+
+
+
+
+    </div>
+
+    <hr>
+
+    <!-- 最简单的if效果 -->
+    <div class="tabs">
+      <!-- 
+        @事件名称="js代码"表示不需要调用methods的方法
+        直接执行一段代码，但是代码里面变量是vue里面的
+      -->
+      <span :class="{active:tab==1}" @click="tab=1">模块一</span>
+      <!-- 
+        :class属性的注入和普通的一样，可以和标准的class属性同时存在
+        class的注入是同classList方法来动态修改class的值
+        而不是简单替换
+        里面的json表达式的意义
+        {
+          要动态套用的class名称:逻辑表达式,...
+        }
+        逻辑表达式为真，对应的class会动态添加
+        为假则会将对应class动态的移除
+      -->
+      <span :class="{active:tab==2}" @click="tab=2">模块二</span>
+      <span :class="{active:tab==3}" @click="tab=3">模块三</span>
+    </div>
+    <!-- 
+      v-if可以控制所在页面模板是否出现（物理级的，不是显示隐藏）
+      v-if的值是逻辑表达式，同理参与判断的变量是vue里面的
+      逻辑表达式为真，页面模板才会出现在对应的位置
+      否则该页面模板会移出dom，消失不见
+    -->
+    <div v-if="tab==1">
+      模块一的内容
+    </div>
+    <div v-if="tab==2">
+      黑暗骑士
+    </div>
+    <div v-if="tab==3">
+      不要抬头好看
+    </div>
+
+    <!-- {{menus}} -->
   </div>
 
 
