@@ -15,8 +15,22 @@ new Vue({
       userinfo: {
         username: '黑暗骑士',
         password: ''
-      }
+      },
+      menus: [
+        { text: '黑暗骑士的网站', link: 'https://huhuiyu.top' },
+        { text: '湖南墨池的官方网站', link: 'https://hnmochi.com' }
+      ],
+      // 记录当前标签的变量
+      nav: 1
     };
+  },
+  // methods是事件处理function定义的部分
+  methods: {
+    showInfo() {
+      // 在methods中的function可以通过this直接操作data中数据
+      let info = JSON.stringify(this.userinfo);
+      alert(info);
+    }
   }
 });
 

@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>vue入门一</title>
+  <link rel="stylesheet" href="css/vue01.css">
 </head>
 
 <body>
@@ -28,8 +29,61 @@
     -->
     <input type="text" v-model="userinfo.username" placeholder="姓名">
     <input type="password" v-model="userinfo.password" placeholder="密码">
-    <button>获取输入值</button>
+
+    <!-- 
+      @事件名称="methods中定义function"就是绑定元素的事件处理
+      当事件触发时会执行对应的function
+      例如@keyup="abc"表示按键释放时执行methods中abc()
+    -->
+    <button @click="showInfo">获取输入值</button>
     {{userinfo}}
+
+    <div class="menus">
+      <!-- {{menus}} -->
+      <!-- 
+        v-for是循环指令，可以让元素重复生成！！！！
+        v-for="单个迭代值的变量名称 in vue中的数组（可迭代数据）"
+        迭代的变量值一次一个，只能在v-for指令所在范围使用
+      -->
+      <a v-for="d in menus" :href="d.link">
+        {{d.text}}
+      </a>
+
+    </div>
+
+    <div class="navs">
+      <!-- 
+        @事件名称="简单的js代码"表示事件触发时不是指向methods中function
+        而是执行一段js的代码，如果代码中有变量也必须是vue中定义的
+      -->
+      <span :class="{active:nav==1}" @click="nav=1">黑暗骑士</span>
+      <!-- 
+        :class的注入比较特殊，是动态移除和添加class值，而不是覆盖
+        也就是可以和原生的class属性并存而不冲突
+        里面是json表达式，而不是简单的变量值
+        格式为：{要套用的样式名称:是否套用的逻辑表达式}
+        逻辑表达式为真，对应的class会被添加，为假则会被移除
+      -->
+      <span class="abc" :class="{active:nav==2}" @click="nav=2">百特曼</span>
+      <span :class="{active:nav==3}" @click="nav=3">蝙蝠侠</span>
+    </div>
+
+    <!-- 
+      v-if是逻辑判断指令，里面的值是逻辑表达式
+      当逻辑表达式为真的时候模板元素会出现在页面
+      为假的时候会被物理移除（dom中都不存在该元素）
+      表达式的变量要是vue里面定义的
+    -->
+    <div v-if="nav==1">
+      黑暗骑士页签里面的内容...
+    </div>
+    <div v-if="nav==2">
+      百特曼其实就是黑暗骑士
+    </div>
+    <div v-if="nav==3">
+      蝙蝠侠其实也是黑暗骑士
+    </div>
+
 
   </div>
 
