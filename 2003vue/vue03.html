@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vue数据联动</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <div>{{title}}</div>
+
+    <div>
+      <!-- 当省份数据变化时触发queryCity -->
+      省份：
+      <select v-model="pid" @change="queryCity">
+        <option v-for="d in plist" :value="d.pid">
+          {{d.province}}
+        </option>
+      </select>
+      城市：
+      <select v-model="cid">
+        <option v-for="d in clist" :value="d.cid">
+          {{d.city}}
+        </option>
+      </select>
+
+    </div>
+
+    选中的省份：{{pid}}
+    选中的城市：{{cid}}
+
+    <!-- {{clist}} -->
+    <!-- {{plist}} -->
+
+  </div>
+
+  <script src="lib/axios.min.js"></script>
+  <script src="lib/qs.min.js"></script>
+  <script src="lib/spark-md5.min.js"></script>
+  <script src="lib/vue.min.js"></script>
+  <script src="js/ajax.js"></script>
+
+  <script src="js/vue03.js"></script>
+</body>
+
+</html>
