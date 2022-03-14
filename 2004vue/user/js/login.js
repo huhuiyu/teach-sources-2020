@@ -13,7 +13,22 @@ let app = new Vue({
     };
   },
   methods: {
-    login() {}
+    reset() {
+      this.user = {};
+    },
+    login() {
+      let app = this;
+      // 密码加密
+      app.user.password = SparkMD5.hash(app.user.password);
+      ajax('/user/auth/login', app.user, function (data) {
+        app.user.password = '';
+        app.message = data.message;
+        // 登录成功跳转首页
+        if (data.success) {
+          location = 'main.html';
+        }
+      });
+    }
   },
   created() {}
 });

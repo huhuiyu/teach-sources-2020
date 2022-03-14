@@ -23,6 +23,10 @@ new Vue({
         }
         // 处理省份的数据
         app.plist = data.list;
+        if (app.plist.length <= 0) {
+          alert('没有数据');
+          return;
+        }
         // 设置默认选中项，只需要对对应的model进行赋值即可
         app.pid = app.plist[0].pid;
         // 省份变化要调用城市查询
@@ -42,9 +46,19 @@ new Vue({
             return;
           }
           app.clist = data.list;
-          app.cid = app.clist[0].cid;
+
+          if (app.clist.length > 0) {
+            app.cid = app.clist[0].cid;
+          }
         }
       );
+    }
+  },
+  // computed表示计算属性，里面定义的方法都必须要有返回值
+  // 效果和data一样，可以直接在页面显示
+  computed: {
+    province() {
+      return '省份变化：' + this.pid;
     }
   },
   created() {

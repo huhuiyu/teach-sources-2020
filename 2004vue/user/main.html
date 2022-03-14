@@ -5,24 +5,24 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>用户登录</title>
+  <title>用户首页</title>
 </head>
 
 <body>
+  <h1>用户首页</h1>
+
   <div id="app">
     <div>{{title}}</div>
-
     <div>
-      <input type="text" v-model="user.username" placeholder="登录名">
-      <input type="password" v-model="user.password" placeholder="密码">
-      <button @click="login">登录</button>
-      <button @click="reset">重填</button>
-      <a href="reg.html">我要注册</a>
-      <span>{{message}}</span>
+      欢迎：{{tbUser.nickname}}({{tbUser.username}})
 
-      {{user}}
+      <button @click="logout">安全退出</button>
+
     </div>
 
+    <!-- {{tbUser}}
+    <hr>
+    {{tbUserInfo}} -->
   </div>
 
   <script src="../lib/axios.min.js"></script>
@@ -31,7 +31,8 @@
   <script src="../lib/vue.min.js"></script>
   <script src="../js/ajax.js"></script>
 
-  <script src="js/login.js"></script>
+  <script src="js/main.js"></script>
+
 </body>
 
 </html>
