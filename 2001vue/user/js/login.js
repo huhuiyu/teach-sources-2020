@@ -2,33 +2,35 @@ new Vue({
   el: '#app',
   data() {
     return {
-      title: '用户注册',
-      // 注册信息
+      title: '用户登录',
+      // 登录信息
       user: {
         username: '',
-        password: '',
-        nickname: ''
+        password: ''
       },
       // 服务器应答的消息
       message: ''
     };
   },
   methods: {
-    reg() {
+    login() {
       let app = this;
       // 密码加密
       app.user.password = SparkMD5.hash(app.user.password);
-      // 调用注册
-      ajax('/user/auth/reg', app.user, function (data) {
+      // 调用登录
+      ajax('/user/auth/login', app.user, function (data) {
         app.user.password = '';
         app.message = data.message;
+        if (data.success) {
+          // 成功就跳转到首页
+          location = 'main.html';
+        }
       });
     },
     reset() {
       this.user = {
         username: '',
-        password: '',
-        nickname: ''
+        password: ''
       };
     }
   },

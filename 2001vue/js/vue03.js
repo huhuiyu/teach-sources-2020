@@ -26,6 +26,9 @@ new Vue({
             return;
           }
           app.clist = data.list;
+          if (app.clist.length <= 0) {
+            return;
+          }
           app.cid = app.clist[0].cid;
         }
       );
@@ -41,11 +44,21 @@ new Vue({
         }
         // 让data中plist来源于后端查询结果的list（省份列表）
         app.plist = data.list;
-        // 默认选中项
-        app.pid = app.plist[17].pid;
-        // 省份发生变化要立即查询城市信息
-        app.queryCity();
+        if (app.plist.length > 0) {
+          // 默认选中项
+          app.pid = app.plist[0].pid;
+          // 省份发生变化要立即查询城市信息
+          app.queryCity();
+        }
       });
+    }
+  },
+  computed: {
+    // computed是计算属性，和data的使用一样
+    // 简单的理解就是可以将data中的数据运算后显示
+    province() {
+      
+      return '省份变化：' + this.pid;
     }
   },
   created() {
