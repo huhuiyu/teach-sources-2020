@@ -5,27 +5,22 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>vue-用户注册</title>
+  <title>用户首页</title>
 </head>
 
 <body>
 
   <div id="app">
     <div>{{title}}</div>
-
     <div>
-      <input type="text" v-model="user.username" placeholder="登录名">
-      <input type="password" v-model="user.password" placeholder="密码">
-      <input type="text" v-model="user.nickname" placeholder="用户姓名">
-      <button @click="reg">注册</button>
-      <button @click="reset">重置</button>
-
-      <a href="login.html">返回登录</a>
-
-      <div>{{message}}</div>
+      欢迎：{{tbUser.nickname}}({{tbUser.username}})
     </div>
 
-    {{user}}
+    <!-- <div>
+      {{tbUser}}
+      <hr>
+      {{tbUserInfo}}
+    </div> -->
 
   </div>
 
@@ -36,7 +31,7 @@
   <script src="../lib/vue.min.js"></script>
   <script src="../js/ajax.js"></script>
 
-  <script src="js/reg.js"></script>
+  <script src="js/main.js"></script>
 
 </body>
 

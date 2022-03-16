@@ -9,7 +9,7 @@ new Vue({
       pid: -1,
       // 城市信息
       clist: [],
-      cid: -1
+      cid: -1,
     };
   },
   methods: {
@@ -18,7 +18,7 @@ new Vue({
       ajax(
         '/linkinfo/queryCityByProvince',
         {
-          pid: app.pid
+          pid: app.pid,
         },
         function (data) {
           // 失败就显示原因
@@ -42,15 +42,16 @@ new Vue({
         }
         // ajax的数据直接放置到data中即可用于vue
         app.plist = data.list;
+
         // 跟定默认选中值，其实就是对pid给定合法的数据
-        app.pid = app.plist[17].pid;
+        app.pid = app.plist[0].pid;
         // 省份变化要调用城市的查询
         app.queryCity();
       });
-    }
+    },
   },
   created() {
     // vue创建完就直接调用ajax查询数据
     this.queryProvince();
-  }
+  },
 });
