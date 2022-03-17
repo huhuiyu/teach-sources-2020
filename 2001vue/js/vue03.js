@@ -54,11 +54,27 @@ new Vue({
     }
   },
   computed: {
+    city() {
+      for (let i = 0; i < this.clist.length; i++) {
+        let c = this.clist[i];
+        if (c.cid == this.cid) {
+          return c;
+        }
+      }
+      return {};
+    },
     // computed是计算属性，和data的使用一样
     // 简单的理解就是可以将data中的数据运算后显示
     province() {
-      
-      return '省份变化：' + this.pid;
+      // 通过循环来查找pid对应的完整省份信息
+      for (let i = 0; i < this.plist.length; i++) {
+        let p = this.plist[i];
+        // 选中的值判断
+        if (p.pid == this.pid) {
+          return p;
+        }
+      }
+      return {};
     }
   },
   created() {
