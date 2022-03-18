@@ -54,4 +54,26 @@ new Vue({
     // vue创建完就直接调用ajax查询数据
     this.queryProvince();
   },
+  // 计算属性，简单的说就是将data中的数据转换之后显示
+  computed: {
+    city() {
+      for (let i = 0; i < this.clist.length; i++) {
+        let p = this.clist[i];
+        if (p.cid == this.cid) {
+          return p;
+        }
+      }
+      return {};
+    },
+    province() {
+      //data中的plist是完整省份列表，pid是选中的省份编号
+      for (let i = 0; i < this.plist.length; i++) {
+        let p = this.plist[i];
+        if (p.pid == this.pid) {
+          return p;
+        }
+      }
+      return {};
+    },
+  },
 });
