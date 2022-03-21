@@ -1,0 +1,18 @@
+/* 
+过渡元素样式命名规则
+// 进入动画和离开的动作激活
+transition的name值-enter-active
+transition的name值-leave-active
+
+// 进入动画和离开的动作开始
+transition的name值-enter
+transition的name值-leave-to
+*/
+.modify-enter-active,
+.modify-leave-active {
+  transition: opacity 2s;
+}
+.modify-enter,
+.modify-leave-to {
+  opacity: 0;
+}

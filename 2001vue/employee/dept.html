@@ -6,12 +6,31 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>部门管理</title>
+  <link rel="stylesheet" href="css/dept.css">
 </head>
 
 <body>
   <div id="app">
     <div>{{title}}</div>
+    <!-- 查询表单 -->
+    <div>
+      <input type="text" v-model="queryInfo.deptName" placeholder="部门名称模糊查询">
+      <button @click="requery">搜索</button>
+    </div>
+    <!-- 添加的表单 -->
+    <div>
 
+      <input type="text" v-model="addInfo.deptName" placeholder="部门名称">
+      <input type="text" v-model="addInfo.deptInfo" placeholder="部门描述">
+      <button @click="add">添加部门</button>
+      <!-- 要用vue方式重置表单 -->
+      <input type="reset">
+      <!-- {{addInfo}} -->
+
+    </div>
+
+
+    <!-- 数据呈现的部分 -->
     <table v-if="!loading">
       <thead>
         <tr>
@@ -30,7 +49,8 @@
           <td>{{d.deptInfo}}</td>
           <td>{{d.lastupdate}}</td>
           <td>
-            <button>删除</button>
+            <button @click="del(d)">删除</button>
+            <button @click="showModify(d)">修改</button>
           </td>
         </tr>
 
@@ -54,6 +74,20 @@
     <div v-if="loading">
       数据加载中，请稍后...
     </div>
+
+    <!-- 修改的部分 -->
+    <transition name="modify">
+      <div v-if="visible">
+        <input type="text" v-model="modifyInfo.deptName" placeholder="部门名称">
+        <input type="text" v-model="modifyInfo.deptInfo" placeholder="部门描述">
+        <button @click="modify">修改部门</button>
+        <button @click="visible=false;query();">取消</button>
+      </div>
+    </transition>
+    <!-- 
+      二阶段作业，同步上课的进度，完成班级和学生管理系统
+      上课完成部门和员工管理之后的一周上交作业
+    -->
 
     <!-- {{page}} -->
     <!-- 
