@@ -6,12 +6,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>部门管理</title>
+  <link rel="stylesheet" href="css/dept.css">
 </head>
 
 <body>
 
   <div id="app">
     <div>{{title}}</div>
+
+    <!-- 添加的表单 -->
+    <div>
+      <input type="text" v-model="addInfo.deptName" placeholder="名称">
+      <input type="text" v-model="addInfo.deptInfo" placeholder="描述">
+      <button @click="add">添加部门</button>
+      {{addInfo}}
+    </div>
 
     <!-- 数据显示部分 -->
     <table v-if="!loading">
@@ -29,9 +38,14 @@
           <td>{{d.deptId}}</td>
           <td>{{d.deptName}}</td>
           <td>{{d.deptInfo}}</td>
-          <td>{{d.lastupdate}}</td>
           <td>
-            <button>删除</button>
+            {{ getTime(d.lastupdate) }}
+            <br>
+            {{ d.lastupdate | formatDate}}
+          </td>
+          <td>
+            <button @click="del(d)">删除</button>
+            <button @click="showModify(d)">修改</button>
           </td>
         </tr>
       </tbody>
@@ -61,7 +75,22 @@
       正在加载数据，请稍候...
     </div>
 
-    <div>{{page}}</div>
+    <!-- 修改的表单 -->
+    <transition name="modify">
+
+      <div v-if="visible">
+        <hr>
+        <input type="text" v-model="modifyInfo.deptName" placeholder="名称">
+        <input type="text" v-model="modifyInfo.deptInfo" placeholder="描述">
+        <button @click="modify">修改部门信息</button>
+        <button @click="visible=false;query();">关闭</button>
+        {{modifyInfo}}
+        <hr>
+      </div>
+
+    </transition>
+
+    <!-- <div>{{page}}</div> -->
 
   </div>
 
@@ -70,6 +99,7 @@
   <script src="../lib/spark-md5.min.js"></script>
   <script src="../lib/vue.min.js"></script>
   <script src="../js/ajax.js"></script>
+  <script src="../js/myfilters.js"></script>
 
   <script src="js/dept.js"></script>
 
