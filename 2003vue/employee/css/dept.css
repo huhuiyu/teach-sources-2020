@@ -1,0 +1,18 @@
+/* 
+  cn.vuejs.org 
+  过渡动画的规范名称：
+  .过渡元素的name-enter-active
+  .过渡元素的name-leave-active
+  .过渡元素的name-enter
+  .过渡元素的name-leave-to
+  enter的两个样式分别是元素出现的开始和结束
+  leave的两个样式分别是元素消失的开始和结束
+*/
+.modi-enter-active,
+.modi-leave-active {
+  transition: opacity 2s;
+}
+.modi-enter,
+.modi-leave-to {
+  opacity: 0;
+}

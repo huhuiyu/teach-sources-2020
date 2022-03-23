@@ -6,15 +6,29 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>部门管理</title>
+  <link rel="stylesheet" href="css/dept.css">
 </head>
 
 <body>
 
   <div id="app">
     <div>{{title}}</div>
+    <!-- 添加部门的部分 -->
+    <div>
+      <input type="text" v-model="addInfo.deptName" placeholder="名称">
+      <input type="text" v-model="addInfo.deptInfo" placeholder="描述">
+
+      <button @click="add">添加</button>
+      <!-- {{addInfo}} -->
+    </div>
+
+    <!-- 加载状态 -->
+    <div v-if="loading">
+      数据处理中，请稍候。。。
+    </div>
 
     <!-- 数据呈现部分 -->
-    <table>
+    <table  v-if="!loading">
 
       <thead>
         <tr>
@@ -33,7 +47,8 @@
           <td>{{d.deptInfo}}</td>
           <td>{{d.lastupdate}}</td>
           <td>
-            <button>删除</button>
+            <button @click="del(d)">删除</button>
+            <button @click="showModify(d)">修改</button>
           </td>
         </tr>
 
@@ -43,12 +58,34 @@
 
     <!-- 分页的部分 -->
     <div>
+      <a href="javascript:void(0)" @click="toPage(1)">第一页</a>
+      |
       <a href="javascript:void(0)" @click="toPage(page.pageNumber-1)">上一页</a>
       |
       当前页/总页数/记录数：{{page.pageNumber}}/{{page.pageCount}}/{{page.total}}
       |
       <a href="javascript:void(0)" @click="toPage(page.pageNumber+1)">下一页</a>
+      |
+      <a href="javascript:void(0)" @click="toPage(page.pageCount)">最后一页</a>
     </div>
+
+    <!-- 
+      v-if,v-show这类可以控制是否显示的元素带上动画样式
+      transition是vue扩展的指令
+    -->
+    <transition name="modi">
+      <!-- 修改的部分 -->
+      <div v-if="visible">
+        <hr>
+        <input type="text" v-model="modifyInfo.deptName" placeholder="名称">
+        <input type="text" v-model="modifyInfo.deptInfo" placeholder="描述">
+
+        <button @click="modify">修改</button>
+        <button @click="visible=false;">关闭</button>
+        <hr>
+        <!-- {{modifyInfo}} -->
+      </div>
+    </transition>
 
     <!-- {{page}} -->
 
