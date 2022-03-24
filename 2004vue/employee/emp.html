@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>员工管理</title>
+</head>
+
+<body>
+  <div id="app">
+    <div>{{title}}</div>
+    <!-- 查询的表单部分 -->
+    <div>
+      部门：<input type="text" v-model="queryInfo.deptId">
+      姓名：<input type="text" v-model="queryInfo.employeeName">
+      电话：<input type="text" v-model="queryInfo.phone">
+      排序：
+      <select v-model="queryInfo.orderBy">
+        <option v-for="d in orderByList" :value="d.value">
+          {{d.text}}
+        </option>
+      </select>
+      <button @click="query">查询</button>
+      {{queryInfo}}
+    </div>
+
+    <!-- 数据呈现 -->
+    <table>
+      <thead>
+        <tr>
+          <th>所属部门</th>
+          <th>姓名</th>
+          <th>电话</th>
+          <th>修改时间</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr v-for="d in list">
+          <td>{{d.dept.deptName}}</td>
+          <td>{{d.employeeName}}</td>
+          <td>{{d.phone}}</td>
+          <td>{{d.lastupdate | formatDate}}</td>
+          <td></td>
+        </tr>
+      </tbody>
+
+    </table>
+
+    <div>
+      {{page}}
+      <hr>
+      {{list}}
+    </div>
+  </div>
+
+
+  <script src="../lib/axios.min.js"></script>
+  <script src="../lib/qs.min.js"></script>
+  <script src="../lib/spark-md5.min.js"></script>
+  <script src="../lib/vue.min.js"></script>
+  <script src="../js/ajax.js"></script>
+  <script src="../js/myfilters.js"></script>
+
+  <script src="js/emp.js"></script>
+
+
+</body>
+
+</html>

@@ -13,6 +13,12 @@
 
   <div id="app">
     <div>{{title}}</div>
+    <!-- 查询的表单 -->
+    <div>
+      <input type="text" v-model="queryInfo.deptName"
+        placeholder="部门名称模糊查询">
+      <button @click="query">查询</button>
+    </div>
 
     <!-- 添加的表单 -->
     <div>
@@ -41,7 +47,9 @@
           <td>
             {{ getTime(d.lastupdate) }}
             <br>
-            {{ d.lastupdate | formatDate}}
+            {{ d.lastupdate | formatDate }}
+            <br>
+            {{ d.lastupdate | formatDate('yyyy-MM-dd') }}
           </td>
           <td>
             <button @click="del(d)">删除</button>
