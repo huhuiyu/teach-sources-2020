@@ -47,7 +47,14 @@
           <td>{{d.deptId}}</td>
           <td>{{d.deptName}}</td>
           <td>{{d.deptInfo}}</td>
-          <td>{{d.lastupdate}}</td>
+          <td>
+            {{d.lastupdate}}
+            <br>
+            {{ d.lastupdate | formatDate }}
+            <br>
+            {{ d.lastupdate | formatDate('yyyy年MM月dd日') }}
+
+          </td>
           <td>
             <button @click="del(d)">删除</button>
             <button @click="showModify(d)">修改</button>
@@ -103,6 +110,7 @@
   <script src="../lib/qs.min.js"></script>
   <script src="../lib/spark-md5.min.js"></script>
   <script src="../js/ajax.js"></script>
+  <script src="../js/filters.js"></script>
 
   <script src="js/dept.js"></script>
 
