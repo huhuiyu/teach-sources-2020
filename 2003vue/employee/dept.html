@@ -13,6 +13,12 @@
 
   <div id="app">
     <div>{{title}}</div>
+    <!-- 查询条件 -->
+    <div>
+      部门名称：<input type="text" v-model="queryInfo.deptName">
+      <button @click="query">查询</button>
+    </div>
+
     <!-- 添加部门的部分 -->
     <div>
       <input type="text" v-model="addInfo.deptName" placeholder="名称">
@@ -28,7 +34,7 @@
     </div>
 
     <!-- 数据呈现部分 -->
-    <table  v-if="!loading">
+    <table v-if="!loading">
 
       <thead>
         <tr>
@@ -45,7 +51,15 @@
           <td>{{d.deptId}}</td>
           <td>{{d.deptName}}</td>
           <td>{{d.deptInfo}}</td>
-          <td>{{d.lastupdate}}</td>
+          <td>
+
+            {{d.lastupdate}}
+            <br>
+            {{d.lastupdate | formatDate}}
+            <br>
+            {{d.lastupdate | formatDate('yyyy年MM月dd日')}}
+
+          </td>
           <td>
             <button @click="del(d)">删除</button>
             <button @click="showModify(d)">修改</button>
@@ -97,6 +111,7 @@
   <script src="../lib/qs.min.js"></script>
   <script src="../lib/spark-md5.min.js"></script>
   <script src="../lib/vue.min.js"></script>
+  <script src="../js/filters.js"></script>
   <script src="../js/ajax.js"></script>
 
   <script src="js/dept.js"></script>
