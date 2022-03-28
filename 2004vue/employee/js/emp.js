@@ -27,9 +27,73 @@ new Vue({
         { value: '4', text: '按照部门名称降序' },
         { value: '5', text: '分部门按照姓名排序' },
       ],
+      // 部门信息查询部分
+      deptInfo: {
+        page: { pageSize: 5 },
+        list: [],
+        // 选中值
+        selected: {},
+        // 部门选择是否可见
+        visible: false,
+        // 判断部门选择的模式（查询，添加，修改）
+        mode: '',
+      },
+      // 员工添加的部分
+      addInfo: {
+        deptId: -1,
+        employeeName: '',
+        phone: '',
+      },
     };
   },
   methods: {
+    //重置查询
+    resetQuery() {
+      app.queryInfo = {
+        deptId: -1,
+        employeeName: '',
+        orderBy: '2',
+        phone: '',
+      };
+      app.query();
+    },
+    // 部门分页
+    toDeptPage(pageNumber) {
+      // 分页合法性校验
+      if (pageNumber <= 0 || pageNumber > app.deptInfo.page.pageCount) {
+        return;
+      }
+      app.deptInfo.page.pageNumber = pageNumber;
+      app.queryDept();
+    },
+    // 部门的选择
+    selectDept(info) {
+      // 记录选择的值（给页面显示）
+      app.deptInfo.selected = info;
+
+      // 通过mode判断返回值给到什么字段
+      if ('add' == app.deptInfo.mode) {
+        // 添加信息的部门变更
+        app.addInfo.deptId = info.deptId;
+      } else if ('query' == app.deptInfo.mode) {
+        // 查询信息部门变更
+        app.queryInfo.deptId = info.deptId;
+      }
+
+      app.deptInfo.visible = false;
+    },
+    // 部门的查询
+    queryDept() {
+      ajax('/manage/dept/queryAll', app.deptInfo.page, function (data) {
+        if (data.success) {
+          app.deptInfo.visible = true;
+          app.deptInfo.page = data.page;
+          app.deptInfo.list = data.list;
+        } else {
+          alert(data.message);
+        }
+      });
+    },
     query() {
       // 处理分页信息到查询对象的问题
       console.log('查询参数：', app.queryInfo);
