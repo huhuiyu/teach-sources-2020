@@ -23,7 +23,7 @@
         {{dept.selected.deptName}}
       </span>
       <!-- <input type="text" v-model="queryInfo.deptId"> -->
-      <button @click="queryDept">选择部门</button>
+      <button @click="dept.mode='query';queryDept();">选择部门</button>
 
       姓名：<input type="text" v-model="queryInfo.employeeName">
       电话：<input type="text" v-model="queryInfo.phone">
@@ -37,13 +37,20 @@
       <button @click="query">查询</button>
       <button @click="resetQuery">重置</button>
     </div>
-
+    ===={{dept.mode}}====
     <!-- 添加的部分 -->
     <div>
-      <button>部门选择</button>
+      <span v-if="addInfo.deptId==-1">
+        请选择部门
+      </span>
+      <span v-else>
+        {{dept.selectedAdd.deptName}}
+      </span>
+
+      <button @click="dept.mode='add';queryDept();">部门选择</button>
       姓名:<input type="text" v-model="addInfo.employeeName">
       电话:<input type="text" v-model="addInfo.phone">
-      <button>添加</button>
+      <button @click="add">添加</button>
       <button>重填</button>
       {{addInfo}}
     </div>
@@ -69,8 +76,8 @@
             <td>{{d.phone}}</td>
             <td>{{d.lastupdate | formatDate}}</td>
             <td>
-              <button>修改</button>
-              <button>删除</button>
+              <button @click="showModi(d)">修改</button>
+              <button @click="del(d)">删除</button>
             </td>
           </tr>
         </tbody>
@@ -82,6 +89,21 @@
       <hr>
       <!-- {{list}} -->
     </div>
+
+    <hr>
+
+    <!-- 修改的部分 -->
+    <div v-if="modiVisible">
+      {{modiInfo.dept.deptName}}
+      <button @click="dept.mode='modi';queryDept();">部门选择</button>
+      姓名:<input type="text" v-model="modiInfo.employeeName">
+      电话:<input type="text" v-model="modiInfo.phone">
+      <button @click="modify">保存</button>
+      <button @click="modiVisible=false;dept.visible=false">关闭</button>
+      <hr>
+      {{modiInfo}}
+    </div>
+
     <hr>
     <!-- 部门选择的部分 -->
     <div v-if="dept.visible">
@@ -128,6 +150,8 @@
       </div>
 
     </div>
+
+
 
 
   </div>

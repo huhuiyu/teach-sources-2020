@@ -29,6 +29,12 @@ new Vue({
     };
   },
   methods: {
+    resetAdd() {
+      this.addInfo = {
+        deptName: '',
+        deptInfo: '',
+      };
+    },
     showModify(info) {
       let app = this;
       app.visible = true;

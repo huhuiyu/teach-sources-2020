@@ -31,7 +31,12 @@ new Vue({
         page: { pageSize: 5 },
         list: [],
         visible: false,
+        // 查询的选中项
         selected: {},
+        // 添加的选中项
+        selectedAdd: {},
+        // 控制部门查询选择模式（添加，查询，修改）
+        mode: '',
       },
       // 添加的部分
       addInfo: {
@@ -39,9 +44,40 @@ new Vue({
         employeeName: '',
         phone: '',
       },
+      // 修改的信息
+      modiInfo: {},
+      modiVisible: false,
     };
   },
   methods: {
+    del(info) {
+      if (confirm('是否删除：' + info.employeeName)) {
+        ajax(
+          '/manage/employee/delete',
+          {
+            employeeId: info.employeeId,
+          },
+          function (data) {
+            alert(data.message);
+            app.query();
+          }
+        );
+      }
+    },
+    modify() {
+      // 修改需要去掉多余的dept（部门详细信息）
+      let info = JSON.parse(JSON.stringify(app.modiInfo));
+      // delete是删除json的字段
+      delete info.dept;
+      ajax('/manage/employee/update', info, function (data) {
+        alert(data.message);
+        app.query();
+      });
+    },
+    showModi(info) {
+      app.modiInfo = JSON.parse(JSON.stringify(info));
+      app.modiVisible = true;
+    },
     // 添加部门
     add() {
       ajax('/manage/employee/add', app.addInfo, function (data) {
@@ -80,10 +116,22 @@ new Vue({
     },
     // 选中部门
     selectDept(info) {
-      // 记录选中值
-      app.dept.selected = info;
-      // 修改查询条件值
-      app.queryInfo.deptId = info.deptId;
+      if (app.dept.mode == 'query') {
+        // 记录选中值
+        app.dept.selected = info;
+        // 修改查询条件值
+        app.queryInfo.deptId = info.deptId;
+      } else if (app.dept.mode == 'add') {
+        // 记录选中值
+        app.dept.selectedAdd = info;
+        // 修改添加的部门值
+        app.addInfo.deptId = info.deptId;
+      } else if (app.dept.mode == 'modi') {
+        // 记录选中值
+        app.modiInfo.dept = info;
+        // 修改的部门值
+        app.modiInfo.deptId = info.deptId;
+      }
       app.dept.visible = false;
     },
     // 查询部门的部分
