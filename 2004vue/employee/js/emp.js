@@ -33,6 +33,8 @@ new Vue({
         list: [],
         // 选中值
         selected: {},
+        selectedAdd: {},
+        selectedModi: {},
         // 部门选择是否可见
         visible: false,
         // 判断部门选择的模式（查询，添加，修改）
@@ -44,9 +46,54 @@ new Vue({
         employeeName: '',
         phone: '',
       },
+      // 修改的部分
+      modiInfo: {},
+      modiVisible: false,
     };
   },
   methods: {
+    del(info) {
+      if (confirm('是否删除：' + info.employeeName)) {
+        ajax(
+          '/manage/employee/delete',
+          {
+            employeeId: info.employeeId,
+          },
+          function (data) {
+            alert(data.message);
+            app.query();
+          }
+        );
+      }
+    },
+    modify() {
+      // 修改有注意事项，dept是服务器返回显示部门信息用的，不需要提交
+      let info = JSON.parse(JSON.stringify(app.modiInfo));
+      delete info.dept;
+      // 提交修改
+      ajax('/manage/employee/update', info, function (data) {
+        alert(data.message);
+        if (data.success) {
+          app.modiVisible = false;
+          app.deptInfo.visible = false;
+          app.query();
+        }
+      });
+    },
+    showModi(info) {
+      app.modiInfo = JSON.parse(JSON.stringify(info));
+      app.modiVisible = true;
+    },
+    add() {
+      // 添加员工信息
+      ajax('/manage/employee/add', app.addInfo, function (data) {
+        alert(data.message);
+        if (data.success) {
+          app.addInfo.employeeName = '';
+          app.addInfo.phone = '';
+        }
+      });
+    },
     //重置查询
     resetQuery() {
       app.queryInfo = {
@@ -68,16 +115,22 @@ new Vue({
     },
     // 部门的选择
     selectDept(info) {
-      // 记录选择的值（给页面显示）
-      app.deptInfo.selected = info;
-
       // 通过mode判断返回值给到什么字段
       if ('add' == app.deptInfo.mode) {
+        // 记录选择的值（给页面显示）
+        app.deptInfo.selectedAdd = info;
         // 添加信息的部门变更
         app.addInfo.deptId = info.deptId;
       } else if ('query' == app.deptInfo.mode) {
+        // 记录选择的值（给页面显示）
+        app.deptInfo.selected = info;
         // 查询信息部门变更
         app.queryInfo.deptId = info.deptId;
+      } else if ('modi' == app.deptInfo.mode) {
+        // 记录选择的值（给页面显示）
+        app.modiInfo.dept = info;
+        // 修改信息部门变更
+        app.modiInfo.deptId = info.deptId;
       }
 
       app.deptInfo.visible = false;

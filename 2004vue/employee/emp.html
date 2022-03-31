@@ -45,15 +45,16 @@
         部门必须填写
       </span>
       <span v-else>
-        {{deptInfo.selected.deptName}}
+        {{deptInfo.selectedAdd.deptName}}
       </span>
 
       <button @click="deptInfo.mode='add';queryDept();">
         选择部门
       </button>
+
       姓名：<input type="text" v-model="addInfo.employeeName">
       电话：<input type="text" v-model="addInfo.phone">
-      <button>添加</button>
+      <button @click="add">添加</button>
       {{addInfo}}
     </div>
     <hr>
@@ -76,7 +77,10 @@
           <td>{{d.employeeName}}</td>
           <td>{{d.phone}}</td>
           <td>{{d.lastupdate | formatDate}}</td>
-          <td></td>
+          <td>
+            <button @click="showModi(d)">修改</button>
+            <button @click="del(d)">删除</button>
+          </td>
         </tr>
       </tbody>
 
@@ -87,6 +91,26 @@
       <hr>
       <!-- {{list}} -->
     </div>
+
+
+    <!-- 修改的部分 -->
+    <div v-if="modiVisible">
+      <h1>员工信息修改</h1>
+
+      {{modiInfo.dept.deptName}}
+      <button @click="deptInfo.mode='modi';queryDept();">
+        修改部门
+      </button>
+
+      姓名：<input type="text" v-model="modiInfo.employeeName">
+      电话：<input type="text" v-model="modiInfo.phone">
+
+      <button @click="modify">保存</button>
+      <button @click="modiVisible=false;deptInfo.visible=false;">关闭</button>
+      <hr>
+      {{modiInfo}}
+    </div>
+
 
     <!-- 部门选择的部分 -->
     <div v-show="deptInfo.visible">
@@ -138,6 +162,7 @@
       </div>
 
     </div>
+
 
 
   </div>
