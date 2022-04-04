@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>用户首页</title>
+  <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
@@ -14,15 +15,83 @@
   <div id="app">
     <div>{{title}}</div>
     <div>
+      <span v-if="tbUserInfo.img" class="img-box">
+        <img :src="tbUserInfo.img" alt="">
+      </span>
+      <span v-else>
+        没有头像
+      </span>
+
       欢迎：{{tbUser.nickname}}({{tbUser.username}})
+      -注册时间：{{tbUser.lastupdate | formatDate('yyyy-MM-dd')}}
+      -注册天数：{{userOtherInfo.regDays}}
+
+      <button @click="showModify">修改附加信息</button>
+      <button @click="mailVisible=true;">修改邮箱</button>
 
       <button @click="logout">安全退出</button>
 
     </div>
 
-    <!-- {{tbUser}}
+    <!-- 修改邮箱 -->
     <hr>
-    {{tbUserInfo}} -->
+    <div v-if="mailVisible">
+      <input type="text" v-model="mailInfo.email" placeholder="邮箱">
+      <button @click="sendMailCode">发送验证码</button>
+      <input type="text" v-model="mailInfo.code" placeholder="验证码">
+      <button @click="saveMail">保存</button>
+      <button @click="mailVisible=false;">关闭</button>
+    </div>
+    <hr>
+
+    <!-- 修改附加信息的部分 -->
+    <div v-if="visible" class="modify-box">
+
+      <div>
+        <div>
+          性别：
+          <select v-model="modifyInfo.sex">
+            <option v-for="d in sexList" :value="d.value">
+              {{d.text}}
+            </option>
+          </select>
+        </div>
+
+        <div>
+          <input type="text" v-model="modifyInfo.qq" placeholder="qq号">
+        </div>
+
+        <div>
+          <input type="text" v-model="modifyInfo.wechat" placeholder="微信号">
+        </div>
+
+        <div>
+          <input type="text" v-model="modifyInfo.img" placeholder="用户头像的url">
+        </div>
+
+        <div>
+          <input type="text" v-model="modifyInfo.info" placeholder="个人简介">
+        </div>
+
+        <div>
+          <button @click="modify">保存</button>
+          <button @click="visible=false;">关闭</button>
+        </div>
+
+        <!-- <hr>
+
+        {{modifyInfo}} -->
+
+      </div>
+
+    </div>
+
+
+    <!-- {{tbUser}} -->
+    <hr>
+    {{tbUserInfo}}
+    <hr>
+    {{userOtherInfo}}
   </div>
 
   <script src="../lib/axios.min.js"></script>
@@ -30,6 +99,7 @@
   <script src="../lib/spark-md5.min.js"></script>
   <script src="../lib/vue.min.js"></script>
   <script src="../js/ajax.js"></script>
+  <script src="../js/myfilters.js"></script>
 
   <script src="js/main.js"></script>
 
