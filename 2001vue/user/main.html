@@ -6,19 +6,97 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>用户首页</title>
+  <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
   <div id="app">
     <div>{{title}}</div>
-    <div>
+    <div v-if="tbUser.username">
+      <span class="myimg" v-if="tbUserInfo.img">
+        <img :src="tbUserInfo.img" alt="">
+      </span>
+      <span v-else>没有头像</span>
+
       欢迎：{{tbUser.nickname}}({{tbUser.username}})
+      (注册时间：
+      {{tbUserInfo.lastupdate | formatDate('yyyy-MM-dd')}})
+      (注册天数：{{userOtherInfo.regDays}})
+      ----
+      <button @click="showModify">修改用户信息</button>
+      <button @click="mailVisible=true;">修改邮箱</button>
+      ----
       <button @click="logout">安全退出</button>
     </div>
+    <!-- 用户附加信息修改 -->
+    <div v-if="visible" class="modify-box">
+
+      <div>
+        附加信息修改
+        <hr>
+
+        <div>
+          <label>
+            性别：
+            <select v-model="modifyUser.sex">
+              <option v-for="d in sexList" :value="d.value">
+                {{d.text}}
+              </option>
+            </select>
+          </label>
+        </div>
+
+        <div>
+          <input type="text" v-model="modifyUser.img" placeholder="用户头像url">
+        </div>
+
+        <div>
+          <input type="text" v-model="modifyUser.nickname" placeholder="用户名称">
+        </div>
+
+        <div>
+          <input type="text" v-model="modifyUser.qq" placeholder="qq号">
+        </div>
+
+        <div>
+          <input type="text" v-model="modifyUser.wechat" placeholder="微信号">
+        </div>
+
+        <div>
+          <input type="text" v-model="modifyUser.info" placeholder="简介">
+        </div>
+
+        <div>
+          <button @click="saveModify">保存</button>
+          <button @click="visible=false;">取消</button>
+        </div>
+
+        <!-- <hr>
+        {{modifyUser}} -->
+      </div>
+
+    </div>
+
+    <!-- 邮箱修改 -->
+    <hr>
+    <div v-if="mailVisible">
+      原有的邮箱：{{tbUserInfo.email}}
+      <input type="text" v-model="mailInfo.email" placeholder="邮箱">
+      <button @click="sendMailCode">发送验证码</button>
+      <input type="text" v-model="mailInfo.code" placeholder="验证码">
+      <button>保存</button>
+      {{mailInfo}}
+      <button @click="mailVisible=false">取消</button>
+    </div>
+    <hr>
+
     <div>
       <!-- {{tbUser}} -->
       <!-- <hr> -->
-      <!-- {{tbUserInfo}} -->
+      {{tbUserInfo}}
+      {{userOtherInfo}}
+
+
     </div>
   </div>
 
@@ -27,6 +105,7 @@
   <script src="../lib/qs.min.js"></script>
   <script src="../lib/spark-md5.min.js"></script>
   <script src="../js/ajax.js"></script>
+  <script src="../js/filters.js"></script>
 
   <script src="js/main.js"></script>
 
