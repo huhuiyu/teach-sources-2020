@@ -6,21 +6,69 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>用户首页</title>
+  <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
 
   <div id="app">
     <div>{{title}}</div>
+
     <div>
+
+      <div class="logo">
+        <span v-if="tbUserInfo.img">
+          <img :src="tbUserInfo.img" alt="">
+        </span>
+        <span v-else>没有头像</span>
+      </div>
+
       欢迎：{{tbUser.nickname}}({{tbUser.username}})
+      注册日期：{{tbUser.lastupdate | formatDate('yyyy-MM-dd')}}
+      注册天数：{{userOtherInfo.regDays}}
+
+      <button @click="showModify">修改用户附加信息</button>
     </div>
+
+    <!-- 修改用户附加信息 -->
+    <div v-if="visible" class="modify-box">
+
+      <div>
+        性别：
+        <select v-model="modifyInfo.sex">
+          <option v-for="d in sexList" :value="d.value">
+            {{d.text}}
+          </option>
+        </select>
+        <br>
+        <input type="text" v-model="modifyInfo.nickname" placeholder="用户名">
+        <br>
+        <input type="text" v-model="modifyInfo.img" placeholder="用户头像url">
+        <br>
+        <input type="text" v-model="modifyInfo.qq" placeholder="qq号">
+        <br>
+        <input type="text" v-model="modifyInfo.wechat" placeholder="微信号">
+        <br>
+        <input type="text" v-model="modifyInfo.info" placeholder="简介">
+        <br>
+        <button @click="modify">保存</button>
+        <button @click="visible=false;">关闭</button>
+
+        <!-- <br>
+        {{modifyInfo}} -->
+
+      </div>
+
+    </div>
+
+
 
     <!-- <div>
       {{tbUser}}
       <hr>
       {{tbUserInfo}}
     </div> -->
+    <!-- {{userOtherInfo}} -->
 
   </div>
 
@@ -30,6 +78,7 @@
   <script src="../lib/spark-md5.min.js"></script>
   <script src="../lib/vue.min.js"></script>
   <script src="../js/ajax.js"></script>
+  <script src="../js/filters.js"></script>
 
   <script src="js/main.js"></script>
 

@@ -1,0 +1,30 @@
+.modify-box {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modify-box > div {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.logo {
+  width: 3rem;
+  border: 1px solid #dcdcdc;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+}
+
+.logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}

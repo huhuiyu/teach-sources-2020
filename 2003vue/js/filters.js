@@ -43,3 +43,10 @@ function copyJsonInfo(jsona, jsonb) {
     jsonb[key] = jsona[key];
   }
 }
+
+// 性别的列表
+const SEX_LIST = [
+  { value: 'm', text: '男' },
+  { value: 'f', text: '女' },
+  { value: 'n', text: '保密' },
+];
