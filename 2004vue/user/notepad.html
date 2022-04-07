@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>用户记事本</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <div>{{title}}</div>
+    <hr>
+    <!-- 添加的部分 -->
+    <div>
+      记事标题<input type="text" v-model="addInfo.title">
+      记事信息<input type="text" v-model="addInfo.info">
+      <button @click="add">添加</button>
+    </div>
+    <hr>
+
+    <!-- 作业2：同步完成用户地址簿功能 -->
+
+    <!-- 显示的部分 -->
+    <div>
+      {{list}}
+
+    </div>
+
+
+
+  </div>
+
+
+  <script src="../lib/axios.min.js"></script>
+  <script src="../lib/qs.min.js"></script>
+  <script src="../lib/spark-md5.min.js"></script>
+  <script src="../lib/vue.min.js"></script>
+  <script src="../js/ajax.js"></script>
+  <script src="../js/myfilters.js"></script>
+
+  <script src="js/notepad.js"></script>
+</body>
+
+</html>

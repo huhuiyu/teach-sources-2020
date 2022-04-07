@@ -19,6 +19,7 @@ new Vue({
     };
   },
   methods: {
+    // 作业一：绑定手机
     saveMail() {
       let app = this;
       ajax('/user/auth/updateUserEmail', app.mailInfo, function (data) {
