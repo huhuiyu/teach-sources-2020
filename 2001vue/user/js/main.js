@@ -19,6 +19,15 @@ new Vue({
     };
   },
   methods: {
+    saveEmail() {
+      let app = this;
+      ajax('/user/auth/updateUserEmail', app.mailInfo, function (data) {
+        alert(data.message);
+        if (data.success) {
+          app.queryUser();
+        }
+      });
+    },
     sendMailCode() {
       let app = this;
       ajax('/tool/sendEmailCode', app.mailInfo, function (data) {

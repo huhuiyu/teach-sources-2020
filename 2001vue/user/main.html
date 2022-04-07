@@ -19,6 +19,7 @@
       <span v-else>没有头像</span>
 
       欢迎：{{tbUser.nickname}}({{tbUser.username}})
+      --{{tbUserInfo.sex | sex}}
       (注册时间：
       {{tbUserInfo.lastupdate | formatDate('yyyy-MM-dd')}})
       (注册天数：{{userOtherInfo.regDays}})
@@ -84,7 +85,7 @@
       <input type="text" v-model="mailInfo.email" placeholder="邮箱">
       <button @click="sendMailCode">发送验证码</button>
       <input type="text" v-model="mailInfo.code" placeholder="验证码">
-      <button>保存</button>
+      <button @click="saveEmail">保存</button>
       {{mailInfo}}
       <button @click="mailVisible=false">取消</button>
     </div>
