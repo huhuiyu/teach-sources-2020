@@ -24,10 +24,13 @@
       </div>
 
       欢迎：{{tbUser.nickname}}({{tbUser.username}})
+      性别：{{tbUserInfo.sex | sex}}
       注册日期：{{tbUser.lastupdate | formatDate('yyyy-MM-dd')}}
       注册天数：{{userOtherInfo.regDays}}
 
       <button @click="showModify">修改用户附加信息</button>
+      <button @click="mailVisible=true">修改邮箱</button>
+
     </div>
 
     <!-- 修改用户附加信息 -->
@@ -59,6 +62,19 @@
 
       </div>
 
+    </div>
+
+    <!-- 修改邮箱信息 -->
+    <div v-if="mailVisible">
+      原邮箱：{{tbUserInfo.email}}
+      <br>
+      邮箱地址<input type="text" v-model="mailInfo.email">
+      <button @click="sendCode">发送验证码</button>
+      验证码<input type="text" v-model="mailInfo.code">
+      <button @click="saveMail">保存</button>
+      <button @click="mailVisible=false">关闭</button>
+
+      {{mailInfo}}
     </div>
 
 

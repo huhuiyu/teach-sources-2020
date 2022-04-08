@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>找回密码</title>
+</head>
+
+<body>
+  <div id="app">
+    <div>{{title}}</div>
+
+    <div>
+      登录名：<input type="text" v-model="info.username">
+      <a @click="sendCode" href="javascript:void(0)">发送验证码</a>
+      验证码：<input type="text" v-model="info.code">
+      新密码：<input type="text" v-model="info.password">
+      确认密码：<input type="text" v-model="pwd2">
+      <button @click="find">修改密码</button>
+      {{info}}==={{pwd2}}
+    </div>
+
+  </div>
+
+  <script src="../lib/axios.min.js"></script>
+  <script src="../lib/qs.min.js"></script>
+  <script src="../lib/spark-md5.min.js"></script>
+  <script src="../lib/vue.min.js"></script>
+  <script src="../js/ajax.js"></script>
+  <script src="../js/filters.js"></script>
+
+  <script src="js/findpwd.js"></script>
+</body>
+
+</html>

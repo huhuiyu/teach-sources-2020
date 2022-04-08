@@ -50,3 +50,14 @@ const SEX_LIST = [
   { value: 'f', text: '女' },
   { value: 'n', text: '保密' },
 ];
+
+// 性别显示的过滤器
+Vue.filter('sex', function (value) {
+  for (let i = 0; i < SEX_LIST.length; i++) {
+    let data = SEX_LIST[i];
+    if (data.value == value) {
+      return data.text;
+    }
+  }
+  return '性别数据错误';
+});

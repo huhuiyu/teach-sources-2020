@@ -11,9 +11,29 @@ new Vue({
       modifyInfo: {},
       // 性别列表
       sexList: SEX_LIST,
+      mailInfo: {
+        code: '',
+        email: '',
+      },
+      mailVisible: false,
     };
   },
   methods: {
+    saveMail() {
+      let app = this;
+      ajax('/user/auth/updateUserEmail', app.mailInfo, function (data) {
+        alert(data.message);
+        if (data.success) {
+          app.queryUser();
+        }
+      });
+    },
+    sendCode() {
+      let app = this;
+      ajax('/tool/sendEmailCode', app.mailInfo, function (data) {
+        alert(data.message);
+      });
+    },
     modify() {
       let app = this;
       ajax('/user/auth/updateUserInfo', app.modifyInfo, function (data) {
