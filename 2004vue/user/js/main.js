@@ -16,6 +16,9 @@ new Vue({
         code: '',
       },
       mailVisible: false,
+      // 功能列表
+      menus: [{ link: 'notepad.html'
+      , text: '我的记事本<br>哈哈哈<script>alert(1)</script>' }],
     };
   },
   methods: {

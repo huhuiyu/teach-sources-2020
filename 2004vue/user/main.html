@@ -32,6 +32,19 @@
 
       <button @click="logout">安全退出</button>
 
+      <hr>
+
+      <div class="menus">
+
+        <a v-for="d in menus" :href="d.link">
+          {{d.text}}
+          <span v-html="d.text"></span>
+        </a>
+
+      </div>
+
+
+
     </div>
 
     <!-- 修改邮箱 -->

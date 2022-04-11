@@ -32,3 +32,19 @@ body {
   width: 100%;
   height: auto;
 }
+
+/* 菜单超链接样式 */
+.menus {
+  margin: 1rem;
+  text-align: center;
+}
+
+.menus a {
+  display: inline-block;
+  margin: 0.5rem;
+  color: #ff0000;
+  text-decoration: none;
+}
+.menus a:hover {
+  text-decoration: underline;
+}
