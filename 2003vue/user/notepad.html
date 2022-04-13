@@ -11,7 +11,85 @@
 <body>
   <div id="app">
     <div>{{title}}</div>
-    
+    <div>{{message}}</div>
+
+    <!-- 查询的表单 -->
+    <div>
+      标题:<input type="text" v-model="queryInfo.title">
+      内容:<input type="text" v-model="queryInfo.info">
+      <button @click="query">查询</button>
+
+      <button @click="queryDelete">回收站</button>
+    </div>
+    <hr>
+
+    <!-- 添加的表单 -->
+    <div>
+      标题:<input type="text" v-model="addInfo.title">
+      内容:<input type="text" v-model="addInfo.info">
+      <button @click="add">添加</button>
+
+      <!-- {{addInfo}} -->
+    </div>
+
+    <!-- 显示的部分 -->
+    <table>
+      <thead>
+        <tr>
+          <th>标题</th>
+          <th>内容</th>
+          <th>信息修改时间</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr v-for="d in list">
+          <td>{{d.title}}</td>
+          <td>{{d.info}}</td>
+          <td>{{d.lastupdate | formatDate}}</td>
+          <td>
+            <button @click="showModi(d)">修改</button>
+            <button @click="del(d)">删除</button>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+
+
+    <div>
+
+      <!-- {{list}}
+      <br> -->
+      {{page}}
+    </div>
+
+    <!-- 修改的部分 -->
+    <div v-if="modifyVisible">
+
+      标题:<input type="text" v-model="modifyInfo.title">
+      内容:<input type="text" v-model="modifyInfo.info">
+
+      <button @click="modify">保存</button>
+      <button @click="modifyVisible=false">关闭</button>
+
+      <!-- {{modifyInfo}} -->
+    </div>
+
+    <hr>
+    <!-- 删除的信息显示部分 -->
+    <div v-if="deleteInfo.visible">
+
+      {{deleteInfo.list}}
+      <br>
+      {{deleteInfo.page}}
+      <br>
+      <button @click="deleteInfo.visible=false">
+        关闭
+      </button>
+
+    </div>
 
 
   </div>
