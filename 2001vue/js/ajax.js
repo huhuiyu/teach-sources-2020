@@ -39,8 +39,8 @@ let ajax = function (path, params, cb, method) {
     method: method,
     // token需要通过头信息传递
     headers: {
-      token: loadToken()
-    }
+      token: loadToken(),
+    },
   });
   // 应答结果的处理
   promise
@@ -58,3 +58,45 @@ let ajax = function (path, params, cb, method) {
       cb({ code: 500, success: false, message: '请求异常' });
     });
 };
+
+// ajax文件上传
+// 参数1：上传的文件
+// 参数2：请求的参数
+// 参数3：请求的回调处理function
+function upload(file, params, cb) {
+  // ajax文件上传必须使用FormData处理
+  let data = new FormData();
+  data.append('file', file);
+  // 处理请求参数
+  for (let key in params) {
+    data.append(key, params[key]);
+  }
+  // 发起请求
+  let promise = axios({
+    url: SERVER_BASE_URL + '/user/file/upload',
+    data: data,
+    method: 'post',
+    headers: {
+      token: loadToken(),
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+
+  // 应答结果的处理
+  promise
+    .then(function (resp) {
+      console.log('ajax请求结果：', resp);
+      // 保存token
+      saveToken(resp.data);
+      // 回调只需要应答的服务器端数据，不需要完整的resp信息
+      cb(resp.data);
+    })
+    // es6的箭头函数
+    .catch((error) => {
+      console.error('请求异常：', error);
+      // 定制错误请求信息
+      cb({ code: 500, success: false, message: '请求异常' });
+    });
+
+
+}

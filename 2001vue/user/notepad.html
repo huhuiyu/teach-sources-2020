@@ -73,7 +73,7 @@
     <div v-if="modifyVisible">
       标题：<input type="text" v-model="modifyInfo.title">
       内容：<input type="text" v-model="modifyInfo.info">
-      <button>保存</button>
+      <button @click="modify">保存</button>
       <button @click="modifyVisible=false;query();">关闭</button>
     </div>
 

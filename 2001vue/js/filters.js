@@ -59,3 +59,21 @@ Vue.filter('sex', function (value) {
   }
   return '性别值错误';
 });
+
+// 打开文件的方法
+// 第一个参数是文件选中后的回调处理function
+// 第二个参数是可选，文件类型过滤表达式
+function selectFile(cb, accept) {
+  // 创建文件表单元素
+  let file = document.createElement('input');
+  file.setAttribute('type', 'file');
+  if (accept) {
+    file.setAttribute('accept', accept);
+  }
+  // 监听文件选中值变化
+  file.addEventListener('change', function () {
+    cb(file.files[0]);
+  });
+
+  file.click();
+}
