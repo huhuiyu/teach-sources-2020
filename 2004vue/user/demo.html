@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文件上传基础知识</title>
+</head>
+
+<body>
+
+  <!-- 
+    如果表单要提交文件，method必须是post
+    enctype必须是multipart/form-data
+  -->
+  <form action="" method="post" enctype="multipart/form-data">
+
+    <label for="myfile">文件浏览</label>
+    <input id="myfile"  type="file" accept="image/*">
+  </form>
+  <!-- multipart/form-data -->
+  <!-- 自定义文件浏览界面 -->
+  <div>
+    <button id="btnFile">浏览文件</button>
+    
+  </div>
+
+  <script>
+    let btnFile = document.getElementById('btnFile')
+    btnFile.addEventListener('click',
+      function () {
+        // 虚拟文件表单元素
+        let file = document.createElement('input');
+        file.setAttribute('type', 'file');
+
+        file.addEventListener('change'
+          , function (ev) {
+            console.log('文件选择变化事件', ev);
+            // 如果触发了change事件，肯定有选中文件
+            // 可以通过file表单元素的files获取选中的文件列表
+            console.log(file.files);
+            // 查看文件的信息
+            console.log("单一文件信息："
+              ,file.files[0])
+
+          });
+
+        // 模拟点击（浏览文件动作）
+        file.click();
+
+      });
+
+  </script>
+</body>
+
+</html>

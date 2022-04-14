@@ -42,8 +42,8 @@ function ajax(path, params, cb, method) {
     method: method,
     // 请求头中的token
     headers: {
-      token: loadToken()
-    }
+      token: loadToken(),
+    },
   });
   // 处理应答结果
   promise
@@ -60,4 +60,47 @@ function ajax(path, params, cb, method) {
       // 伪造应答结果
       cb({ code: 500, success: false, message: '请求异常' });
     });
+}
+
+// 文件上传封装
+// 第一个参数是文件对象，
+// 第二个参数是请求的附加参数(不允许二级的json)
+// 第三个参数是请求的回调
+function upload(file, params, cb) {
+  // ajax请求需要FormData对象组织上传的信息
+  let data = new FormData();
+  // formdata对象可以附加文件信息
+  data.append('file', file);
+  // 附加参数
+  for (let key in params) {
+    data.append(key, params[key]);
+  }
+  // ajax上传
+  let promise = axios({
+    url: BASE_URL + '/user/file/upload',
+    method: 'post',
+    data: data,
+    headers: {
+      token: loadToken(),
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+
+  // 处理应答结果
+  promise
+    .then(function (resp) {
+      console.log('应答结果', resp);
+      // 保存token
+      saveToken(resp.data);
+      // 回调只需要服务器应答的数据
+      cb(resp.data);
+    })
+    // 箭头函数格式 function(err){}
+    .catch((err) => {
+      console.error(err);
+      // 伪造应答结果
+      cb({ code: 500, success: false, message: '请求异常' });
+    });
+
+  
 }
