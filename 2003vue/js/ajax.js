@@ -61,3 +61,38 @@ function ajax(url, params, cb, method) {
       cb({ code: 500, success: false, message: '请求错误' });
     });
 }
+
+// ajax的文件上传,1:文件，2：请求参数(只能是一级的json)，3：回调
+function upload(file, params, cb) {
+  // 文件上传需要FormData处理
+  let data = new FormData();
+  data.append('file', file);
+  for (let key in params) {
+    data.append(key, params[key]);
+  }
+  // 文件上传请求
+  let promise = axios({
+    url: BASE_URL + '/user/file/upload',
+    data: data,
+    method: 'post',
+    headers: {
+      token: loadToken(),
+      'Content-Type': 'multipart/form-data'
+    }
+  });
+  // 应答的回调处理
+  promise
+    .then(function (resp) {
+      // 成功调用的情况
+      console.log('ajax应答结果', resp);
+      // 保存token，data字段是服务器应答的数据
+      saveToken(resp.data);
+      // 回调处理
+      cb(resp.data);
+    })
+    .catch((err) => {
+      console.error('请求失败', err);
+      // 伪造错误应答回调
+      cb({ code: 500, success: false, message: '请求错误' });
+    });
+}

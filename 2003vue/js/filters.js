@@ -48,7 +48,7 @@ function copyJsonInfo(jsona, jsonb) {
 const SEX_LIST = [
   { value: 'm', text: '男' },
   { value: 'f', text: '女' },
-  { value: 'n', text: '保密' },
+  { value: 'n', text: '保密' }
 ];
 
 // 性别显示的过滤器
@@ -61,3 +61,21 @@ Vue.filter('sex', function (value) {
   }
   return '性别数据错误';
 });
+
+// 选择文件功能
+function chooseFile(cb, accept) {
+  // 创建文件选择的表单元素
+  let efile = document.createElement('input');
+  efile.setAttribute('type', 'file');
+  if (accept) {
+    efile.setAttribute('accept', accept);
+  }
+  // 监听文件选择变化
+  efile.addEventListener('change', function () {
+    console.log('选中的文件列表', efile.files);
+    cb(efile.files[0]);
+  });
+
+  // 触发文件选择
+  efile.click();
+}
