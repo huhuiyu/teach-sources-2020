@@ -79,3 +79,39 @@ function openFile(cb, accept) {
   });
   file.click();
 }
+
+// 复制文本到剪贴板
+function copyText(text) {
+  // 创建文本框并设置内容
+  let input = document.createElement('input');
+  input.value = text;
+  // input.readOnly = 'readonly';
+  // 添加到页面并全选
+  document.body.appendChild(input);
+  input.focus();
+  input.select();
+  input.setSelectionRange(0, input.value.length); //兼容苹果
+  // 调用浏览器的复制功能并移除文本框
+  document.execCommand('Copy');
+  document.body.removeChild(input);
+}
+
+// 预览图片（获取图片信息）,参数一是文件对象，参数二是读取完成后的回调
+function loadImageData(file, cb) {
+  if (!file) {
+    cb('');
+    return;
+  }
+  if (file.type.substr(0, 6) != 'image/') {
+    cb('');
+    return;
+  }
+  // 读取图片文件内容
+  let fr = new FileReader();
+  // 监听文件读取完成事件
+  fr.addEventListener('load', function () {
+    cb(fr.result);
+  });
+  // 读取
+  fr.readAsDataURL(file);
+}

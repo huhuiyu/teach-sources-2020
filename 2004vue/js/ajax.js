@@ -101,6 +101,9 @@ function upload(file, params, cb) {
       // 伪造应答结果
       cb({ code: 500, success: false, message: '请求异常' });
     });
+}
 
-  
+// 获取文件下载地址，参数是文件的id
+function getDownloadUrl(fid) {
+  return BASE_URL + '/user/file/download?fid=' + fid;
 }
