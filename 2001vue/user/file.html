@@ -19,10 +19,53 @@
       <input type="text" v-model="fileinfo">
 
       <button :disabled="!file" @click="uploadFile">文件上传</button>
+
+      <span v-if="imgdata.length>0">
+        <img style="width:5rem" :src="imgdata" alt="">
+      </span>
+
     </div>
 
     <div v-if="loading">文件上传中，请稍侯...</div>
+    <hr>
+    <!-- 显示的部分 -->
+    <table>
+      <thead>
+        <tr>
+          <th>文件名</th>
+          <th>文件类型</th>
+          <th>文件大小</th>
+          <th>文件描述</th>
+          <th>上传时间</th>
+          <th>操作</th>
+        </tr>
+      </thead>
 
+      <tbody>
+        <tr v-for="d in list">
+          <td>{{d.filename}}</td>
+          <td>{{d.contentType}}</td>
+          <!-- 将文件大小通过filter转换kb/mb/gb，小数位保留两位 -->
+          <td>{{d.fileSize}}</td>
+          <td>{{d.fileinfo}}</td>
+          <td>{{d.lastupdate | formatDate}}</td>
+          <td>
+            <button @click="copyUrl(d)">复制文件链接</button>
+            <button @click="download(d)">下载</button>
+            <button @click="del(d)">删除</button>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+
+    <div>
+      <!-- {{list}}
+      <br> -->
+      <!-- {{page}} -->
+
+      <!-- <img src="https://huhuiyu.top/teach_project_service/user/file/download?fid=167" alt=""> -->
+    </div>
 
 
   </div>

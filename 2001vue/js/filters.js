@@ -77,3 +77,39 @@ function selectFile(cb, accept) {
 
   file.click();
 }
+
+// 复制文本到剪贴板
+function copyText(text) {
+  // 创建文本框，并设置值为传入的text
+  let input = document.createElement('input');
+  input.readOnly = 'readonly';
+  input.value = text;
+  // 追加到页面并选择文本
+  document.body.appendChild(input);
+  input.focus();
+  input.select();
+  input.setSelectionRange(0, input.value.length); // 苹果兼容代码
+  // 调用浏览器复制指令
+  document.execCommand('Copy');
+  // 移除元素
+  document.body.removeChild(input);
+}
+
+// 图片文件预览，参数一是文件对象，参数二，读取完成的回调function
+function readImageFile(file, cb) {
+  if (!file) {
+    cb('');
+    return;
+  }
+  if (file.type.substr(0, 6) != 'image/') {
+    cb('');
+    return;
+  }
+  let reader = new FileReader();
+  // 监听文件是否读取完毕
+  reader.addEventListener('load', function () {
+    cb(reader.result);
+  });
+  // 读取文件为图片的dataurl
+  reader.readAsDataURL(file);
+}

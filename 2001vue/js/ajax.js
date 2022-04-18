@@ -64,6 +64,14 @@ let ajax = function (path, params, cb, method) {
 // 参数2：请求的参数
 // 参数3：请求的回调处理function
 function upload(file, params, cb) {
+  if (!file) {
+    cb({ code: 500, success: false, message: '请选择文件' });
+    return;
+  }
+  if (file.size >= 2 * 1024 * 1024) {
+    cb({ code: 500, success: false, message: '文件太大' });
+    return;
+  }
   // ajax文件上传必须使用FormData处理
   let data = new FormData();
   data.append('file', file);
@@ -97,6 +105,8 @@ function upload(file, params, cb) {
       // 定制错误请求信息
       cb({ code: 500, success: false, message: '请求异常' });
     });
+}
 
-
+function getDownloadUrl(fid) {
+  return SERVER_BASE_URL + '/user/file/download?fid=' + fid;
 }
