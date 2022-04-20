@@ -42,8 +42,8 @@ function ajax(url, params, cb, method) {
     method: method,
     // token要通过请求头传递
     headers: {
-      token: loadToken()
-    }
+      token: loadToken(),
+    },
   });
   // 应答的回调处理
   promise
@@ -77,8 +77,8 @@ function upload(file, params, cb) {
     method: 'post',
     headers: {
       token: loadToken(),
-      'Content-Type': 'multipart/form-data'
-    }
+      'Content-Type': 'multipart/form-data',
+    },
   });
   // 应答的回调处理
   promise
@@ -95,4 +95,9 @@ function upload(file, params, cb) {
       // 伪造错误应答回调
       cb({ code: 500, success: false, message: '请求错误' });
     });
+}
+
+// 获取下载的链接地址
+function getDownloadUrl(fid) {
+  return BASE_URL + '/user/file/download?fid=' + fid;
 }

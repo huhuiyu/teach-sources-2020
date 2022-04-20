@@ -13,16 +13,70 @@
   <div id="app">
     <div>{{title}}</div>
 
+    <div>
+
+      文件类型<input type="text" v-model="queryInfo.contentType">
+      文件名<input type="text" v-model="queryInfo.filename">
+      文件描述 <input type="text" v-model="queryInfo.fileinfo">
+      <button @click="query">查询</button>
+    </div>
+
     <div v-if="!loading">
       <button @click="openFile">文件浏览...</button>
       <span v-if="file">{{file.name}}</span>
       <input type="text" v-model="fileinfo">
       <button :disabled="!file" @click="uploadFile">上传</button>
+
+      <span v-if="imagedata.length>0">
+        <img style="height: 5rem;" :src="imagedata" alt="">
+      </span>
+
     </div>
 
     <div v-if="loading">
       文件上传中，请稍候...
     </div>
+
+    <!-- 文件呈现 -->
+    <div>
+      <table>
+
+        <thead>
+          <tr>
+            <th>文件名</th>
+            <th>文件类型</th>
+            <th>文件大小</th>
+            <th>文件描述</th>
+            <th>上传时间</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr v-for="d in list">
+            <td>{{d.filename}}</td>
+            <td>{{d.contentType}}</td>
+            <td>{{d.fileSize}}</td>
+            <td>{{d.fileinfo}}</td>
+            <td>{{d.lastupdate}}</td>
+            <td>
+              <button @click="download(d)">下载</button>
+              <button @click="copyLink(d)">复制链接</button>
+              <button @click="del(d)">删除</button>
+            </td>
+          </tr>
+        </tbody>
+
+
+      </table>
+
+      <!-- {{list}} -->
+      <br>
+      {{page}}
+
+    </div>
+
+    <!-- <img style="width: 10rem;" src="https://huhuiyu.top/teach_project_service/user/file/download?fid=167" alt=""> -->
 
 
   </div>

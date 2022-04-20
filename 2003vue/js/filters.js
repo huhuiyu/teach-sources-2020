@@ -48,7 +48,7 @@ function copyJsonInfo(jsona, jsonb) {
 const SEX_LIST = [
   { value: 'm', text: '男' },
   { value: 'f', text: '女' },
-  { value: 'n', text: '保密' }
+  { value: 'n', text: '保密' },
 ];
 
 // 性别显示的过滤器
@@ -78,4 +78,42 @@ function chooseFile(cb, accept) {
 
   // 触发文件选择
   efile.click();
+}
+
+// 复制文本到剪贴板
+function copyText(info) {
+  // 第一步伪造文本框并设置传入的文本为输入值
+  let input = document.createElement('input');
+  input.value = info;
+  // 添加到页面上并设置焦点并选中输入的内容
+  document.body.appendChild(input);
+  input.focus();
+  input.select();
+  input.setSelectionRange(0, input.value.length); // 苹果系统兼容
+  // 调用浏览器复制功能（这个方法已经过时）
+  document.execCommand('Copy');
+  // 移除文本框
+  document.body.removeChild(input);
+}
+
+// 读取图片,第一个参数是文件，第二个参数的是回调
+function readImage(file, cb) {
+  if (!file) {
+    cb('');
+    return;
+  }
+  // 必须是图片
+  if (file.type.substr(0, 6) != 'image/') {
+    cb('');
+    return;
+  }
+  // 读取图片
+  let fr = new FileReader();
+  // 监听读取完成事件
+  fr.addEventListener('load', function () {
+    // result属性就是读取的结果
+    cb(fr.result);
+  });
+  // 启动读取
+  fr.readAsDataURL(file);
 }
