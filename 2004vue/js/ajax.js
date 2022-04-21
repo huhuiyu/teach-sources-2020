@@ -107,3 +107,7 @@ function upload(file, params, cb) {
 function getDownloadUrl(fid) {
   return BASE_URL + '/user/file/download?fid=' + fid;
 }
+
+function getAccessKey() {
+  return '76cb360d-256b-4660-8e13-ab4e3ae9f874';
+}

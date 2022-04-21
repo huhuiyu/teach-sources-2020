@@ -15,7 +15,15 @@
     <div>{{title}}</div>
     <!-- 查询的表单部分 -->
     <div>
-      类型：<input type="text" v-model="queryInfo.contentType">
+      类型：
+      <select v-model="queryInfo.contentType">
+        <option v-for="d in types" :value="d.value">
+          {{d.text}}
+        </option>
+      </select>
+      <!-- <input type="text" v-model="queryInfo.contentType"> -->
+
+
       描述：<input type="text" v-model="queryInfo.fileinfo">
       名称：<input type="text" v-model="queryInfo.filename">
       <button @click="page.pageNumber=1;query();">查询</button>
@@ -71,6 +79,9 @@
               <button @click="copyLink(d)">复制地址</button>
               <button @click="download(d)">下载</button>
               <button @click="del(d)">删除</button>
+              <button v-if="isImg(d)" @click="showImg(d)">
+                预览
+              </button>
             </td>
           </tr>
         </tbody>
@@ -84,6 +95,12 @@
     <!-- <div>
       <img src="https://huhuiyu.top/teach_project_service/user/file/download?fid=167" alt="">
     </div> -->
+
+    <div v-if="preimg.length>0">
+      <img style="width: 15rem;" :src="preimg" alt="">
+    </div>
+
+
 
 
   </div>

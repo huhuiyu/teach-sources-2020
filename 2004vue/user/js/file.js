@@ -14,12 +14,21 @@ new Vue({
         fileinfo: '',
         filename: '',
       },
+      types: FILE_TYPES,
       list: [],
       // 预览图片数据
       imgdata: '',
+      // 上传的图片预览
+      preimg: '',
     };
   },
   methods: {
+    showImg(info) {
+      app.preimg = getDownloadUrl(info.fid);
+    },
+    isImg(info) {
+      return info.contentType.substr(0, 6) == 'image/';
+    },
     del(info) {
       if (confirm('是否删除文件：' + info.filename)) {
         ajax(

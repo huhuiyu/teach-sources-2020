@@ -115,3 +115,12 @@ function loadImageData(file, cb) {
   // 读取
   fr.readAsDataURL(file);
 }
+
+// 文件类型过滤
+const FILE_TYPES = [
+  { value: '', text: '全部类型' },
+  { value: 'image/', text: '图片' },
+  { value: 'audio/', text: '音频' },
+  { value: 'video/', text: '视频' },
+  { value: 'text/', text: '文本' },
+];
