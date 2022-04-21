@@ -13,6 +13,25 @@
   <div id="app">
     <div>{{title}}</div>
 
+    <!-- 查询的部分 -->
+    <div>
+      文件类型：
+      <!-- <input type="text" v-model="queryInfo.contentType"> -->
+      <select v-model="queryInfo.contentType">
+        <option v-for="d in types" :value="d.value">
+          {{d.text}}
+        </option>
+      </select>
+
+      文件描述：
+      <input type="text" v-model="queryInfo.fileinfo">
+      文件名称：
+      <input type="text" v-model="queryInfo.filename">
+
+      <button @click="query">查询</button>
+    </div>
+
+
     <div v-if="!loading">
       <button @click="openFile">选择文件...</button>
       <span v-if="file">{{file.name}}</span>
@@ -53,18 +72,36 @@
             <button @click="copyUrl(d)">复制文件链接</button>
             <button @click="download(d)">下载</button>
             <button @click="del(d)">删除</button>
+
+            <!-- {{isImg(d)}} -->
+
+            <button v-if="isImg(d)" @click="showImg(d)">预览</button>
+
           </td>
         </tr>
       </tbody>
 
+      <!-- 
+        1:选择文件对话框，选文件
+        2:上传文件就会获取到文件的fid
+        3:通过id获取完整的地址赋值给用户信息的img字段
+        4:修改用户信息
+      -->
+
     </table>
 
     <div>
-      <!-- {{list}}
+      <!-- 
+        {{list}}
       <br> -->
-      <!-- {{page}} -->
+      {{page}}
 
       <!-- <img src="https://huhuiyu.top/teach_project_service/user/file/download?fid=167" alt=""> -->
+    </div>
+
+
+    <div v-if="preimg.length>0">
+      <img style="width:15rem" :src="preimg" alt="">
     </div>
 
 

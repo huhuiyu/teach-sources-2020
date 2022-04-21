@@ -17,9 +17,20 @@ new Vue({
         filename: '',
       },
       list: [],
+      types: TYPE_LIST,
+      // 上传文件的预览功能
+      preimg: '',
     };
   },
   methods: {
+    // 判断是否为图片
+    isImg(info) {
+      return info.contentType.substr(0, 6) == 'image/';
+    },
+    // 预览上传的图片
+    showImg(info) {
+      app.preimg = getDownloadUrl(info.fid);
+    },
     copyUrl(info) {
       let url = getDownloadUrl(info.fid);
       copyText(url);

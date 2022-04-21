@@ -113,3 +113,12 @@ function readImageFile(file, cb) {
   // 读取文件为图片的dataurl
   reader.readAsDataURL(file);
 }
+
+// 文件类型的列表
+let TYPE_LIST = [
+  { value: '', text: '全部类型' },
+  { value: 'image/', text: '图片' },
+  { value: 'audio/', text: '音频' },
+  { value: 'video/', text: '视频' },
+  { value: 'text/', text: '文本' },
+];
