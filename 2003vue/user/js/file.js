@@ -17,9 +17,19 @@ new Vue({
       list: [],
       // 打开的图片预览
       imagedata: '',
+      // 类型列表
+      types: TYPE_LIST,
+      // 上传的文件预览
+      preimg: '',
     };
   },
   methods: {
+    showImg(info) {
+      app.preimg = getDownloadUrl(info.fid);
+    },
+    isImg(info) {
+      return info.contentType.substr(0, 6) == 'image/';
+    },
     del(info) {
       if (confirm('是否删除文件：' + info.filename)) {
         ajax('/user/file/delete', { fid: info.fid }, function (data) {
@@ -81,6 +91,7 @@ new Vue({
       // , 'images/*'
     },
   },
+
   created() {
     app = this;
 

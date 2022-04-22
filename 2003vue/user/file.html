@@ -15,7 +15,15 @@
 
     <div>
 
-      文件类型<input type="text" v-model="queryInfo.contentType">
+      文件类型
+
+      <!-- <input type="text" v-model="queryInfo.contentType"> -->
+      <select v-model="queryInfo.contentType">
+        <option v-for="d in types" :value="d.value">
+          {{d.text}}
+        </option>
+      </select>
+
       文件名<input type="text" v-model="queryInfo.filename">
       文件描述 <input type="text" v-model="queryInfo.fileinfo">
       <button @click="query">查询</button>
@@ -63,6 +71,9 @@
               <button @click="download(d)">下载</button>
               <button @click="copyLink(d)">复制链接</button>
               <button @click="del(d)">删除</button>
+              <!-- {{ isImg(d) }} -->
+              <button v-if="isImg(d)" @click="showImg(d)">预览</button>
+
             </td>
           </tr>
         </tbody>
@@ -77,6 +88,12 @@
     </div>
 
     <!-- <img style="width: 10rem;" src="https://huhuiyu.top/teach_project_service/user/file/download?fid=167" alt=""> -->
+
+    <div v-if="preimg.length>0">
+      <img style="height: 15rem;" :src="preimg" alt="">
+    </div>
+
+
 
 
   </div>
