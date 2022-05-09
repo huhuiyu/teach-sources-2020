@@ -13,3 +13,5 @@
   - [2001班-vue](/2001vue/)
   - [2004班-vue](/2004vue/)
   - [2003班-vue](/2003vue/)
+  - [2001班-vue客户端项目](/2001-vuecli-projects/vue-router-vuex/)
+  - [2004班-vue客户端项目](/2004-vuecli-projects/vuecli-router-vuex/)
