@@ -1,5 +1,5 @@
 <template>
-  <div> 网站建设中。。 </div>
+  <div> 黑暗骑士的vue脚手架项目11 </div>
 </template>
 
 <script>
