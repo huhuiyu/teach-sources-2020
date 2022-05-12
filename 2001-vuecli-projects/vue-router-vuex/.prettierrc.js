@@ -9,6 +9,6 @@ module.exports = {
   proseWrap: 'preserve',
   // json自动补逗号
   trailingComma: 'es5',
-  // 自动确定换行字符
-  endOfLine: 'auto',
+  // 换行符为windows版本
+  endOfLine: 'crlf',
 }

@@ -18,6 +18,11 @@ const routes = [
     name: 'Test01',
     component: () => import('../views/Test01View.vue'),
   },
+  {
+    path: '/test/ajax',
+    name: 'TestAjax',
+    component: () => import('../views/TestAjaxView.vue'),
+  },
 ]
 
 const router = new VueRouter({
