@@ -7,6 +7,7 @@
     <div class="main">{{ title }}</div>
     <div>
       <button @click="test">测试</button>
+      <el-button type="primary">饿了么按钮</el-button>
     </div>
   </div>
 </template>
