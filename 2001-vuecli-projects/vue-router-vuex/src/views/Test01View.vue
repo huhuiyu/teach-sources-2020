@@ -6,6 +6,7 @@
   <div>
     <div class="main">{{ title }}</div>
     <button @click="test">测试</button>
+    <el-button type="danger">饿了么按钮</el-button>
     <input type="text" v-model="info" placeholder="需要md5加密的字符" />
     md5加密结果：{{ md5info }}
   </div>
