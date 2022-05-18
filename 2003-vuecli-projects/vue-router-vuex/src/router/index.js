@@ -25,6 +25,16 @@ const routes = [
     name: 'TestAjax',
     component: () => import('../views/TestAjaxView.vue'),
   },
+  {
+    path: '/user/login',
+    name: 'UserLoginView',
+    component: () => import('../views/user/LoginView.vue'),
+  },
+  {
+    path: '/user/main',
+    name: 'UserMainView',
+    component: () => import('../views/user/MainView.vue'),
+  },
 ]
 
 const router = new VueRouter({
