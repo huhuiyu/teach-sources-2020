@@ -5,7 +5,7 @@
       <span>{{ title }}</span>
     </div>
     <!-- 菜单列表 -->
-    <div>
+    <div class="menus">
       <!-- 脚手架的v-for需要一个不重复的key属性 -->
       <a v-for="d in menus" :key="d.url" @click="toPage(d.url)" href="javascript:void(0)">
         {{ d.text }}
@@ -24,6 +24,8 @@ export default {
         { url: '/test', text: '基本测试页' },
         { url: '/test/ajax', text: 'ajax测试页' },
         { url: '/user/login', text: '用户登录' },
+        { url: '/user/main', text: '用户首页' },
+        { url: '/user/reg', text: '用户注册' },
       ],
     }
   },
@@ -35,3 +37,10 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.menus a {
+  display: inline-block;
+  margin: 1rem;
+}
+</style>

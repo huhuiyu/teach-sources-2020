@@ -36,6 +36,10 @@ export default {
           text: '用户首页',
           url: '/user/main',
         },
+        {
+          text: '用户注册',
+          url: '/user/reg',
+        },
       ],
     }
   },
