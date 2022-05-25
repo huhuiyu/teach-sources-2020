@@ -20,6 +20,7 @@ export default {
         { path: '/test', info: '基本测试页' },
         { path: '/test/ajax', info: 'ajax测试页' },
         { path: '/user/login', info: '用户登录' },
+        { path: '/user/reg', info: '用户注册' },
       ],
     }
   },

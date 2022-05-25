@@ -1,20 +1,26 @@
 <template>
   <div>
-    <div>
+    <div class="top-box">
       <div>{{ title }}</div>
       <div>
-        <el-dropdown split-button type="primary">
-          更多菜单
+        <el-dropdown @command="handlerCommand" split-button type="primary">
+          <i class="iconfont">&#xe602;</i>
+
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>黄金糕</el-dropdown-item>
-            <el-dropdown-item>狮子头</el-dropdown-item>
-            <el-dropdown-item>螺蛳粉</el-dropdown-item>
-            <el-dropdown-item>双皮奶</el-dropdown-item>
-            <el-dropdown-item>蚵仔煎</el-dropdown-item>
+            <el-dropdown-item>
+              {{ tbUser.username }}
+              ({{ tbUser.nickname }})
+            </el-dropdown-item>
+            <el-dropdown-item>{{ tbUser.accessKey }}</el-dropdown-item>
+
+            <el-dropdown-item command="modify" divided>修改基本信息</el-dropdown-item>
+
+            <el-dropdown-item command="logout" divided>安全退出</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </div>
     </div>
+
     <div>
       {{ tbUser }}
       <hr />
@@ -39,6 +45,20 @@ export default {
   },
   computed: {},
   methods: {
+    // 下拉菜单的处理事件
+    handlerCommand(command) {
+      // 对command判定
+      if ('logout' == command) {
+        // 执行安全退出动作
+        tools.ajax('/user/auth/logout', {}, () => {
+          app.$router.push('/user/login')
+        })
+      } else if ('modify' == command) {
+        app.showModify()
+      }
+    },
+    // 显示修改基本信息
+    showModify() {},
     queryUser() {
       tools.ajax('/user/auth/getUserInfo', {}, (data) => {
         if (data.success) {
@@ -58,3 +78,16 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.top-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+/* 所有的饿了么组件都有一个同名的class，方便修改样式 */
+.el-dropdown .iconfont {
+  font-size: 0.9em;
+}
+</style>

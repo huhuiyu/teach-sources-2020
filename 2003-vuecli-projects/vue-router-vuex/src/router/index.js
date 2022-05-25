@@ -35,6 +35,11 @@ const routes = [
     name: 'UserMainView',
     component: () => import('../views/user/MainView.vue'),
   },
+  {
+    path: '/user/reg',
+    name: 'UserRegView',
+    component: () => import('../views/user/RegView.vue'),
+  },
 ]
 
 const router = new VueRouter({
