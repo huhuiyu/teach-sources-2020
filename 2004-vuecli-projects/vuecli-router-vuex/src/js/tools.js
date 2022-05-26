@@ -130,6 +130,22 @@ let tools = {
   getAccessKey() {
     return '76cb360d-256b-4660-8e13-ab4e3ae9f874'
   },
+
+  // 合并任意数量的json对象
+  concatJson() {
+    // 不定数量参数
+    console.log('参数数组：', arguments)
+    let result = {}
+    for (let i = 0; i < arguments.length; i++) {
+      // 参数循环，逐个获取json参数
+      let info = JSON.parse(JSON.stringify(arguments[i]))
+      // json循环
+      for (let key in info) {
+        result[key] = info[key]
+      }
+    }
+    return result
+  },
 }
 
 export default tools

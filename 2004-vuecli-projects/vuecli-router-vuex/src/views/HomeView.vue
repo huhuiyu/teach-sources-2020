@@ -26,6 +26,7 @@ export default {
         { url: '/user/login', text: '用户登录' },
         { url: '/user/main', text: '用户首页' },
         { url: '/user/reg', text: '用户注册' },
+        { url: '/user/note', text: '用户记事本' },
       ],
     }
   },

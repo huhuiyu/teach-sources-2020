@@ -1,7 +1,10 @@
 <template>
   <div>
     <div class="top-box">
-      <span>{{ title }}</span>
+      <span v-if="tbUserInfo.img">
+        <img :src="tbUserInfo.img" alt="" />
+      </span>
+      <span v-else>{{ title }}</span>
       <div>
         <el-dropdown @command="handelCommand" split-button type="primary">
           <i class="iconfont">&#xe6c3;</i>
@@ -30,14 +33,40 @@
     </div>
     <!-- 基本信息修改对话框 -->
     <div>
-      <el-dialog :visible.sync="modifyVisible">
+      <el-dialog :visible.sync="modifyVisible" :close-on-click-modal="false" @closed="queryUserInfo">
         <!-- 标题 -->
         <div slot="title">修改用户信息</div>
         <!-- 主体 -->
-        <div>修改表单：{{ modifyInfo }}</div>
+        <div>
+          <!-- 修改表单：{{ modifyInfo }} -->
+          <el-form>
+            <el-form-item>
+              <el-input v-model="modifyInfo.nickname" placeholder="用户名"></el-input>
+            </el-form-item>
+            <el-form-item>
+              <el-input v-model="modifyInfo.img" placeholder="头像url"></el-input>
+            </el-form-item>
+            <el-form-item>
+              <el-input v-model="modifyInfo.qq" placeholder="qq"></el-input>
+            </el-form-item>
+            <el-form-item>
+              <el-input v-model="modifyInfo.wechat" placeholder="微信"></el-input>
+            </el-form-item>
+            <el-form-item>
+              <el-radio-group v-model="modifyInfo.sex">
+                <el-radio label="m">男</el-radio>
+                <el-radio label="f">女</el-radio>
+                <el-radio label="n">保密</el-radio>
+              </el-radio-group>
+            </el-form-item>
+            <el-form-item>
+              <el-input type="textarea" v-model="modifyInfo.info" placeholder="简介"></el-input>
+            </el-form-item>
+          </el-form>
+        </div>
         <!-- 脚部 -->
         <div slot="footer">
-          <el-button type="primary">保存</el-button>
+          <el-button @click="modify" type="primary">保存</el-button>
           <el-button @click="modifyVisible = false" type="danger">关闭</el-button>
         </div>
       </el-dialog>
@@ -78,7 +107,18 @@ export default {
       }
     },
     showModify() {
+      let info = JSON.parse(JSON.stringify(app.tbUserInfo))
+      info.nickname = app.tbUser.nickname + ''
+      delete info.email
+      delete info.phone
+      app.modifyInfo = info
+
       app.modifyVisible = true
+    },
+    modify() {
+      tools.ajax('/user/auth/updateUserInfo', app.modifyInfo, (data) => {
+        app.$alert(data.message)
+      })
     },
     logout() {
       tools.ajax('/user/auth/logout', {}, () => {
@@ -118,5 +158,9 @@ export default {
 /* 饿了么所有的组件都是有一个同名class可以修改样式 */
 .el-dropdown .iconfont {
   font-size: 0.9em;
+}
+
+.top-box img {
+  height: 2rem;
 }
 </style>
