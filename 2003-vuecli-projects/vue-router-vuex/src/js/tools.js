@@ -112,6 +112,25 @@ let tools = {
   getAccessKey() {
     return '76cb360d-256b-4660-8e13-ab4e3ae9f874'
   },
+  // 合并任意数量的json对象
+  concatJson() {
+    // 不固定数量的参数可以通过arguments内置对象获取到
+    // 该对象为数组，数量就是参数的个数
+    let args = arguments
+    console.log('方法参数数组：', args)
+    let result = {}
+    // 循环获取参数
+    for (let i = 0; i < args.length; i++) {
+      let json = args[i]
+      console.log('参数' + i, json)
+      // 复制信息
+      for (let key in json) {
+        // json的a.b可以写成a['b']
+        result[key] = json[key]
+      }
+    }
+    return result
+  },
 }
 
 // 导出对象供其它js文件引用

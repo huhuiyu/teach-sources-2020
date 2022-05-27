@@ -21,6 +21,7 @@ export default {
         { path: '/test/ajax', info: 'ajax测试页' },
         { path: '/user/login', info: '用户登录' },
         { path: '/user/reg', info: '用户注册' },
+        { path: '/user/note', info: '用户记事本' },
       ],
     }
   },
