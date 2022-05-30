@@ -40,6 +40,10 @@ export default {
           text: '用户注册',
           url: '/user/reg',
         },
+        {
+          text: '用户记事本',
+          url: '/user/note',
+        },
       ],
     }
   },

@@ -38,6 +38,11 @@ const routes = [
     name: 'UserRegView',
     component: () => import('../views/user/RegView.vue'),
   },
+  {
+    path: '/user/note',
+    name: 'UserNoteView',
+    component: () => import('../views/user/NoteView.vue'),
+  },
 ]
 
 const router = new VueRouter({

@@ -7,6 +7,9 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(ElementUI)
 
+// 导入自定义的filter
+import '@/filters/myfilters'
+
 Vue.config.productionTip = false
 
 new Vue({

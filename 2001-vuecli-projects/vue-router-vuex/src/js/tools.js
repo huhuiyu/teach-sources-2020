@@ -132,6 +132,21 @@ let tools = {
   getAccessKey() {
     return '76cb360d-256b-4660-8e13-ab4e3ae9f874'
   },
+  // 合并json对象（任意数量）
+  concatJson() {
+    console.log('参数列表(数组)：', arguments)
+    let result = {}
+    // 循环获取参数的json对象
+    for (let i = 0; i < arguments.length; i++) {
+      let json = arguments[i]
+      console.log('json参数' + i, json)
+      // 复制json数据
+      for (let key in json) {
+        result[key] = json[key]
+      }
+    }
+    return result
+  },
 }
 
 // 必须导出一个js对象
