@@ -8,6 +8,9 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(ElementUI)
 
+// 导入过滤器 路径@符号表示src目录
+import '@/filters/myfilters'
+
 Vue.config.productionTip = false
 
 new Vue({
