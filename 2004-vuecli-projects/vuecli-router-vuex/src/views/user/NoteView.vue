@@ -38,6 +38,26 @@
       </el-dialog>
     </div>
 
+    <!-- 修改的对话框 -->
+    <div>
+      <el-dialog title="修改信息" :visible.sync="modifyVisible" :close-on-click-modal="false" @closed="requery">
+        <div v-loading="loading">
+          <el-form>
+            <el-form-item>
+              <el-input v-model="modifyInfo.title" placeholder="标题"></el-input>
+            </el-form-item>
+            <el-form-item>
+              <el-input v-model="modifyInfo.info" placeholder="内容"></el-input>
+            </el-form-item>
+          </el-form>
+        </div>
+        <div v-loading="loading" slot="footer">
+          <el-button @click="modify" type="primary">保存</el-button>
+          <el-button @click="modifyVisible = false" type="danger">关闭</el-button>
+        </div>
+      </el-dialog>
+    </div>
+
     <!-- 数据呈现 -->
     <div v-loading="loading">
       <el-table :data="list" stripe>
@@ -50,17 +70,16 @@
             {{ scope.row.lastupdate | formatDate }}
           </template>
         </el-table-column>
+        <el-table-column label="操作">
+          <template slot-scope="s">
+            <el-button type="primary" size="small" @click="showMidify(s.row)">修改</el-button>
+            <el-button type="danger" size="small" @click="del(s.row)">删除</el-button>
+          </template>
+        </el-table-column>
       </el-table>
 
       <!-- 分页 -->
-      <el-pagination 
-        :total="page.total" 
-        :current-page.sync="page.pageNumber" 
-        :page-size.sync="page.pageSize" 
-        @current-change="query" 
-        @size-change="query" 
-        :page-sizes="[5, 10, 20]" 
-        layout="prev,pager,next,total,sizes,jumper"></el-pagination>
+      <el-pagination :total="page.total" :current-page.sync="page.pageNumber" :page-size.sync="page.pageSize" @current-change="query" @size-change="query" :page-sizes="[5, 10, 20]" layout="prev,pager,next,total,sizes,jumper"></el-pagination>
 
       {{ page }}
       <!-- <br />
@@ -89,9 +108,45 @@ export default {
         title: '',
       },
       addVisible: false,
+      // 修改的部分
+      modifyInfo: {},
+      modifyVisible: false,
     }
   },
   methods: {
+    del(info) {
+      app
+        .$confirm('是否删除：' + info.title, '删除信息', {
+          type: 'warning',
+        })
+        .then(() => {
+          app.loading = true
+          tools.ajax(
+            '/user/note/delete',
+            {
+              unid: info.unid,
+            },
+            (data) => {
+              app.loading = false
+              app.$alert(data.message, '信息', { callback: app.query })
+              // .then(app.query)
+              // .catch(() => {})
+            }
+          )
+        })
+        .catch(() => {})
+    },
+    showMidify(info) {
+      app.modifyInfo = tools.concatJson(info)
+      app.modifyVisible = true
+    },
+    modify() {
+      app.loading = true
+      tools.ajax('/user/note/update', app.modifyInfo, (data) => {
+        app.loading = false
+        app.$alert(data.message)
+      })
+    },
     requery() {
       // 回到第一页查询
       app.page.pageNumber = 1
