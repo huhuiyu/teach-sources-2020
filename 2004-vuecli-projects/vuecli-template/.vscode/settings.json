@@ -1,0 +1,42 @@
+{
+  // 不需要分号
+  "prettier.semi": false,
+  // 单引号
+  "prettier.singleQuote": true,
+  // 结束标记断行问题
+  "prettier.htmlWhitespaceSensitivity": "strict",
+  "prettier.printWidth": 400,
+  "prettier.proseWrap": "preserve",
+  // json字段自动补逗号
+  "prettier.trailingComma": "es5",
+  // 排除文件显示
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/node_modules": true
+  },
+  // 搜索文件排除
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/*.code-search": true
+  },
+  // 指定文件的默认格式化插件
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.endOfLine": "crlf"
+}
