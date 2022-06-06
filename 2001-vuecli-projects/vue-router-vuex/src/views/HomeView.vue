@@ -44,6 +44,10 @@ export default {
           text: '用户记事本',
           url: '/user/note',
         },
+        {
+          text: '数据联动',
+          url: '/link',
+        },
       ],
     }
   },
