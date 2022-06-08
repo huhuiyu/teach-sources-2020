@@ -39,6 +39,26 @@
       </el-dialog>
     </div>
 
+    <!-- 修改的对话框 -->
+    <div>
+      <el-dialog title="修改信息" :visible.sync="modifyVisible" :close-on-click-modal="false" @closed="query">
+        <div v-loading="loading">
+          <el-form>
+            <el-form-item>
+              <el-input v-model="modifyInfo.title" placeholder="标题"></el-input>
+            </el-form-item>
+            <el-form-item>
+              <el-input v-model="modifyInfo.info" placeholder="内容"></el-input>
+            </el-form-item>
+          </el-form>
+        </div>
+        <div slot="footer" v-loading="loading">
+          <el-button type="primary" @click="modify">保存</el-button>
+          <el-button type="danger" @click="modifyVisible = false">关闭</el-button>
+        </div>
+      </el-dialog>
+    </div>
+
     <!-- 数据显示的部分 -->
     <div v-loading="loading">
       <!-- 表格的data属性就是数据的数组 -->
@@ -53,9 +73,9 @@
           </template>
         </el-table-column>
         <el-table-column label="操作">
-          <template>
-            <el-button size="small" type="primary">修改</el-button>
-            <el-button size="small" type="danger">删除</el-button>
+          <template slot-scope="d">
+            <el-button @click="showModify(d.row)" size="small" type="primary">修改</el-button>
+            <el-button @click="del(d.row)" size="small" type="danger">删除</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -98,6 +118,31 @@ export default {
   },
   computed: {},
   methods: {
+    del(info) {
+      app
+        .$confirm('是否删除：' + info.title, '删除', {
+          type: 'warning',
+        })
+        .then(() => {
+          tools.ajax('/user/note/delete', { unid: info.unid }, (data) => {
+            app.$alert(data.message, '信息', {
+              callback: app.query,
+            })
+          })
+        })
+        .catch(() => {})
+    },
+    showModify(info) {
+      app.modifyInfo = tools.concatJson(info)
+      app.modifyVisible = true
+    },
+    modify() {
+      app.loading = true
+      tools.ajax('/user/note/update', app.modifyInfo, (data) => {
+        app.loading = false
+        app.$alert(data.message)
+      })
+    },
     add() {
       app.loading = true
       tools.ajax('/user/note/add', app.addInfo, (data) => {

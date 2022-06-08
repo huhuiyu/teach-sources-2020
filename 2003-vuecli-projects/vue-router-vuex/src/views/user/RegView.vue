@@ -28,6 +28,7 @@
   </div>
 </template>
 <script>
+import tools from '@/js/tools'
 let app
 export default {
   name: 'UserRegView',
@@ -61,7 +62,7 @@ export default {
         ],
         password: [
           { required: true, message: '密码必须填写' },
-          { min: 6, max: 18, message: '密码必须是6-18位' },
+          { min: 6, max: 32, message: '密码必须是6-18位' },
         ],
         nickname: [{ required: true, message: '用户名必须填写' }],
         // validator表示启用自定义校验方式
@@ -80,6 +81,9 @@ export default {
       this.$refs.myform.validate((valid) => {
         console.log('校验结果', valid)
         if (valid) {
+          // 处理密码超过校验长度问题
+          let user = JSON.parse(JSON.stringify(app.user))
+          user.password = tools.md5(user.password)
           // 校验成功的情况
           // 作业一，完成注册的功能
           // 作业二，给登录界面添加校验功能

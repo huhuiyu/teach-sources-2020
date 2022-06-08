@@ -121,7 +121,7 @@ let tools = {
     let result = {}
     // 循环获取参数
     for (let i = 0; i < args.length; i++) {
-      let json = args[i]
+      let json = JSON.parse(JSON.stringify(args[i]))
       console.log('参数' + i, json)
       // 复制信息
       for (let key in json) {

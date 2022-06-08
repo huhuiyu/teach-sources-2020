@@ -22,6 +22,7 @@ export default {
         { path: '/user/login', info: '用户登录' },
         { path: '/user/reg', info: '用户注册' },
         { path: '/user/note', info: '用户记事本' },
+        { path: '/link', info: '数据联动' },
       ],
     }
   },
