@@ -20,7 +20,7 @@ export default {
       getData: {},
       postData: {},
       errorData: {},
-      info: {},
+      info: tools.getBrowserInfo(),
     }
   },
   methods: {

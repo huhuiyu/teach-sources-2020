@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 // 引入路由集合配置文件
 import test from './test'
+import study from './study'
 
 Vue.use(VueRouter)
 
@@ -17,7 +18,9 @@ const routes = [
     name: 'about',
     component: () => import('../views/AboutView.vue'),
   },
-].concat(test)
+]
+  .concat(test)
+  .concat(study)
 
 const router = new VueRouter({
   mode: 'history',
