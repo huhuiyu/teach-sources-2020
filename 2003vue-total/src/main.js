@@ -8,6 +8,13 @@ import 'element-ui/lib/theme-chalk/index.css'
 
 Vue.use(ElementUI)
 
+// 导入并使用插件
+import MyPlugins from './plugins/MyPlugins'
+Vue.use(MyPlugins)
+
+// 过滤器导入
+// import './filters/MyFilters'
+
 Vue.config.productionTip = false
 
 new Vue({
