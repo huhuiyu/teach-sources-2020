@@ -1,14 +1,29 @@
 <template>
   <div>
     <div>{{ title }} {{ now | formatDate('yyyy年MM月dd日 hh:mm:ss') }} </div>
+    <hr />
+    {{ elist }}
+    <hr />
+    <!-- {{ epage }} -->
+    <!-- <el-pagination @current-change="queryEmp" @size-change="queryEmp" :page-sizes="[5, 10, 20]" :current-page.sync="epage.pageNumber" :page-size.sync="epage.pageSize" :total="epage.total" layout="prev,pager,next,total,sizes"></el-pagination> -->
+    <!-- 3：使用组件 可以通过自定义属性传值-->
+    <page-comp @page-change="changePage" :page.sync="epage"></page-comp>
+    <hr />
+    {{ slist }}
+    <page-comp :sizes="[2, 5, 10]" :layout="'prev,pager,next,total,sizes'" @page-change="queryStudent" :page.sync="spage"></page-comp>
   </div>
 </template>
 
 <script>
 import tools from '@/js/tools'
+// 1：导入组件
+import PageComp from '@/components/PageComp.vue'
+import logger from '@/js/logger'
 let timer
 let app
 export default {
+  // 2：引用组件
+  components: { PageComp },
   name: 'PageView',
   data() {
     return {
@@ -19,9 +34,24 @@ export default {
       epage: {
         pageSize: 5,
       },
+      // 学生信息
+      slist: [],
+      spage: {
+        pageSize: 5,
+      },
     }
   },
   methods: {
+    queryStudent() {
+      tools.ajax('/manage/student/queryAll', tools.concatJson(app.spage), (data) => {
+        app.slist = data.list
+        app.spage = data.page
+      })
+    },
+    changePage(pageInfo) {
+      logger.debug(pageInfo, this.epage)
+      app.queryEmp()
+    },
     queryEmp() {
       tools.ajax('/manage/employee/queryAll', tools.concatJson(app.epage), (data) => {
         app.elist = data.list
@@ -37,6 +67,9 @@ export default {
     timer = setInterval(() => {
       app.now = new Date()
     }, 1000)
+
+    app.queryEmp()
+    app.queryStudent()
   },
   destroyed() {
     if (timer) {
