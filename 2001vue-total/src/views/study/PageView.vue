@@ -12,10 +12,7 @@
     {{ slist }}
     <hr />
     {{ spage }}
-    <page-comp :sizes="[2, 5, 10]" 
-      layout="prev,pager,next,total,sizes" 
-      :page="spage" 
-      @page-change="queryStudent"></page-comp>
+    <page-comp :sizes="[2, 5, 10]" layout="prev,pager,next,total,sizes" :page="spage" @page-change="queryStudent"></page-comp>
   </div>
 </template>
 
