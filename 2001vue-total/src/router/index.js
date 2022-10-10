@@ -4,6 +4,8 @@ import HomeView from '../views/HomeView.vue'
 // 引入路由集合配置文件
 import test from './test'
 import study from './study'
+import message from './message'
+import user from './user'
 
 Vue.use(VueRouter)
 
@@ -21,6 +23,8 @@ const routes = [
 ]
   .concat(test)
   .concat(study)
+  .concat(message)
+  .concat(user)
 
 const router = new VueRouter({
   mode: 'history',
