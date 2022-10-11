@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div> {{ title }} </div>
+    <div> {{ title }} - {{ isLogin }} </div>
     <div>
-      <user-info-comp></user-info-comp>
+      <user-info-comp @login="loginChange"></user-info-comp>
     </div>
   </div>
 </template>
@@ -17,7 +17,13 @@ export default {
   data() {
     return {
       title: '简易留言板首页',
+      isLogin: false,
     }
+  },
+  methods: {
+    loginChange(info) {
+      app.isLogin = info
+    },
   },
   created() {
     app = this
