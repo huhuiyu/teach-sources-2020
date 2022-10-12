@@ -4,6 +4,7 @@
     <div>
       {{ vcount }}
       <button @click="addCount">计数加一</button>
+      <button @click="addCountAction">异步计数加一</button>
       |
       <a href="javasrcipt:void(0)" @click="toVuexOther">另一个vuex演示界面</a>
     </div>
@@ -37,6 +38,14 @@ export default {
     },
     addCount() {
       this.$store.commit('addCount')
+    },
+    addCountAction() {
+      this.$store
+        .dispatch('changeCount')
+        .then(() => {
+          logger.debug('异步调用完成')
+        })
+        .catch(() => {})
     },
   },
   created() {
