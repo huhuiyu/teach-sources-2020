@@ -5,7 +5,7 @@ serverInfo.serverTokenKey = 'teach_project_service_token'
 // 后端服务基础地址
 serverInfo.serverUrl = 'https://service.klcxy.top/teach_project_service' //'https://huhuiyu.top/teach_project_service'
 // websocket服务基础地址
-serverInfo.websocketUrl = 'wss://huhuiyu.top/teach_project_service/ws/'
+serverInfo.websocketUrl = 'wss://service.klcxy.top/teach_project_service/ws/' //'wss://huhuiyu.top/teach_project_service/ws/'
 // 本地token信息
 serverInfo.saveToken = (resp) => {
   if (resp.data && resp.data.token) {

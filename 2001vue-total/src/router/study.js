@@ -5,6 +5,16 @@ let routers = [
     name: 'studypage',
     component: () => import('../views/study/PageView.vue'),
   },
+  {
+    path: '/study/vuex',
+    name: 'studyvuex',
+    component: () => import('../views/study/VuexView.vue'),
+  },
+  {
+    path: '/study/vuexother',
+    name: 'studyvuexother',
+    component: () => import('../views/study/VuexOtherView.vue'),
+  },
 ]
 
 export default routers
