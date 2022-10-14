@@ -10,6 +10,11 @@ let routers = [
     name: 'messagemain',
     component: () => import('../views/message/MainView.vue'),
   },
+  {
+    path: '/message/user',
+    name: 'messageuser',
+    component: () => import('../views/message/UserView.vue'),
+  },
 ]
 
 export default routers
