@@ -10,6 +10,16 @@ let routers = [
     name: 'testws',
     component: () => import('../views/test/WsView.vue'),
   },
+  {
+    path: '/test/router',
+    name: 'testrouter',
+    component: () => import('../views/test/RouterParamView.vue'),
+  },
+  {
+    path: '/test/routerInfo/:info',
+    name: 'testrouterinfo',
+    component: () => import('../views/test/RouterParamInfoView.vue'),
+  },
 ]
 
 export default routers

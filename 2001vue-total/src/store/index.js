@@ -36,11 +36,14 @@ function removeUser() {
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+  // vuex变量定义，页面通过computed来访问
   state: {
     count: 0,
     loginUser: loadUser(),
   },
   getters: {},
+  // vuex变量变化操作方法定义
+  // 页面通过vue实例.$store.commit()调用
   mutations: {
     addCount(state) {
       state.count++
@@ -55,6 +58,9 @@ export default new Vuex.Store({
       state.loginUser = loadUser()
     },
   },
+  // vuex异步调用方法定义
+  // 异步方法会传入commit函数来调用mutations里面的方法
+  // 来修改vuex的变量
   actions: {
     updateUserInfo({ commit }) {
       return new Promise((resolve, reject) => {
