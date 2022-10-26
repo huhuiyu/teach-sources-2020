@@ -15,6 +15,11 @@ let routers = [
     name: 'messageuserinfo',
     component: () => import('../views/message/UserInfoView.vue'),
   },
+  {
+    path: '/message/detail/:umid',
+    name: 'messagedetail',
+    component: () => import('../views/message/DetailView.vue'),
+  },
 ]
 
 export default routers

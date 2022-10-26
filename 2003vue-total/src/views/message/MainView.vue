@@ -14,6 +14,12 @@
       {{ loginUser }}
       <el-button v-if="loginUser.isLogin" @click="toUserInfo">用户信息</el-button>
     </div>
+    <h1>留言板首页信息</h1>
+    {{ page }}
+    <hr />
+    <div v-for="d in list" :key="d.umid">
+      <span @click="toDetail(d.umid)">{{ d.title }}-{{ d.user.nickname }}</span>
+    </div>
   </div>
 </template>
 
@@ -21,6 +27,7 @@
 import UserInfoComp from '@/components/UserInfoComp.vue'
 import logger from '@/js/logger'
 import VuexUserInfoComp from '@/components/VuexUserInfoComp.vue'
+import tools from '@/js/tools'
 let app
 export default {
   components: { UserInfoComp, VuexUserInfoComp },
@@ -29,6 +36,9 @@ export default {
     return {
       title: '简易留言板首页',
       isLogin: false,
+      list: [],
+      page: { pageSize: 10 },
+      queryInfo: {},
     }
   },
   computed: {
@@ -37,6 +47,15 @@ export default {
     },
   },
   methods: {
+    toDetail(umid) {
+      this.$router.push('/message/detail/' + umid)
+    },
+    query() {
+      tools.ajax('/message/queryAll', tools.concatJson(app.queryInfo, app.page), (data) => {
+        app.list = data.list
+        app.page = data.page
+      })
+    },
     toUserInfo() {
       this.$router.push('/message/userinfo')
     },
@@ -47,6 +66,7 @@ export default {
   created() {
     app = this
     logger.debug(app.title)
+    app.query()
   },
 }
 </script>
