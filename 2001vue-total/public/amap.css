@@ -1,0 +1,20 @@
+body {
+  margin: 0px;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#map-container {
+  flex: 1;
+}
+
+.container > div:last-of-type {
+  padding: 1rem;
+  box-sizing: border-box;
+  border: 1px solid #ff0000;
+}
