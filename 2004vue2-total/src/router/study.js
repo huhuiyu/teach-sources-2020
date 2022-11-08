@@ -15,6 +15,16 @@ let routers = [
     name: 'studyvuexother',
     component: () => import('../views/study/VuexOtherView.vue'),
   },
+  {
+    path: '/study/amap',
+    name: 'studyamap',
+    component: () => import('../views/study/AMapView.vue'),
+  },
+  {
+    path: '/study/amapui',
+    name: 'studyamapui',
+    component: () => import('../views/study/AMapUiView.vue'),
+  },
 ]
 
 export default routers
