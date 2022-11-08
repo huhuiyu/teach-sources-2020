@@ -20,6 +20,11 @@ let routers = [
     name: 'testrouterinfo',
     component: () => import('../views/test/RouterParamInfoView.vue'),
   },
+  {
+    path: '/test/wangeditor',
+    name: 'testwangeditor',
+    component: () => import('../views/test/WangEditorView.vue'),
+  },
 ]
 
 export default routers
