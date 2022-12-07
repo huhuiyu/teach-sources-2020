@@ -20,6 +20,11 @@ let routers = [
     name: 'studyamap',
     component: () => import('../views/study/AMapView.vue'),
   },
+  {
+    path: '/study/tab',
+    name: 'studytab',
+    component: () => import('../views/study/TabView.vue'),
+  },
 ]
 
 export default routers
