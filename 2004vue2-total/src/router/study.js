@@ -25,6 +25,11 @@ let routers = [
     name: 'studyamapui',
     component: () => import('../views/study/AMapUiView.vue'),
   },
+  {
+    path: '/study/logo',
+    name: 'studylogo',
+    component: () => import('../views/study/LogoView.vue'),
+  },
 ]
 
 export default routers
