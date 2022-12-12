@@ -30,6 +30,11 @@ let routers = [
     name: 'studylogo',
     component: () => import('../views/study/LogoView.vue'),
   },
+  {
+    path: '/study/tabs',
+    name: 'studytabs',
+    component: () => import('../views/study/TabsView.vue'),
+  },
 ]
 
 export default routers

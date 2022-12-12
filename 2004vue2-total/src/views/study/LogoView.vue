@@ -34,6 +34,9 @@ export default {
   methods: {
     // 保存上传的图片为用户头像
     saveUserImg(info) {
+      // 记住原来的fid
+      let fid = tools.isDownloadUrl(app.userinfo.tbUserInfo.img)
+      logger.debug('修改前的fid：', fid)
       // 用户附加信息副本
       let tbUserInfo = tools.concatJson(app.userinfo.tbUserInfo)
       delete tbUserInfo.email
@@ -47,9 +50,13 @@ export default {
             .dispatch('updateUserInfo')
             .then(() => {
               app.$emit('status-change')
+              // 需要删除原有的头像图片
+              if (fid != -1) {
+                tools.ajax('/user/file/delete', { fid: fid }, () => {})
+              }
             })
             .catch(() => {})
-          // 需要删除原有的头像图片
+
           // 打开的文件列表必须是图片
         } else {
           alert(data.message)
@@ -90,6 +97,8 @@ export default {
     app = this
     logger.debug(app.title)
     logger.debug(this.userinfo)
+    logger.debug(tools.isDownloadUrl(this.userinfo.tbUserInfo.img))
+    logger.debug(tools.isDownloadUrl('https://huhuiyu.top'))
   },
 }
 </script>
