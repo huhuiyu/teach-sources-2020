@@ -20,6 +20,11 @@ let routers = [
     name: 'studyamap',
     component: () => import('../views/study/AMapView.vue'),
   },
+  {
+    path: '/study/userimg',
+    name: 'studyuserimg',
+    component: () => import('../views/study/UserImgView.vue'),
+  },
 ]
 
 export default routers

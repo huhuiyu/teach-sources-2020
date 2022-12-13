@@ -372,9 +372,19 @@ tools.upload = (url, param, file, callback) => {
     })
 }
 
+const FILE_BASE_URL = serverInfo.serverUrl + '/user/file/download?fid='
 // 获取文件下载地址
 tools.getDownloadUrl = (fid) => {
-  return serverInfo.serverUrl + '/user/file/download?fid=' + fid
+  return FILE_BASE_URL + fid
+}
+// 判定url是否为上传文件的地址，是就返回地址中fid，不是就返回-1
+tools.isDownloadUrl = (url) => {
+  let index = url.indexOf(FILE_BASE_URL)
+  if (index == 0) {
+    // 获取fid
+    return url.substring(FILE_BASE_URL.length)
+  }
+  return -1
 }
 
 // websocket管理集合
