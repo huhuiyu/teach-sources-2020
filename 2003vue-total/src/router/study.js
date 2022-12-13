@@ -25,6 +25,11 @@ let routers = [
     name: 'studytab',
     component: () => import('../views/study/TabView.vue'),
   },
+  {
+    path: '/study/userimg',
+    name: 'studyuserimg',
+    component: () => import('../views/study/UserImgView.vue'),
+  },
 ]
 
 export default routers

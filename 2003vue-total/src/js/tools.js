@@ -372,9 +372,20 @@ tools.upload = (url, param, file, callback) => {
     })
 }
 
+const FILE_BASE_URL = serverInfo.serverUrl + '/user/file/download?fid='
 // 获取文件下载地址
 tools.getDownloadUrl = (fid) => {
-  return serverInfo.serverUrl + '/user/file/download?fid=' + fid
+  return FILE_BASE_URL + fid
+}
+// 判定地址信息是否为图片下载地址，如果是就返回fid，否就返回-1
+tools.isDowdloadUrl = (url) => {
+  let index = url.indexOf(FILE_BASE_URL)
+  if (index == 0) {
+    //一定是下载地址
+    return url.substring(FILE_BASE_URL.length)
+  } else {
+    return -1
+  }
 }
 
 // websocket管理集合
