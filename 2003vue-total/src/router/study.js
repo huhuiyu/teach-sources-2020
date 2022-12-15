@@ -30,6 +30,21 @@ let routers = [
     name: 'studyuserimg',
     component: () => import('../views/study/UserImgView.vue'),
   },
+  {
+    path: '/study/tabone',
+    name: 'studytabone',
+    component: () => import('../views/study/TabOneView.vue'),
+  },
+  {
+    path: '/study/tabtwo',
+    name: 'studytabtwo',
+    component: () => import('../views/study/TabTwoView.vue'),
+  },
+  {
+    path: '/study/tabthree',
+    name: 'studytabthree',
+    component: () => import('../views/study/TabThreeView.vue'),
+  },
 ]
 
 export default routers
